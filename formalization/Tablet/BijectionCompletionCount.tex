@@ -1,0 +1,27 @@
+\begin{helper}[Counting completions of prescribed images]
+Let $A,B$ be finite sets, each of cardinality $n$, let $s$ be a nonnegative integer,
+and let $x:\{1,\ldots,s\}\to A$ be injective and $y:\{1,\ldots,s\}\to B$ arbitrary.
+There are at most $(n-s)!$ bijections $f:A\to B$ satisfying $f(x(i))=y(i)$ for every $i$.
+Here subtraction is natural-number subtraction; injectivity of $x$ implies $s\leq n$.
+\end{helper}
+\begin{proof}
+Let $E$ be the set of such bijections. If $E$ is empty, its cardinality is zero
+and the assertion follows. Otherwise choose $f_0\in E$. If $y(i)=y(j)$,
+then $f_0(x(i))=f_0(x(j))$; injectivity of $f_0$ and then of $x$ gives $i=j$.
+Thus $y$ is injective. The images of $x$ and $y$ each have $s$ elements,
+so $L=A\setminus\operatorname{im}(x)$ and $R=B\setminus\operatorname{im}(y)$
+each have $n-s$ elements.
+
+For $f\in E$ and $a\in L$, the equality $f(a)=y(i)=f(x(i))$ would imply
+$a=x(i)$, a contradiction. Thus $f$ maps $L$ into $R$ and its restriction
+is injective. For $b\in R$, surjectivity of $f$ gives an $a\in A$ with
+$f(a)=b$. This $a$ cannot equal $x(i)$, since then $b=y(i)$; hence $a\in L$.
+The restriction is therefore a bijection $L\to R$.
+
+The restriction map from $E$ to the set of bijections $L\to R$ is injective:
+two extensions with the same restriction agree on $L$, and on its complement
+both send $x(i)$ to $y(i)$. For finite sets of size $m=n-s$, there are $m!$
+bijections between them: after ordering the domain, successive images have
+$m,m-1,\ldots,1$ choices. When $m=0$ there is exactly one empty bijection,
+also counted by $0!=1$. Consequently $|E|\leq(n-s)!$.
+\end{proof}

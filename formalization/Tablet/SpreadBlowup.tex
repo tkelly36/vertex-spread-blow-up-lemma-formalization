@@ -1,0 +1,126 @@
+\begin{theorem}[Vertex-spread blow-up lemma]
+For every real $0<d\leq1$ and integer $\Delta\geq1$, there are constants $0<\varepsilon<1$ and $C\geq1$, depending only on $d$ and $\Delta$, such that for every integer $r$ there is $n_0$ with the following property.  For every $n\geq n_0$, let
+\[
+ (H,G,R,(X_i)_{i\in[r]},(V_i)_{i\in[r]},(A^i)_{i\in[r]})
+\]
+be a lower-$(\varepsilon,d)$-super-regular blow-up instance with lower-$(\varepsilon,d)$-super-regular candidacy graphs.  If $\Delta(H),\Delta(R)\leq\Delta$ and
+\[
+ (1-\varepsilon)n\leq |V_i|\leq(1+\varepsilon)n
+ \qquad(i\in[r]),
+\]
+then there is a probability distribution on compatible full embeddings $\phi:H\hookrightarrow G$ which is $(C/n)$-vertex-spread: for all distinct $x_1,\ldots,x_s\in V(H)$ and all $v_1,\ldots,v_s\in V(G)$,
+\[
+ \Pr[\phi(x_j)=v_j\text{ for every }j\in[s]]\leq(C/n)^s.
+\]
+\end{theorem}
+\begin{proof}
+Invoke \noderef{ClusterRebalancing} at $(\Delta,d)$ and let $d_1$ be its
+positive density bound, so $0<d_1<d\leq1$. Use $d'=d_1$ in its next
+quantifier to obtain a residual-error bound $\varepsilon'_0>0$.
+Put $d_2=d_1^2/4$, so $0<d_2<d_1^2/2$ and $d_2\leq1$.
+Apply \noderef{AuxiliarySpreadExecution} at $(d_2,\Delta^3)$ and choose
+its input error $0<\varepsilon_2<1$, finite constant $C'\geq1$, and
+uniform cutoff $N_{\rm exec}\geq1$. These precede the number of clusters.
+Apply \noderef{BlowUpReductionToAuxiliary} with density $d_1$ and output
+parameters $(\varepsilon_2,d_2)$, obtaining its admissible input error
+$\varepsilon_{\rm red}>0$. Set
+\[
+ \varepsilon_1=\min\{\varepsilon'_0,\varepsilon_{\rm red}\}.
+\]
+The rebalancing statement at residual parameters $(\varepsilon_1,d_1)$
+now gives an original-error bound $\varepsilon_0>0$. Set
+$\eta=\min\{\varepsilon_0,1/2\}$ and use the statement at error $\eta$
+to obtain $1\leq C_0<\infty$. Apply \noderef{BlowupOrderMargins} with
+$(\eta,C_0,C',k)=(\eta,C_0,C',\Delta^2)$ and fix its finite $C\geq C_0,1$.
+Finally put $\varepsilon=\eta^2$. Then
+$0<\varepsilon\leq\eta\leq1/2<1$. All these choices depend only on
+$d,\Delta$, not on $r$, the vertex types, or an instance.
+
+After $r$ is given, let $N_{\rm bal}$ and $N_{\rm red}$ be the cutoffs
+provided by rebalancing and reduction for the parameters just fixed.
+Let $n_0$ be the cutoff from \noderef{BlowupOrderMargins} for these two
+cutoffs and $N_{\rm exec}$. For every $n\geq n_0$ it gives
+$n\geq N_{\rm bal}$ and $q=C/n\leq1$; if
+$m\leq(1-\eta)n<m+1$ and $u=\lfloor m/\Delta^2\rfloor$, it gives
+\[
+ m\geq N_{\rm red},\qquad u\geq N_{\rm exec},\qquad C'/u\leq q.
+\]
+
+Fix an instance at such an $n$. Apply \noderef{SourceClusterPadding}
+with input error $\varepsilon$ and transfer error $\eta$. This adds
+isolated dummy source vertices with complete candidacy rows, leaving the
+host and reduced graph unchanged, and returns a padded instance $B_p,A_p$
+whose source and host clusters have equal sizes. Its source maximum degree
+is at most $\Delta$ and its candidacy system is lower-$(\eta,d)$-super-regular.
+Its host system is also lower-$(\eta,d)$-super-regular: increasing the
+error from $\varepsilon$ to $\eta$ weakens the lower-regularity tests and
+the degree bounds. More explicitly, from
+\noderef{LowerRegularPair} any test above the $\eta$ thresholds is also
+above the $\varepsilon$ thresholds, and $d-\eta\leq d-\varepsilon$.
+Both degree bounds in \noderef{LowerSuperRegularPair} weaken for the
+same reason. Apply this in \noderef{InstanceLowerSuperRegular} and then
+the unchanged-host clause of the padding theorem. The original host-size
+window implies the $\eta$ window since $\varepsilon\leq\eta$.
+
+Apply \noderef{ClusterRebalancing} to the padded instance. Write $H_p$
+for its source. It returns $m$ with the floor inequalities above, a fixed
+$X\subseteq V(H_p)$, and a law $\mu$ on partial compatible embeddings
+whose restrictions to $X$ are $q$-vertex-spread. For every $f$ with
+$\mu(f)\ne0$, it supplies an instance $B_f,A_f$ on the literal complements
+\[
+ Y=V(H_p)\setminus X,\qquad W_f=V(G)\setminus f(X),
+\]
+with source $H_p[Y]$, host $G[W_f]$, reduced graph $R$, exact restricted
+cluster maps, and candidacy relation equivalent to updated candidacy.
+Every residual source and host cluster has size $m$, and both residual
+systems are lower-$(\varepsilon_1,d_1)$-super-regular.
+
+Fix this supported $f$. An induced subgraph has maximum degree at most
+the original graph, so the residual source still has degree bound $\Delta$.
+Increase the error from $\varepsilon_1$ to $\varepsilon_{\rm red}$ in
+both residual systems. This is legitimate by the test/degree argument
+above, applied also to the tagged candidacy graphs of
+\noderef{CandidacyLowerSuperRegular}. Since $m\geq N_{\rm red}$, apply
+\noderef{BlowUpReductionToAuxiliary}. It returns graphs $H',G',R'$,
+instance $B'$, and candidacy $A'$ on the same residual vertex types, with
+\[
+ H_p[Y]\leq H',\qquad G'\leq G[W_f],\qquad A'\subseteq A_f.
+\]
+Their refined cluster maps project exactly to the residual maps. Source
+and host fibers have equal sizes $u$ or $u+1$. The reduced graph has
+maximum degree at most $\Delta^3$, the host and candidacy systems are
+$(\varepsilon_2,d_2)$-super-regular, and every source pair at a reduced
+edge is saturating. Relabel $[r]\times[\Delta^2]$ by $[r\Delta^2]$
+using the product bijection. It preserves all these assertions: fibers
+are literally the same after relabeling, adjacency is pulled back, and
+the inverse bijection is a graph Copy, preserving the degree bound.
+
+As $u\geq N_{\rm exec}$, \noderef{AuxiliarySpreadExecution} provides a
+$(C'/u)$-vertex-spread law $\nu_f$ on compatible full Copies $H'\to G'$.
+Apply \noderef{RestrictReductionEmbedding} to each sample. This gives a
+partial compatible embedding of $B_f,A_f$ with full domain and the same
+underlying map. Package it as a Copy $H_p[Y]\to G[W_f]$: injectivity
+follows from full-domain injectivity, edges are preserved by source and
+host containment, and original residual candidacy follows from
+$A'\subseteq A_f$. All source and target values are unchanged. Hence
+every cylinder probability is unchanged under this pushforward. Since
+$C'/u\leq q\leq1$, its cylinder bound is at most $q^s$ for every $s$.
+This is a $q$-vertex-spread residual full law for every supported $f$.
+
+We have verified every hypothesis of \noderef{SupportedResidualComposition}:
+the first-stage spread is on restrictions to $X$, the residual vertex
+sets are the literal complements, their cluster maps are exactly the
+restricted original maps, and their candidacy is equivalent to
+\noderef{UpdatedCandidacy}. Apply it to obtain a $q$-vertex-spread law
+on compatible full Copies $H_p\to G$. Its support-indexed cylinder
+calculation neither identifies distinct total partial maps with the same
+restriction nor assigns positive mass to impossible states. In particular
+it preserves the full joint-spread bound, not merely singleton bounds.
+
+Finally use the law-restriction clause of \noderef{SourceClusterPadding}
+to remove the dummy source vertices. Restriction is a compatible full
+Copy of the original source, and an original cylinder is exactly the
+padded cylinder at its distinct original summand vertices. The resulting
+law therefore has the same $q=C/n$ spread parameter. This is the claimed
+law on the original instance.
+\end{proof}

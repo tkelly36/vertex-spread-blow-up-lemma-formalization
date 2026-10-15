@@ -1,0 +1,33 @@
+\begin{lemma}[Reduction to the auxiliary blow-up lemma]
+Let $\Delta\geq1$ and $0<\varepsilon'<1$, $0<d'<d^2/2$ with $d\leq1$.  There is $0<\varepsilon<\varepsilon'$, depending only on these displayed parameters, such that for every $r$ there is $n_0$ such that, whenever $n\geq n_0$ and
+\[
+ (H,G,R,(X_i)_{i\in[r]},(V_i)_{i\in[r]},(A^i)_{i\in[r]})
+\]
+is a lower-$(\varepsilon,d)$-super-regular blow-up instance with lower-super-regular candidacy graphs, $\Delta(H),\Delta(R)\leq\Delta$, and $|X_i|=|V_i|=n$, there is an $(\varepsilon',d')$-super-regular refined instance
+\[
+ (H',G',R',(X_{i,j}),(V_{i,j}),(A'^{i,j}))
+ \qquad(i\in[r],\ j\in[\Delta^2])
+\]
+with all of the following properties:
+\begin{itemize}
+\item $H\subseteq H'$, $G'\subseteq G$, and $A'^{i,j}\subseteq A^i$;
+\item the refined source and host cluster maps project exactly to the original cluster maps, equivalently $X_i=\mathbin{\dot\bigcup}_{j=1}^{\Delta^2}X_{i,j}$ and $V_i=\mathbin{\dot\bigcup}_{j=1}^{\Delta^2}V_{i,j}$;
+\item $(i,j)(i',j')\in E(R')$ if and only if $ii'\in E(R)$, and $\Delta(H'),\Delta(R')\leq\Delta^3$;
+\item with $n'=\lfloor n/\Delta^2\rfloor$, one has $|X_{i,j}|=|V_{i,j}|\in\{n',n'+1\}$;
+\item for every edge $(i,j)(i',j')$ of $R'$, the graph $H'[X_{i,j},X_{i',j'}]$ is a \noderef{SaturatingSourcePair}; for every nonedge it is empty.
+\end{itemize}
+Here lower and ordinary super-regularity are the predicates of \noderef{InstanceLowerSuperRegular}, \noderef{CandidacyLowerSuperRegular}, \noderef{InstanceSuperRegular}, and \noderef{CandidacySuperRegular}.
+\end{lemma}
+\begin{proof}
+Apply \noderef{EquitableSquareColoring} to every $X_i$.  It gives a single refinement map whose fibers $X_{i,j}$ have the asserted two possible sizes and are $2$-independent.  In particular, between any two refined source parts the old graph $H$ is a matching, and it is empty when the corresponding original indices form a nonedge of $R$.
+
+Apply \noderef{MatchingCompletionExtension} to this refinement.  It constructs $H'\supseteq H$ and the graph $R'$ having exactly the displayed support, completes every old refined matching to one saturating its smaller side, adds no edge across a refined nonedge, preserves the refined source partition, and proves $\Delta(R')\leq\Delta^3$.  Each vertex of $H'$ has at most one neighbor in each refined source part adjacent to its own part, because every such pair is a matching.  The number of those adjacent parts is its degree in $R'$, and hence $\Delta(H')\leq\Delta(R')\leq\Delta^3$.
+
+Now use \noderef{SimultaneousHostCandidacyRefinement}.  Its support hypothesis follows from the forward implication in the exact equivalence
+\[
+ (i,j)(i',j')\in E(R')\quad\Longleftrightarrow\quad ii'\in E(R)
+\]
+provided by \noderef{MatchingCompletionExtension}.  Its threshold is chosen after $\Delta,\varepsilon',d',d$ and before $n$, exactly as required here.  It partitions each $V_i$ into parts $V_{i,j}$ with $|V_{i,j}|=|X_{i,j}|$, without changing the source refinement, and simultaneously restricts every relevant host pair and every candidacy graph.  The output consists of graphs $G'\subseteq G$ and $A'^{i,j}\subseteq A^i[X_{i,j},V_{i,j}]$ for which all host pairs on $R'$ and all candidacy graphs are $(\varepsilon',d')$-super-regular.  The spanning extraction used there is supplied by \noderef{SuperRegularSubgraph}; \noderef{RegularSubgraph} supplies the corresponding regular extraction component before the minimum-degree cleanup.
+
+Because both refined cluster maps project to the old maps, their fibers form disjoint unions equal to $X_i$ and $V_i$, not merely subsets of those clusters.  None of the host/candidacy restrictions changes $H'$, $R'$, or the source partition, so the containment, exact support, degree, size, emptiness, and saturating-matching conclusions from the first two steps all remain true.  Collecting these data gives the asserted refined blow-up instance and every listed property.
+\end{proof}

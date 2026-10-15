@@ -1,0 +1,18 @@
+\begin{lemma}[Upper exceptional tail of a regular pair]
+Let $G$ be a graph and $L,R$ finite vertex sets, and let $\varepsilon,d\in[0,1]$.
+Suppose $G[L,R]$ is $(\varepsilon,d)$-regular, and $S\subseteq R$ satisfies $|S|>\varepsilon|R|$.
+Then
+\[
+ |\{v\in L:|N_G(v)\cap S|>(d+\varepsilon)|S|\}|\leq\varepsilon|L|.
+\]
+\end{lemma}
+\begin{proof}
+Let $T$ be the displayed strict upper tail. If $|T|>\varepsilon|L|$, then $T$ and $S$ are nonempty and $|T||S|$ is positive and finite.
+By \noderef{FilteredProductRowCount}, $e_G(T,S)=\sum_{v\in T}|N_G(v)\cap S|$.
+Summing the strict inequalities defining $T$ over this nonempty set gives
+$e_G(T,S)>(d+\varepsilon)|T||S|$.
+By division by the positive finite product and \noderef{PairDensity}, $d_G(T,S)>d+\varepsilon$.
+But $T\subseteq L$ and $S\subseteq R$ meet the strict size thresholds in \noderef{RegularPair}, which gives $d_G(T,S)\leq d+\varepsilon$.
+This contradiction proves the non-strict cardinality bound.
+The argument includes $\varepsilon=0$, since no division by $\varepsilon$ occurs.
+\end{proof}

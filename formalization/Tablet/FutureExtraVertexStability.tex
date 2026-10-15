@@ -1,0 +1,35 @@
+\begin{lemma}[Adjoining one exceptional row to a near-equal super-regular pair]
+Let $m\geq1$, let $L$ and $R$ be disjoint sets with $|L|=m$ and
+$|R|\in\{m,m+1\}$, and let $x\notin L\cup R$. Suppose $(L,R)$ is
+$(\varepsilon,d)$-super-regular in a graph $G$ and $G\subseteq T$. Fix an
+integer $k$ not exceeding $|N_T(x)\cap R|$ and satisfying
+\[
+ (d-\varepsilon')|R|\leq k\leq(d+\varepsilon')|R|,
+ \quad \varepsilon+2/m\leq\varepsilon',\quad
+ \varepsilon+1/(\varepsilon'm)\leq\varepsilon',
+\]
+where $\varepsilon<\varepsilon'\leq1$ and $d\leq1$. Then there are a $k$-set
+$N\subseteq N_T(x)\cap R$ and a graph $G'\subseteq T$ such that $x$ has
+precisely the neighbors $N$ in $R$, every edge not incident with $x$ is the
+same in $G'$ as in $G$, and $(L\cup\{x\},R)$ is
+$(\varepsilon',d)$-super-regular in $G'$.
+\end{lemma}
+\begin{proof}
+Choose a $k$-set $N\subseteq N_T(x)\cap R$. Define $G'$ by keeping $G$ away
+from $x$ and giving $x$ exactly the neighbors $N$. Then $G'\subseteq T$.
+The new degree of $x$ obeys the displayed bounds. Other left degrees do not
+change, while a right degree stays fixed or increases by one. Comparing its
+old normalization by $m$ with the new normalization by $m+1$, and allowing
+the extra unit, costs at most $2/m$. Thus the first slack inequality proves
+all degree clauses of \noderef{SuperRegularPair}.
+
+For regularity take $U\subseteq L\cup\{x\}$ and $W\subseteq R$ above the
+$\varepsilon'$ thresholds. If $x\notin U$, old regularity applies. If
+$x\in U$, put $U_0=U\setminus\{x\}$. From
+$|U|>\varepsilon'(m+1)$ and $1/m\leq\varepsilon'-\varepsilon$ we get
+$|U_0|>\varepsilon m$; also $|W|>\varepsilon|R|$. Old regularity controls
+$G[U_0,W]$. Adding one row changes the density by at most
+$1/|U|<1/(\varepsilon'm)$, which the second slack inequality absorbs.
+Thus all tested densities lie in $[d-\varepsilon',d+\varepsilon']$.
+Together with the degree calculation this proves the result.
+\end{proof}

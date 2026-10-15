@@ -1,0 +1,65 @@
+\begin{lemma}[Suitable-bin correction of exceptional host vertices]
+Let $k\geq1$, $n\geq2k$, $0<\varepsilon<1/(8k^2)$, and $d\leq1$.
+Let $B,A$ be a blow-up instance and candidacy system whose original
+source and host clusters all have size $n$ and whose candidacy pairs
+are lower $(\varepsilon,d)$-super-regular. Suppose $\sigma$ refines
+the source map into $k$ fibers per original cluster of sizes
+$m$ or $m+1$, $m=\lfloor n/k\rfloor$, and $f$ refines the host
+map with those exact capacities. There is a corrected host map $f'$
+with the same projection and capacities, for which each bin has
+symmetric difference of size at most $2k\varepsilon n$ from its
+old bin, and each host vertex $v$ has at least
+$(d-2\varepsilon)|\sigma^{-1}(f'(v))|$ candidates in the source
+bin to which it is assigned. Lower endpoints are truncated at zero.
+\end{lemma}
+\begin{proof}
+If $d\leq2\varepsilon$, retain $f$; the requested lower bound is
+zero and every symmetric difference is empty. Otherwise all
+parameters are finite and $d-2\varepsilon>0$; work with real values.
+For a source bin $X_{ij}=\sigma^{-1}(i,j)$ define
+\[
+ E_{ij}=\{v\in V_i:\deg_A(v,X_{ij})<(d-2\varepsilon)|X_{ij}|\},
+ \quad E_i=\bigcup_j E_{ij},\quad e_i=|E_i|.
+\]
+The floor estimate $m\geq n/(2k)$ implies
+$|X_{ij}|\geq m>\varepsilon n$.
+If $|E_{ij}|>\varepsilon n$, the two tagged sets constitute a
+valid lower-regularity test in the original candidacy graph.
+Every degree defining $E_{ij}$ is strictly below
+$(d-2\varepsilon)|X_{ij}|$, so summing these finitely many
+inequalities gives density strictly below $d-2\varepsilon$.
+This contradicts density at least $d-\varepsilon$, furnished by
+\noderef{CandidacyLowerSuperRegular} and
+\noderef{LowerSuperRegularPair}, with
+\noderef{LowerRegularPair} and \noderef{PairDensity}.
+Therefore $|E_{ij}|\leq\varepsilon n$ and
+$e_i\leq k\varepsilon n<m$, since $\varepsilon<1/(8k^2)$.
+
+Every host vertex $v\in V_i$ has a suitable bin with degree at
+least $(d-\varepsilon)|X_{ij}|$. Indeed, if none did, summing
+the strict reverse inequalities over the partition of $X_i$ would
+give total candidacy degree strictly below $(d-\varepsilon)n$,
+contrary to the host-side minimum-degree clause of
+\noderef{CandidacyLowerSuperRegular} and
+\noderef{LowerSuperRegularPair}. The fibers partition $X_i$
+because $\sigma$ has the stated projection. Select a suitable index
+for each member of $E_i$.
+
+Apply \noderef{CapacityPreservingReassignment} on $V_i$, using
+the second coordinate of $f$, exceptional set $E_i$, and the selected
+indices. Every old capacity is at least $m>e_i$, so its room
+hypothesis holds. It preserves all capacities, puts each exception
+in its selected suitable bin, and changes each bin in at most
+$2e_i\leq2k\varepsilon n$ positions. Do this independently on
+the disjoint original host clusters and attach their unchanged first
+coordinates. This defines $f'$ globally with the asserted projection.
+A nonexceptional vertex has degree at least
+$(d-2\varepsilon)|X_{ij}|$ into every source bin of its cluster;
+an exceptional vertex in its selected bin has the stronger bound
+$(d-\varepsilon)|X_{ij}|$. These establish the requested bound
+for every host vertex. Tagging bijects the relevant neighbors, so the
+ordinary relation counts are exactly those used by the predicates.
+Conversion back to extended nonnegative reals preserves these finite
+positive lower bounds. If $r=0$, the given cluster maps force empty
+vertex types and the empty map supplies all assertions.
+\end{proof}

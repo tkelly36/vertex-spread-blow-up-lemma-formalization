@@ -1,0 +1,76 @@
+\begin{lemma}[Residual future transport and genuine row restoration]
+In a finite disjoint-union ambient set, let
+$U\cap K=U\cap Z=K\cap Z=V\cap Z=\varnothing$,
+$|U|=|K|=n$, $|V|=|Z|=n+1$, and $n\ge1$.
+Let $v_0\in V$ and let $\tau:U\to V\setminus\{v_0\}$ be a bijection
+such that $uv\in M\Longleftrightarrow v=\tau(u)$ on $U\times V$.
+Assume $W\subseteq O$, $J\subseteq H$, $e_0\le1$,
+$O[V,Z]$ is $(e_0,p_0)$-super-regular, and $W[V,Z]$ is
+$(\xi,p)$-super-regular. Suppose $p\le1$, $ph\le1$, and
+\[
+\xi<\eta\le1,\quad\xi+2/n\le\eta,\quad
+\xi+1/(\eta n)\le\eta,
+\]
+\[
+\omega<e\le1,\quad\omega+2/n\le e,\quad
+\omega+1/(en)\le e,\quad ph+e_0+1/n\le p_0.
+\]
+There is an $(\eta,p)$-super-regular graph $F[U,Z]$ with
+$uz\in F\Longleftrightarrow\tau(u)z\in W$ on $U\times Z$.
+For every bijection $\sigma:U\to K$, if the matching-induced graph on
+subtype copies of $U,Z$, with edges $uz\in F$ and $\sigma(u)z\in J$,
+is $(\omega,ph)$-super-regular, the graph
+\[
+T_\sigma:\quad vz\in E(T_\sigma)\Longleftrightarrow
+v\in V,\ z\in Z,\ vz\in O,\quad
+\forall u\in U\ (uv\in M\Rightarrow\sigma(u)z\in H),
+\]
+symmetrized as a simple graph, contains a spanning
+$(e,ph)$-super-regular graph on $V,Z$.
+\end{lemma}
+\begin{proof}
+Before testing any edges, use \noderef{MatchingInducedLeftRowDeletion}
+on $W[V,Z]$ to delete the row $v_0$. The size parameter is $n$, the
+right part has $n+1$ vertices, the errors are $\xi,\eta$, and all the
+unit and slack hypotheses are displayed. The resulting pair on
+$V\setminus\{v_0\},Z$ is $(\eta,p)$-super-regular.
+Pull it back along $\tau$ and restrict to $U,Z$. Bijections preserve
+all the degrees and tested rectangle edge counts in
+\noderef{SuperRegularPair}, giving the asserted graph $F$ and its
+exact cross-part adjacency equivalence.
+
+For a successful $\sigma$, define the residual graph $B$ to have just
+the edges $\tau(u)z$ with $uz\in F$ and $\sigma(u)z\in J$, and their
+reverses. Apply \noderef{MatchingInducedUpdatedCandidacyTransport} to
+$\tau$, $\sigma$, and $B$, using the complete bipartite matching graph
+on $U,K$. Bijectivity makes $\sigma$ a perfect matching as in
+\noderef{PerfectMatching}. Its adjacency hypothesis is the definition
+of $B$; its exact-image hypotheses are the equivalence for
+$V\setminus\{v_0\}=\tau(U)$ and the identity equivalence for $Z$.
+Thus $B[V\setminus\{v_0\},Z]$ is $(\omega,ph)$-super-regular.
+The pulled-back-row identity, $W\subseteq O$, and $J\subseteq H$
+show $B\subseteq T_\sigma$. The source-matching equivalence ensures
+there is precisely one newly imposed host constraint on every residual
+row. It also ensures that $v_0$ has no neighbour in $U$, so its entire
+old $O$-row is still available in $T_\sigma$.
+
+Put $k=\lfloor ph|Z|\rfloor$. The outer degree reserve implies
+$1/n\le e$ and hence $e|Z|\ge1$, since $|Z|=n+1$.
+Integer rounding therefore gives
+$(ph-e)|Z|\le k\le(ph+e)|Z|$.
+The old degree lower bound gives
+$\deg_{T_\sigma}(v_0,Z)=\deg_O(v_0,Z)\ge(p_0-e_0)|Z|$.
+The gap inequality implies $p_0-e_0\ge ph+1/n$, and consequently
+$k\le ph|Z|\le(p_0-e_0)|Z|\le\deg_{T_\sigma}(v_0,Z)$.
+Here $e_0$ is finite because $e_0\le1$; $p_0$ is finite because otherwise
+the old row lower bound at $v_0$ would be infinite, contradicting its
+finite degree and $|Z|>0$. Thus subtracting $e_0$ in the gap inequality
+is legitimate. These calculations also cover zero output density.
+Now apply \noderef{FutureExtraVertexStability} to $B$ inside
+$T_\sigma$, on residual left size $n$ and right size $n+1$, with
+row size $k$, errors $\omega,e$, and density $ph$. Its two analytic
+reserves and unit bounds are exactly the hypotheses. It selects a
+$k$-subset of the genuine old row, adjoins that row, and returns a
+spanning contained $(e,ph)$-super-regular graph. No artificial row and
+no surjection onto the full future part are used in this case.
+\end{proof}

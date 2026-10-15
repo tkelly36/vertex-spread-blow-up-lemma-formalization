@@ -1,0 +1,17 @@
+\begin{lemma}[Unused stored values do not change updated candidacy]
+Let $f,g$ be partial compatible embeddings on the same finite set $X$
+in a blow-up instance with candidacy system $A$. If $f(x)=g(x)$ for
+every $x\in X$, then $A_f$ and $A_g$, as defined in
+\noderef{UpdatedCandidacy}, have exactly the same allowed pairs $(x,v)$.
+\end{lemma}
+\begin{proof}
+Since the two maps agree on $X$, their image sets $f(X)$ and $g(X)$
+are equal: an element represented by $f(y)$ with $y\in X$ is also
+$g(y)$, and conversely. Expand \noderef{UpdatedCandidacy}.
+The source condition $x\notin X$, the unoccupied-image condition
+$v\notin f(X)=g(X)$, and the original candidacy condition $A(x,v)$
+are identical. For each $y\in X$ adjacent to $x$, the final host-edge
+condition is identical because $f(y)=g(y)$. Thus every conjunct agrees,
+proving the equivalence for all $x,v$. No values outside $X$ enter
+any of these conditions.
+\end{proof}

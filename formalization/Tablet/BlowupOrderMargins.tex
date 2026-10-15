@@ -1,0 +1,51 @@
+\begin{lemma}
+Let $0<\eta\leq1/2$, let $1\leq C_0<\infty$ and $C'<\infty$ be extended
+nonnegative reals, and let $k\geq1$ be an integer. There is a finite
+$C\geq C_0,1$, chosen before any order thresholds, such that for every
+three integers $N_{\rm bal},N_{\rm red},N_{\rm exec}$ there is $N$ with the
+following property. For every integer $n\geq N$, one has
+$n\geq N_{\rm bal}$ and $C/n\leq1$. For every natural number $m$ satisfying
+\[
+ m\leq(1-\eta)n<m+1,
+\]
+one also has
+\[
+ m\geq N_{\rm red},\qquad \lfloor m/k\rfloor\geq N_{\rm exec},\qquad
+ \frac{C'}{\lfloor m/k\rfloor}\leq\frac Cn.
+\]
+All casts, products and quotients in these inequalities are in the extended
+nonnegative reals; $\lfloor m/k\rfloor$ denotes natural-number division.
+\end{lemma}
+\begin{proof}
+Put $b=1-\eta$. Since $0<\eta\leq1/2$, $1/2\leq b<1$ and $b$ is finite.
+Choose
+\[
+ C=\max\{C_0,1,4kC'/b\}.
+\]
+Every quantity in this maximum is finite and $b>0$, so $1\leq C<\infty$
+and $C_0\leq C$. This choice depends on none of the three thresholds.
+After they are given, choose an integer $N\geq\max\{N_{\rm bal},1\}$
+large enough that, for every $n\geq N$,
+\[
+ n\geq C,\qquad bn\geq2(k+1),\qquad
+ bn-1\geq N_{\rm red},\qquad bn/(2k)\geq\max\{N_{\rm exec},1\}.
+\]
+Such an integer exists by the Archimedean property, since $b>0$, $k>0$
+and all the constants displayed are finite real numbers. The first inequality
+implies $C/n\leq1$ because $n\geq1$.
+Fix any $m$ with the stated floor inequalities and write $u=\lfloor m/k\rfloor$.
+The second floor inequality gives $m>bn-1$. Natural division gives
+$u>m/k-1$. Consequently
+\[
+ u>(bn-1)/k-1=(bn-(k+1))/k\geq bn/(2k).
+\]
+The last comparison follows from $bn\geq2(k+1)$. Thus $u\geq1$,
+$u\geq N_{\rm exec}$, and $m\geq N_{\rm red}$. Both denominators below
+are positive. Monotonicity of division and $2kC'/b\leq C$ give
+\[
+ C'/u\leq 2kC'/(bn)\leq C/n.
+\]
+This calculation is valid also when $C'=0$. Since all its terms are finite,
+it is equally a calculation in extended nonnegative reals. These are all
+the required conclusions.
+\end{proof}

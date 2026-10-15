@@ -1,0 +1,29 @@
+\begin{lemma}[Uniform extraction tail cutoffs]
+For real $c,h>0$ and an integer $M\geq0$, there is an integer
+$n_0\geq\max\{1,M\}$ such that, for every integer $n\geq n_0$,
+$hn\geq1$ and each of
+\[
+4n e^{-c^2n/8},\qquad 2\,4^n e^{-h^4n^2/8},\qquad
+4n e^{-2h^2n},\qquad 2\,4^n e^{-2h^4n^2}
+\]
+is strictly less than $1/4$.
+\end{lemma}
+\begin{proof}
+All four expressions are positive for $n\geq1$. For $a>0$,
+$\log(4n)-an$ tends to $-\infty$: indeed
+$\log n/n\to0$, so eventually $\log n\leq an/2$, and then
+$\log(4n)-an\leq\log4-an/2$.
+This applies with $a=c^2/8>0$ and $a=2h^2>0$ to the first and
+third expressions. For $b>0$, the logarithm of
+$2\,4^n e^{-bn^2}$ is $\log2+n\log4-bn^2$.
+For $n\geq2\log4/b$, it is at most $\log2-bn^2/2$, which
+tends to $-\infty$. Apply this with $b=h^4/8>0$ and
+$b=2h^4>0$ to the second and fourth expressions. Thus each
+logarithm is eventually strictly less than $\log(1/4)$, and
+monotonicity of the exponential gives the four required strict bounds.
+Choose integer cutoffs for these four eventual statements. Their
+maximum, enlarged to include $M$, $1$, and $\lceil1/h\rceil$, is
+$n_0$. For every $n\geq n_0$, multiplication of $n\geq1/h$ by
+$h>0$ gives $hn\geq1$, and all four eventual bounds remain valid.
+Every choice depends only on $c,h,M$.
+\end{proof}

@@ -1,0 +1,6 @@
+\begin{lemma}
+If a distribution is $q$-vertex-spread on $U$, and $q\leq q'\leq1$, then it is $q'$-vertex-spread on $U$.
+\end{lemma}
+\begin{proof}
+Fix $s$, pairwise distinct sources $x_1,\ldots,x_s$, and prescribed targets $y_1,\ldots,y_s\in U$.  By \noderef{VertexSpreadOn}, the probability of the associated cylinder is at most $q^s$.  Since exponentiation by the natural number $s$ is monotone on nonnegative numbers and $q\leq q'$, we have $q^s\leq(q')^s$.  Thus the cylinder probability is at most $(q')^s$.  This holds for every permitted cylinder, and $q'\leq1$, so the defining conditions of \noderef{VertexSpreadOn} hold with parameter $q'$.
+\end{proof}

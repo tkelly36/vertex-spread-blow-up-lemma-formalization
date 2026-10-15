@@ -1,0 +1,46 @@
+\begin{lemma}[Typical-row core estimates]
+Let $H$ be a finite simple graph, let $|U|=|W|=n>0$, and let
+$d\in\mathbb R$, $0<h<1$. Assume
+\[
+|d_H(A,B)-d|<h/2\quad
+(A\subseteq U,\ B\subseteq W,\ |A|,|B|>hn).
+\]
+There are $U_0\subseteq U,W_0\subseteq W$ with
+$|U\setminus U_0|,|W\setminus W_0|\leq2hn$ such that each
+vertex of either core part has between $(d-3h)n$ and $(d+h)n$
+neighbors in the opposite core part in $H$.
+\end{lemma}
+\begin{proof}
+Let $L_U$ consist of vertices of $U$ of degree into $W$ strictly
+less than $(d-h)n$, and $T_U$ those of degree strictly greater
+than $(d+h)n$. If $|L_U|>hn$, then $L_U$ is nonempty and
+$|W|=n>hn$ since $h<1$ and $n>0$. Summing its strict degree
+bounds gives
+$e_H(L_U,W)<(d-h)n|L_U|$. Dividing by $n|L_U|>0$ yields
+$d_H(L_U,W)<d-h$, contradicting the assumed density error
+$<h/2$, which implies density $>d-h/2>d-h$.
+Thus $|L_U|\leq hn$. If $|T_U|>hn$, summing its strict
+upper-exceptional degree inequalities yields
+$d_H(T_U,W)>d+h$, contradicting density $<d+h/2<d+h$.
+Thus $|T_U|\leq hn$ as well.
+
+Define $L_W,T_W$ using degrees from $W$ into $U$.
+The same argument applies to the tests $(U,L_W)$ and $(U,T_W)$:
+symmetry of adjacency gives
+$e_H(U,L_W)=\sum_{w\in L_W}\deg_H(w;U)$, and likewise for
+$T_W$. The test with $U$ is legitimate since $|U|=n>hn$.
+It follows separately that $|L_W|,|T_W|\leq hn$.
+
+Take $U_0=U\setminus(L_U\cup T_U)$ and
+$W_0=W\setminus(L_W\cup T_W)$. Their complements have size
+at most the sum of the two corresponding exceptional sizes,
+hence at most $2hn$ on each side. A vertex in $U_0$ has full
+degree into $W$ in $[(d-h)n,(d+h)n]$. Passing to $W_0$ deletes
+at most $|W\setminus W_0|\leq2hn$ neighbors. Thus its core
+degree is at least $(d-h)n-2hn=(d-3h)n$ and at most $(d+h)n$.
+For vertices of $W_0$, delete at most $|U\setminus U_0|\leq2hn$
+neighbors instead. This proves both stated core degree intervals.
+No degree conclusion was inferred solely from one exceptional
+set: the lower and upper exceptional sets were each bounded on
+both sides, and the opposite-side deletion was paid explicitly.
+\end{proof}

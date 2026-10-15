@@ -1,0 +1,19 @@
+\begin{lemma}[Edge count after restricting the opposite part]
+Let $A\subseteq X$ and $B\subseteq W\subseteq Y$ be finite sets, let
+$P\subseteq X\times Y$ be a relation, and let $D$ be real.  If every
+$x\in A$ has at least $D$ related elements in $W$, then
+\[
+ |\{(x,y)\in A\times B:P(x,y)\}|\geq
+ |A|\bigl(D-(|W|-|B|)\bigr).
+\]
+\end{lemma}
+\begin{proof}
+Fix $x\in A$.  Its related elements in $W$ partition into those in $B$
+and those in $W\setminus B$.  The second set has cardinality at most
+$|W\setminus B|=|W|-|B|$.  Since the two cardinalities sum to at least
+$D$, the cardinality of the first set is at least $D-(|W|-|B|)$.
+Sum this inequality over $x\in A$.  By
+\noderef{FilteredProductRowCount}, the sum of the restricted row
+cardinalities is exactly the edge count on the left, and the sum of the
+constant lower bound is $|A|(D-(|W|-|B|))$.
+\end{proof}

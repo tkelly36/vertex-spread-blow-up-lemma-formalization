@@ -1,0 +1,37 @@
+\begin{lemma}[Clusterwise reserve of a greedy state]
+Let $\Delta,n\in\mathbb N$ and $d,\varepsilon,a,d'$ be extended
+nonnegative reals satisfying
+$a\leq d(d-\varepsilon)_+^k$ for $k\leq\Delta$,
+$\varepsilon(1+\varepsilon)\leq a/2$, and $d'\leq a/2$.
+Let $B,A$ be a finite blow-up instance with candidacy system, with
+$\Delta(H)\leq\Delta$, $|X_i|\leq\varepsilon|V_i|$, and
+$|V_i|\leq(1+\varepsilon)n$ for every $i$.
+For every greedy state $f$ on $S$ and every $x\notin S$, the updated
+candidacy graph has at least $d'n$ candidates for $x$:
+\[
+ d'n\leq|\{v:(\operatorname{UpdatedCandidacy}(B,A,S,f))(x,v)\}|.
+\]
+\end{lemma}
+\begin{proof}
+Fix $x\notin S$ and put $i=c(x)$. The exposure count is at most
+$\Delta$, so \noderef{GreedyPartialEmbedding} and the power bound
+give $an\leq|D_S^f(x)|$. The raw set lies in $V_i$ by
+\noderef{RawCandidates} and \noderef{CandidacySystem}. By
+\noderef{UpdatedCandidacy}, the available set is exactly
+$D_S^f(x)\setminus f(S)$, or equivalently
+$D_S^f(x)\setminus O_i$, where $O_i=f(S)\cap V_i$.
+Compatibility and injectivity from \noderef{PartialCompatibleEmbedding}
+give $|O_i|=|S\cap X_i|\leq\varepsilon|V_i|$.
+The finite-set deletion inequality therefore gives
+\[
+ |D_S^f(x)\setminus O_i|+|O_i|\geq|D_S^f(x)|\geq an,
+ \qquad |O_i|\leq\varepsilon(1+\varepsilon)n\leq(a/2)n.
+\]
+If $n=0$, the claimed bound is zero, so it holds without further
+conditions. If $n>0$, the finite raw-set bound forces $a<\infty$.
+The hypotheses then force $\varepsilon<\infty$ and $d'<\infty$.
+Subtracting the occupied-set upper bound in ordinary finite real
+arithmetic gives $|D_S^f(x)\setminus O_i|\geq(a/2)n\geq d'n$.
+The set cardinality in the conclusion is the same finite cardinality,
+which proves the claim. No estimate uses $|S|$ or the number of clusters.
+\end{proof}

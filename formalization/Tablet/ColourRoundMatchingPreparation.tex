@@ -1,0 +1,235 @@
+\begin{lemma}[Retained triplets and local success law]
+Fix a blow-up instance $B$, candidacy system $A$, square colouring $c$,
+sequences $\theta,p,\varepsilon,\rho,\zeta,\omega,\xi$, and a
+\noderef{ColourRoundStepParameters} record at $(D,q,d,C,a,n,t)$.
+Assume each source cluster has size $n$ or $n+1$ and its host cluster
+has the same size, the initial host pairs are
+$(\varepsilon_0,d)$-super-regular, and every reduced edge is a
+\noderef{SaturatingSourcePair}. Suppose
+\(\mathcal I(t,S;X,\mu)\) of \noderef{ColourRoundInvariant} holds,
+$i\in c^{-1}(t)\setminus S$, and $f\in\operatorname{supp}(\mu)$.
+Put $Y=X_i$, and let $X'$ be the source domain indexed by the earlier
+colour classes and $S\cup\{i\}$.
+There exist a law $\nu_0$ on compatible partial embeddings of $Y$ for
+the updated system $A_f$, an event $E$ in that record space, and a
+supported member of $E$, such that
+\[
+\nu_0(E)\ge1/2,\quad
+(\nu_0|_Y)\text{ is }C/(2n)\text{-vertex-spread},\quad
+(\nu_0(\,\cdot\mid E)|_Y)\text{ is }C/n\text{-vertex-spread}.
+\]
+For every supported $g$ of this conditioned law, every compatible
+embedding $h$ on $X'$ agreeing with $f$ on $X$ and $g$ on $Y$, and every
+unembedded neighbour $j$ of $i$ (that is, $j\notin S$ and $c(j)\ge t$),
+the true updated candidacy graph of $j$ at $h$ contains a spanning
+$(\varepsilon_{t+1},p_{e_j+1})$-super-regular witness. Here
+$e_j=|N_R(j)\cap(\{k:c(k)<t\}\cup S)|$, and the parts are exactly
+the source vertices of $j$ outside $X'$ and the host vertices of $j$
+outside $h(X')$, not enlarged or abstract image parts.
+\end{lemma}
+\begin{proof}
+We use \noderef{ColourRoundRetainedTriplets} for the deterministic
+retained graph and its family of triplets, and
+\noderef{ColourRoundMatchingRecords} for matching records and containment
+in the true updated graphs. The following paragraphs record the
+parameter verifications and then compose their conclusions with the
+local matching law.
+Write $\mathcal C$ for the certificate in the parameter record. By
+\noderef{ColourRoundUntouchedGeometry}, $i$ and every neighbour tested
+in this lemma have no neighbour in $S$. The witness clause of
+\noderef{ColourRoundInvariant} therefore gives their common input
+error $\varepsilon_t$. Their exposure counts $x=e_i$ and $y=e_j$
+are bounded by $D$, and $y<D$. We make no comparison between $x$ and
+$y$. At every use of a certificate guarantee below, give it $t<q$
+and separately the bound on each exposure argument.
+
+An unembedded cluster has no source vertices in $X$. Its host cluster
+contains no vertex of $f(X)$: the cluster-respecting clause of
+\noderef{CandidacySystem} and compatibility in
+\noderef{PartialCompatibleEmbedding} put every image in its processed
+source cluster. Thus the witness parts are the full clusters, of their
+actual sizes $n$ or $n+1$. The inequalities
+$2\zeta_t<1-\rho_x$ and $2\zeta_t<1-d/2$ imply respectively
+$\rho_x<1$ and $d/2<1$; these conclusions do not follow merely from
+super-regularity. Together with the lower density inequalities they
+give $0<\rho_x,d/2<1$ and $\zeta_t<1$.
+Consequently $\xi_t$ is finite, and $1/n\le\xi_t$ implies $n\ge1$.
+Also $\varepsilon_t\le\varepsilon_{t+1}\le1$.
+
+For the current witness and each future witness apply
+$\mathcal C.\mathrm{witnessThinningGuarantee}$ at $(t,x)$ and $(t,y)$.
+Disjointness comes from the source/host copies. Both part sizes are at
+least $n$, and differ by at most one, so the scalar threshold bounds
+license both sides of every thinning. This produces contained
+$(\xi_t,\rho_x)$ and $(\xi_t,\rho_y)$ pairs.
+For each relevant host pair apply
+$\mathcal C.\mathrm{hostThinningGuarantee}$ at $t$, to the original
+$(\varepsilon_0,d)$ host pair from \noderef{InstanceSuperRegular}.
+Its threshold is also at most both actual sizes. The result is a
+contained $(\xi_t,d/2)$ pair.
+All these are the actual thinning guarantees from
+\noderef{InductionApplicationCertificate}.
+
+Let $m=|X_i|=|V_i|$ and $k_j=|X_j|=|V_j|$.
+View all the pairs on the finite ambient sum of source and host vertices.
+The canonical injections preserve each part cardinality, each degree
+and each rectangle edge count, so this change of ambient type preserves
+all the displayed pair parameters.
+The source-pair definition gives an injection in one of the two
+orientations whose edges are exactly the source edges. If the sizes are
+equal, the injection is bijective and either orientation yields a
+bijection from the current to the future source part. If the current
+part is larger, an injection from it to the smaller part is impossible,
+so the other orientation is provided; its image misses exactly one
+current vertex. If the future part is larger, the injection is from
+the current part and misses exactly one future vertex. These statements
+follow by counting the image of the injection and the one-element
+complement, and use only \noderef{SaturatingSourcePair}.
+
+For each $j$ apply the corresponding preparation-and-transport result:
+\noderef{EqualSizeSourceWitnessTransport} if $m=k_j$,
+\noderef{CurrentExtraSourceWitnessTransport} if $m=k_j+1$, and
+\noderef{FutureExtraSourceWitnessTransport} if $k_j=m+1$.
+Take $O$ to be the stored old witness, $W$ its thinning, $J$ the
+thinned host pair, and $H$ the original host pair. In the unequal
+cases the size parameter is $n$, because the smaller size is $n$.
+The inner reserves are exactly those in the parameter record; its
+integer reserve supplies the artificial-row rounding bound. The outer
+reserves are applied at $y\le D$, with
+$\omega=\omega_{t+1}$ and $e=\varepsilon_{t+1}$.
+The density $\rho_y d/2$ is at most one because each factor is at
+most one. In the future-extra case the old error is at most one and
+the density gap is
+$\rho_y d/2+\varepsilon_t+1/n\le p_y$, using the density-update
+identity at $y<D$. Thus every hypothesis of all three cases is verified.
+They give graphs $F_{13}^j$ on the full current source part and the full
+future host part, of parameters $(\zeta_t,\rho_y)$, and a deterministic
+contained-witness transport for every successful matching. In particular
+the future-extra row is deleted before testing, and the current-extra
+artificial row is inserted before testing. No total current-to-future
+source map is used in the latter case.
+
+Weaken the current and host thinning errors to $\zeta_t$; error
+enlargement only increases degree windows and reduces the rectangles
+tested in \noderef{SuperRegularPair}.
+Index the tests by the unembedded neighbours of $i$, a finite set of
+cardinality at most $D$. Form the graph of retained current edges with
+the common-neighbour window
+\[
+(\rho_y d/2-2\zeta_t)k_j\ \le
+ |N_{F_{13}^j}(u)\cap N_{F_{23}^j}(v)\cap V_j|
+ \le (\rho_y d/2+2\zeta_t)k_j.
+\]
+This is exactly \noderef{SimultaneousGoodEdgeGraph} with constant
+error family $\zeta_t$. Apply
+\noderef{NearEqualVaryingGoodEdgeSuperRegularity}.
+Its density lower hypotheses follow from $2\zeta_t<\rho_y,d/2$,
+and its upper hypotheses from the strict complementary inequalities
+already used. Its square-root premise and the two finite-sum premises
+follow from the three displayed loss bounds in the parameter record:
+$\sum_j\sqrt{\zeta_t}\le D\sqrt{\zeta_t}$ and
+$\sum_j\zeta_t\le D\zeta_t$.
+The base error satisfies $\zeta_t\le\theta_t$ by the regularity-loss
+bound. Thus the retained current pair is
+$(\theta_t,\rho_x)$-super-regular. Moreover
+$2\zeta_t\le2\sqrt{\zeta_t}\le\theta_t$ because
+$0\le\zeta_t\le1$. The retained window therefore implies the
+$(\rho_y d/2\pm\theta_t)k_j$ window. All three pairs, their actual
+size relations, their disjointness, and this window give the precise
+\noderef{NearEqualRegularTriplet} at $(\theta_t,\rho_x,\rho_y,d/2)$.
+
+Use $\mathcal C.\mathrm{matchingExistenceGuarantee}$ at $(t,x)$,
+size $m\ge n$, on the retained pair. Its input error is $\theta_t$,
+not $\theta_t/2$. Use
+$\mathcal C.\mathrm{matchingGuarantee}$ at the same round and
+exposure. The uniformly chosen retained matching has ambient-value
+spread at most
+$\mathcal C.\mathrm{matchingConstant}(t,x)/m\le C/(2m)$.
+The passage between its host subtype and ambient host values is
+injective; a prescribed value outside the host part has probability
+zero, and values inside give the identical cylinder. Hence the same
+bound holds for matching functions into the host subtype.
+These certificate fields can be used at their own vertex-type universes.
+Relabel the finite ambient type to a lifted finite ordinal, using
+\noderef{FiniteTripletRelabelling}. It preserves part sizes,
+super-regularity, triplets, matching bijections, and matching-induced
+success conditions. The matching bijection pushes the uniform law to
+the uniform law: each matching has mass the reciprocal of the same
+finite matching count. Pulling back cylinders through the part
+bijections gives identical cylinders. Thus the certificate bounds apply
+to the original retained graph, even if the field and ambient universes
+differ; no threshold is changed.
+For every test use
+$\mathcal C.\mathrm{fourGraphsGuarantee}$ at $(t,x,y)$, explicitly
+with $x,y\le D$ and $t<q$. Its threshold is at most $n\le m$ and
+the triplet has just been verified. It gives failure at most
+$(1-a_{t,x,y})^m\le(1-a)^m$, since $a\le a_{t,x,y}\le1$.
+
+Apply \noderef{OneClusterExtension} at actual size $m$, with constant
+$C_m=Cm/n$, so $C_m/m=C/n$ and $C_m/(2m)=C/(2n)$.
+The raw spread bound $C/(2m)\le C/(2n)$ supplies its spread premise;
+the scalar budget is
+$D(1-a)^m\le D(1-a)^n\le1/2$.
+Its density hypotheses are $0<\theta_t$, $4\theta_t<\rho_x\le1$;
+its spread-unit hypothesis is the recorded $C/n\le1$.
+All its conclusions therefore hold for this one current matching:
+the intersection of the local success events has probability at least
+one half, contains a supported matching, and its conditioned law is
+$C/n$-spread. For the preliminary law use the matching-spread guarantee
+and $m\ge n$ to get the weaker $C/(2n)$ bound. These enlargements are
+justified by \noderef{VertexSpreadMonotone}.
+
+Every retained matching is a compatible partial embedding of $Y$ for
+the updated system: it is injective, its edges lie in the current
+contained witness, and $Y$ is independent by \noderef{BlowUpInstance}.
+The injection $\ell$ in \noderef{ColourRoundMatchingRecords} chooses
+fixed values off $Y$, and on $Y$ evaluates the matching via a source
+bijection $e:Y\to U$ and host injection $v:K\to V(G)$.
+Let $\lambda$ be the uniform law on perfect matching records and
+$\lambda_f$ its pushforward to matching functions. If $E_f$ is the
+simultaneous-success event supplied by \noderef{OneClusterExtension},
+put $E_0=\{\sigma:\sigma\in E_f\}$ in matching-record space,
+$\nu_0=\ell_*\lambda$, and $E=\ell(E_0)$.
+Injectivity gives $\ell^{-1}(E)=E_0$, so
+\[
+ \nu_0(E)=\lambda(E_0)=\lambda_f(E_f)\ge1/2.
+\]
+A supported successful function has a supported matching-record
+preimage, and its image under $\ell$ is the required supported record.
+For any pushforward $b_*\lambda$ and any event $S$ of positive mass,
+the filter formula is
+\[
+ \bigl(b_*(\lambda\mid b^{-1}S)\bigr)(z)
+ =\frac{\sum_{\sigma:b(\sigma)=z}1_S(b(\sigma))\lambda(\sigma)}
+        {\lambda(b^{-1}S)}
+ =\bigl((b_*\lambda)\mid S\bigr)(z).
+\]
+Use this with $b=\ell,S=E$, and with the matching-record forgetful map
+and $S=E_f$. The two evaluation pushforwards therefore commute with
+conditioning and have exactly the unconditioned and conditioned
+matching-function laws transported by
+$\sigma\mapsto(y\mapsto v(\sigma(e(y))))$.
+For an injective family of source targets $y_b\in Y$ and host targets
+$w_b$, if some $w_b$ is outside $v(K)$, its cylinder has empty preimage
+and probability zero. Otherwise choose the unique $k_b\in K$ with
+$v(k_b)=w_b$. Its preimage is exactly the matching cylinder
+$\sigma(e(y_b))=k_b$ for all $b$. The indices $e(y_b)$ remain
+distinct, so both matching spread estimates transfer unchanged.
+This proves the raw $C/(2n)$ and conditioned $C/n$ estimates also
+for cylinders whose ambient host targets need not lie in the host part.
+
+Finally fix a supported successful record. It has a matching-record
+preimage $\sigma$, and membership in $E$ and injectivity of $\ell$
+give $\sigma\in E_0$. Thus all the success clauses of $E_f$ hold.
+For each tested neighbour, \noderef{ColourRoundRetainedTriplets}
+supplies $W\subseteq T^j_\sigma$ with the required future
+super-regularity. For any compatible agreeing lift $h$,
+\noderef{ColourRoundMatchingRecords} gives
+$T^j_\sigma\subseteq A_h^j$ and both exact unused-part equalities.
+Compose these containments; no equality with the true candidacy graph
+is asserted. The future exposure is less than $D$ by
+\noderef{ColourRoundUntouchedGeometry}, so the recorded identity
+$\rho_y d/2=p_{y+1}$ supplies the required density.
+The error is $\varepsilon_{t+1}$, and the argument holds for every
+compatible agreeing lift, completing the pointwise conclusion.
+\end{proof}

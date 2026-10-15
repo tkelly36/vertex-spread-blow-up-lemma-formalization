@@ -1,0 +1,166 @@
+\begin{lemma}[Simultaneous host and candidacy refinement]
+Fix $\Delta\geq1$ and $0<\varepsilon'<1$, $0<d'<d^2/2$ with $d\leq1$.  There is $0<\varepsilon<\varepsilon'$, depending only on these displayed parameters, such that for every $r$ there is $n_0$ for which the following holds for $n\geq n_0$.  Let $(H,G,R,(X_i),(V_i),(A^i))$ be a lower-$(\varepsilon,d)$-super-regular blow-up instance with lower-super-regular candidacy graphs, with $|X_i|=|V_i|=n$.  Suppose $H'$ extends $H$, its source clusters refine each $X_i$ into $\Delta^2$ parts of sizes $\lfloor n/\Delta^2\rfloor$ or one larger, and its refined reduced graph $R'$ satisfies
+\[
+ (i,j)(i',j')\in E(R')\quad\Longrightarrow\quad ii'\in E(R).
+\]
+Then the host clusters can be partitioned simultaneously into corresponding parts $V_{i,j}$, and there are a spanning subgraph $G'\subseteq G$ and candidacy subgraphs $A'^{i,j}\subseteq A^i[X_{i,j},V_{i,j}]$, such that $|X_{i,j}|=|V_{i,j}|$ and every required host pair and every candidacy graph is $(\varepsilon',d')$-super-regular.  The source refinement is unchanged, and both refined cluster maps project exactly to the original cluster maps.
+\end{lemma}
+\begin{proof}
+The hypotheses imply $0<d\leq1$ and $0<d'<d^2/2\leq1/2$,
+so $d,d',\varepsilon'$ are finite. Apply
+\noderef{NearEqualSuperRegularExtraction} with output error
+$\varepsilon'$, output density $d'$, and input density $d$.
+It supplies $0<\theta<\varepsilon'$ and a cutoff $N\geq1$,
+with a contained extraction on any two disjoint parts of sizes
+$m$ or $m+1$, for $m\geq N$, from lower $(\theta,d)$-super-regularity.
+The same numerical witnesses are used for host graphs and graphs
+on the disjoint tagged union of the two vertex types.
+
+Put $k=\Delta^2\geq1$. Apply \noderef{HostRefinementParameters}
+to $k,N$ and the real values of $\varepsilon',\theta$. Write $e$
+for its witness and set $\varepsilon=\operatorname{ofReal}(e)$.
+Then $0<\varepsilon<\varepsilon'$ and $\varepsilon<1$. In the
+finite real interpretation the usable inequalities are
+\[
+ \varepsilon<1/(8k^2),\qquad
+ (4k^2+2)\varepsilon\leq\theta,\qquad
+ 2k\varepsilon\leq\theta.
+ \tag{1}
+\]
+Only $\Delta,\varepsilon',d',d$ have been used in choosing this
+$\varepsilon$. After $r$ is specified, the same parameter node
+gives $n_0$ such that every $n\geq n_0$ satisfies
+\[
+ n\geq2k,\quad m=\lfloor n/k\rfloor\geq N,\quad
+ 2rk(r+1)n\exp(-cn)<1,\qquad
+ c=\frac{(\varepsilon/(2k))^2}{2(1+\varepsilon/(6k))}>0.
+ \tag{2}
+\]
+This uses the actual positive hypergeometric decay rate, not the
+sharper martingale estimate; only $n_0$ depends on $r$.
+
+Fix the input instance and the prescribed intermediate instance $B_0$.
+If $r=0$, the source and host maps of
+\noderef{BlowUpInstance} take values in an empty type, so there are
+no vertices. Use the empty host graph and empty allowed relation,
+and copy the source and host maps and structural fields of $B_0$.
+Containment holds, all fiber and super-regularity families are
+vacuous, and both projection identities hold. Henceforth assume $r>0$.
+
+Identify the refined index set with $[r]\times[k]$ via the given
+finite-index equivalence. Let $\sigma$ be the prescribed source map
+of $B_0$ in these coordinates, and write
+$X_p=\sigma^{-1}(p)$ and $s_p=|X_p|$.
+The given source projection makes the fibers $X_{(i,j)}$ partition
+the original $X_i$, and the size hypothesis gives $s_p\in\{m,m+1\}$.
+In particular $m\geq n/(2k)$, from $n\geq2k$ and the floor bound.
+
+Apply \noderef{PrescribedHostPartitionSample} with this $\sigma$,
+the original instance and candidacy system, their lower
+super-regularity hypotheses, and the cutoff (2). Its conclusion
+gives a host map $f$ projecting to the original map and bins
+$W_p=f^{-1}(p)$ of sizes exactly $s_p$. For every original source
+vertex $x$ and every bin $(i,j)$ in its original cluster, it gives
+\[
+ \deg_A(x,W_{(i,j)})\geq(d-2\varepsilon)s_{(i,j)}.
+ \tag{3}
+\]
+For every original host vertex $v$ and every bin $(i,j)$ of an
+adjacent original cluster, it likewise gives
+\[
+ \deg_G(v,W_{(i,j)})\geq(d-2\varepsilon)s_{(i,j)}.
+ \tag{4}
+\]
+These are estimates on every original host vertex, irrespective of
+which bin it occupies. The sampling node uses the uniform subset
+law and the checked hypergeometric tail; no assertion about uniform
+perfect matchings is used.
+
+Apply \noderef{HostExceptionalCorrection} with $f,\sigma$, the
+original candidacy lower super-regularity, and the first margin
+in (1). It returns a map $f'$ with the same original-cluster
+projection and the same exact capacities. Write $V_p=(f')^{-1}(p)$.
+Its statement gives, separately for every bin,
+\[
+ |V_p\mathbin{\triangle}W_p|\leq2k\varepsilon n,
+ \tag{5}
+\]
+and, for every host vertex $v$,
+\[
+ \deg_A(v,X_{f'(v)})\geq(d-2\varepsilon)|X_{f'(v)}|.
+ \tag{6}
+\]
+The correction puts exceptional vertices into suitable source bins;
+it does not presume that all original hosts were good for all fixed
+source bins. In particular (6) supplies the reverse candidacy
+orientation that randomizing the host bins alone would not give.
+
+All hypotheses of \noderef{RefinedLowerSuperRegularTransfer} now
+hold: the original lower host and candidacy pairs, the two projections,
+the capacities, the complete sampled degree families (3)--(4),
+the correction loss (5), the assigned-bin bound (6), and the last
+two scalar margins in (1). It gives lower $(\theta,d)$-super-regularity
+on every refined host pair with adjacent original indices, and on
+every corresponding tagged candidacy pair. The threshold transfer
+inside that result uses $\varepsilon n\leq2k\varepsilon s_p
+\leq\theta s_p$; its degree loss is at most
+$2k\varepsilon n\leq4k^2\varepsilon s_p$.
+The two conclusions therefore include both degree orientations
+and all the requisite strict subset tests.
+
+If $pq$ is a required refined host edge, its original indices are
+adjacent by hypothesis, so the host conclusion just obtained applies.
+Also $p\neq q$ because the reduced graph is simple; hence $V_p,V_q$
+are disjoint fibers. Their sizes lie in $\{m,m+1\}$ and $m\geq N$.
+Apply \noderef{NearEqualSuperRegularExtraction} to obtain a graph
+$F_{pq}\subseteq G$, with edges only between $V_p,V_q$, which is
+$(\varepsilon',d')$-super-regular on them.
+For candidacy form the symmetric graph of the original allowed
+relation on the disjoint tagged union of the vertex types, as in
+\noderef{CandidacyLowerSuperRegular}. The tagged copies of $X_p,V_p$
+are disjoint and have cardinalities $s_p,s_p$: the respective
+tag maps biject the ordinary fibers with these sets.
+The candidacy conclusion of the transfer node thus permits the
+same extraction, giving a contained graph on each tagged pair
+with the prescribed output parameters. The extraction result
+handles the unequal host sizes by padding, extraction, and dummy
+deletion, but returns only edges on the original types.
+
+Use \noderef{CrossPairSubgraphAssembly} to assemble the host
+extractions into a single graph $G'\subseteq G$. Its statement
+supplies super-regularity on every required refined pair and reduced
+support. Its proof selects only one graph per unordered required
+pair; crossing support guarantees that on that pair the union
+agrees exactly with that selected graph, including every degree
+and subset-edge count.
+
+Define $B'$ by copying the source map, source independence, and
+reduced support from $B_0$, and by taking host map $f'$ followed by
+the finite-index equivalence. Its capacities are equalities, since
+$|V_p|=s_p=|X_p|$; converting a finite fiber cardinality to the
+cardinality of its subtype changes nothing. These fields give
+a \noderef{BlowUpInstance} on $H',G'$ and the same refined reduced
+graph. The source map agrees exactly with $B_0$'s, and the
+host projection agrees exactly with the original host map.
+
+Apply \noderef{TaggedCandidacyAssembly} to $B,A,B'$ and the
+tagged extractions. It gives a \noderef{CandidacySystem} $A'$
+for $B'$ contained in $A$ and satisfying
+\noderef{CandidacySuperRegular} with error $\varepsilon'$ and
+density $d'$. The selected source and host fiber indices already
+agree on a refined candidacy pair, so its tagged assembled relation
+agrees exactly with its selected extracted graph.
+Finally the host super-regular pairs, rewritten under the same
+index equivalence, are precisely
+\noderef{InstanceSuperRegular} for $B'$.
+
+All final graphs are spanning on the original finite types;
+no dummy vertex or tagged host copy remains in the host graph.
+The final size alternative is the original one for $B_0$,
+and no step altered $H'$ or the prescribed source refinement.
+The scalar conversions in (1)--(2) are between finite quantities.
+All graph predicates and transfer assertions use extended
+nonnegative reals, so every possibly negative output endpoint is
+the truncated zero bound, not an unproved real-subtraction inequality.
+Containments and exact counts are unchanged by these conversions.
+\end{proof}

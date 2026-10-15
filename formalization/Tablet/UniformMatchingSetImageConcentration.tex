@@ -1,0 +1,139 @@
+\begin{lemma}[Uniform matching set-image concentration]
+Fix $0<d\le1$, lower density bounds $0<\alpha,\beta\le1$, and an error $\eta>0$.  There is $\varepsilon_0>0$ such that, whenever $0<\varepsilon\le\varepsilon_0$, there are $c<1$ and $n_0$ with the following property.  If $G[U,W]$ is an $(\varepsilon,d)$-super-regular pair with $|U|=|W|=n\ge n_0$, $S\subseteq U$, $T\subseteq W$, $|S|\ge\alpha n$, $|T|\ge\beta n$, and $\sigma$ is a uniformly random perfect matching of $G$, then
+\[
+ \Pr\left(\left||\sigma(S)\cap T|-{|S||T|\over n}\right|>\eta n\right)\le c^n.
+\]
+The same $c,n_0$ work simultaneously for all permitted sizes and choices of $S,T$.
+\end{lemma}
+\begin{proof}
+Write $s=|S|$, $t=|T|$, and $X=|\sigma(S)\cap T|$.  For a possible value $x$, a matching counted by $X=x$ splits into matchings on four balanced rectangles of orders
+\[
+ y_1=x,\quad y_2=s-x,\quad y_3=t-x,\quad y_4=n-s-t+x.
+\]
+Choosing their vertex sets first gives
+\[
+ M(G,x)\le {s\choose x}{t\choose x}{n-t\choose s-x}{n-s\choose t-x}
+             \prod_{i=1}^4 M(y_i).                                 \tag{1}
+\]
+We will decrease $\varepsilon_0$ whenever necessary, in particular so that
+$2\varepsilon<d$, and take $n_0$ at least the maximum of the thresholds in
+\noderef{RegularInducedMatchingUpperBound} and \noderef{MatchingEnumeration}.
+For $y_i\ge\sqrt\varepsilon n$, \noderef{RegularInducedMatchingUpperBound} gives
+$M(y_i)\le D^{y_i}y_i!$, where $D=d+\varepsilon+3\sqrt\varepsilon$; for a smaller $y_i$ use $M(y_i)\le y_i!$.  At most three of the four $y_i$ can be small unless $n<4\sqrt\varepsilon n$, which is excluded by taking $\varepsilon_0<1/16$.  Since $D$ is bounded below by $d/2$ after decreasing $\varepsilon_0$, all omitted powers cost at most
+$\min(D,1)^{-3\sqrt\varepsilon n}$.  Here are the details, including rectangles
+of order zero.  Let $I=\{i:y_i<\sqrt\varepsilon n\}$ and
+$q=\sum_{i\in I}y_i$.  The trivial estimate is valid also for $y_i=0$, since
+the empty rectangle has exactly one matching and $0!=1$.  Moreover
+$|I|\le3$ and hence $0\le q\le3\sqrt\varepsilon n$.  The product of all four
+matching estimates is therefore at most
+\[
+ D^{n-q}\prod_{i=1}^4y_i!
+ \le D^n\min(D,1)^{-3\sqrt\varepsilon n}\prod_{i=1}^4y_i! .
+\]
+Indeed, if $D\ge1$, then $D^{n-q}\le D^n$ and the minimum is $1$; if
+$0<D\le1$, then
+$D^{n-q}=D^nD^{-q}\le D^nD^{-3\sqrt\varepsilon n}$.  This also covers
+$q=0$ without interpreting any missing rectangle separately.
+
+By \noderef{MatchingEnumeration}, the denominator is at least
+$(d-2\varepsilon)^n n!$.  Divide (1) by it.  The factorial cancellation can
+be checked directly: substituting
+$y_1=x,y_2=s-x,y_3=t-x,y_4=n-s-t+x$ into the four binomial coefficients gives
+\[
+ {s\choose x}{t\choose x}{n-t\choose s-x}{n-s\choose t-x}
+ {\prod_i y_i!\over n!}
+ ={{t\choose x}{n-t\choose s-x}\over {n\choose s}}.
+\]
+(If one of the $y_i$ is zero, the same identity holds because $0!=1$.)
+Consequently
+\[
+ \Pr[X=x]\le R(\varepsilon)^n
+ { {t\choose x}{n-t\choose s-x}\over {n\choose s}},
+ \qquad
+ R(\varepsilon):={D\over d-2\varepsilon}
+                  \min(D,1)^{-3\sqrt\varepsilon}.                 \tag{2}
+\]
+This factor tends to $1$ as $\varepsilon\downarrow0$.  Indeed,
+$D\to d$, so $D/(d-2\varepsilon)\to1$.  Also $D\ge d/2>0$, and hence
+$\log\min(D,1)$ remains bounded and converges to $\log d$ (with value $0$
+when $d=1$).  Thus
+$-3\sqrt\varepsilon\log\min(D,1)\to0$, proving that the second factor tends
+to $1$.  In particular $\log R(\varepsilon)\to0$, uniformly in $s,t,x$.
+
+The fraction in (2) is the mass of a hypergeometric variable $Y$ obtained by
+choosing a uniformly random $s$-subset of an $n$-set having $t$ marked
+elements.  Put $p=t/n$ and $m=sp=st/n$.  We first prove the moment estimate
+needed for both tails.  For every real $\lambda$, let $a_1,\ldots,a_n$ consist
+of $t$ copies of $e^\lambda$ and $n-t$ copies of $1$.  Directly expanding over
+the uniformly chosen subset gives
+\[
+ \mathbb E e^{\lambda Y}
+ ={e_s(a_1,\ldots,a_n)\over {n\choose s}},                         \tag{3}
+\]
+where $e_s$ is the $s$-th elementary symmetric sum.
+
+For completeness, we prove the elementary-symmetric mean inequality used
+here.  For arbitrary nonnegative $a_1,\ldots,a_n$, replacing two entries
+$a_i,a_j$ by their common average leaves every term of $e_s$ containing
+neither or exactly one of them unchanged in total, while it replaces the
+factor $a_i a_j$ in the remaining terms by
+$((a_i+a_j)/2)^2\ge a_i a_j$.  Thus this averaging cannot decrease $e_s$ and
+preserves the arithmetic mean.  Repeatedly average a largest and a smallest
+entry.  The sum of squared deviations from the mean decreases, and its only
+possible limit is zero: if the limiting deviation were positive, the range
+would stay bounded below, so every further averaging would decrease the sum
+of squared deviations by a fixed positive amount.  Continuity of $e_s$ then yields
+\[
+ {e_s(a_1,\ldots,a_n)\over {n\choose s}}
+ \le \left({a_1+\cdots+a_n\over n}\right)^s.
+\]
+Applied to (3), this proves, for every real $\lambda$ (positive or negative),
+\[
+ \mathbb E e^{\lambda Y}\le(1-p+pe^\lambda)^s,
+ \qquad
+ \mathbb E e^{\lambda(Y-m)}
+ \le \exp\bigl(m(e^\lambda-1-\lambda)\bigr),                      \tag{4}
+\]
+where the second inequality uses $\log(1+z)\le z$.
+
+We now derive the two tails separately.  For $\lambda>0$, Markov's inequality
+and (4) give
+$\Pr(Y\ge m+u)\le
+\exp(m(e^\lambda-1-\lambda)-\lambda u)$.  If $m>0$, choosing
+$\lambda=\log(1+u/m)$ gives exponent $-m h(u/m)$, where
+$h(z)=(1+z)\log(1+z)-z$.  The elementary inequality
+$h(z)\ge z^2/(2(1+z/3))$ for $z\ge0$ follows by differentiating the
+difference twice: its second derivative is
+$1/(1+z)-27/(z+3)^3\ge0$, since
+$(z+3)^3-27(z+1)=z^3+9z^2\ge0$, and both its value and first derivative
+vanish at zero.  This gives the first bound below.  If $m=0$, then $Y=0$ and the assertion
+is immediate.  For the lower tail take $\lambda<0$.  Since
+$e^\lambda-1-\lambda\le\lambda^2/2$ for $\lambda\le0$ (compare second
+derivatives, using $e^\lambda\le1$, and the common value and derivative at
+zero), Markov applied to
+$e^{\lambda(Y-m)}$ and the choice $\lambda=-u/m$ give the second bound when
+$m>0$; again $m=0$ is immediate.  We have proved, for $u\ge0$,
+\[
+ \Pr(Y\ge m+u)\le e^{-u^2/(2(m+u/3))},\qquad
+ \Pr(Y\le m-u)\le e^{-u^2/(2m)}.                                 \tag{5}
+\]
+
+Sum (2) over the two tails $|x-st/n|>\eta n$.  The hypergeometric masses in
+(2) sum to the corresponding probabilities, so no additional count of
+possible values is needed.  Since $m\le n$, (5) gives
+\[
+ \Pr(|X-st/n|>\eta n)
+ \le 2\exp\{n\log R(\varepsilon)-\eta^2n/(2(1+\eta/3))\}.         \tag{6}
+\]
+Choose $\varepsilon_0$ so that
+$\log R(\varepsilon)<\eta^2/(4(1+\eta/3))$ throughout
+$0<\varepsilon\le\varepsilon_0$.  Then (6) is at most
+$2e^{-\gamma n}$ with $\gamma=\eta^2/(4(1+\eta/3))>0$.
+Enlarge $n_0$ so that $2e^{-\gamma n}\le e^{-\gamma n/2}$ for
+$n\ge n_0$, and take $c=e^{-\gamma/2}<1$.  Every choice made depends only on
+$d$ and $\eta$ (and hence is certainly allowed to depend on
+$d,\alpha,\beta,\eta$), not on $S,T,s,t$; this proves the asserted
+simultaneous uniformity.  The lower bounds involving $\alpha$ and $\beta$ are
+therefore harmless restrictions on the sets, rather than ingredients in the
+large-rectangle threshold.
+\end{proof}

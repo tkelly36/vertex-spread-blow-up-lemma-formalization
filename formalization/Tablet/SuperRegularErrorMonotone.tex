@@ -1,0 +1,19 @@
+\begin{lemma}[Increasing the super-regularity error]
+Let $G$ be a graph on a finite vertex set, let $L,R$ be vertex sets, and let
+$\beta\leq\gamma$ and $d$ be nonnegative extended real numbers.
+If $G[L,R]$ is $(\beta,d)$-super-regular, then it is
+$(\gamma,d)$-super-regular.
+\end{lemma}
+\begin{proof}
+Unfold \noderef{SuperRegularPair} and \noderef{RegularPair}.
+If $U\subseteq L$ and $W\subseteq R$ satisfy
+$|U|>\gamma|L|$ and $|W|>\gamma|R|$, then they also satisfy the
+corresponding strict inequalities with $\beta$. The input regularity gives
+$d-\beta\leq d_G(U,W)\leq d+\beta$. Since subtraction is truncated and
+$\beta\leq\gamma$, one has $d-\gamma\leq d-\beta$ and
+$d+\beta\leq d+\gamma$, proving the required regularity.
+For each left vertex multiply these same endpoint comparisons by $|R|$;
+for each right vertex multiply them by $|L|$. Nonnegativity preserves the
+inequalities, so the two input degree bounds imply the two output degree
+bounds. These are all three clauses of super-regularity.
+\end{proof}

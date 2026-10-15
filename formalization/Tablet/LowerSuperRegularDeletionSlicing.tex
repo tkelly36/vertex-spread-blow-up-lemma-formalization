@@ -1,0 +1,12 @@
+\begin{lemma}[Lower-super-regular slicing after deletion]
+Let $(U,W)$ be lower $(\varepsilon,d)$-super-regular in a graph $G$, and delete sets $D_U\subseteq U$ and $D_W\subseteq W$.  Suppose the residual pair $(U\setminus D_U,W\setminus D_W)$ is lower $(\varepsilon',d')$-regular and
+\[
+(d'-\varepsilon')|W\setminus D_W|\leq(d-\varepsilon)|W|-|D_W|,
+\qquad
+(d'-\varepsilon')|U\setminus D_U|\leq(d-\varepsilon)|U|-|D_U|.
+\]
+Then the residual pair is lower $(\varepsilon',d')$-super-regular.
+\end{lemma}
+\begin{proof}
+The required lower regularity is an explicit hypothesis; this is the usual slicing output, and is deliberately not inferred from degree information.  If $u\in U\setminus D_U$, lower super-regularity of the original pair, as defined in \noderef{LowerSuperRegularPair}, gives at least $(d-\varepsilon)|W|$ neighbors in $W$.  Deleting $D_W$ removes at most $|D_W|$ of them.  The first displayed inequality therefore leaves at least $(d'-\varepsilon')|W\setminus D_W|$ neighbors.  Interchanging the two sides and using the second inequality proves the corresponding bound for every $w\in W\setminus D_W$.  Together with the assumed residual lower regularity these are precisely the three clauses of lower $(\varepsilon',d')$-super-regularity.
+\end{proof}

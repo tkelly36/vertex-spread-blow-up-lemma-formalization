@@ -1,0 +1,118 @@
+\begin{lemma}[Common constants and uniform order bounds]
+Put $Q=\Delta^2+1$ and let $\mathcal K$ be an induction application
+certificate with parameters
+$(\Delta,Q,d,\theta,p,\varepsilon,\rho,\zeta,\omega,\widehat\zeta)$
+in the sense of \noderef{InductionApplicationCertificate}.
+Assume that for $s<Q$,
+\[
+ 0<\widehat\zeta_s<\zeta_s<\infty,\qquad
+ \omega_{s+1}<\varepsilon_{s+1}\leq1,
+\]
+and every $\mathcal K$-matching constant at $s<Q$, $x\leq\Delta$ is
+finite. Then there are $0<a\leq1\leq M$, $C\geq2M$, and
+$n_0\in\mathbb N$ such that, for every $s<Q$ and $x,y\leq\Delta$,
+\[
+ a\leq\mathcal K.\mathrm{fourGraphsConstant}(s,x,y),\qquad
+ \mathcal K.\mathrm{matchingConstant}(s,x)\leq M,
+\]
+and each witness-thinning, host-thinning, matching-spread,
+matching-existence, and Four Graphs threshold at these indices is at
+most $n_0$. For every $n\geq n_0$ and $s<Q$,
+\[
+ C/n\leq1,\qquad \Delta(1-a)^n\leq\tfrac12,
+\]
+\[
+ n^{-1}\leq\widehat\zeta_s,\quad
+ n^{-1}\leq\zeta_s-\widehat\zeta_s,\quad
+ \widehat\zeta_s+2/n\leq\zeta_s,\quad
+ \widehat\zeta_s+1/(\zeta_s n)\leq\zeta_s,
+\]
+\[
+ \omega_{s+1}+2/n\leq\varepsilon_{s+1},\qquad
+ \omega_{s+1}+1/(\varepsilon_{s+1}n)\leq\varepsilon_{s+1}.
+\]
+\end{lemma}
+\begin{proof}
+Let $S=\{0,\ldots,Q-1\}$ and $X=\{0,\ldots,\Delta\}$.
+Both are finite and nonempty, also when $\Delta=0$.
+By the constant fields of \noderef{InductionApplicationCertificate},
+every $a_{s,x,y}=\mathcal K.\mathrm{fourGraphsConstant}(s,x,y)$ is
+positive and at most one, and every
+$M_{s,x}=\mathcal K.\mathrm{matchingConstant}(s,x)$ is at least one.
+The latter are finite by hypothesis. Set
+\[
+ a=\min\bigl(\{1\}\cup\{a_{s,x,y}:s\in S,\ x,y\in X\}\bigr),
+ \quad
+ M=\max\bigl(\{1\}\cup\{M_{s,x}:s\in S,\ x\in X\}\bigr),
+ \quad C=2M.
+\]
+The finite minimum is positive and at most one, and the finite maximum
+is finite and at least one. Thus $a,M,C$ are finite, and they satisfy
+all required constant comparisons, including those with $y=x$.
+Let $N_{\rm cert}$ be the maximum of zero and all the finitely many
+certificate thresholds in the asserted index ranges. Each such
+threshold is a natural number, so this maximum exists.
+
+For each $s\in S$ set
+\[
+ r_s=\zeta_s-\widehat\zeta_s,\qquad
+ q_s=\varepsilon_{s+1}-\omega_{s+1}.
+\]
+Since $\widehat\zeta_s<\zeta_s<\infty$, $r_s$ is positive finite;
+also $\zeta_s$ and $\widehat\zeta_s$ are positive finite.
+The other strict inequality gives
+$0<\varepsilon_{s+1}\leq1$ and
+$0\leq\omega_{s+1}<\varepsilon_{s+1}<\infty$, hence $q_s$ is positive
+finite. All subtractions here therefore agree with ordinary real
+subtraction, and the products $\zeta_s r_s$ and
+$\varepsilon_{s+1}q_s$ are positive finite. In particular all the real
+numbers in the following finite set are finite:
+\[
+ \{1,C\}\cup\bigcup_{s\in S}
+ \left\{\frac1{\widehat\zeta_s},\frac1{r_s},
+ \frac2{r_s},\frac1{\zeta_s r_s},
+ \frac2{q_s},\frac1{\varepsilon_{s+1}q_s}\right\}.
+\]
+Use the Archimedean property to choose a natural number $N_{\rm pad}$
+at least every member of this set. We identify finite extended real
+numbers with their real values only after the finiteness checks above.
+For $n\geq N_{\rm pad}$, $n\geq1$ and $n\geq C$, so $C/n\leq1$.
+For each $s\in S$, multiplication or division by the indicated positive
+finite denominators gives
+\[
+ 1/n\leq\widehat\zeta_s,\quad1/n\leq r_s,
+ \quad2/n\leq r_s,\quad1/(\zeta_s n)\leq r_s,
+ \quad2/n\leq q_s,\quad
+ 1/(\varepsilon_{s+1}n)\leq q_s.
+\]
+Adding $\widehat\zeta_s$ to the third and fourth inequalities gives
+the two inner padding bounds; adding $\omega_{s+1}$ to the last two
+gives the two output padding bounds. The first inequality is the
+explicit inner reserve, independent of the second inequality about the
+gap $r_s$; neither has been inferred from the other.
+
+It remains to bound the geometric failure term. If $\Delta=0$, it is
+zero for every $n$. If $a=1$, it is zero for every $n\geq1$.
+Otherwise $0<a<1$. Write $b=1-a\in(0,1)$ and
+$u=a/(1-a)>0$. An elementary induction gives
+$(1+u)^n\geq1+nu$: the induction step multiplies by $1+u$ and
+uses the nonnegative additional term $nu^2$.
+Since $1+u=1/b$ and $u\geq a$, inversion gives
+\[
+ b^n\leq\frac1{1+nu}\leq\frac1{1+na}.
+\]
+Choose an integer $N_{\rm decay}\geq2\Delta/a$ by the Archimedean
+property, which applies because $a>0$ is finite. For every
+$n\geq N_{\rm decay}$ one has
+$2\Delta\leq na\leq1+na$, so
+\[
+ \Delta(1-a)^n\leq\frac{\Delta}{1+na}\leq\frac12.
+\]
+In the two immediate cases take $N_{\rm decay}=1$.
+
+Finally set $n_0=\max(N_{\rm cert},N_{\rm pad},N_{\rm decay})$.
+Every certificate threshold is at most $n_0$. For every $n\geq n_0$
+the preceding arguments establish each of the claimed inequalities.
+All choices are functions only of the finite parameter and certificate
+data and $\Delta$; no reduced-graph order or instance occurs.
+\end{proof}

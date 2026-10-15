@@ -1,0 +1,61 @@
+\begin{lemma}[Matching count in a regular bipartite graph]
+Let $F$ be a finite bipartite graph with disjoint parts $U,W$ of size $n$.
+If every vertex on both sides has degree $k$ across the two parts, then $F$
+has at least
+\[
+ (k/n)^n n!
+\]
+perfect matchings.  The assertion uses the conventions $0^0=1$ and
+$0!=1$, so it also includes the empty graph on two empty parts.
+\end{lemma}
+\begin{proof}
+If $n=0$, both parts are empty. There is one function $U\to W$,
+it is bijective, and all edge conditions are vacuous. Thus by
+\noderef{PerfectMatching} there is exactly one perfect matching.
+In extended nonnegative reals $(k/0)^0=1$, independently of $k$,
+and $0!=1$, proving the assertion. Suppose $n>0$.
+If $k=0$, the lower bound is $0^n n!=0$, so the assertion is immediate.
+Henceforth $k>0$ too.
+
+Choose bijections $e_U:U\to\mathrm{Fin}(n)$ and
+$e_W:W\to\mathrm{Fin}(n)$, possible because both finite sets have size $n$.
+Let $A_{ij}$ be the indicator that $e_U^{-1}(i)e_W^{-1}(j)$ is an edge.
+For fixed $i$, summing the indicators over $j$ counts precisely the
+neighbors in $W$ of $e_U^{-1}(i)$: the indexing bijection visits each vertex
+of $W$ once. The degree hypothesis makes this sum $k$. The analogous
+argument on columns uses the right-degree hypothesis and also gives $k$.
+All entries of $A$ are nonnegative. By
+\noderef{AdjacencyPermanentMatchingCount}, $\operatorname{per}(A)$ is
+the natural matching cardinality $M$, cast to $\mathbb R$.
+This cited identity uses Mathlib's permutation orientation, so no choice
+of row-versus-column convention is being suppressed.
+
+By \noderef{RegularMatrixNormalization}, $B=A/k$ is nonnegative with
+all row and column sums one, and
+$\operatorname{per}(A)=k^n\operatorname{per}(B)$.
+Apply the checked imported theorem
+\texttt{EgorychevFalikmanFormalization.VanDerWaerdenPermanentInput}.
+It states that for any real $n\times n$ matrix $B$, the hypotheses
+$B_{ij}\ge0$ for every $i,j$, $\sum_jB_{ij}=1$ for every $i$, and
+$\sum_iB_{ij}=1$ for every $j$ imply
+\[
+ \operatorname{per}(B)\ge\frac{n!}{n^n}.
+\]
+All three hypotheses are exactly the conclusions of
+\noderef{RegularMatrixNormalization} established above for $B=A/k$.
+Thus this is an application of the proved permanent bound, not an appeal
+to a bibliographic citation.
+Multiply by $k^n>0$ and use the normalization and count identities:
+\[
+ M=\operatorname{per}(A)\ge k^n\frac{n!}{n^n}
+   =(k/n)^n n!.
+\]
+This last calculation is in $\mathbb R$, with positive denominator $n^n$.
+Both $M$ and the lower bound are nonnegative and finite. Apply the monotone
+map $\mathrm{ofReal}:\mathbb R\to\mathrm{ENNReal}$. For nonnegative real
+arguments it preserves finite products and powers; division by the
+positive real integer $n$ becomes division by its finite nonzero
+$\mathrm{ENNReal}$ cast. The natural casts of $k,n,n!$, and $M$ agree with
+their real casts followed by $\mathrm{ofReal}$. Consequently the resulting
+inequality is exactly the stated one, not merely a real-valued variant.
+\end{proof}

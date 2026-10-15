@@ -1,0 +1,75 @@
+\begin{lemma}[Simultaneous good-pair codegrees from set-image concentration]
+Let $G,F,H$ be graphs on a finite vertex set, $U,W,Z$ finite parts with
+$U,W$ disjoint and $|U|=|W|=m>0$, and let $\mu$ be a probability mass
+function on perfect matchings $f:U\to W$ of $G$ in the sense of
+\noderef{PerfectMatching}. Put $k=|Z|$. All scalar parameters are
+extended nonnegative reals. Suppose
+\[
+ (x/2)^2\leq(x-2\varepsilon)^2,\quad
+ (y/2)^2\leq(y-2\varepsilon)^2,\quad
+ (x+2\varepsilon)^2(y+2\varepsilon)^2+\zeta\leq(xy+\delta)^2.
+\]
+Suppose at most $3\varepsilon k^2$ ordered pairs $(z,z')\in Z^2$
+have their common-neighborhood size in $U$ for $F$ outside
+$[(x-2\varepsilon)^2m,(x+2\varepsilon)^2m]$, and at most
+$3\varepsilon k^2$ have their common-neighborhood size in $W$ for $H$
+outside $[(y-2\varepsilon)^2m,(y+2\varepsilon)^2m]$.
+Suppose also that for every $S\subseteq U,T\subseteq W$ of sizes at least
+$(x/2)^2m,(y/2)^2m$, respectively, the event
+\[
+ |S||T|/m-\zeta m\leq |\{u\in S:f(u)\in T\}|
+ \leq |S||T|/m+\zeta m
+\]
+has probability at least $1-c^m$.
+Then with probability at least $1-k^2c^m$, at most
+$6\varepsilon k^2$ ordered pairs of the copied right part of
+$A_f=\noderef{MatchingInducedGraph}(F,H,U,W,Z,f)$ have more than
+$(xy+\delta)^2m$ common neighbors in its copied left part.
+Diagonal ordered pairs are included in every count. Subtractions are
+truncated at zero.
+\end{lemma}
+\begin{proof}
+Let $B_F,B_H\subseteq Z^2$ be the two exceptional sets specified in the
+statement, and put $B=B_F\cup B_H$. Then
+$|B|\leq |B_F|+|B_H|\leq6\varepsilon k^2$.
+For each $(z,z')\notin B$, set
+\[
+ S=\{u\in U:F(u,z)\land F(u,z')\},\quad
+ T=\{w\in W:H(w,z)\land H(w,z')\}.
+\]
+Not being in either exceptional set gives both endpoints of each input
+codegree window, in particular
+\[
+ |S|\geq(x-2\varepsilon)^2m\geq(x/2)^2m,\quad
+ |T|\geq(y-2\varepsilon)^2m\geq(y/2)^2m.
+\]
+Thus the assumed concentration estimate applies to these very sets.
+The codegree identity of \noderef{MatchingInducedGraphIdentities} gives
+the explicit copied-graph equality
+\[
+ |N_{A_f}(\operatorname{inr}z)\cap N_{A_f}(\operatorname{inr}z')\cap L|
+ =|\{u\in U:(F(u,z)\land F(u,z'))\land
+                         (H(f(u),z)\land H(f(u),z'))\}|
+ =|\{u\in S:f(u)\in T\}|.
+\]
+On concentration success its upper bound is at most
+\[
+ |S||T|/m+\zeta m
+ \leq\bigl((x+2\varepsilon)^2(y+2\varepsilon)^2+\zeta\bigr)m
+ \leq(xy+\delta)^2m.
+\]
+The cancellation uses $m>0$; if an upper endpoint is infinite the
+inequality is still valid in extended arithmetic.
+
+There are at most $k^2$ good ordered pairs. For any event of probability
+at least $1-c^m$, its failure has probability at most $c^m$: this is
+automatic if $c^m\geq1$, and otherwise follows by taking complements
+in a probability space. Finite subadditivity therefore bounds the
+probability of any of these good-pair concentration failures by
+$k^2c^m$. Outside their union, each output pair whose codegree exceeds
+the target must belong to $B$. The bijection
+$(z,z')\mapsto(\operatorname{inr}z,\operatorname{inr}z')$ preserves the
+number of ordered pairs, so at most $|B|\leq6\varepsilon k^2$ output
+pairs offend. Taking complements proves the conclusion. No step removes
+diagonal pairs.
+\end{proof}

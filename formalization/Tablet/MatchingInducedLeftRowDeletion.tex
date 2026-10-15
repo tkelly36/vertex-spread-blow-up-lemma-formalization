@@ -1,0 +1,21 @@
+\begin{lemma}[Deleting one row from a near-equal super-regular pair]
+Let $G$ be a graph with disjoint finite parts $L,R$, let $x\in L$, let
+$m\geq1$, and suppose $|L|=m+1$ and $|R|\in\{m,m+1\}$.  Suppose $(L,R)$
+is $(\varepsilon,d)$-super-regular, $\varepsilon<\varepsilon'\leq1$,
+$d\leq1$, and
+\[
+ \varepsilon+2/m\leq\varepsilon',\qquad
+ \varepsilon+1/(\varepsilon'm)\leq\varepsilon'.
+\]
+Then the restriction of the same graph $G$ to the exact residual parts
+\[
+ (L\setminus\{x\},R)
+\]
+is $(\varepsilon',d)$-super-regular.  In particular the target density is unchanged.
+\end{lemma}
+\begin{proof}
+Write $L'=L\setminus\{x\}$.  Since $x\in L$, $|L'|=m$; the right part is literally the same $R$, not an isomorphic replacement.  Every vertex of $L'$ has exactly its old neighborhood in $R$, so its degree window remains valid after enlarging the error from $\varepsilon$ to $\varepsilon'$.  A vertex of $R$ loses at most the single neighbor $x$.  Its old degree differs from $d(m+1)$ by at most $\varepsilon(m+1)$, whereas its new target is $dm$.  Since $d,\varepsilon\leq1$, the total endpoint error is at most $\varepsilon m+2$, and the inequality $\varepsilon+2/m\leq\varepsilon'$ places the new degree in $[(d-\varepsilon')m,(d+\varepsilon')m]$.  This proves both degree sides.
+
+For regularity, take $U\subseteq L'$ and $Z\subseteq R$ with
+$|U|>\varepsilon'|L'|=\varepsilon'm$ and $|Z|>\varepsilon'|R|$.  Since $U\subseteq L$ and $\varepsilon'>\varepsilon$, the right threshold is already stronger than the old one.  On the left, the displayed strict inequality gives $|U|>\varepsilon'm>\varepsilon(m+1)$: indeed the second slack assumption implies $(\varepsilon'-\varepsilon)m\geq1/\varepsilon'\geq1$, and hence $\varepsilon'm\geq\varepsilon m+1\geq\varepsilon(m+1)$.  Thus the old $(\varepsilon,d)$-regularity applies directly to the very same pair $(U,Z)$.  Deleting the row removed no edge having one endpoint in $U\subseteq L'$ and the other in $Z$, so its pair density in the restricted graph is unchanged and lies in $[d-\varepsilon,d+\varepsilon]\subseteq[d-\varepsilon',d+\varepsilon']$.  This proves regularity and, with the two degree calculations, \noderef{SuperRegularPair} on the exact residual parts.
+\end{proof}

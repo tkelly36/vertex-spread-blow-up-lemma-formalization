@@ -1,0 +1,58 @@
+\begin{lemma}[Independent core thinning]
+Let $H$ be a finite simple graph on $V$, and let $U_0,W_0$
+be disjoint sets with $|U_0|,|W_0|\leq n$, where $n>0$.
+Let $0<d<1$ and $h>0$, and put $c=d^2/2$.
+Assume each core vertex has between $(d-3h)n$ and $(d+h)n$
+neighbors in the opposite core part in $H$, and
+\[
+|d_H(A,B)-d|<h/2\quad
+(A\subseteq U_0,\ B\subseteq W_0,\ |A|,|B|>hn).
+\]
+Suppose $4n e^{-2h^2n}<1/4$ and
+$2\,4^n e^{-2h^4n^2}<1/4$.
+There is a graph $F\subseteq H$ on $V$ whose edges all join
+$U_0$ to $W_0$, whose opposite-core degrees on both sides lie in
+$[(c-4h)n,(c+2h)n]$, and whose density on every such tested
+rectangle satisfies $|d_F(A,B)-c|\leq2h$.
+\end{lemma}
+\begin{proof}
+Set $p=c/d=d/2$, which is in $(0,1)$ because $0<d<1$.
+Index trials by the original $H$ edges oriented from $U_0$ to
+$W_0$. Use the finite Bernoulli product law with constant probability
+$p$ from \noderef{IndependentUnequalEdgeSampleLaw}. Its statement
+gives independent indicators with mean $p$ and centered
+subgaussian parameter $1/4$. Centering preserves independence.
+For each outcome, include successful edges in both orientations
+on $V$, and include no other edges. Thus $F\subseteq H$ is a
+simple graph on the same vertex set with the claimed support.
+
+For a core vertex the expected opposite-core degree lies between
+$p(d-3h)n=(c-3ph)n$ and $p(d+h)n=(c+ph)n$.
+Since $0<p<1$, these lie inside $[(c-3h)n,(c+h)n]$;
+these inequalities hold even if $d-3h$ is negative.
+There are at most $n$ edge trials per vertex. Apply
+\noderef{FiniteIndependentSubgaussianTail} with $N=n>0$ and
+$t=hn>0$. The degree bad event has probability at most
+$2e^{-2h^2n}$. There are at most $2n$ core vertices, so their
+union has probability at most $4ne^{-2h^2n}<1/4$.
+
+For a tested rectangle, $N=|A||B|>h^2n^2>0$ and its mean
+count is $p e_H(A,B)$. The assumed density bound gives mean
+density within $ph/2\leq h$ of $pd=c$.
+Apply \noderef{FiniteIndependentSubgaussianTail} with this $N$
+and $t=hN$. There are at most $N$ trials, so the rectangle bad
+event has probability at most
+$2e^{-2h^2N}\leq2e^{-2h^4n^2}$.
+The number of pairs of subsets is
+$2^{|U_0|+|W_0|}\leq4^n$, giving total probability at most
+$2\,4^n e^{-2h^4n^2}<1/4$.
+Combine both unions in this same product sample. Their total
+probability is less than $1/2$, so there is an outcome outside
+them. Its degrees are within $hn$ of their means, and hence
+lie in $[(c-4h)n,(c+2h)n]$. Its tested density differs from
+the mean density by at most $h$, so its error from $c$ is at
+most $h+h=2h$. Empty trial sets cause no problem because
+their centered sums vanish. The bounds use only the ambient
+$n$ and the displayed tail cutoffs, not the sizes of the core
+parts beyond their upper bounds.
+\end{proof}

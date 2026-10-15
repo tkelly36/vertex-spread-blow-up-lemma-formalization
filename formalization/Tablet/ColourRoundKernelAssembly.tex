@@ -1,0 +1,133 @@
+\begin{lemma}[Assembly of locally certified extension laws]
+Suppose $\mathcal I(t,S;X,\mu)$ of \noderef{ColourRoundInvariant}
+holds and $i\in c^{-1}(t)\setminus S$. Put $Y=X_i$ and let $X'$ be
+the source domain for the earlier colours and $S\cup\{i\}$.
+For every $f\in\operatorname{supp}(\mu)$ suppose there is a law
+$\nu_f$ on compatible partial embeddings of $Y$ for $A_f$, whose
+restriction to $Y$ is $C/n$-vertex-spread. Suppose that for every
+supported $g$ and every compatible lift $h$ on $X'$ agreeing with $f$
+on $X$ and $g$ on $Y$, each unembedded neighbour $j$ of $i$ has a
+contained spanning $(\varepsilon_{t+1},p_{e_j+1})$-super-regular
+witness in its true updated candidacy graph at $h$, on the exact
+unembedded source and unused host parts. Here
+$e_j=|N_R(j)\cap(\{k:c(k)<t\}\cup S)|$.
+Then there is a total kernel $\kappa$ from compatible embeddings on
+$X$ to laws on those on $X'$, agreeing with each supported input on
+$X$ and $C/n$-vertex-spread on $Y$, such that precisely
+$\mu\mathbin{\mathrm{bind}}\kappa$ satisfies
+$\mathcal I(t,S\cup\{i\};X',\mu\mathbin{\mathrm{bind}}\kappa)$.
+\end{lemma}
+\begin{proof}
+The domain description in \noderef{ColourRoundInvariant} gives
+$X'=X\cup Y$ and $X\cap Y=\varnothing$: a vertex in $Y$ has colour
+$t$ and its cluster $i$ is not in $S$. For each supported $f$, choose
+$\nu_f$ as in the hypothesis. For every local compatible embedding
+$g$, apply \noderef{ExtendUpdatedPartialEmbedding} on these disjoint
+domains to choose a compatible lift $e_f(g)$ on $X'$. It agrees with
+$f$ on $X$ and $g$ on $Y$. Set $K_f=(e_f)_*\nu_f$.
+Every supported member of $K_f$ is the image of a supported $g$;
+therefore it agrees with $f$ on $X$ and has all the asserted neighbour
+witnesses. Its restriction law on $Y$ equals the restriction law of
+$\nu_f$, so it is $C/n$-vertex-spread.
+
+The support of a probability mass function is nonempty. Choose a
+supported $f_0$, and set $\kappa(f)=K_f$ on the support of $\mu$ and
+$\kappa(f)=K_{f_0}$ elsewhere. This is a total kernel with the asserted
+support and conditional-spread properties. No new conditioning is
+performed. Inputs outside the old support have mass zero and contribute
+nothing to the defining bind law.
+
+We check every invariant clause for that law. Its round, degree and
+square-colouring clauses are inherited. Every vertex of $S\cup\{i\}$
+has colour $t$ by the old clause and the hypothesis on $i$; the domain
+clause is the definition of $X'$. Any supported output $h$ of the bind
+has some $f\in\operatorname{supp}(\mu)$ with
+$h\in\operatorname{supp}(\kappa(f))$.
+Fix a still unembedded $j$. By
+\noderef{ColourRoundUntouchedGeometry}, its touched-neighbour set in
+$S\cup\{i\}$ has size at most one. If $ij\in E(R)$, that set contains
+$i$, its exposure is exactly $e_j+1\le D$, and its witness error is
+$\varepsilon_{t+1}$. The local witness hypothesis, applied to the
+chosen supported $g$ and its lift $h$, supplies precisely this witness
+on the actual parts. If $ij\notin E(R)$, both its exposure and its
+touched-neighbour set are unchanged. Apply
+\noderef{UpdatedCandidacyNonneighborExtension}: cluster $j$ is
+disjoint from $X'$, $j\ne i$, the new domain is $X\cup Y$, and the
+lift agrees on $X$. It gives equality of the old and new true candidacy
+sets and equivalence of the unused source and host part conditions.
+Thus the old contained witness is still a witness, with exactly its old
+error. This treats both previously touched clusters, whose error is
+$\varepsilon_{t+1}$, and completely untouched clusters, whose error
+is $\varepsilon_t$; neither is asserted to have a smaller error.
+
+We verify joint spread directly for this same bind law. Write
+$\alpha=C/n$, $o(f)=f|_X$, $v(h)=h|_Y$, and
+$w(h)=h|_X\sqcup h|_Y$, a function on $X\sqcup Y$. For every
+$f\in\operatorname{supp}(\mu)$ and
+$h\in\operatorname{supp}(\kappa(f))$, the agreement on $X$ gives
+$w(h)=o(f)\sqcup v(h)$. No claim is made that the whole record $f$
+is determined by $o(f)$.
+
+Fix a cylinder $\operatorname{Cyl}(x,y)$ of
+\noderef{CylinderEvent}, where $x:[s]\to X\sqcup Y$ is injective
+and $y:[s]\to V(G)$ is arbitrary. Partition its index set as
+$L=\{\ell:x(\ell)\in X\}$ and
+$T=\{\ell:x(\ell)\in Y\}$, with membership understood in the
+respective summands. Put $a=|L|$ and $b=|T|$; then $a+b=s$.
+For $\ell\in L$ write $x(\ell)=\operatorname{inl}(x_L(\ell))$,
+and for $\ell\in T$ write
+$x(\ell)=\operatorname{inr}(x_T(\ell))$.
+Both $x_L$ and $x_T$ are injective, since $x$ is injective.
+Let
+\[
+ E_X=\{u:X\to V(G):u(x_L(\ell))=y(\ell)\text{ for all }\ell\in L\},
+ \qquad
+ E_Y=\{v:Y\to V(G):v(x_T(\ell))=y(\ell)\text{ for all }\ell\in T\}.
+\]
+Reindexing $L$ and $T$ by $[a]$ and $[b]$ makes these permitted
+cylinders. The old spread clause of
+\noderef{ColourRoundInvariant}, interpreted by
+\noderef{VertexSpreadOn}, gives
+$(o_*\mu)(E_X)\le\alpha^a$. The conditional spread already proved
+above gives $(v_*\kappa(f))(E_Y)\le\alpha^b$ for every supported
+$f$. These statements also cover $a=0$ or $b=0$.
+
+For a supported input-output pair, the identity for $w(h)$ implies
+\[
+ w(h)\in\operatorname{Cyl}(x,y)
+ \quad\Longleftrightarrow\quad o(f)\in E_X\text{ and }v(h)\in E_Y.
+\]
+In the sum defining the conditional event probability, every
+$h\notin\operatorname{supp}(\kappa(f))$ has weight zero. Therefore,
+for every supported $f$, this equivalence gives the exact identity
+\[
+ (w_*\kappa(f))(\operatorname{Cyl}(x,y))
+ =\boldsymbol1_{E_X}(o(f))\,(v_*\kappa(f))(E_Y)
+ \le\boldsymbol1_{E_X}(o(f))\,\alpha^b.
+\]
+Expand bind and pushforward using their probability mass sums.
+Inputs $f$ outside $\operatorname{supp}(\mu)$ again contribute zero,
+regardless of the filler kernel. Summing the displayed inequality over
+the full input records, not over their restrictions, yields
+\begin{align*}
+ (w_*(\mu\mathbin{\mathrm{bind}}\kappa))(\operatorname{Cyl}(x,y))
+ &=\sum_f\mu(f)\,(w_*\kappa(f))(\operatorname{Cyl}(x,y))\\
+ &\le\sum_f\mu(f)\,\boldsymbol1_{E_X}(o(f))\,\alpha^b\\
+ &=(o_*\mu)(E_X)\,\alpha^b
+ \le\alpha^a\alpha^b=\alpha^s.
+\end{align*}
+All sums and products are nonnegative extended-real ones, so this
+calculation uses no division or positive-event assumption. Together
+with $\alpha\le1$ from the old spread clause, it proves the full
+joint spread property on $X\sqcup Y$ in
+\noderef{VertexSpreadOn}.
+
+Finally send each vertex of $X'=X\cup Y$ to its summand in
+$X\sqcup Y$. This map is injective: forgetting the summand recovers
+the original vertex. Apply \noderef{VertexSpreadRestriction} to this
+injection with target set $U=V(G)$. Composing $w(h)$ with the injection
+gives exactly $h|_{X'}$, so functoriality of pushforward identifies the
+resulting law with the restriction of
+$\mu\mathbin{\mathrm{bind}}\kappa$ to $X'$.
+All the clauses of the required invariant now hold.
+\end{proof}

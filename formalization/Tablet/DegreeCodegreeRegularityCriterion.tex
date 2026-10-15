@@ -1,0 +1,53 @@
+\begin{lemma}[Degree--codegree criterion]
+Let $B=(U,W)$ be a balanced bipartite graph with $|U|=|W|=n$.  Let $0<\delta\le p\le1$, $0<\eta\le1$, $\delta n\ge1$, and suppose $\eta^5\ge20\delta$.  If all but at most $5\delta n^2$ ordered pairs $(w,w')\in W^2$ satisfy
+\[
+ \deg(w),\deg(w')\ge(p-\delta)n,
+ \qquad |N(w)\cap N(w')|\le(p+\delta)^2n,
+\]
+then $(U,W)$ is $(\eta,p)$-regular.
+\end{lemma}
+\begin{proof}
+Call an ordered pair exceptional when one of the three displayed inequalities fails, and let $E\subseteq W^2$ be the set of exceptional ordered pairs.  Thus $|E|\le5\delta n^2$.  Let
+\[
+ D=\{w\in W:\deg(w)<(p-\delta)n\},\qquad d=|D|.
+\]
+Every $w\in D$ makes all $n$ pairs $(w,w')$, $w'\in W$, exceptional.  These rows are disjoint, so $dn\le |E|\le5\delta n^2$.  The hypothesis $1\le\delta n$ implies $n>0$, and hence
+\[
+ d\le5\delta n.                                                   \tag{1}
+\]
+
+Fix $C\subseteq W$, put $c=|C|$, and put $r_u=|N(u)\cap C|$ for $u\in U$.  Expanding the square, double-counting edges using \noderef{FilteredProductRowCount}, and double-counting ordered length-two paths using \noderef{OrderedTwoPathCount} gives the exact identity
+\[
+ \sum_{u\in U}(r_u-pc)^2
+ =\sum_{w,w'\in C}|N(w)\cap N(w')|-2pc\sum_{w\in C}\deg(w)+p^2c^2n. \tag{2}
+\]
+For every nonexceptional pair in $C^2$ use the assumed codegree bound.  For an exceptional pair use the trivial bound $n$, charging this on top of the same nonnegative baseline.  Since $|E\cap C^2|\le5\delta n^2$, this gives
+\[
+ \sum_{w,w'\in C}|N(w)\cap N(w')|
+ \le c^2(p+\delta)^2n+5\delta n^3.                                \tag{3}
+\]
+This includes diagonal pairs: a nonexceptional diagonal satisfies the codegree hypothesis, while an exceptional diagonal is included in the exceptional-pair charge.
+
+At most $d$ vertices of $C$ lie in $D$, so the number of vertices of $C\setminus D$ is at least $c-d$. Since $(p-\delta)n\ge0$, summing their degree lower bounds gives
+\[
+ \sum_{w\in C}\deg(w)\ge(c-d)(p-\delta)n.                         \tag{4}
+\]
+This remains valid if $c-d<0$, since all degrees are nonnegative.
+Insert (3) and (4) into (2), expand $(p+\delta)^2$, and cancel the two positive copies of $p^2c^2n$ against the leading negative term.  This gives
+\begin{align*}
+ \sum_{u\in U}(r_u-pc)^2
+ &\le 4p\delta c^2n+\delta^2c^2n+5\delta n^3
+       +2p^2cdn-2pcd\delta n\\
+ &\le 4\delta n^3+\delta n^3+5\delta n^3+10\delta n^3\\
+ &\le20\delta n^3.                                                \tag{5}
+\end{align*}
+Indeed, $c\le n$ and $p\le1$ bound the first term by $4\delta n^3$; $\delta\le p\le1$ bounds the second by $\delta n^3$; and (1), $c\le n$, and $p\le1$ bound $2p^2cdn$ by $10\delta n^3$.  The last term in the first line is nonpositive, so discarding it is valid.  Thus every term in the expansion is accounted for. Equivalently, applying \noderef{BalancedDegreeVarianceBound} to (3) and to the weaker first-moment bound $(c-5\delta n)(p-\delta)n$ obtained from (1) and (4) gives (5).
+
+Now let $A\subseteq U$ and $C\subseteq W$ have $a=|A|>\eta n$ and $c>\eta n$. Cauchy--Schwarz on $A$ bounds the square of the sum by $a\sum_{u\in A}(r_u-pc)^2$. Since the summands are nonnegative and $A\subseteq U$, this square sum is at most the square sum over $U$. Applying (5) gives
+\[
+ |e(A,C)-pac|=\left|\sum_{u\in A}(r_u-pc)\right|
+ \le\sqrt{a\,20\delta n^3}
+ \le\sqrt{a\eta^5n^3}\le\eta ac.                                \tag{6}
+\]
+For the last inequality, square both sides and cancel $\eta^2a$; what remains is $\eta^3n^3\le ac^2$, which follows from $a,c>\eta n$. The edge count in (6) is the row sum by \noderef{FilteredProductRowCount}. Dividing (6) by $ac>0$ gives $p-\eta\le e(A,C)/(ac)\le p+\eta$ for every permitted $A,C$. The parameters are finite since $\delta\le p\le1$ and $\eta\le1$. Thus these real inequalities give the extended-nonnegative density inequalities in \noderef{RegularPair}; if $\eta>p$, the lower bound uses truncated subtraction and is just $0\le e(A,C)/(ac)$. This proves the assertion.
+\end{proof}

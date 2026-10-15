@@ -1,0 +1,29 @@
+\begin{lemma}[Transfer of neighborhood bounds to a codegree window]
+Let $\varepsilon,p,q\in[0,1]$, and let $k,a,c$ be nonnegative integers with $a\leq k$.
+Suppose
+\[
+ (p-\varepsilon)_+k\leq a\leq(p+\varepsilon)k,
+ \qquad(q-\varepsilon)_+a\leq c\leq(q+\varepsilon)a.
+\]
+Then $(pq-2\varepsilon)_+k\leq c\leq(pq+2\varepsilon)k$.
+The subscript $+$ denotes truncated subtraction, $(x-y)_+=\max\{x-y,0\}$.
+\end{lemma}
+\begin{proof}
+Multiplication of a truncated difference by a finite nonnegative integer distributes over truncated subtraction.
+Thus the two lower bounds give $pk\leq a+\varepsilon k$ and $qa\leq c+\varepsilon a$.
+Since $q\leq1$ and $a\leq k$, monotonicity and distributivity give
+\[
+ pqk=q(pk)\leq q(a+\varepsilon k)
+ =qa+q\varepsilon k\leq c+\varepsilon a+\varepsilon k
+ \leq c+2\varepsilon k.
+\]
+The defining order property of truncated subtraction yields $(pqk-2\varepsilon k)_+\leq c$; distributing the finite factor $k$ gives the required lower bound.
+For the upper bound,
+\[
+ c\leq(q+\varepsilon)a=qa+\varepsilon a
+ \leq q(p+\varepsilon)k+\varepsilon k
+ =pqk+q\varepsilon k+\varepsilon k
+ \leq(pq+2\varepsilon)k.
+\]
+No cancellation or division by a parameter occurs, so the argument includes zero values of every parameter and of $k$.
+\end{proof}

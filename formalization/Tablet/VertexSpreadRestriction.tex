@@ -1,0 +1,6 @@
+\begin{lemma}
+Let $e:X'\hookrightarrow X$ be an injection.  If $\mu$ is $q$-vertex-spread on $U\subseteq Y$, then the pushforward of $\mu$ under restriction $f\mapsto f\circ e$ is $q$-vertex-spread on $U$.
+\end{lemma}
+\begin{proof}
+The bound $q\leq1$ is inherited from \noderef{VertexSpreadOn}.  Fix $s$, an injective sequence $x:[s]\to X'$, and targets $y_i\in U$.  The composite $e\circ x:[s]\to X$ is injective because both $e$ and $x$ are injective.  By the definition of pushforward, the probability that the restricted function takes $x_i$ to $y_i$ for every $i$ equals the $\mu$-probability that the original function takes $e(x_i)$ to $y_i$ for every $i$.  The latter event is a permitted cylinder for $\mu$, so \noderef{VertexSpreadOn} bounds its probability by $q^s$.  This verifies every cylinder inequality required for the pushed-forward distribution.
+\end{proof}

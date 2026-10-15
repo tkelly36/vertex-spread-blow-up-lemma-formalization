@@ -1,0 +1,39 @@
+\begin{lemma}[Super-regular extraction parameters]
+Let $0<\eta,d<1$ be real. There are real $h,\gamma,\alpha,\varepsilon$
+and integers $l,M,n_0$ satisfying
+\[
+0<h\leq1/100,\quad h\leq(d^2/2)/100,\quad h\leq\eta^2/1000,
+\quad3h<\eta,\quad4h<\eta,\quad2h+4h/\eta<\eta;
+\]
+\[
+0<\gamma\leq1,\quad0<\alpha\leq\gamma,\quad\alpha\leq\gamma^2,
+\quad0<\varepsilon<\eta,\quad\varepsilon M<\gamma;
+\]
+\[
+1\leq l\leq M,\quad\operatorname{SzemerediRegularity.bound}(\alpha,l)\leq M,
+\quad1\leq n_0,\quad M\leq n_0,
+\quad2\alpha+(6\gamma+9\alpha+6/l)/h^2<h/4.
+\]
+For every integer $n\geq n_0$, $hn\geq1$ and the four expressions
+\[
+4n e^{-(d^2/2)^2n/8},\quad2\,4^n e^{-h^4n^2/8},\quad
+4n e^{-2h^2n},\quad2\,4^n e^{-2h^4n^2}
+\]
+are each less than $1/4$. All choices depend only on $\eta,d$.
+\end{lemma}
+\begin{proof}
+Put $\theta=\min\{\eta,(d^2/2)/100,\eta^2/1000\}>0$;
+then $\theta\leq\eta<1$. Apply \noderef{RegularExtractionParameters}
+with $\theta$. Its statement supplies $h<\theta$, $h\leq1/100$,
+the displayed positive $\gamma,\alpha,\varepsilon$, the bounds on
+$l,M$, and the expectation margin. In particular
+$\varepsilon<\theta\leq\eta$, $h\leq(d^2/2)/100$, and
+$h\leq\eta^2/1000$. Since $\eta^2\leq\eta$, these imply
+$3h<\eta$ and $4h<\eta$. Division by $\eta>0$ gives
+$4h/\eta\leq4\eta/1000$ and $2h\leq2\eta/1000$, so
+$2h+4h/\eta\leq6\eta/1000<\eta$.
+Discard the preliminary order cutoff from that application and apply
+\noderef{ExtractionTailCutoffs} with $c=d^2/2>0$, the chosen $h>0$,
+and $M$. Its statement gives the required $n_0$, all four strict tail
+bounds, and $hn\geq1$. No parameter is chosen from graph data.
+\end{proof}

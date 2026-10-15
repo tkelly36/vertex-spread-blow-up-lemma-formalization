@@ -1,0 +1,26 @@
+\begin{lemma}[Proper colouring of the reduced square]
+Let $R$ be a finite simple graph of maximum degree at most $D$.  There are
+$q\leq D^2+1$ nonempty available colours and a map
+$c:V(R)\to[q]$ such that distinct vertices at distance at most two in $R$
+receive different colours.  Consequently, vertices in one colour class are
+nonadjacent and have pairwise disjoint $R$-neighbourhoods.
+\end{lemma}
+\begin{proof}
+Form the square graph $S$ on $V(R)$ by joining two distinct vertices when
+they are adjacent in $R$ or have a common neighbour in $R$.  Fix $v$.
+There are at most $D$ neighbours of $v$ in $R$.  For each such neighbour
+$u$, there are at most $D-1$ vertices other than $v$ adjacent to $u$.
+Every neighbour of $v$ in $S$ is either one of the first set or belongs to
+one of the latter sets.  Hence
+$\deg_S(v)\leq D+D(D-1)=D^2$.  (Repeated vertices only decrease the size of
+the union.)
+
+Order the finite vertex set arbitrarily and colour it greedily.  When a
+vertex is reached, at most $D^2$ colours have appeared on its already
+coloured $S$-neighbours, so one of $D^2+1$ colours remains available.
+Taking $q=D^2+1$ (which is positive) proves the asserted map and bound.
+If two same-coloured vertices were adjacent in $R$, they would be adjacent
+in $S$; if their $R$-neighbourhoods met, their common neighbour would again
+make them adjacent in $S$.  Both contradict properness, proving the final
+consequences.
+\end{proof}

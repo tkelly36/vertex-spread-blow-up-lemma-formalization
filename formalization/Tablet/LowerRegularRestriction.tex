@@ -1,0 +1,19 @@
+\begin{lemma}[Threshold transfer to restricted parts]
+Let $(U,W)$ in $G$ be lower $(\varepsilon,d)$-regular,
+$U'\subseteq U$, $W'\subseteq W$, and $\varepsilon\leq\theta$.
+Assume $\varepsilon|U|\leq\theta|U'|$ and
+$\varepsilon|W|\leq\theta|W'|$. Then $(U',W')$ is lower
+$(\theta,d)$-regular. The parameters may be extended nonnegative
+reals and all subtraction is truncated.
+\end{lemma}
+\begin{proof}
+For any $S\subseteq U'$, $T\subseteq W'$ above the strict
+$\theta$ thresholds, the assumptions imply
+$|S|>\varepsilon|U|$ and $|T|>\varepsilon|W|$.
+Apply the definition in \noderef{LowerRegularPair} to these sets
+inside $U,W$. It gives density at least $d-\varepsilon$.
+Monotonicity of truncated subtraction and $\varepsilon\leq\theta$
+give $d-\theta\leq d-\varepsilon$, proving the required lower bound.
+This proof makes no positivity, finiteness, or nonempty-set assumption
+beyond the displayed strict tests.
+\end{proof}

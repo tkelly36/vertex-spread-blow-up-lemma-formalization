@@ -1,0 +1,54 @@
+\begin{lemma}[Two hypergeometric tails]
+For $n>0$, $s,t\le n$, and a positive real number $\eta$, put $m=st/n$.
+The masses of \noderef{HypergeometricMass} satisfy
+\[
+ \sum_{\substack{0\le x\le n\\|x-m|>\eta n}} H(n,s,t,x)
+ \le2\exp\left(-{\eta^2n\over2(1+\eta/3)}\right).
+\]
+\end{lemma}
+\begin{proof}
+All masses are nonnegative, since their binomial coefficients are
+nonnegative and $\binom n s>0$. Put $u=\eta n>0$ and first assume $m>0$.
+For $\lambda>0$ and $x\ge m+u$,
+$1\le e^{\lambda(x-m-u)}$. Multiply by the mass and sum; enlarging to all
+$0\le x\le n$ preserves the inequality. By
+\noderef{HypergeometricExponentialMoment} this yields
+\[
+ \sum_{x\ge m+u}H(n,s,t,x)
+ \le \exp(m(e^\lambda-1-\lambda)-\lambda u).
+\]
+Here and below sums are restricted to $0\le x\le n$.
+Take $\lambda=\log(1+u/m)>0$. The exponent becomes $-mh(u/m)$, where
+$h(z)=(1+z)\log(1+z)-z$. For $z\ge0$,
+\[
+ h(z)\ge {z^2\over2(1+z/3)}.
+\]
+Indeed the difference has value and derivative zero at zero, and second
+derivative $1/(1+z)-27/(z+3)^3\ge0$, because
+$(z+3)^3-27(z+1)=z^3+9z^2\ge0$. Integrating the second derivative from
+zero, then the first derivative, proves the inequality. Thus the upper
+tail is at most $e^{-u^2/(2(m+u/3))}$.
+
+For $\lambda<0$ and $x\le m-u$, one has
+$1\le e^{\lambda(x-m+u)}$. Multiplying by the mass and enlarging the
+sum to all $x$, the same cited moment lemma bounds the
+lower tail by $\exp(m(e^\lambda-1-\lambda)-\lambda(-u))$.
+For $\lambda\le0$ one has $e^\lambda-1-\lambda\le\lambda^2/2$:
+the difference $q(\lambda)=\lambda^2/2-e^\lambda+1+\lambda$ has
+$q(0)=q'(0)=0$ and $q''(\lambda)=1-e^\lambda\ge0$ on this half-line.
+Integration towards zero gives $q'(\lambda)\le0$ and $q(\lambda)\ge0$.
+Choosing $\lambda=-u/m$ therefore bounds the lower tail by
+$e^{-u^2/(2m)}$.
+
+Since $s,t\le n$, $m\le n$ and $m+u/3\le n(1+\eta/3)$.
+The upper bound is at most $\exp(-\eta^2n/(2(1+\eta/3)))$;
+the lower bound is at most $\exp(-\eta^2n/2)$, which is no larger.
+The strict deviation event is contained in the union of these two
+non-strict tails, so summing their bounds gives the assertion.
+
+If $m=0$, positivity of $n$ implies $s=0$ or $t=0$.
+From \noderef{HypergeometricMass}, if $s=0$ only $x=0$ has nonzero mass;
+if $t=0$ the coefficient $\binom0x$ excludes every $x>0$.
+In either case the mass at zero is one and $m=0$. The strict deviation
+sum is therefore zero, proving the assertion in this case as well.
+\end{proof}

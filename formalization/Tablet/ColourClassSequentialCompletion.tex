@@ -1,0 +1,100 @@
+\begin{lemma}[Sequential completion of a colour class]
+Let $B$ be a blow-up instance with finite source and host vertex sets $V_H,V_G$,
+candidacy system $A$, and reduced graph $R$ on $[r]$.  Fix a colouring
+$c:[r]\to[q]$, sequences $\varepsilon,p:\mathbb N\to[0,\infty]$, a degree
+bound $D\in\mathbb N$, $C\in[0,\infty]$, and $n,t\in\mathbb N$.
+Write $\mathcal E(Z)$ for the compatible partial embeddings with domain $Z$,
+$B_t=\{j:c(j)=t\}$, and
+\[
+ X(t,T)=\{x\in V_H:c(B.\mathrm{sourceCluster}(x))<t
+                     \text{ or }B.\mathrm{sourceCluster}(x)\in T\}.
+\]
+Use the invariant $\mathcal I(t,T;Z,\nu)$ of
+\noderef{ColourRoundInvariant}, with parameters $(\varepsilon,p,D,C,n)$.
+Assume the following one-cluster transition for every finite $T\subseteq[r]$,
+finite $Z\subseteq V_H$, and specified law $\nu$ on $\mathcal E(Z)$:
+if $T\subseteq B_t$ and $\mathcal I(t,T;Z,\nu)$ holds, then for every
+$i\in B_t\setminus T$, setting $Z'=X(t,T\cup\{i\})$ and
+$Y_i=\{x:B.\mathrm{sourceCluster}(x)=i\}$, there is a probability kernel
+$\kappa:\mathcal E(Z)\to\operatorname{PMF}(\mathcal E(Z'))$ such that
+\begin{enumerate}
+\item for every $f\in\operatorname{supp}\nu$, every
+$h\in\operatorname{supp}\kappa(f)$, and every $x\in Z$, $h(x)=f(x)$;
+\item for each $f\in\operatorname{supp}\nu$, the restriction to $Y_i$ of the
+law $\kappa(f)$ is $(C/n)$-vertex-spread on the entire host vertex set;
+\item $\mathcal I(t,T\cup\{i\};Z',\nu\mathbin{\mathrm{bind}}\kappa)$ holds
+for the actual bound law.
+\end{enumerate}
+Then, for every $S\subseteq B_t$, finite $X\subseteq V_H$, and specified
+law $\mu$ on $\mathcal E(X)$ satisfying $\mathcal I(t,S;X,\mu)$,
+there is a kernel
+$K:\mathcal E(X)\to\operatorname{PMF}(\mathcal E(X(t,B_t)))$ such that
+every supported output of $K(f)$ agrees with $f$ on $X$ whenever
+$f\in\operatorname{supp}\mu$, and
+\[
+ \mathcal I(t,B_t;X(t,B_t),\mu\mathbin{\mathrm{bind}}K).
+\]
+In particular this completed law is $(C/n)$-vertex-spread.
+\end{lemma}
+\begin{proof}
+This is the finite sequential control argument in
+\texttt{paper/r2-colour-round-addendum.tex}, lines 241--271 and 333--341.
+All invariants in this proof have the same round $t$; no new round is created.
+By \noderef{ColourRoundInvariant}, the starting domain is exactly $X(t,S)$,
+and the law's spread clause is the restriction-law bound of
+\noderef{VertexSpreadOn}.  Maps and their restrictions are interpreted as in
+\noderef{PartialCompatibleEmbedding}.
+
+Induct on the finite remaining set $F=B_t\setminus S$, equivalently on
+$|F|$, with the induction assertion quantified over all $S,X,\mu$ satisfying
+the stated assumptions.  If $F$ is empty, $S=B_t$ since $S\subseteq B_t$.
+The domain clause gives $X=X(t,B_t)$.  Identify the two partial-embedding
+types using this equality, without changing any map.  Let $K(f)$ be the
+point mass at $f$ under this identification.  Binding $\mu$ to these point
+masses is precisely $\mu$ under the same domain identification, so its
+invariant is the given one and map preservation is immediate.  This also
+covers an empty colour class.  No transition is invoked in this case.
+
+If $F$ is nonempty, choose $i\in F$.  Then $c(i)=t$ and $i\notin S$,
+so apply the stated transition to the actual current law $\mu$.  Retain
+its kernel $\kappa$, put $S_1=S\cup\{i\}$, $X_1=X(t,S_1)$, and put
+$\mu_1=\mu\mathbin{\mathrm{bind}}\kappa$.
+The transition supplies $\mathcal I(t,S_1;X_1,\mu_1)$, as well as preservation
+of $X$ and the conditional spread of the new cluster for every supported
+past outcome.  Since $i\in B_t\setminus S$, $S_1\subseteq B_t$ and
+$B_t\setminus S_1=(B_t\setminus S)\setminus\{i\}$ has cardinality
+$|F|-1$.  The induction hypothesis applied to this specified $\mu_1$
+therefore gives a kernel $L$ from $\mathcal E(X_1)$ to
+$\mathcal E(X(t,B_t))$, preserving every supported input on $X_1$, and
+\[
+ \mathcal I(t,B_t;X(t,B_t),\mu_1\mathbin{\mathrm{bind}}L).
+\]
+Define $K(f)=\kappa(f)\mathbin{\mathrm{bind}}L$ for every input $f$, including
+inputs outside $\operatorname{supp}\mu$; no properties are required there.
+The probability law of this composite kernel satisfies
+\[
+ \mu\mathbin{\mathrm{bind}}K
+   =(\mu\mathbin{\mathrm{bind}}\kappa)\mathbin{\mathrm{bind}}L
+   =\mu_1\mathbin{\mathrm{bind}}L.
+\]
+Indeed, the mass of an output $h$ on either side is
+$\sum_f\sum_g\mu(f)\kappa(f)(g)L(g)(h)$; reassociation of the nonnegative
+probability sums proves the equality.  Thus the final invariant is for
+the recursively bound law, not for a newly chosen unrelated law.
+
+To check preservation, fix $f\in\operatorname{supp}\mu$ and
+$h\in\operatorname{supp}K(f)$.  The bind mass formula gives some
+$g\in\operatorname{supp}\kappa(f)$ with $h\in\operatorname{supp}L(g)$:
+a positive nonnegative sum has a positive summand, and a positive product
+has positive factors.  The same formula, using the positive masses
+$\mu(f)$ and $\kappa(f)(g)$, shows $g\in\operatorname{supp}\mu_1$.
+Also $X\subseteq X_1$, because $X=X(t,S)$ and $S\subseteq S_1$.
+For $x\in X$, preservation for $L$ and then for $\kappa$ gives
+$h(x)=g(x)=f(x)$.  This proves the asserted preservation for $K$ and completes
+the finite induction.  At each stage the spread clause is supplied for that
+stage's bound law by the transition and retained by the induction hypothesis;
+unfolding \noderef{ColourRoundInvariant} gives the final spread conclusion.
+The conditional new-cluster bounds are those of the successive kernels
+conditional on their actual past outcomes.  No conditioning on a global
+success event, and no multiplication by a class-size-dependent loss, occurs.
+\end{proof}

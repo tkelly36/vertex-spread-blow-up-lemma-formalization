@@ -1,0 +1,80 @@
+\begin{lemma}
+Let $B$ be a finite blow-up instance with source $H$, host $G$, reduced graph
+$R$ on $[r]$, and candidacy system $A$. Fix $X\subseteq V(H)$ and a law
+$\mu$ on partial compatible embeddings with domain $X$. Suppose the law of
+their restrictions to $X$ is $q$-vertex-spread on all of $V(G)$.
+For every $f$ with $\mu(f)\ne0$, put
+$Y=V(H)\setminus X$ and $W_f=V(G)\setminus f(X)$. Suppose there are a
+blow-up instance $B_f$ on the induced graphs $H[Y],G[W_f]$ with reduced
+graph $R$, and a candidacy system $A_f$, whose cluster maps are exactly the
+restrictions of the original maps, and such that
+\[
+ A_f(y,v)\quad\Longleftrightarrow\quad
+ (\mathrm{UpdatedCandidacy}(B,A,X,f))(y,v).
+\]
+Suppose moreover that each such residual instance has a law on compatible
+full embeddings $H[Y]\hookrightarrow G[W_f]$ that is $q$-vertex-spread
+on all of $W_f$. Then there is a $q$-vertex-spread law on compatible full
+embeddings $H\hookrightarrow G$.
+\end{lemma}
+\begin{proof}
+Use the meanings of partial compatibility, updated candidacy and full
+compatibility in \noderef{PartialCompatibleEmbedding},
+\noderef{UpdatedCandidacy} and \noderef{CompatibleEmbedding} throughout.
+Restrict $\mu$ to its positive-mass support; this changes neither total mass
+nor any event probability. For each supported $f$, choose one of the residual
+instances and one residual law $\nu_f$ from the hypothesis. The choices are
+made separately; no uniqueness of residual instances or total partial maps
+is asserted. Given a sample $g$ from $\nu_f$, define
+\[
+ F_{f,g}(x)=\begin{cases}f(x)&x\in X,\\g(x)&x\notin X,\end{cases}
+\]
+where the latter value is included from the literal complement $W_f$ into
+$V(G)$. The first block is injective by partial compatibility and the second
+by the definition of a graph Copy. Their images are disjoint, since the
+second lies outside $f(X)$. Thus $F_{f,g}$ is injective.
+Edges with both endpoints in $X$ are preserved by $f$, and edges with both
+endpoints in $Y$ by $g$ and the definition of induced graph. For a crossing
+edge $xy$ with $x\in X,y\in Y$, compatibility of $g$ and the stipulated
+updated-candidacy equivalence imply $G(F_{f,g}(y),f(x))$. Symmetry supplies
+the other orientation. Hence all edges are preserved. Original candidacy
+holds on $X$ by partial compatibility. On $Y$ it follows from the original
+candidacy conjunct of updated candidacy. Consequently $F_{f,g}$ is a
+compatible full Copy for every sample in these laws, not only almost surely.
+
+Mix these laws with weights $\mu(f)$ on supported $f$, obtaining a law on
+compatible full Copies. This is a probability law because each conditional
+law has mass one and $\sum_{f:\mu(f)\ne0}\mu(f)=1$. This support-indexed
+mixture avoids assigning residual laws to impossible states. Equivalently,
+one can extend the resulting full-Copy kernel arbitrarily to zero-mass
+states using any supported state's law; their contributions are zero.
+There is a supported state because a probability law has total mass one.
+
+Here is the joint-cylinder calculation, including the dependence on $f$.
+Use \noderef{CylinderEvent} and \noderef{VertexSpreadOn}. Fix distinct
+sources $x_1,\ldots,x_s$ and targets $v_1,\ldots,v_s\in V(G)$, and split
+their index set into $I=\{i:x_i\in X\}$ and its complement $J$.
+Write $a=|I|$, $b=|J|$, so $a+b=s$. Let $E_X$ be the event that
+$f(x_i)=v_i$ for every $i\in I$. Its probability is at most $q^a$ by the
+given spread law on restrictions to $X$; reindexing $I$ by $[a]$ preserves
+distinctness. For a fixed supported $f$, if any target $v_j$, $j\in J$,
+does not belong to $W_f$, the conditional joint-cylinder probability is
+zero. Otherwise regard all these targets as elements of $W_f$. Distinctness
+of the corresponding sources in $Y$ allows the residual spread bound,
+so their conditional cylinder probability is at most $q^b$.
+If $f\notin E_X$ the joint cylinder is impossible. Therefore its probability
+under the mixture is at most
+\[
+ \sum_{f:\mu(f)\ne0}\mu(f)\mathbf1_{E_X}(f)q^b
+ =\Pr_\mu(E_X)q^b\leq q^a q^b=q^s.
+\]
+All sums are of nonnegative terms, so grouping and multiplying them is valid;
+the function space is finite as well. Zero-mass states contribute zero even
+when distinct total partial maps have the same restriction to $X$. No
+identification of those maps or unjustified conditioning is used. This is
+the support-indexed bind version of the cylinder argument in
+\noderef{VertexSpreadSequential}. The hypothesis on the first-stage law
+also supplies $q\leq1$, including for empty source types. Packaging the
+glued maps as Copies and compatible subtypes does not change their values
+or cylinder probabilities. The required spread assertion follows.
+\end{proof}

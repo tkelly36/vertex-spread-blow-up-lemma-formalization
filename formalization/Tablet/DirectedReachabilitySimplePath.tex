@@ -1,0 +1,27 @@
+\begin{lemma}[Removing repetitions from a directed residual walk]
+Let $R$ be a directed relation on a type $V$, and let $a\ne b$.
+If $b$ is reachable from $a$ by a finite sequence of $R$-steps
+(allowing the length-zero sequence), then there exist $n>0$ and an
+injective sequence $p:\{0,\ldots,n\}\to V$ with $p(0)=a$,
+$p(n)=b$, and $R(p(i),p(i+1))$ for every $0\le i<n$.
+No symmetry of $R$ is assumed.
+\end{lemma}
+\begin{proof}
+We first show by induction on a finite directed walk that its endpoints
+can be joined by a list with no repeated vertices. A length-zero walk
+at $b$ gives the singleton list $[b]$. For the induction step, suppose
+the first step is from $c$ to $d$, and a repetition-free list from $d$
+to $b$ has already been obtained. If $c$ does not occur in that list,
+prepend $c$. The new first step is the given directed step, all later
+steps are unchanged, and no repetition is introduced. If $c$ occurs,
+write the list as a prefix followed by $c$ and a suffix. Discard the
+prefix and retain the list starting at that occurrence of $c$.
+Its last vertex is still $b$, its steps are original directed steps,
+and it remains repetition-free. This completes the induction.
+Apply this construction to the walk from $a$ to $b$. Its list is
+nonempty and cannot be a singleton, since its endpoints are distinct.
+Write its length as $n+1$, with $n>0$, and let $p(i)$ be its vertex
+at index $i$. The absence of repetitions gives injectivity, and the
+list's first vertex, last vertex, and adjacent-step conditions give
+the asserted endpoint and directed-step identities.
+\end{proof}

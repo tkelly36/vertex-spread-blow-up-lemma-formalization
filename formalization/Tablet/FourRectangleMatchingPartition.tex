@@ -1,0 +1,55 @@
+\begin{lemma}[The canonical four-rectangle partition]
+Let $U,W$ be finite sets of size $n$, let $S\subseteq U$ and
+$T\subseteq W$, and let $F$ map $U$ bijectively onto $W$.
+Suppose $|\{u\in S:F(u)\in T\}|=x$. Define
+\[
+ A=\{u\in S:F(u)\in T\},\quad B=F(A),\quad
+ C=F(S\setminus A),\quad E=\{u\in U:F(u)\in T\setminus B\}.
+\]
+Then $A,B,C,E$ belong, respectively, to the families of subsets of
+$S,T,W\setminus T,U\setminus S$ of sizes $x,x,|S|-x,|T|-x$.
+Moreover,
+\[
+ F(E)=T\setminus B,\qquad
+ F(U\setminus(S\cup E))=W\setminus(T\cup C).
+\]
+The orders of $S\setminus A$ and $T\setminus B$ are $|S|-x$ and
+$|T|-x$, respectively. Both $U\setminus(S\cup E)$ and
+$W\setminus(T\cup C)$ have order $n-|S|-(|T|-x)$.
+Finally, the unions of the four left and four right parts are exactly
+$U$ and $W$:
+\[
+ A\cup(S\setminus A)\cup E\cup(U\setminus(S\cup E))=U,
+ \qquad
+ B\cup C\cup(T\setminus B)\cup(W\setminus(T\cup C))=W.
+\]
+\end{lemma}
+\begin{proof}
+The definition gives $A\subseteq S$, $|A|=x$, and $B\subseteq T$.
+Injectivity of $F$ on $U$ gives $|B|=x$ and
+$|C|=|S\setminus A|=|S|-x$. If $u\in S\setminus A$, then
+$F(u)\in W$ but $F(u)\notin T$, since otherwise $u\in A$.
+Thus $C\subseteq W\setminus T$.
+
+If $u\in E\cap S$, then $F(u)\in T$ implies $u\in A$, and
+hence $F(u)\in B$, contradicting the definition of $E$.
+Consequently $E\subseteq U\setminus S$. Every element of $F(E)$
+lies in $T\setminus B$ by definition. Conversely, each
+$w\in T\setminus B$ has a preimage $u\in U$ because $F$ maps $U$
+onto $W$, and that preimage belongs to $E$. Therefore
+$F(E)=T\setminus B$. Injectivity now gives
+$|E|=|T\setminus B|=|T|-x$.
+
+We have $F(S)=B\cup C$, and therefore
+$F(S\cup E)=B\cup C\cup(T\setminus B)=T\cup C$.
+Since $F$ is injective on $U$ and maps $U$ onto $W$, taking complements
+inside these parts gives
+$F(U\setminus(S\cup E))=W\setminus(T\cup C)$.
+The disjointness of $S$ and $E$ gives
+$|U\setminus(S\cup E)|=n-|S|-(|T|-x)$; injectivity gives the
+same order for its image. The first union identity follows from
+$A\cup(S\setminus A)=S$ and $S\cup E\subseteq U$.
+For the second, $B\cup C\cup(T\setminus B)=T\cup C\subseteq W$,
+so adjoining its complement in $W$ gives $W$. These arguments also
+apply when any of the sets is empty.
+\end{proof}

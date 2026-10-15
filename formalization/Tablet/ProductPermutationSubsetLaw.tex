@@ -1,0 +1,32 @@
+\begin{lemma}[Subset marginals of product permutations]
+Let $I$ be a finite set, let $F_i$ be finite sets for $i\in I$, and put
+$\Omega=\prod_{j\in I}\operatorname{Sym}(F_j)$. Fix $i\in I$, a subset
+$S\subseteq F_i$, and any predicate $P$ on subsets of $F_i$. Then
+\[
+ \frac{|\{\omega\in\Omega:P(\omega_i(S))\}|}{|\Omega|}
+ =\frac{|\{U\subseteq F_i:|U|=|S|,\ P(U)\}|}
+ {|\{U\subseteq F_i:|U|=|S|\}|}.
+\]
+In particular, the image of $S$ under the $i$th coordinate of a uniform
+product permutation is a uniform subset of its prescribed size.
+\end{lemma}
+\begin{proof}
+Write $b(\omega)=\omega_i(S)$ and let $K$ be the family of $|S|$-subsets
+of $F_i$. Every $b(\omega)$ belongs to $K$. Put
+$c=|\{\omega:b(\omega)=S\}|$, which is positive because the identity
+permutation in every coordinate is one such outcome.
+For $U\in K$, choose a bijection from $S$ onto $U$. Since their
+complements in the same finite set have equal size as well, extend it
+to a permutation $\pi$ of $F_i$. Thus $\pi(S)=U$.
+Postcomposition with $\pi$ in coordinate $i$, leaving all other
+coordinates unchanged, defines a bijection $\tau$ of $\Omega$;
+its inverse postcomposes that coordinate with $\pi^{-1}$.
+It satisfies $b(\tau\omega)=\pi(b(\omega))$. Injectivity of $\pi$
+therefore gives $b(\tau\omega)=U$ if and only if $b(\omega)=S$.
+Consequently every fiber of $b$ over $K$ has exactly $c$ elements.
+Counting all fibers gives $|\Omega|=|K|c$, and counting the fibers
+over those $U$ satisfying $P$ gives $|\{\omega:P(b(\omega))\}|=
+|\{U\in K:P(U)\}|c$. Division and cancellation of $c>0$ prove the
+identity. Both denominators are positive, since $S\in K$ and
+$\Omega$ contains the identity outcome.
+\end{proof}

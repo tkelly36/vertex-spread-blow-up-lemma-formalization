@@ -1,0 +1,9 @@
+\begin{definition}
+Let $W_1,W_2$ be disjoint finite vertex sets, let $F'_{12}$ be a graph, and let $K$ be a finite family of arbitrary finite vertex sets $W_3^k$.  For each $k\in K$, let $F_{13}^k$ and $F_{23}^k$ be graphs, and fix errors $\varepsilon_k$ and densities $d_{13}^k,d_{23}^k$.  The simultaneous good-edge graph is the graph supported on $(W_1,W_2)$ in which, for $x\in W_1$ and $v\in W_2$, $xv$ is an edge exactly when it is an edge of $F'_{12}$ and, simultaneously for every $k\in K$,
+\[
+ (d_{13}^kd_{23}^k-2\varepsilon_k)|W_3^k|\leq
+ |N_{F_{13}^k}(x)\cap N_{F_{23}^k}(v)\cap W_3^k|
+ \leq(d_{13}^kd_{23}^k+2\varepsilon_k)|W_3^k|.
+\]
+There are no other edges.  Disjointness ensures that this definition cannot acquire an edge by testing the displayed condition with the two endpoint roles reversed.  This is the graph denoted $F_{12}$ in the equal-size induction step of the paper; the equal-size applications additionally assume $|W_1|=|W_2|=|W_3^k|=n$.
+\end{definition}

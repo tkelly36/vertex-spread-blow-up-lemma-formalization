@@ -1,0 +1,76 @@
+\begin{lemma}[Quantitative spanning super-regular thinning]
+Let $0<\beta<\eta$, $0<\rho<D\leq1$, and $\xi>0$. Put $\lambda=\rho/D$ and assume
+\[
+4(\lambda\beta+\xi)\leq\eta\quad\text{and}\quad 10\eta<\rho.
+\]
+There is $n_0$ such that the following holds. If $L,R$ are disjoint, both have size at least $n_0$, their sizes differ by at most one, and $G[L,R]$ is $(\beta,D)$-super-regular in the sense of \noderef{SuperRegularPair}, then $G$ contains a spanning subgraph $G'$ for which $G'[L,R]$ is $(\eta,\rho)$-super-regular.
+\end{lemma}
+\begin{proof}
+First apply \noderef{ThinningRealParameters}: all parameters are finite. Indeed $D\leq1$, $\rho<D$,
+$\eta\leq10\eta<\rho$, and $\beta<\eta$ establish finiteness of
+$D,\rho,\eta,\beta$. Also
+$\xi\leq\lambda\beta+\xi\leq4(\lambda\beta+\xi)\leq\eta$ establishes
+finiteness of $\xi$. Positivity and finiteness permit real conversions
+throughout the following argument. Put $q=\rho/D$ in the real numbers;
+then $0<q<1$, $qD=\rho$, and the budget hypothesis gives
+$q\beta+\xi\leq\eta/4\leq\eta$. Also $\beta<\eta<\rho<D$.
+
+Apply \noderef{NearEqualRetentionThreshold} with the positive real
+conversions of $\xi,\eta$ to choose $n_0\geq1$, before choosing any
+vertex type or graph. On a graph with admissible parts, use
+\noderef{IndependentEdgeSample} on $V\times V$ with probability $q$.
+This is one probability measure by \noderef{IndependentUnequalEdgeSampleLaw}
+specialized to the constant coordinate probabilities $q_i=q$.
+By \noderef{RetentionBadEventUnion}, the event failing
+\noderef{RetentionCountControl} has measure at most
+\[
+\operatorname{ofReal}\bigl(
+2(|L|+|R|)e^{-2\xi^2\min(|L|,|R|)}
++2\,2^{|L|+|R|}e^{-2\xi^2\eta^2|L||R|}\bigr)<1.
+\]
+The strict inequality is the chosen numerical threshold and uses both
+near-equal inequalities. If no outcome had count control, this failure
+event would be the whole sample space and have measure one, a
+contradiction. Choose an outcome $\omega$ with count control, and set
+$G'=G_\omega$ using \noderef{CrossEdgeRetention}. This graph has the
+original vertex set. By \noderef{CrossEdgeRetentionCounts} it is
+contained in $G$, and its rectangle and degree counts are exactly
+the retained coordinate counts tested in count control.
+
+For $v\in L$ take $m=|R|$, $a=\deg_G(v;R)$ and
+$b=\deg_{G'}(v;R)$. The original super-regularity hypothesis supplies
+$(D-\beta)m\leq a\leq(D+\beta)m$ by \noderef{SuperRegularPair}.
+The coordinate bijection $w\mapsto(v,w)$ shows that the original
+coordinate set has size $a$, and the degree identity just cited gives
+$|b-qa|\leq\xi m$ from count control. Apply
+\noderef{ThinningCountInterval} to obtain
+$(\rho-\eta)|R|\leq b\leq(\rho+\eta)|R|$.
+For $w\in R$, use $m=|L|$ and the bijection $v\mapsto(v,w)$;
+symmetry identifies the original adjacency count with
+$\deg_G(w;L)$. The same transfer proves the right-degree interval.
+
+Finally take $U\subseteq L,W\subseteq R$ with
+$|U|>\eta|L|$, $|W|>\eta|R|$. These subsets are nonempty, since
+$\eta>0$ and the parts have size at least one. Because $\beta<\eta$,
+they also satisfy the original $\beta$-thresholds. Thus the regularity
+clause of \noderef{SuperRegularPair} gives
+$D-\beta\leq d_G(U,W)\leq D+\beta$.
+By \noderef{PairDensity}, $d_G(U,W)=e_G(U,W)/m$, where
+$m=|U||W|$ is positive and finite. Multiplication by $m$ preserves
+and reflects each inequality (also for extended nonnegative endpoints),
+so
+\[
+(D-\beta)|U||W|\leq e_G(U,W)\leq(D+\beta)|U||W|.
+\]
+Count control and the exact rectangle identity give
+$|e_{G'}(U,W)-qe_G(U,W)|\leq\xi|U||W|$. Apply
+\noderef{ThinningCountInterval} with $m=|U||W|$ to obtain
+$(\rho-\eta)m\leq e_{G'}(U,W)\leq(\rho+\eta)m$.
+Dividing both inequalities by the same positive finite $m$, and using
+the density formula of \noderef{PairDensity} for $G'$, gives
+$\rho-\eta\leq d_{G'}(U,W)\leq\rho+\eta$.
+This is precisely the regularity clause; together with the two degree
+intervals it proves \noderef{SuperRegularPair}. Every normalization
+used the actual opposite-part size. No equality of the part sizes or
+graph-dependent threshold was used.
+\end{proof}

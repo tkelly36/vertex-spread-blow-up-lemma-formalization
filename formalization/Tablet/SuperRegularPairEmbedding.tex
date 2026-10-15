@@ -1,0 +1,30 @@
+\begin{lemma}[Super-regularity under a part embedding]
+Let $e:V\to W$ be injective, $G,H$ graphs on $V,W$, and $L,R$ finite
+parts of $V$. Suppose $H(e(x),e(y))$ holds if and only if $G(x,y)$
+for every $x\in L$, $y\in R$. If $(G;L,R)$ is
+$(\varepsilon,d)$-super-regular, then $(H;e(L),e(R))$ is
+$(\varepsilon,d)$-super-regular. No surjectivity on the ambient type
+is assumed.
+\end{lemma}
+\begin{proof}
+By injectivity, $|e(S)|=|S|$ for every finite $S\subseteq V$.
+For $P\subseteq L$, $Q\subseteq R$, the map $(x,y)\mapsto(e(x),e(y))$
+is a bijection between their ordered edge sets: injectivity gives
+uniqueness of preimages, and the assumed adjacency equivalence gives
+both edge preservation and edge reflection. Hence the edge counts
+and, by \noderef{PairDensity}, the densities of these rectangles agree.
+For arbitrary $P'\subseteq e(L)$, $Q'\subseteq e(R)$, take
+$P=\{x\in L:e(x)\in P'\}$ and $Q=\{y\in R:e(y)\in Q'\}$.
+Their images are exactly $P',Q'$. Their sizes equal the sizes of those
+images, so the strict rectangle-size hypotheses in
+\noderef{RegularPair} pull back exactly. Apply the regularity clause
+of \noderef{SuperRegularPair} and the density identity to obtain both
+density bounds on $P',Q'$.
+For a left vertex $e(x)$ with $x\in L$, the map $y\mapsto e(y)$ is
+a bijection from its neighbours in $R$ to the neighbours of $e(x)$
+in $e(R)$. The right-neighbour count is identical. Likewise, for
+$e(y)$ with $y\in R$, its neighbours in $e(L)$ correspond exactly
+to the neighbours of $y$ in $L$. Applying the two degree clauses of
+\noderef{SuperRegularPair}, and replacing the part sizes by their equal
+image sizes, proves both degree windows and completes the proof.
+\end{proof}

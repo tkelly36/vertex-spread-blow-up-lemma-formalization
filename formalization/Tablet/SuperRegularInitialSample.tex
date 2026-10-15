@@ -1,0 +1,98 @@
+\begin{lemma}[Joint weighted extraction sample]
+Let $G$ be a finite bipartite graph on the disjoint covering parts
+$U,W$, with $|U|=|W|=n$. Let integers and real parameters satisfy
+\[
+1\leq l\leq M\leq n,\quad\operatorname{SzemerediRegularity.bound}(\alpha,l)\leq M,
+\quad\varepsilon,h,\gamma,\alpha>0,\quad0<d<1,
+\]
+\[
+\gamma\leq1,\quad\alpha\leq\gamma,\quad\alpha\leq\gamma^2,
+\quad\varepsilon M<\gamma,
+\quad2\alpha+(6\gamma+9\alpha+6/l)/h^2<h/4.
+\]
+Put $c=d^2/2$, and assume
+\[
+4n e^{-c^2n/8}<1/4,\qquad2\,4^n e^{-h^4n^2/8}<1/4.
+\]
+Suppose $d_G(A,B)\geq d$ for every $A\subseteq U,B\subseteq W$
+with $|A|,|B|>\varepsilon n$, and every vertex has at least $dn$
+neighbors in the opposite part. There is a graph $H$ on the same
+vertex set with $H\subseteq G$, opposite-part degrees at least
+$7cn/4$ on both sides, and
+\[
+|d_H(A,B)-d|<h/2\qquad
+(A\subseteq U,\ B\subseteq W,\ |A|,|B|>hn).
+\]
+\end{lemma}
+\begin{proof}
+Since $1\leq l\leq M\leq n$, $n>0$. The covering disjoint parts
+give $|V|=2n$, so $l\leq|V|$. Apply
+Mathlib's \texttt{szemeredi\_regularity} from
+\texttt{Mathlib.Combinatorics.SimpleGraph.Regularity.Lemma} with $\alpha,l$, obtaining
+an equipartition $\mathcal P$ with
+$l\leq|\mathcal P|\leq\operatorname{SzemerediRegularity.bound}(\alpha,l)\leq M$
+which is $\alpha$-uniform. Apply
+\noderef{RegularExtractionPartitionGeometry} with the stated lower
+density assumption. Its statement supplies the eligible set
+$E\subseteq\mathcal P\times\mathcal P$, densities
+$d\leq D_{ST}=d_G(U\cap S,W\cap T)\leq1$, the slicing error
+$2\alpha$, and ineligible area at most $(4\gamma+9\alpha+6/l)n^2$.
+These are exactly the three hypotheses needed by
+\noderef{WeightedRectangleExpectation}. Obtain its weight $p$, zero
+on nonedges and outside $U\times W$, with $0\leq p\leq1$.
+For every original crossing edge, its endpoints belong to unique
+parts $S,T$. The weight formula says $p=d/D_{ST}$ on eligible
+rectangles, and $p=1$ otherwise. On an eligible rectangle
+$0<d\leq D_{ST}\leq1$, so $p\geq d$; on an ineligible rectangle
+the same inequality follows from $d<1$. Thus every original
+crossing edge has retention probability at least $d$.
+The final clause of \noderef{WeightedRectangleExpectation}, with
+the assumed margin, gives
+\[
+\left|\sum_{(a,b)\in A\times B}p(a,b)-d|A||B|\right|
+<(h/4)|A||B|\quad (|A|,|B|>hn).                 \tag{1}
+\]
+
+Index the independent trials by the original edges oriented from
+$U$ to $W$, one trial per undirected edge. Take their finite
+Bernoulli product law with probabilities $p$.
+\noderef{IndependentUnequalEdgeSampleLaw} gives a probability
+measure, independent coordinate indicators of means $p$, and
+centered indicators of subgaussian parameter $1/4$.
+Translation of independent indicators by their constant means
+preserves independence. In an outcome include precisely the
+successful edges, in both orientations, on the original vertex
+set. This defines a simple graph contained in $G$; its crossing
+edge counts are the corresponding sums of indicators.
+
+For any vertex its opposite-part degree is a sum of at most $n$
+distinct trials. Its mean is at least
+$d\deg_G(v)\geq d^2n=2cn$. Apply
+\noderef{FiniteIndependentSubgaussianTail} with $N=n>0$ and
+$t=cn/4>0$ to its centered sum. The probability that its degree
+differs from its mean by more than $cn/4$ is at most
+$2e^{-c^2n/8}$. There are $2n$ vertices, so the union of these
+degree bad events has probability at most $4ne^{-c^2n/8}<1/4$.
+This bound includes empty trial sets, for which the centered
+sum is zero.
+
+For each $A\subseteq U,B\subseteq W$ with $|A|,|B|>hn$, put
+$N=|A||B|>h^2n^2>0$. There are at most $N$ trials in its edge
+count. Apply \noderef{FiniteIndependentSubgaussianTail} with
+$t=(h/4)N$. Its bad event has probability at most
+$2e^{-h^2N/8}\leq2e^{-h^4n^2/8}$.
+The number of pairs of subsets is $2^n2^n=4^n$, so the union
+of all rectangle bad events has probability at most
+$2\,4^n e^{-h^4n^2/8}<1/4$.
+Both types of bad events use the same sample law. Their union
+has probability less than $1/2$, hence its complement has positive
+probability and contains an outcome. Fix it and call the graph $H$.
+Its degrees are at least $2cn-cn/4=7cn/4$ simultaneously on both
+sides. For a tested rectangle its sampled count differs from its
+mean by at most $(h/4)|A||B|$. Combining this weak bound with
+the strict inequality (1) gives discrepancy from $d|A||B|$
+strictly less than $(h/2)|A||B|$. Dividing by the positive
+$|A||B|$ gives the stated density error. All graphs have the
+original vertex type and finite decidable adjacency; containment
+and the original bipartition are preserved.
+\end{proof}

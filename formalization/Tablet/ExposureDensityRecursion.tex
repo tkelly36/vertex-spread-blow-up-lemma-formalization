@@ -1,0 +1,18 @@
+\begin{lemma}[Exposure densities and their positive gaps]
+For $0<d\leq1$ and $\Delta\in\mathbb N$, there are total sequences
+$p,\rho:\mathbb N\to[0,\infty]$ such that $p_0=d$,
+$0<p_x\leq1$ and $0<\rho_x<p_x$ for $x\leq\Delta$,
+$p_{x+1}=\rho_x(d/2)$ for $x<\Delta$, and
+$p_x-p_{x+1}>0$ for $x<\Delta$.
+\end{lemma}
+\begin{proof}
+For every nonnegative integer $x$ set $p_x=d(d/4)^x$ and
+$\rho_x=p_x/2$. These are finite positive numbers since $0<d\leq1$.
+Because $d/4\leq1$, one has $p_x\leq1$; division of the positive finite
+$p_x$ by two gives $0<\rho_x<p_x$. Direct multiplication gives
+$p_{x+1}=p_xd/4=\rho_x(d/2)$. Since $d/2\leq1$,
+$p_{x+1}\leq\rho_x<p_x$, so truncated subtraction agrees with ordinary
+positive subtraction and $p_x-p_{x+1}>0$. These formulas define the
+sequences even beyond $\Delta$. When $\Delta=0$ the gap and recursion
+requirements are empty and the assertions at exposure zero still hold.
+\end{proof}

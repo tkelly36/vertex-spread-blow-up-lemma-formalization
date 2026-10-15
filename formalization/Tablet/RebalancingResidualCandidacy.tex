@@ -1,0 +1,75 @@
+\begin{lemma}[Residual candidacy with exceptional rows]
+Let $B,A$ be a finite blow-up instance with equal source and host fiber
+sizes and lower-$(\varepsilon,d)$-super-regular candidacy. Let $f$ be a
+partial compatible embedding on $X$, and let $B_r,A_r$ live on the
+literal complement subtypes with induced graphs, unchanged reduced
+graph, restricted cluster maps, and allowed relation exactly $A_f$.
+Suppose both residual fibers have size $m$. Put
+$E=\{x\notin X:\exists y\in X,\ xy\in E(H)\}$.
+Suppose the deleted source and host counts in every fiber are at most
+$L$, the count $|E\cap X_i|$ is at most $J$, and $J\leq\eta m$.
+Assume $0<\varepsilon'<\infty$ and, for every $i$,
+\[
+ \varepsilon|V_i|\leq\varepsilon'm,\qquad
+ (d'-\varepsilon')+\eta/\varepsilon'\leq d-\varepsilon,\qquad
+ (d'-\varepsilon')m\leq(d-\varepsilon)|V_i|-L-J.
+\]
+Finally suppose $(d'-\varepsilon')m\leq\rho$ and every $x\in E$ has
+at least $\rho$ updated candidates in the original host universe.
+Then $A_r$ is lower-$(\varepsilon',d')$-super-regular candidacy for $B_r$.
+\end{lemma}
+\begin{proof}
+Fix $i$, and use the sum-vertex representation in
+\noderef{CandidacyLowerSuperRegular}. The original left and right parts
+are the copies of $X_i$ and $V_i$ in $V(H)\oplus V(G)$. They form a
+lower-super-regular pair by assumption. Let $D_L$ be the left copy of
+$X\cap X_i$, $D_R$ the right copy of $f(X)\cap V_i$, and let $E_i$ be the
+left copy of $E\cap X_i$. These sets lie in the asserted original parts;
+$E_i$ is disjoint from $D_L$ because the definition of $E$ excludes $X$.
+Define the updated sum-vertex graph by the relation $A_f$ in
+\noderef{UpdatedCandidacy}. For opposite tags its adjacency is exactly
+that allowed relation: the forward relation supplies the edge, the
+reverse relation has impossible tags, and unequal tags exclude loops.
+This observation applies also to the original candidacy graph.
+
+For $x\in X_i\setminus(X\cup E)$, no vertex of $X$ is a neighbor of $x$.
+For unused $v\in V_i\setminus f(X)$, expanding the updated relation
+therefore gives $A_f(x,v)\iff A(x,v)$: both exclusions hold and every
+extra neighbor condition is vacuous. This verifies both directions of
+the ordinary-row equality required by
+\noderef{ExceptionalLeftLowerSuperRegular}.
+For $x\in E\cap X_i$, every updated candidate lies in
+$V_i\setminus f(X)$, by the original-candidacy and unused-host clauses
+of the updated relation and cluster respect in \noderef{CandidacySystem}.
+Hence the entire candidate set is bijective with its updated neighbors
+in the residual right part. The reserve hypothesis and
+$(d'-\varepsilon')m\leq\rho$ give the required exceptional-row degree.
+
+The two ambient residual parts have size $m$: the literal subtype
+projections and the restricted-map identities identify them with the
+residual fibers. Since $|X_i|=|V_i|$, the displayed threshold assumption
+transfers both thresholds. The exceptional fraction follows from
+$|E_i|\leq J\leq\eta m$. The density margin is an assumption.
+For the left-degree margin, the stronger assumed degree inequality
+implies $(d'-\varepsilon')m\leq(d-\varepsilon)|V_i|-L$ by deleting
+the nonnegative $J$ loss, and replacing $L$ by $|D_R|\leq L$ weakens
+the required bound. For the right-degree margin use $|X_i|=|V_i|$ and
+$|D_L|\leq L$, $|E_i|\leq J$ to get
+\[
+ (d'-\varepsilon')m\leq(d-\varepsilon)|X_i|-|D_L|-|E_i|.
+\]
+Antitonicity of truncated subtraction justifies both replacements.
+All hypotheses of \noderef{ExceptionalLeftLowerSuperRegular} have thus
+been verified, giving lower-super-regularity of this ambient updated pair.
+
+Finally project the sum of the two complement subtypes into the original
+sum universe, preserving tags. This is injective and sends each residual
+fiber exactly onto its ambient residual part. On opposite tags the
+assumed exact relation identifies adjacency in both directions. On equal
+tags both graphs have no edges. Thus the product projection bijects
+filtered ordered edge sets, and projections biject filtered neighborhoods.
+Their cardinalities, and the denominators in \noderef{PairDensity}, agree.
+Both strict regularity thresholds and both degree clauses in
+\noderef{LowerSuperRegularPair} consequently transfer without change.
+This proves \noderef{CandidacyLowerSuperRegular} for $A_r$ in every fiber.
+\end{proof}

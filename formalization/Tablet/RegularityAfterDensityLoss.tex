@@ -1,0 +1,19 @@
+\begin{lemma}[Regularity after bounded density loss]
+Let $(W_1,W_2)$ be $(\varepsilon,\delta)$-regular in a graph $G$.  Let $H$ be another graph, let $\varepsilon\leq\eta$, and let $\varepsilon+\rho\leq\eta$.  Suppose that whenever $U\subseteq W_1$ and $W\subseteq W_2$ have $|U|>\eta|W_1|$ and $|W|>\eta|W_2|$, one has
+\[
+ d_H(U,W)\leq d_G(U,W),\qquad d_G(U,W)-d_H(U,W)\leq\rho.
+\]
+Then $(W_1,W_2)$ is $(\eta,\delta)$-regular in $H$.
+\end{lemma}
+\begin{proof}
+Fix such $U,W$.  Since $\varepsilon\leq\eta$, their two size inequalities also exceed the $\varepsilon$-thresholds, so $(\varepsilon,\delta)$-regularity of $G$ gives
+\[
+ \delta-\varepsilon\leq d_G(U,W)\leq\delta+\varepsilon.
+\]
+The assumed monotonicity gives $d_H(U,W)\leq\delta+\varepsilon\leq\delta+\eta$.  For the other side, truncated subtraction in the ordered additive monoid of extended nonnegative reals gives
+\[
+ d_H(U,W)\geq d_G(U,W)-\rho\geq(\delta-\varepsilon)-\rho
+ \geq\delta-(\varepsilon+\rho)\geq\delta-\eta.
+\]
+Thus both inequalities required by \noderef{RegularPair} hold for every admissible $U,W$, which is the assertion.
+\end{proof}

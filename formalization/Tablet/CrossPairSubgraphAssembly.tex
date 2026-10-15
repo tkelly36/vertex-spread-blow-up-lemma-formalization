@@ -1,0 +1,45 @@
+\begin{lemma}[Assembly of contained crossing subgraphs]
+Let $G$ be a finite simple graph, $R$ a simple graph on a finite index
+type, and $f$ assign each vertex of $G$ an index. Suppose for every
+ordered edge $pq$ of $R$ there is a graph $F\subseteq G$, with
+edges only crossing the fibers of $p,q$, which is
+$(\eta,c)$-super-regular on those fibers. There is a graph
+$G'\subseteq G$ on the original vertex type, supported only on
+$R$-edges between fibers, whose pair on every edge of $R$ is
+$(\eta,c)$-super-regular.
+\end{lemma}
+\begin{proof}
+Choose a linear ordering of the finite index type, for example by
+an enumeration, and for every unordered edge $\{p,q\}$ select just
+one of the supplied graphs, using the orientation $p<q$.
+Let $G'$ be the union of their edge relations. Each selected relation
+is symmetric and irreflexive; so is their union. Each relation is
+contained in $G$, and each of its edges has endpoint fibers equal
+to its selected index pair. Hence $G'\subseteq G$ and its edges
+project to edges of $R$.
+
+For a fixed edge $pq$ and vertices $u\in f^{-1}(p)$,
+$v\in f^{-1}(q)$, any selected graph contributing the edge $uv$
+must have unordered index pair exactly $\{p,q\}$: this follows
+from its crossing support and uniqueness of the values $f(u),f(v)$.
+Conversely the selected graph for this pair contributes all its
+edges to $G'$. Thus on this pair the assembled graph agrees
+exactly with that one selected graph. In particular every opposite
+degree count and every subset ordered-edge count is identical;
+so are the densities by \noderef{PairDensity}. Transfer along this
+agreement using \noderef{SuperRegularPairEmbedding}, with the identity
+map on the vertex type, the selected graph as source, and $G'$ as target.
+The identity is injective, its images of the two finite fibers are
+the fibers themselves, and the crossing-edge equivalence just proved
+is exactly the embedding's adjacency hypothesis. The parameters
+$\eta,c$ are unchanged. If the tested
+orientation is the one selected, the supplied
+\noderef{SuperRegularPair} assertion applies directly. In the other
+orientation its two degree clauses exchange places, and the
+regularity assertion exchanges the two subset variables. Their
+densities are equal, because coordinate swap is a bijection of
+the corresponding ordered-edge sets. Thus the same assertion holds
+in both orientations. Empty fiber tests and truncated or infinite
+scalar endpoints cause no additional issue: agreement is equality
+of the counts, not an estimate or real-number conversion.
+\end{proof}

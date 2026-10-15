@@ -1,0 +1,125 @@
+\begin{lemma}[One-index near-equal bad-pair counting]
+Let $|W_1|=|W_2|=n$ and $|W_3|\in\{n-1,n,n+1\}$. Let $0\leq\varepsilon\leq1$, let $d_{13},d_{23}\leq1$, and suppose $F_{13}[W_1,W_3]$ and $F_{23}[W_2,W_3]$ are $(\varepsilon,d_{13})$- and $(\varepsilon,d_{23})$-super-regular. Call $(x,v)$ bad when its common-neighborhood size is outside $(d_{13}d_{23}\pm2\varepsilon)|W_3|$. If $U\subseteq W_1$ and $W\subseteq W_2$ satisfy $|U|,|W|>2\sqrt\varepsilon n$, then at most a $\sqrt\varepsilon$ proportion of $U\times W$ is bad.
+\end{lemma}
+\begin{proof}
+Put $s=\sqrt\varepsilon$ and $k=|W_3|$. The strict size
+assumptions imply $|U|,|W|>0$, since $2sn\geq0$. In particular,
+the denominator $|U||W|$ in the asserted proportion is positive.
+If $W_3=\varnothing$, every common-neighborhood cardinality is zero.
+Both endpoints $(d_{13}d_{23}-2\varepsilon)k$ and
+$(d_{13}d_{23}+2\varepsilon)k$ are also zero, so every pair satisfies
+the window. There are no bad pairs, and the asserted proportion is
+$0\leq s$. Henceforth assume $W_3\ne\varnothing$, so $k>0$.
+
+All three parameters are finite, because they lie between zero and one.
+We may therefore do ordinary real arithmetic, interpreting a subtraction
+in the nonnegative-reals statements as
+$(a-b)_+=\max\{a-b,0\}$. Fix $x\in W_1$, put
+$S=N_{F_{13}}(x)\cap W_3$, and write $a=|S|$. The degree clause of
+\noderef{SuperRegularPair} gives
+\[
+ (d_{13}-\varepsilon)_+k\leq a\leq(d_{13}+\varepsilon)k,
+ \qquad 0\leq a\leq k.
+\]
+In particular, the signed real inequalities
+$d_{13}k-\varepsilon k\leq a\leq d_{13}k+\varepsilon k$
+hold, including when $d_{13}<\varepsilon$.
+
+First suppose $a>\varepsilon k$. For $v\in W_2$, write
+$c_v=|N_{F_{23}}(v)\cap S|$, and define the two exceptional sets
+\[
+ T_- =\{v\in W_2:c_v<(d_{23}-\varepsilon)_+a\},\qquad
+ T_+ =\{v\in W_2:c_v>(d_{23}+\varepsilon)a\}.
+\]
+We show $|T_-|\leq\varepsilon n$. Otherwise
+$|T_-|>\varepsilon|W_2|$, and both $T_-$ and $S$ exceed the
+thresholds in \noderef{RegularPair}, which applies to $F_{23}$ by
+\noderef{SuperRegularPair}. Both sets are nonempty. By the ordered
+edge-count definition in \noderef{PairDensity},
+\[
+ d_{F_{23}}(T_-,S)
+ =\frac{\sum_{v\in T_-}c_v}{|T_-|a}
+ <(d_{23}-\varepsilon)_+.
+\]
+Here the strict inequality follows by summing the defining strict
+inequalities over the nonempty set $T_-$ and dividing by the positive
+number $|T_-|a$. This contradicts the regularity lower bound.
+The same reasoning for $T_+$ gives $|T_+|\leq\varepsilon n$:
+if its size were larger, its density with $S$ would be strictly greater
+than $d_{23}+\varepsilon$, contradicting the regularity upper bound.
+These arguments remain valid for $\varepsilon=0$; if a lower-tail
+endpoint is zero then that tail is empty because $c_v\geq0$.
+
+For $v\notin T_-\cup T_+$ we have
+$(d_{23}-\varepsilon)_+a\leq c_v\leq(d_{23}+\varepsilon)a$.
+Together with $a\leq k$, the lower bound implies the following signed
+real inequalities:
+\[
+ \begin{split}
+ c_v&\geq d_{23}a-\varepsilon a
+      \geq d_{23}a-\varepsilon k\\
+    &\geq d_{13}d_{23}k-d_{23}\varepsilon k-\varepsilon k
+      \geq(d_{13}d_{23}-2\varepsilon)k.
+ \end{split}
+\]
+Since $c_v\geq0$ as well, this proves
+$c_v\geq(d_{13}d_{23}-2\varepsilon)_+k$.
+For the upper bound, similarly,
+\[
+ \begin{split}
+ c_v&\leq d_{23}a+\varepsilon a
+      \leq d_{23}a+\varepsilon k\\
+    &\leq d_{13}d_{23}k+d_{23}\varepsilon k+\varepsilon k
+      \leq(d_{13}d_{23}+2\varepsilon)k.
+ \end{split}
+\]
+Both chains use $0\leq d_{23}\leq1$. Also,
+$N_{F_{23}}(v)\cap S$ is exactly the common neighborhood in $W_3$.
+Thus every bad partner of $x$ belongs to $T_-\cup T_+$, whose size
+is at most $2\varepsilon n$.
+
+Now suppose $a\leq\varepsilon k$. Combining this with the degree lower
+bound gives $(d_{13}-\varepsilon)_+k\leq\varepsilon k$.
+Since $k>0$, cancellation yields
+$(d_{13}-\varepsilon)_+\leq\varepsilon$.
+If $d_{13}\leq\varepsilon$ then $d_{13}\leq2\varepsilon$ directly;
+otherwise the truncated difference is $d_{13}-\varepsilon$, and adding
+$\varepsilon$ again gives $d_{13}\leq2\varepsilon$.
+Consequently $d_{13}d_{23}\leq d_{13}\leq2\varepsilon$, so the lower
+window endpoint is zero. Every $v\in W_2$ has
+\[
+ 0\leq c_v\leq a\leq\varepsilon k
+       \leq(d_{13}d_{23}+2\varepsilon)k.
+\]
+There are no bad partners in this case. We have therefore proved that
+every row $x\in W_1$ has at most $2\varepsilon n$ bad partners.
+
+For completeness, the column bound follows by the same two cases, fixing
+$v\in W_2$ and taking $S'=N_{F_{23}}(v)\cap W_3$ instead.
+Its degree bounds come from \noderef{SuperRegularPair} for $F_{23}$.
+If $|S'|>\varepsilon k$, define the lower and upper exceptional sets
+in $W_1$ using $(d_{13}-\varepsilon)_+|S'|$ and
+$(d_{13}+\varepsilon)|S'|$; \noderef{RegularPair} for $F_{13}$,
+with the density sum from \noderef{PairDensity}, bounds each by
+$\varepsilon n$. The displayed window chains now have $d_{13}$
+in place of the multiplier $d_{23}$ and give the same product window.
+If $|S'|\leq\varepsilon k$, cancel the same positive $k$ in its
+degree lower bound to obtain $d_{23}\leq2\varepsilon$, and every
+intersection lies in the window. Thus every column also has at most
+$2\varepsilon n$ bad partners.
+
+Let $B$ denote the number of bad pairs in $U\times W$. Summing the row
+bound over $x\in U$ (and restricting each row to $W$) gives
+$B\leq2\varepsilon n|U|$. If $s=0$, then $\varepsilon=s^2=0$,
+so $B=0$ and the proportion is zero. If $s>0$, then
+$\varepsilon=s^2$ and the strict size bound for $W$ gives
+\[
+ 2\varepsilon n= s(2sn)<s|W|.
+\]
+Dividing $B\leq2\varepsilon n|U|$ by the positive $|U||W|$
+therefore gives
+$B/(|U||W|)\leq2\varepsilon n/|W|<s$, proving the claimed
+non-strict bound. The calculation retains the actual size $k$ throughout;
+no equality $k=n$, nor any positive lower bound on $k$ beyond the
+explicit nonempty branch, has been used.
+\end{proof}

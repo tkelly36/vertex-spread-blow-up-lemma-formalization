@@ -1,0 +1,38 @@
+\begin{lemma}[Estimates for the small restricted source]
+Let $B,A$ be a finite blow-up instance with candidacy system, host and
+candidacy lower-$(\varepsilon,d)$-super-regularity, and host-size window
+$(1-\varepsilon)n\leq |V_i|\leq(1+\varepsilon)n$. Suppose $\varepsilon\leq a$
+and $(d/2)n\leq(d-\varepsilon)|V_i|$ for every $i$.
+Then the host is lower-$(a,d/2)$-regular, its sizes lie in the window
+$(1-a)n\leq |V_i|\leq(1+a)n$, and every original source vertex has at
+least $(d/2)n$ original candidates.
+\end{lemma}
+\begin{proof}
+For an edge $ij$ of the reduced graph, \noderef{InstanceLowerSuperRegular}
+gives the original lower-super-regular host pair. Its first clause in
+\noderef{LowerSuperRegularPair} is lower regularity.
+Take subsets of its two parts of sizes strictly greater than $a|V_i|$
+and $a|V_j|$. Since $\varepsilon\leq a$, these sizes are also strictly
+greater than the original $\varepsilon$ thresholds. Thus
+\noderef{LowerRegularPair} gives density at least $d-\varepsilon$.
+Because $d/2\leq d$ and $\varepsilon\leq a$, monotonicity of truncated
+subtraction gives $d/2-a\leq d-\varepsilon$.
+This is precisely \noderef{InstanceLowerRegular} at $(a,d/2)$.
+The size-window conclusions follow from $1-a\leq1-\varepsilon$
+and $1+\varepsilon\leq1+a$, multiplying by nonnegative $n$.
+
+For any vertex $x$, put $i=c_H(x)$. In the sum-vertex graph defining
+\noderef{CandidacyLowerSuperRegular}, the vertex $\mathrm{inl}(x)$ lies
+in the left $i$th part. The left-degree clause of
+\noderef{LowerSuperRegularPair} gives at least
+$(d-\varepsilon)|V_i|$ neighbors in the right part. That right part is
+bijective with $V_i$ by $v\mapsto\mathrm{inr}(v)$.
+For opposite tags, expanding the defining relation of the graph shows
+that adjacency of $\mathrm{inl}(x)$ and $\mathrm{inr}(v)$ is exactly
+$A(x,v)$: the forward orientation is this relation, the reverse
+orientation cannot have the stipulated tags, and the endpoints are distinct.
+Moreover \noderef{CandidacySystem} forces every allowed $v$ into $V_i$.
+Thus the filtered neighbor set is bijective with the entire original
+candidate set of $x$. Its cardinality is at least
+$(d-\varepsilon)|V_i|\geq(d/2)n$, as required.
+\end{proof}

@@ -1,0 +1,33 @@
+\begin{definition}[Numerical data for one colour round]
+For $D,q,d,C,a,n,t$ and sequences $\theta,p,\varepsilon,\rho,\zeta,
+\omega,\xi$, a colour-round step parameter record consists of a certificate
+$\mathcal C$ of \noderef{InductionApplicationCertificate} at
+$(D,q,d,\theta,p,\varepsilon,\rho,\zeta,\omega,\xi)$, together with the
+following inequalities. It records $t<q$,
+$\varepsilon_t\le\varepsilon_{t+1}\le1$, $0<a\le1$, $C/n\le1$, and
+$D(1-a)^n\le1/2$. Its simultaneous-test reserves are
+\[
+2\sqrt{\zeta_t}\le\theta_t,\quad
+\zeta_t+D\sqrt{\zeta_t}\le\theta_t,\quad
+\zeta_t+2D\zeta_t\le\theta_t.
+\]
+For every $x\le D$ it records $0<\theta_t$, $4\theta_t<\rho_x$,
+$2\zeta_t<\rho_x$, $2\zeta_t<1-\rho_x$; it also records
+$2\zeta_t<d/2$ and $2\zeta_t<1-d/2$.
+For $x<D$ it records $p_{x+1}=\rho_xd/2$ and
+$p_{x+1}+\varepsilon_t+1/n\le p_x$.
+It records $\omega_{t+1}<\varepsilon_{t+1}$,
+\[
+1/n\le\xi_t<\zeta_t,\quad \xi_t+2/n\le\zeta_t,\quad
+\xi_t+1/(\zeta_t n)\le\zeta_t.
+\]
+For every $x\le D$ it records
+$\omega_{t+1}+2/n\le\varepsilon_{t+1}$ and
+$\omega_{t+1}+1/(\varepsilon_{t+1}n)\le\varepsilon_{t+1}$.
+Finally, for every $x\le D$ the certificate's witness-thinning,
+host-thinning, matching-spread and matching-existence thresholds are at
+most $n$, and its matching constant is at most $C/2$. For every ordered
+pair $x,y\le D$, its Four-Graphs threshold is at most $n$ and its
+Four-Graphs constant is at least $a$. This is a record of numerical
+data and their bounds, not an additional theorem assumption.
+\end{definition}

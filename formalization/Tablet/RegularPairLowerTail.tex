@@ -1,0 +1,23 @@
+\begin{lemma}[Lower exceptional tail of a regular pair]
+Let $G$ be a graph and $L,R$ finite vertex sets, and let $\varepsilon,d\in[0,1]$.
+Suppose $G[L,R]$ is $(\varepsilon,d)$-regular, and $S\subseteq R$ satisfies $|S|>\varepsilon|R|$.
+Then
+\[
+ |\{v\in L:|N_G(v)\cap S|<(d-\varepsilon)_+|S|\}|\leq\varepsilon|L|.
+\]
+The difference is truncated subtraction in the extended nonnegative reals.
+\end{lemma}
+\begin{proof}
+Let $T$ be the displayed strict lower tail. Suppose, for contradiction, that $|T|>\varepsilon|L|$.
+Both $T$ and $S$ are nonempty because these thresholds are nonnegative, so $|T||S|$ is positive and finite.
+By \noderef{FilteredProductRowCount}, the ordered edge count between $T$ and $S$ is
+$e_G(T,S)=\sum_{v\in T}|N_G(v)\cap S|$.
+Each summand is strictly less than $(d-\varepsilon)_+|S|$.
+Summing over the nonempty set $T$ gives
+$e_G(T,S)<(d-\varepsilon)_+|T||S|$.
+Dividing by the positive finite denominator and using \noderef{PairDensity} gives
+$d_G(T,S)<(d-\varepsilon)_+$.
+On the other hand, $T\subseteq L$ and $S\subseteq R$ satisfy both strict thresholds, so \noderef{RegularPair} gives $d_G(T,S)\geq(d-\varepsilon)_+$, a contradiction.
+Thus $|T|\leq\varepsilon|L|$.
+No positivity of $\varepsilon$ was used: when the endpoint is zero the strict lower tail is simply empty.
+\end{proof}

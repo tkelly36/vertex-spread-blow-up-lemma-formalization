@@ -1,0 +1,30 @@
+\begin{lemma}[Finite scalar normalization for thinning]
+Suppose the extended nonnegative scalars satisfy
+$0<\beta<\eta$, $0<\rho<D\leq1$, $\xi>0$,
+$4((\rho/D)\beta+\xi)\leq\eta$, and $10\eta<\rho$.
+Then $D,\beta,\rho,\eta,\xi$ are all finite, $\eta<\rho$, $\beta\leq D$,
+and the real conversions of $\eta,\xi$ are positive. There is a
+nonnegative real $q\leq1$ such that
+$qD.\operatorname{toReal}=\rho.\operatorname{toReal}$ and
+$q\beta.\operatorname{toReal}+\xi.\operatorname{toReal}
+\leq\eta.\operatorname{toReal}$.
+\end{lemma}
+\begin{proof}
+Since $\eta\leq10\eta<\rho<D\leq1$, these three scalars and $D$ are
+finite, and $\eta<\rho$. The inequality $\beta<\eta$ gives finiteness
+of $\beta$ and $\beta<D$. Nonnegativity gives
+$\xi\leq(\rho/D)\beta+\xi\leq4((\rho/D)\beta+\xi)\leq\eta$, so $\xi$
+is also finite. Positive finite extended nonnegative reals have positive
+real conversions, establishing the asserted positivity and also
+$D.\operatorname{toReal}>0$.
+Set $q=\rho.\operatorname{toReal}/D.\operatorname{toReal}$. Finite real
+conversion preserves $\rho<D$, hence $0\leq q\leq1$, and multiplication
+by the positive denominator proves $qD.\operatorname{toReal}
+=\rho.\operatorname{toReal}$. The quotient $\rho/D$ is finite because
+its numerator is finite and its denominator is positive. Thus every
+sum and product in the budget is finite, and converting that budget
+to real numbers gives $4(q\beta.\operatorname{toReal}
++\xi.\operatorname{toReal})\leq\eta.\operatorname{toReal}$.
+The parenthesized quantity is nonnegative; removing the factor four
+proves the required error inequality.
+\end{proof}

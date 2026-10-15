@@ -1,0 +1,48 @@
+\begin{lemma}[Termination and a tight residual cut]
+Every finite integer-capacity network with distinct terminals admits a
+feasible integral flow $f$ and a subset $S$ containing $s$ and excluding
+$t$ such that
+\[
+ |f|=C(S),\qquad 0\leq |f|\leq\sum_w c(s,w).
+\]
+Here network, flow, and cut capacity have the meanings in
+\noderef{FiniteCapacityNetwork} and \noderef{FiniteIntegralFlow}.
+\end{lemma}
+\begin{proof}
+The capacities in \noderef{FiniteCapacityNetwork} are finite nonnegative
+integers. The zero function satisfies \noderef{FiniteIntegralFlow}: it is
+skew symmetric, is bounded above by every capacity, and has zero divergence.
+For any feasible flow, summing its upper bounds at the source gives
+$|f|\leq M:=\sum_w c(s,w)$, a finite nonnegative integer.
+
+Start at zero. If a simple residual source-to-sink path exists, apply
+\noderef{IntegralFlowAugmentation}. This preserves feasibility and
+increases the integer value by at least one. This process must stop
+within $M$ augmentations: after $r$ augmentations its value is at least
+$r$, and a further augmentation from value $M$ contradicts the bound.
+More formally, induction on the nonnegative integer $M-|f|$ gives a
+terminal flow reachable from any intermediate flow: without a path it
+is already terminal, and with a path augmentation decreases this integer
+strictly. Starting at zero therefore gives a terminal $f$ with
+$0\leq |f|\leq M$ and no simple residual source-to-sink path.
+
+Let $S$ consist of vertices reachable from $s$ by finite residual walks,
+including the length-zero walk. It is a finite subset because the vertex
+type is finite, and it contains $s$. A residual walk from $s$ to $t$
+would give a simple path: if a vertex repeats at positions $i<j$, delete
+the segment after position $i$ through position $j$. The adjoining step
+is still a residual step because the vertices at $i,j$ agree. This
+shortens the walk and preserves its endpoints. Repetition removal
+terminates as lengths decrease, producing an injective walk. Distinct
+terminals ensure its length is positive. It is therefore a path in the
+precise sense of \noderef{SimpleResidualPath}, contrary to terminality.
+Thus $t\notin S$.
+
+For $v\in S,w\notin S$ there is no residual step from $v$ to $w$,
+since appending such a step would make $w$ reachable. Consequently
+$f(v,w)\geq c(v,w)$, and the flow bound gives equality. Apply
+\noderef{IntegralFlowCutIdentity} and replace each crossing net flow
+by its capacity. This gives $|f|=C(S)$ as required. When $M=0$ the same
+argument starts and stops at the zero flow; no positive-capacity path
+can be augmented without contradicting the value bound.
+\end{proof}

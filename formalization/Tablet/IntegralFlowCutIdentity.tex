@@ -1,0 +1,19 @@
+\begin{lemma}[Net flow across a cut]
+Let $f$ be a feasible integral flow on a finite network with distinct
+terminals, as in \noderef{FiniteIntegralFlow}. For every subset $S$ with
+$s\in S$ and $t\notin S$,
+\[
+ |f|=\sum_{v\in S}\sum_{w\notin S} f(v,w).
+\]
+\end{lemma}
+\begin{proof}
+Sum the divergence $\sum_w f(v,w)$ over $v\in S$. By conservation in
+\noderef{FiniteIntegralFlow}, each term except the source term is zero:
+the sink is outside $S$, and any other vertex in $S$ is neither terminal.
+The sum is therefore $|f|$. Split each inner sum into $w\in S$ and
+$w\notin S$. The sum over $S\times S$ is zero: the bijection
+$(v,w)\mapsto(w,v)$ negates every summand by skew symmetry, so this
+integer sum is its own negative and hence zero. Equivalently diagonal
+terms are zero and off-diagonal terms cancel in pairs. Removing that
+sum gives the asserted identity.
+\end{proof}

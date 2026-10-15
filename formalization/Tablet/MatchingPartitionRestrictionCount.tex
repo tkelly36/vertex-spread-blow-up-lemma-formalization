@@ -1,0 +1,30 @@
+\begin{lemma}[Counting by four matching restrictions]
+Let $G$ be a graph on a finite vertex set, let $U,W$ be disjoint parts,
+and let $L_i\subseteq U$ and $R_i\subseteq W$ for $i=0,1,2,3$.
+Suppose every vertex of $U$ belongs to at least one $L_i$.
+Consider the perfect matchings $f:U\to W$ such that
+$f(L_i)=R_i$ for every $i$, with perfect matching understood as in
+\noderef{PerfectMatching}. Their number is at most
+\[
+ \prod_{i=0}^3
+ \bigl|\{g:L_i\to R_i:g\text{ is a perfect matching of }G\}\bigr|.
+\]
+The encoding realizing this bound is the tuple of the four restrictions
+$f|_{L_i}:L_i\to R_i$.
+\end{lemma}
+\begin{proof}
+By \noderef{PerfectMatching}, $f$ is bijective and all its values use
+edges of $G$. The equality $f(L_i)=R_i$ ensures that the restriction
+has its values in $R_i$ and is onto $R_i$. It is injective because $f$
+is injective, and its edges are edges of $f$. Thus each restriction is
+a perfect matching on the disjoint subparts $L_i,R_i$.
+
+If two tuples of restrictions are equal, choose for each $u\in U$ an
+index $i$ with $u\in L_i$. Equality of the $i$th restrictions implies
+equality of the original matching values at $u$. The two maps are
+therefore equal. This proves injectivity into the product of the four
+finite matching sets, whose cardinality is the displayed product.
+No disjointness between the $L_i$ themselves is required for this
+injectivity argument. Empty parts cause no exception: a restriction
+with empty domain and empty image is the unique empty matching.
+\end{proof}

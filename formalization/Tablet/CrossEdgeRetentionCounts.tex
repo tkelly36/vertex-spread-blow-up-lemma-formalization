@@ -1,0 +1,29 @@
+\begin{lemma}[Exact counts on the common retention sample]
+Let $L,R$ be disjoint parts of $G$, and let $G_\omega$ be the graph of
+\noderef{CrossEdgeRetention}. Then $G_\omega\subseteq G$.
+Writing $A(U,W)=\{(u,w)\in U\times W:uw\in E(G)\}$ and using the
+count of \noderef{IndependentRetentionCount}, for every $U\subseteq L$,
+$W\subseteq R$ we have
+\[
+e_{G_\omega}(U,W)=K_{A(U,W)}(\omega).
+\]
+For every $v\in L$ and $w\in R$ the two degree identities are
+\[
+\deg_{G_\omega}(v;R)=K_{A(\{v\},R)}(\omega),\qquad
+\deg_{G_\omega}(w;L)=K_{A(L,\{w\})}(\omega).
+\]
+\end{lemma}
+\begin{proof}
+Every retained adjacency includes an original adjacency, proving containment
+by \noderef{CrossEdgeRetention}. If $u\in L,w\in R$, disjointness gives
+$w\notin L$. The reversed alternative in that definition is therefore
+impossible, and retained adjacency is exactly original adjacency together
+with $\omega_{(u,w)}=1$. Thus the ordered-edge set on $U\times W$ is
+precisely the original ordered-edge set filtered by this coordinate test.
+Its cardinality is $K_{A(U,W)}$ by \noderef{IndependentRetentionCount}.
+For a left vertex, $w\mapsto(v,w)$ is a bijection between retained
+neighbors and retained coordinates in $A(\{v\},R)$. For a right vertex,
+$v\mapsto(v,w)$ is the analogous bijection, using symmetry of adjacency.
+These bijections prove the two degree identities, without identifying the
+sizes of the two parts.
+\end{proof}

@@ -1,0 +1,82 @@
+\begin{lemma}[Exceptional-row slicing for a candidacy pair]
+Let $(L_0,R_0)$ be a lower $(\varepsilon,d)$-super-regular pair in a graph $G_0$.  Let $D_L\subseteq L_0$ and $D_R\subseteq R_0$, put
+\[
+ L=L_0\setminus D_L,\qquad R=R_0\setminus D_R,
+\]
+and let $E\subseteq L$.  Let $G$ be an updated graph such that, for every $x\in L\setminus E$ and $y\in R$,
+\[
+ xy\in E(G)\quad\Longleftrightarrow\quad xy\in E(G_0).
+\]
+Suppose that $0<\varepsilon'<\infty$, $|E|\leq\eta|L|$, and
+\[
+ \varepsilon|L_0|\leq\varepsilon'|L|,
+ \qquad
+ \varepsilon|R_0|\leq\varepsilon'|R|,
+ \qquad
+ (d'-\varepsilon')+\frac{\eta}{\varepsilon'}\leq d-\varepsilon.
+\]
+Suppose also that
+\[
+ (d'-\varepsilon')|R|\leq (d-\varepsilon)|R_0|-|D_R|
+\]
+and
+\[
+ (d'-\varepsilon')|L|\leq (d-\varepsilon)|L_0|-|D_L|-|E|.
+\]
+Finally, suppose that every exceptional vertex $x\in E$ has at least
+$(d'-\varepsilon')|R|$ neighbors in $R$ in $G$.  Then $(L,R)$ is lower
+$(\varepsilon',d')$-super-regular in $G$.
+\end{lemma}
+\begin{proof}
+Write $e_J(S,T)$ for the number of ordered edges from $S$ to $T$ in a graph
+$J$, as in \noderef{PairDensity}.  We verify separately the three clauses of
+\noderef{LowerSuperRegularPair}.
+
+First consider an ordinary vertex $x\in L\setminus E$.  Lower
+$(\varepsilon,d)$-super-regularity of $(L_0,R_0)$ gives
+\[
+ |N_{G_0}(x)\cap R_0|\geq(d-\varepsilon)|R_0|.
+\]
+Passing from $R_0$ to the exact residual part $R=R_0\setminus D_R$ deletes at
+most $|D_R|$ of these neighbors.  The exact ordinary-row equality between
+$G$ and $G_0$ on $R$ and the first degree-margin inequality therefore give
+\[
+ |N_G(x)\cap R|\geq(d-\varepsilon)|R_0|-|D_R|
+ \geq(d'-\varepsilon')|R|.
+\]
+For $x\in E$ the same conclusion is precisely the exceptional-row hypothesis.
+Thus every vertex of $L$ has the required degree into $R$.
+
+Next fix $y\in R$.  In $G_0$ it has at least
+$(d-\varepsilon)|L_0|$ neighbors in $L_0$.  At most $|D_L|$ of these lie in
+the deleted left part.  On the remaining ordinary rows $L\setminus E$, the
+adjacency relation is unchanged; discarding all $|E|$ exceptional rows covers
+every possible further loss caused by the update.  Consequently
+\[
+ |N_G(y)\cap L|\geq(d-\varepsilon)|L_0|-|D_L|-|E|
+ \geq(d'-\varepsilon')|L|.
+\]
+This proves the right-degree clause.
+
+It remains to prove lower regularity rather than assume it.  Take
+$S\subseteq L$ and $T\subseteq R$ with
+$|S|>\varepsilon'|L|$ and $|T|>\varepsilon'|R|$.  The two threshold-transfer
+inequalities imply $|S|>\varepsilon|L_0|$ and
+$|T|>\varepsilon|R_0|$.  Lower regularity of the original pair, which is part
+of its lower-super-regularity, hence yields
+\[
+ e_{G_0}(S,T)\geq(d-\varepsilon)|S||T|.
+\]
+Every ordered edge whose left endpoint is in $S\setminus E$ is preserved in
+$G$, so at most $|S\cap E||T|\leq |E||T|$ ordered edges can be lost.  Since
+$|E|\leq\eta|L|$ and $|S|>\varepsilon'|L|$, positivity of $\varepsilon'$ gives
+$|E|/|S|\leq\eta/\varepsilon'$.  Dividing by $|S||T|$ gives
+\[
+ d_G(S,T)\geq d-\varepsilon-\frac{\eta}{\varepsilon'}
+ \geq d'-\varepsilon',
+\]
+where the last inequality is the density-margin hypothesis.  Thus $(L,R)$ is
+lower $(\varepsilon',d')$-regular.  This regularity conclusion and the two
+degree conclusions are exactly the three clauses of
+\noderef{LowerSuperRegularPair}, completing the proof.
+\end{proof}

@@ -1,0 +1,29 @@
+\begin{lemma}[Transport of a lower super-regular pair]
+Let $e:V\to W$ be injective, let $G,H$ be simple graphs, and let
+$L,R\subseteq V$ be finite. Suppose that, for $x\in L,y\in R$,
+$H(e(x),e(y))$ holds if and only if $G(x,y)$ holds.
+Then $(L,R)$ is lower $(\epsilon,d)$-super-regular in $G$ if and only if
+$(e(L),e(R))$ is lower $(\epsilon,d)$-super-regular in $H$.
+The parameters may be extended nonnegative reals.
+\end{lemma}
+\begin{proof}
+Injectivity preserves the cardinality of every finite set. For any
+$P\subseteq L,Q\subseteq R$, the map $(x,y)\mapsto(e(x),e(y))$
+is a bijection from the ordered $G$-edges of $P\times Q$ to the
+ordered $H$-edges of $e(P)\times e(Q)$. Consequently their densities
+are equal by \noderef{PairDensity}, including empty sets.
+For subsets $A\subseteq e(L),B\subseteq e(R)$, take
+$P=\{x\in L:e(x)\in A\}$ and $Q=\{y\in R:e(y)\in B\}$.
+Their images are exactly $A,B$, and their sizes are therefore the
+same. The strict size thresholds in \noderef{LowerRegularPair}
+are unchanged, so its density lower bound transfers.
+For each $x\in L$, the map $e$ also bijects its neighbors in $R$
+with the neighbors of $e(x)$ in $e(R)$. For each $y\in R$ it
+bijects the neighbors in $L$ in the other orientation. Transfer both
+degree lower bounds in \noderef{LowerSuperRegularPair}, using
+$|e(L)|=|L|$ and $|e(R)|=|R|$. Together with the transferred
+lower regularity these are exactly the required three clauses.
+Conversely, apply the target's subset bounds to $e(P),e(Q)$ for
+each source test $P,Q$, and its degree bounds to $e(x),e(y)$.
+The same bijections and cardinality identities give all source clauses.
+\end{proof}

@@ -1,0 +1,45 @@
+\begin{lemma}[Full-domain terminal conversion]
+Let $B$ be a finite blow-up instance with candidacy system $A$, let
+$X\subseteq V_H$ be a finite set with $X=V_H$, and let $\mu$ be any law on
+\noderef{PartialCompatibleEmbedding} with domain $X$. Suppose the law of
+the restricted maps $x\in X\mapsto f(x)$ is $b$-vertex-spread on the whole
+host vertex set in the sense of \noderef{VertexSpreadOn}.
+There is a map $F$ from these partial embeddings to full injective graph
+homomorphisms $H\hookrightarrow G$ satisfying \noderef{CompatibleEmbedding},
+such that $F(f)(x)=f(x)$ for every $f$ and every $x\in V_H$.
+The pushforward $\mu\mathbin{\mathrm{map}}F$ has $b$-vertex-spread
+underlying maps on the whole host vertex set.
+\end{lemma}
+\begin{proof}
+Every source vertex belongs to $X$. For any partial embedding $f$,
+injectivity on $X$ from \noderef{PartialCompatibleEmbedding} is therefore
+global injectivity. Its edge-preservation field applies to every source
+edge and supplies a graph homomorphism into $G$. Together these form a
+\texttt{SimpleGraph.Copy}; no reflection of host edges is asserted or
+needed. The compatibility field applies to every source vertex and is
+exactly \noderef{CompatibleEmbedding}. Define $F(f)$ by these fields
+with underlying function $f.toFun$. This constructs $F$ on every input,
+not only on the support of $\mu$, and proves the displayed pointwise equality.
+
+Let $e:X\simeq V_H$ be the bijection given by inclusion; its inverse
+sends $x$ to $\langle x,x\in X\rangle$, using $X=V_H$.
+The underlying full map of $F(f)$ is the restricted map of $f$ composed
+with $e^{-1}$. Fix $s\in\mathbb N$, an injective map
+$x:\operatorname{Fin}(s)\to V_H$, and any prescribed host map
+$v:\operatorname{Fin}(s)\to V_G$. The map $e^{-1}\circ x$ is injective.
+For each input $f$, the conditions
+\[
+ F(f)(x(k))=v(k)\quad\text{for every }k
+ \quad\Longleftrightarrow\quad
+ f(e^{-1}(x(k)))=v(k)\quad\text{for every }k
+\]
+are identical. By \noderef{CylinderEvent}, these cylinders have the
+same inverse image in the law on partial embeddings. The pushforward
+mass formula, summing the original masses over each fibre, therefore
+gives equal cylinder probabilities, including when $s=0$.
+The assumed restriction-law bound gives probability at most $b^s$.
+Also $b\leq1$ is part of the same \noderef{VertexSpreadOn} assumption.
+These are precisely the two required clauses for the full underlying-map
+law of $\mu\mathbin{\mathrm{map}}F$. Thus both maps and spread are
+preserved, independently of how the full-domain law was obtained.
+\end{proof}

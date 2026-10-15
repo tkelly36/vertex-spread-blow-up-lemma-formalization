@@ -1,0 +1,34 @@
+\begin{lemma}[One-cluster extension]
+Let $F_{12}$ be an $(\varepsilon_{12},d_{12})$-super-regular graph between equal parts $W_1,W_2$ of size $n$, and let $K$ index at most $\Delta$ future neighbor clusters $W_3^k$. For every $k\in K$, suppose $(F_{12},F_{13}^k,F_{23}^k)$ is a near-equal $(\varepsilon_{\rm in}(k),d_{12},d_{13}^k,d_{23}^k)$-regular triplet in the sense of \noderef{NearEqualRegularTriplet}; thus $|W_3^k|\in\{n-1,n,n+1\}$ and all conditions involving $W_3^k$ use its actual cardinality. Assume that $F_{12}$ has a perfect matching. Let $\mu_0$ be the uniform law on its perfect matchings and let $\mu$ be the pushforward law after forgetting the proof that a map is a perfect matching. Assume:
+\[
+ |K|\leq\Delta,\qquad \Delta(1-a)^n\leq\tfrac12,
+ \qquad 0<\varepsilon_{12},\quad4\varepsilon_{12}<d_{12}\leq1,
+ \qquad C/n\leq1,
+\]
+that $\mu$ is $(C/(2n))$-vertex-spread, and that for every $k$ the Four Graphs good event
+\[
+ E_k=\{\sigma:A^k_\sigma\text{ is }(\varepsilon_{\rm out}(k),d_{13}^kd_{23}^k)\text{-super-regular}\}
+\]
+has $\mu_0$-probability at least $1-(1-a)^n$. Then the simultaneous good event $E=\bigcap_{k\in K}E_k$, viewed as an event of maps $W_1\to W_2$, has $\mu$-probability at least $1/2$, and the law of $\sigma$ conditioned on $E$ is $(C/n)$-vertex-spread. Here each $A^k_\sigma$ is \noderef{MatchingInducedGraph}. No comparison between $\varepsilon_{12}$ and the values $\varepsilon_{\rm in}(k)$ is assumed.
+\end{lemma}
+\begin{proof}
+Write $B_k=E_k^c$. The map from the perfect-matching subtype to maps
+$W_1\to W_2$ is injective and $\mu$ is, by definition, the pushforward of
+$\mu_0$ along this map. Moreover, membership in $E_k$ is the same predicate
+before and after forgetting the perfect-matching proof. Hence the assumed
+$\mu_0$ bound gives $\mu(E_k)\geq1-(1-a)^n$, and therefore
+$\mu(B_k)\leq(1-a)^n$, for every $k$. Since $K$ is finite, the union bound gives
+\[
+ \mu(E^c)=\mu\Bigl(\bigcup_{k\in K}B_k\Bigr)
+ \leq\sum_{k\in K}\mu(B_k)
+ \leq |K|(1-a)^n
+ \leq\Delta(1-a)^n\leq\tfrac12.
+\]
+Consequently $\mu(E)\geq1/2$.  In particular $E$ has positive probability, so it contains an element of the finite support of $\mu$ and the conditional distribution is defined.
+
+Apply \noderef{VertexSpreadConditioning} directly to the assumed $(C/(2n))$-vertex-spread law, with $q=C/(2n)$ and $p=1/2$.  Since
+\[
+ \frac{C/(2n)}{1/2}=\frac Cn,
+\]
+that lemma shows that the conditional law is $(C/n)$-vertex-spread because the hypothesis $C/n\leq1$ is exactly its required parameter-range inequality.  By the definition of $E$, every matching in the support of this conditional law makes all the graphs $A^k_\sigma$ simultaneously $(\varepsilon',d_{13}^kd_{23}^k)$-super-regular.  Thus conditioning preserves all the simultaneous good-event conclusions while incurring only the stated factor-two spread loss.
+\end{proof}

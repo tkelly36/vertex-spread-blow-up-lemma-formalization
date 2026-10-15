@@ -1,0 +1,92 @@
+\begin{lemma}[Upper enumeration in large induced subgraphs]
+For every $\varepsilon>0$ and $0<d\le1$ there is $n_0$ such that the following holds.  Let $G[U,W]$ be an $(\varepsilon,d)$-regular pair with $|U|=|W|=n\ge n_0$.  If $S\subseteq U$, $T\subseteq W$, $S\cap T=\varnothing$, $|S|=|T|=y$, and $y\ge\sqrt\varepsilon n$, then the number of perfect matchings in $G[S,T]$ is at most
+\[
+ (d+\varepsilon+3\sqrt\varepsilon)^y y!.
+\]
+Here a missing edge can only reduce the number, so the assertion also applies to any balanced subgraph induced by prescribed subsets of the two parts.
+\end{lemma}
+\begin{proof}
+Write $c=d+\varepsilon+3\kappa$ and let $m$ denote the number of perfect
+matchings. If $c\ge1$, take $n_0=0$. The hypotheses $|S|=|T|=y$ and
+\noderef{PerfectMatchingBijectionBound} give $m\le y!$, and
+$c^y\ge1$ gives $m\le c^y y!$. This argument also covers $y=0$ and
+infinite parameter values; the zeroth power is one.
+
+Assume now $c<1$. All parameters are finite: $d,\varepsilon$ are bounded
+by $c$, and $3\kappa\le c$ bounds $\kappa$. The identity
+$\kappa^2=\varepsilon>0$ implies $\kappa>0$, and $c<1$ implies
+$\kappa<1/3$. Consequently $\varepsilon=\kappa^2<\kappa$.
+Conversion to real numbers preserves these finite nonnegative
+parameters, their sums, products, inequalities, and powers. In the rest
+of this branch use real notation for them, and put $D=d+\varepsilon>0$.
+
+Apply \noderef{FactorialRootExceptionalProduct} to $D,\kappa$, obtaining
+a positive integer $y_0$ depending only on those parameters. Choose an
+integer $n_0>y_0/\kappa+1$. For $n\ge n_0$ and $y\ge\kappa n$ we have
+$n>0$ and $y>y_0$. In particular $y>0$, so the empty induced graph
+cannot occur in this branch.
+
+Index $S$ and $T$ by $\{0,\ldots,y-1\}$, and write
+$r_i=|N_G(e_S^{-1}(i))\cap T|$. Each $r_i\le y$, since its neighbor set
+is a subset of $T$. To bound the exceptional indices, note that
+$\varepsilon=\kappa^2<\kappa<1/3$, so $\varepsilon\le1$.
+Since $n>0$, we have
+$|T|=y\ge\kappa n>\varepsilon n=\varepsilon|W|$.
+Apply \noderef{RegularPairUpperTail} with left part $U$, right part $W$,
+and tested subset $T$, using the given regularity and $d\le1$.
+It bounds the full $U$-tail
+$B=\{v\in U:|N_G(v)\cap T|>(d+\varepsilon)y\}$ by
+$|B|\le\varepsilon|U|=\varepsilon n$.
+Let $A=\{v\in S:|N_G(v)\cap T|>(D+\kappa)y\}$.
+Since $S\subseteq U$ and $(D+\kappa)y\ge Dy$, we have $A\subseteq B$.
+The indexing bijection $e_S^{-1}$ restricts to a bijection from
+$\{i:r_i>(D+\kappa)y\}$ onto $A$, so its cardinality $k$ equals $|A|$.
+All thresholds are finite: $d+\varepsilon$ is finite, and all set
+cardinalities are natural numbers. Their finite extended-real products
+convert to the displayed real products, and strict comparison is
+preserved by this conversion. Thus the real inequality defining $A$
+implies the extended-real inequality defining $B$; converting the
+extended-real tail bound back to reals gives
+\[
+ k=|A|\le |B|\le\varepsilon n
+   =\kappa^2 n\le\kappa y,
+\]
+where the last step multiplies $\kappa n\le y$ by $\kappa>0$.
+
+For the matching-product bound use \noderef{BregmanMatchingDegreeProduct}.
+Its natural-number matrix has entry one exactly on the edges between
+the indexed parts. Its zero-one hypothesis holds entrywise, its row
+supports have cardinalities $r_i$, and its permanent is $m$ after the
+natural-to-real cast, by \noderef{AdjacencyPermanentMatchingCount}.
+That adapter applies the two branches of the checked imported theorem
+\texttt{EntropyMethodsFormalization.BregmanMinc}. If a row has degree
+zero, it gives $m=0$, and the assertion follows from nonnegativity.
+Otherwise it gives
+\[
+ m\le\prod_{i=0}^{y-1}(r_i!)^{1/r_i}.
+\]
+All degrees are now positive and at most $y$, the exceptional count is
+at most $\kappa y$, and $y\ge y_0$. Hence
+\noderef{FactorialRootExceptionalProduct} gives
+\[
+ \prod_i(r_i!)^{1/r_i}\le(D+3\kappa)^y y!.
+\]
+In that estimate the increasing factorial roots bound exceptional rows
+by $(y!)^{1/y}$; ordinary and low-degree rows are bounded by
+$(y!)^{1/y}xe^{\delta_y}$, where
+$x=D+2\kappa$ and $\delta_y=(\log y+1)/(\kappa y)$.
+The positive margin
+$\log((x+\kappa)/x)-\kappa\log(1/x)$ absorbs both this factorial loss
+and the at most $\kappa y$ exceptional rows. Thus the regularity and
+factorial losses, not just the imported permanent inequality, are
+accounted for.
+
+Combining the inequalities proves the real bound $m\le c^y y!$.
+Apply the order-preserving map from nonnegative real numbers to
+extended nonnegative real numbers. It preserves the products and
+powers here and sends the natural-number count and factorial to their
+usual casts. Since $c$ is finite it recovers precisely the original
+coefficient. This yields the stated extended-real inequality. The
+choice of $n_0$ involves only $D,\kappa$ and hence only the stipulated
+parameters, and is uniform over the graph, the parts, and the subsets.
+\end{proof}

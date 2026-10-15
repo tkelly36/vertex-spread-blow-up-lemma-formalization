@@ -1,0 +1,118 @@
+\begin{lemma}[Regular subgraph]
+For every $0<\varepsilon'<1$ and every $0<d<1$, there are $0<\varepsilon<\varepsilon'$ and $n_0\in\mathbb N$ with the following property.  Let $G$ be a finite bipartite graph with bipartition $\{U,W\}$, where $|U|=|W|=n\geq n_0$.  If $(U,W)$ is lower $(\varepsilon,d+\varepsilon)$-regular in the sense of \noderef{LowerRegularPair}, then $G$ has a spanning subgraph $G'\subseteq G$ for which $(U,W)$ is $(\varepsilon',d)$-regular in the sense of \noderef{RegularPair}.
+\end{lemma}
+\begin{proof}
+Write $\eta=\varepsilon'_{\mathbb R}$ and $d_{\mathbb R}$ for the real
+values of the prescribed parameters. They are positive and less than one,
+since the original parameters lie strictly between zero and one. Apply
+\noderef{RegularExtractionParameters} to $\eta$ to obtain
+$h,\gamma,\alpha,\varepsilon,l,M,n_0$ with all the scalar conditions
+in that statement. In particular $0<\varepsilon<\eta$, $1\leq n_0$,
+$M\leq n_0$, $\varepsilon M<\gamma$,
+\[
+ 2\alpha+(6\gamma+9\alpha+6/l)/h^2<h/4,\qquad
+ 2\,4^n\exp(-h^4n^2/8)<1\quad(n\geq n_0).
+\]
+Use the extended-nonnegative-real image of this $\varepsilon$ as the
+existential witness. These choices depend only on $\varepsilon'$, hence
+in particular only on the two prescribed parameters.
+
+Fix an input graph and its bipartition with $n\geq n_0$. Then
+$n>0$, $M\leq n$, and the disjoint cover gives $|V|=2n$.
+For $A\subseteq U$, $B\subseteq W$ of size strictly greater than
+$\varepsilon n$, the input \noderef{LowerRegularPair} condition gives
+\[
+ (d+\varepsilon)-\varepsilon\leq\operatorname{PairDensity}(G,A,B).
+\]
+The parameter $\varepsilon$ is finite, so the extended subtraction
+cancels to $d$. Both tested sets are nonempty. By
+\noderef{PairDensityReal}, their density is finite and its real value
+is the usual rational edge density viewed in $\mathbb R$.
+Consequently
+\[
+ d_G(A,B)\geq d_{\mathbb R}\quad
+       (|A|,|B|>\varepsilon n).                         \tag{1}
+\]
+Real and extended-real cardinality thresholds agree here, since
+all parameters and cardinalities are finite.
+
+Since $l\leq M\leq n\leq |V|$ and $\alpha>0$, apply
+Mathlib's \texttt{szemeredi\_regularity} from
+\texttt{Mathlib.Combinatorics.SimpleGraph.Regularity.Lemma} on the entire vertex set.
+This gives an equipartition $\mathcal P$ with
+$l\leq m=|\mathcal P|\leq
+\operatorname{SzemerediRegularity.bound}(\alpha,l)\leq M$ and
+$\mathcal P$ $\alpha$-uniform. Apply
+\noderef{RegularExtractionPartitionGeometry} with this same partition,
+the disjoint cover, and (1). Its scalar hypotheses hold by the
+parameter choice, including $\alpha\leq\gamma$ and
+$\alpha\leq\gamma^2$. It yields $n/m\leq|S|\leq3n/m$ for every
+part and the eligible ordered pair set $E$. For each $(S,T)\in E$,
+the chunk density $D_{ST}=d_G(U\cap S,W\cap T)$ belongs to
+$[d_{\mathbb R},1]$, and its restriction to intersections larger
+than their $\gamma$ thresholds changes by less than $2\alpha$.
+The total ineligible area is at most
+$(4\gamma+9\alpha+6/l)n^2$. This statement explicitly includes
+nonsubstantial chunks, ordered distinct nonuniform pairs, and
+diagonal rectangles.
+
+Apply \noderef{WeightedRectangleExpectation} to $\mathcal P,E$ and
+these local bounds.
+It gives a function $p:V\times V\to[0,1]$, zero on nonedges and
+outside $U\times W$. For an edge in an eligible rectangle it is
+$d_{\mathbb R}/D_{ST}$, a valid probability because
+$0<d_{\mathbb R}\leq D_{ST}$; in every other rectangle it is one.
+The unique parts of each endpoint determine the rectangle.
+The function is used only in the canonical $U$-to-$W$ orientation.
+Put
+\[
+ \mu(A,B)=\sum_{(a,b)\in A\times B}p(a,b).
+\]
+The weighted-expectation statement pays both the ineligible area
+and the additional small-intersection strips. Specialize its final
+conditional conclusion to the chosen $h>0$ and its scalar margin to get
+\[
+ |\mu(A,B)-d_{\mathbb R}|A||B||<(h/4)|A||B|
+        \quad(|A|,|B|>hn).                             \tag{2}
+\]
+
+The cutoff supplied by the parameters is precisely the strict
+hypothesis of \noderef{SimultaneousUnequalRetention}. Apply that
+node to $G,U,W,n,h,p$. It gives a graph $G'$ on the same entire
+vertex set, with decidable adjacency and $G'\leq G$, retaining
+the weight-one edges, for which all large tests simultaneously obey
+\[
+ |e_{G'}(A,B)-\mu(A,B)|\leq(h/4)|A||B|
+        \quad(|A|,|B|>hn).                             \tag{3}
+\]
+Its finite product law has one trial for each canonically oriented
+undirected edge; the probabilities were validated before forming
+that law. The simultaneous conclusion uses all subset tests, not
+only tests consisting of partition parts.
+
+Now let $A\subseteq U$, $B\subseteq W$ be any of the tests in
+\noderef{RegularPair} for $\varepsilon'$. Their real sizes satisfy
+$|A|,|B|>\eta n>hn$, because $h<\eta$ and $n>0$.
+Combining (2) and (3) by the triangle inequality gives
+\[
+ |e_{G'}(A,B)-d_{\mathbb R}|A||B||<(h/2)|A||B|.
+\]
+The two cardinalities are positive, so divide by their product.
+By \noderef{PairDensityReal} this gives
+$|d_{G'}(A,B)-d_{\mathbb R}|<h/2<\eta$.
+In particular the real density belongs to
+$[d_{\mathbb R}-\eta,d_{\mathbb R}+\eta]$.
+
+All tested densities are finite by \noderef{PairDensityReal}.
+Thus the upper real inequality converts to
+$\operatorname{PairDensity}(G',A,B)\leq d+\varepsilon'$.
+If $\varepsilon'\leq d$, finite extended subtraction has real value
+$d_{\mathbb R}-\eta$, so the lower real inequality converts to
+$d-\varepsilon'\leq\operatorname{PairDensity}(G',A,B)$.
+If instead $d\leq\varepsilon'$, the truncated lower endpoint is zero
+and the same conclusion follows from nonnegativity.
+These are every required strict-threshold test of
+\noderef{RegularPair}. The graph has the original vertex type,
+including isolated vertices, and is contained in $G$, so it is the
+required spanning subgraph. No minimum-degree hypothesis was used.
+\end{proof}

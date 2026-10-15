@@ -1,0 +1,81 @@
+\begin{lemma}[Artificial current row, deletion, and contained transport]
+Let $U,K,V,Z$ lie in a finite disjoint-union ambient set, with
+$U\cap K=U\cap Z=K\cap Z=V\cap Z=\varnothing$,
+$|U|=|K|=n+1$, $|V|=|Z|=n$, and $n\ge1$. Let $u_0\in U$ and let
+$\tau:V\to U\setminus\{u_0\}$ be a bijection such that
+$uv\in M\Longleftrightarrow u=\tau(v)$ on $U\times V$.
+Assume $W\subseteq O$, $J\subseteq H$, and $W[V,Z]$ is
+$(\xi,p)$-super-regular. Suppose $p\le1$, $ph\le1$, and
+\[
+1/n\le\xi<\eta\le1,\quad
+\xi+2/n\le\eta,\quad \xi+1/(\eta n)\le\eta,
+\]
+\[
+\omega<e\le1,\quad \omega+2/n\le e,\quad
+\omega+1/(en)\le e.
+\]
+There is an $(\eta,p)$-super-regular graph $F[U,Z]$ with
+$\tau(v)z\in F\Longleftrightarrow vz\in W$ on $V\times Z$.
+For every bijection $\sigma:U\to K$, if the matching-induced graph on
+subtype copies of $U,Z$, with edges $uz\in F$ and $\sigma(u)z\in J$,
+is $(\omega,ph)$-super-regular, the graph
+\[
+T_\sigma:\quad vz\in E(T_\sigma)\Longleftrightarrow
+v\in V,\ z\in Z,\ vz\in O,\quad
+\forall u\in U\ (uv\in M\Rightarrow\sigma(u)z\in H),
+\]
+symmetrized as a simple graph, contains a spanning
+$(e,ph)$-super-regular graph on $V,Z$.
+\end{lemma}
+\begin{proof}
+Pull $W[V,Z]$ back to $U\setminus\{u_0\},Z$ using $\tau^{-1}$ and
+restrict the pulled-back graph to these two parts. The bijection preserves
+degrees, rectangle cardinalities, and edge counts, so the pair is still
+$(\xi,p)$-super-regular by \noderef{SuperRegularPair}.
+Put $\ell=\lfloor pn\rfloor$. Since $0\le p\le1$ and $n\ge1$,
+$0\le\ell\le n$. Moreover $pn-1<\ell\le pn$ and
+$\eta n\ge\xi n\ge1$, so
+$(p-\eta)n\le\ell\le(p+\eta)n$.
+Choose an $\ell$-subset $N$ of $Z$ and form an auxiliary ambient graph
+by adjoining the row $u_0N$ to the pulled-back graph, with no other
+edges incident to $u_0$. The old graph is contained in this auxiliary
+ambient graph and the available row has exactly $\ell$ vertices.
+Apply \noderef{FutureExtraVertexStability} with residual size $n$,
+row size $\ell$, errors $\xi,\eta$, density $p$, and that auxiliary
+ambient graph. Its row-degree inequalities are those just proved; its
+two slack hypotheses and unit bounds are displayed assumptions.
+It produces the desired $F$. The unchanged-edge conclusion preserves
+all genuine pulled-back rows. This construction gives no source image
+for $u_0$; its row is artificial.
+
+Fix $\sigma$ and a successful induced graph. Its left part has $n+1$
+vertices, its right part has $n$, and its artificial left vertex is the
+subtype copy of $u_0$. Apply
+\noderef{MatchingInducedLeftRowDeletion} with errors $\omega,e$ and
+density $ph$; all its degree, size, unit, and slack hypotheses are exactly
+the displayed assumptions. The resulting graph on the residual left
+part and the full right part is $(e,ph)$-super-regular.
+Restrict $\sigma$ to the residual left part and restrict its host part
+to $K\setminus\{\sigma(u_0)\}$. Bijectivity of $\sigma$ makes this
+restriction a bijection: injectivity forbids another preimage of
+$\sigma(u_0)$, and surjectivity supplies the unique preimage of every
+other host vertex. The restricted matching-induced graph is exactly the
+deleted graph, after relabelling its subtype copies.
+
+Define $W_{\rm new}$ to have the edges $vz$ with
+$\tau(v)z\in F$ and $\sigma(\tau(v))z\in J$, and their reverses.
+Using the residual source bijection $\tau^{-1}$, apply
+\noderef{MatchingInducedUpdatedCandidacyTransport} to the restricted
+matching and this target graph. The complete bipartite graph on the
+residual source and host parts makes that bijection a perfect matching
+as defined in \noderef{PerfectMatching}. The target adjacency
+equivalence is definitional. The two exact-image equivalences are
+$v\in V\Longleftrightarrow\exists u\in U\setminus\{u_0\},
+v=\tau^{-1}(u)$ and the identity equivalence on $Z$.
+Thus $W_{\rm new}[V,Z]$ is $(e,ph)$-super-regular.
+For each of its edges the genuine-row identity and $W\subseteq O$
+give $vz\in O$, while $J\subseteq H$ gives the constraint from
+$\tau(v)$. The source-matching equivalence says this is the only
+constraint from $U$. Hence $W_{\rm new}\subseteq T_\sigma$.
+The artificial row was deleted and is neither transported nor restored.
+\end{proof}

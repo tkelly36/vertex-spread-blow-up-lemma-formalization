@@ -1,0 +1,24 @@
+\begin{lemma}[Completion of a finite partial matching]
+Let $S,T$ be finite sets and let $M\subseteq S\times T$ satisfy the
+following two uniqueness conditions: $M(x,y)$ and $M(x,z)$ imply $y=z$,
+and $M(x,z)$ and $M(y,z)$ imply $x=y$.
+If $|S|\leq |T|$, there is an injection $\tau:S\to T$ such that
+$M(x,y)$ implies $\tau(x)=y$ for every $x\in S,y\in T$.
+Thus the graph of $\tau$ retains every pair of the original partial matching.
+\end{lemma}
+\begin{proof}
+Let $A=\{x\in S:\exists y\in T,\ M(x,y)\}$.
+For $x\in A$, let $g(x)$ be its unique partner.  The first uniqueness
+condition makes this well-defined; the second makes $g:A\to T$ injective.
+Put $D=g(A)$.  Then $g:A\to D$ is a bijection, so $|A|=|D|$.
+The finite disjoint decompositions $S=A\sqcup(S\setminus A)$ and
+$T=D\sqcup(T\setminus D)$ show that
+$|S\setminus A|=|S|-|A|\leq |T|-|D|=|T\setminus D|$.
+Enumerate the two complements and send the $\ell$th element of the
+first to the $\ell$th element of the second.  This defines an injection
+$f:S\setminus A\to T\setminus D$, also when the domain is empty.
+Define $\tau$ to equal $g$ on $A$ and $f$ on its complement.
+Each restriction is injective and their images lie in the disjoint
+sets $D$ and $T\setminus D$, so $\tau$ is injective.  If $M(x,y)$,
+then $x\in A$ and uniqueness gives $\tau(x)=g(x)=y$.
+\end{proof}

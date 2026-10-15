@@ -1,0 +1,27 @@
+\begin{lemma}[Deterministic count error transfer]
+Let $d,\epsilon,\rho,\eta$ be finite extended nonnegative reals with
+$\epsilon\leq d$, $\eta\leq\rho$. Let $q\geq0,\xi$ be real numbers
+such that $qd=\rho$ and $q\epsilon+\xi\leq\eta$, where these scalar
+identities use real conversions. For natural numbers $m,a,b$, if
+\[
+(d-\epsilon)m\leq a\leq(d+\epsilon)m,
+\qquad |b-qa|\leq\xi m,
+\]
+then $(\rho-\eta)m\leq b\leq(\rho+\eta)m$ in the extended
+nonnegative reals. This includes $m=0$.
+\end{lemma}
+\begin{proof}
+All scalar parameters and natural counts are finite. Since
+$\epsilon\leq d$, the real conversion of $d-\epsilon$ is the ordinary
+difference; similarly for $\rho-\eta$. Thus convert the given interval
+to real inequalities and multiply both sides by the nonnegative $q$.
+The absolute-value inequality says $qa-\xi m\leq b\leq qa+\xi m$.
+Combining gives
+\[
+(\rho-(q\epsilon+\xi))m\leq b
+\leq(\rho+(q\epsilon+\xi))m.
+\]
+Since $m\geq0$ and $q\epsilon+\xi\leq\eta$, enlarge this interval
+to the stated one. Finite real conversion preserves and reflects order,
+so converting back proves the assertion, without dividing by $m$.
+\end{proof}

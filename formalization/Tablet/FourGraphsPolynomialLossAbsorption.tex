@@ -1,0 +1,24 @@
+\begin{lemma}[Absorbing the Four Graphs polynomial loss]
+For every extended nonnegative real $c<1$ there exists $a_0>0$ such
+that, for every $0<a\leq a_0$, there is $n_0\geq2$ with
+\[
+ ((m+1)+(m+1)^2)c^m\leq(1-a)^m\qquad(m\geq n_0).
+\]
+\end{lemma}
+\begin{proof}
+The number $c$ is finite. Put $r=(c+1)/2$, so $0<r<1$ and $c<r$,
+and choose $a_0=1-r>0$. If $c=0$, every displayed left-hand side
+vanishes for $m\geq2$, and the claim follows immediately.
+Otherwise put $t=c/r\in(0,1)$. For $j=0,1,2$ the sequence $m^jt^m$
+tends to zero: for $j>0$ its consecutive-term ratio is
+$t(1+1/m)^j$, which is eventually bounded by a fixed number strictly
+below $1$; for $j=0$ it is geometric. Hence
+\[
+ ((m+1)+(m+1)^2)t^m=(m^2+3m+2)t^m\longrightarrow0.
+\]
+Choose $n_0\geq2$ so this expression is at most $1$ for every
+$m\geq n_0$. Multiplying by $r^m>0$ gives the left-hand side in
+the statement at most $r^m$. Finally $a\leq1-r$ implies
+$r\leq1-a$, proving the assertion. All these choices concern finite
+nonnegative numbers, so they are equally valid in extended arithmetic.
+\end{proof}

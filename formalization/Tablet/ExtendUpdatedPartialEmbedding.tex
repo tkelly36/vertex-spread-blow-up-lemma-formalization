@@ -1,0 +1,12 @@
+\begin{lemma}[Extension by an updated partial embedding]
+Let $f$ be a partial compatible embedding in the sense of \noderef{PartialCompatibleEmbedding} on a vertex set $X$, and let $Y$ be disjoint from $X$.  If $g$ is a partial compatible embedding on $Y$ for the updated candidacy system $A_f$ from \noderef{UpdatedCandidacy}, then there is a partial compatible embedding $h$ on $X\cup Y$ which agrees with $f$ on $X$ and with $g$ on $Y$.
+\end{lemma}
+\begin{proof}
+Define $h(z)=f(z)$ for $z\in X$, define $h(z)=g(z)$ for $z\in Y$, and assign arbitrary values away from $X\cup Y$.  The first two clauses are unambiguous because $X$ and $Y$ are disjoint.
+
+We first prove injectivity on $X\cup Y$.  Two vertices both in $X$ have distinct images by the injectivity field of \noderef{PartialCompatibleEmbedding} for $f$, and two vertices both in $Y$ have distinct images by the corresponding field for $g$.  If $x\in X$ and $y\in Y$, compatibility of $g$ with \noderef{UpdatedCandidacy} includes the condition $g(y)\notin f(X)$.  Hence $g(y)\ne f(x)$.  These three cases prove that $h$ is injective on its domain.
+
+Next let $zz'$ be an edge of $H$ with both endpoints in $X\cup Y$.  If both endpoints lie in $X$, then $h(z)h(z')$ is an edge of $G$ because $f$ is a partial embedding.  If both lie in $Y$, the same conclusion follows because $g$ is a partial embedding.  In the remaining case, symmetry permits us to write the endpoints as $x\in X$ and $y\in Y$.  Compatibility of $g$ with the updated candidacy system says that for every already embedded neighbor $x'\in X$ of $y$, the pair $g(y)f(x')$ is an edge of $G$.  Taking $x'=x$ shows that $h(y)h(x)$ is an edge.  Thus $h$ preserves every edge induced by $X\cup Y$.
+
+Finally, for $x\in X$, the pair $(x,h(x))=(x,f(x))$ is allowed by the original candidacy system because $f$ is compatible.  For $y\in Y$, compatibility of $g$ with the updated system includes, as one of the defining conjuncts of \noderef{UpdatedCandidacy}, that $(y,g(y))$ is allowed by the original system.  Hence $h$ is compatible with the original candidacy system throughout $X\cup Y$.  Together with injectivity and edge preservation this gives the required partial compatible embedding, and its definition gives the two asserted restriction identities.
+\end{proof}

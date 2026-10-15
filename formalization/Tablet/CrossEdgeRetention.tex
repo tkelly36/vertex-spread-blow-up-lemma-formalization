@@ -1,0 +1,12 @@
+\begin{definition}[Spanning cross-edge retention]
+Given $G,L,R$ and $\omega:V\times V\to\{0,1\}$, define $G_\omega$ on
+the original vertex set $V$ by
+\[
+vw\in E(G_\omega)\iff vw\in E(G)\text{ and }
+\bigl((v\in L,w\in R,\omega_{(v,w)}=1)
+\text{ or }(w\in L,v\in R,\omega_{(w,v)}=1)\bigr).
+\]
+The adjacency relation is symmetric and irreflexive. When the parts are
+disjoint, this retains each undirected cross edge using its unique
+$L$-to-$R$ coordinate and deletes every other edge.
+\end{definition}

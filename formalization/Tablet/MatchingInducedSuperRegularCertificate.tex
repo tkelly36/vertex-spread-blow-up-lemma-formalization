@@ -1,0 +1,41 @@
+\begin{lemma}[A deterministic certificate for the matching-induced graph]
+Let $(G,F,H)$ on a finite vertex set with parts $(U,W,Z)$ be a near-equal
+$(\varepsilon,d,x,y)$-regular triplet of order $m$, in the sense of
+\noderef{NearEqualRegularTriplet}, and let $f:U\to W$ be a perfect
+matching of $G$. Put $q=xy$, $k=|Z|$, and let $A_f$ be the copied graph
+of \noderef{MatchingInducedGraph}, with copied parts $L,R$.
+Suppose
+\[
+ m\geq2,\quad \varepsilon\leq\min(\delta,\eta),\quad
+ \delta\leq\min(\eta,q),\quad q\leq1,\quad\eta\leq1,\quad
+ 1\leq\delta m,\quad32\delta\leq\eta^5.
+\]
+If every right vertex has degree into $L$ in
+$[(q-\delta)m,(q+\delta)m]$, and at most $6\varepsilon k^2$
+ordered pairs of $R^2$ have more than $(q+\delta)^2m$ common neighbors
+in $L$, then $A_f$ is $(\eta,q)$-super-regular on $L,R$.
+\end{lemma}
+\begin{proof}
+By \noderef{MatchingInducedGraphIdentities}, $|L|=m$, $|R|=k$, and
+the two copied parts are disjoint. Each left vertex $u$ is matched to
+$f(u)$ along an edge of $G$, by \noderef{PerfectMatching}.
+The triplet common-neighborhood clause of
+\noderef{NearEqualRegularTriplet}, together with the left-degree identity,
+therefore gives its degree into $R$ in $[(q-\varepsilon)k,
+(q+\varepsilon)k]$. Since $\varepsilon\leq\eta$, this is contained
+in the required $[(q-\eta)k,(q+\eta)k]$ window. The assumed right
+window is likewise contained in the target window because $\delta\leq\eta$.
+
+In the exceptional-pair test of
+\noderef{NearEqualDegreeCodegreeRegularityCriterion}, neither low-degree
+disjunct can hold, by the assumed $(q-\delta)m$ right-degree bound.
+Its exceptional set is thus exactly the set of excessive codegrees.
+Its size is at most $6\varepsilon k^2\leq6\delta k^2$.
+The criterion applies with order $m$, right size $k\in\{m-1,m,m+1\}$,
+density $q$, error $\eta$, and auxiliary error $\delta$: disjointness,
+both sizes, $\eta\leq1$, $\delta\leq q\leq1$, $m\geq2$,
+$1\leq\delta m$, and $32\delta\leq\eta^5$ have all been checked.
+It proves $(\eta,q)$-regularity. Combining this with the two degree
+windows is precisely \noderef{SuperRegularPair}. Ordered pairs have
+never been restricted to distinct entries.
+\end{proof}

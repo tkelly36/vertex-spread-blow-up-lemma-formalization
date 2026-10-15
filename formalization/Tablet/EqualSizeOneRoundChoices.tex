@@ -1,0 +1,140 @@
+\begin{lemma}[Simultaneous choices for one colour round]
+Fix $0<d\leq1$, $\Delta\in\mathbb N$, total exposure sequences $p,\rho$,
+and $0<e\leq1$. Assume $0<p_x\leq1$, $0<\rho_x<p_x$ for
+$x\leq\Delta$, and $p_y-p_{y+1}>0$ for $y<\Delta$.
+There are scalars $\omega,\theta,\zeta,\widehat\zeta,b$ and a
+certificate $K$ in the sense of \noderef{InductionApplicationCertificate},
+with degree bound $\Delta$, certified round bound $1$, host density $d$,
+and parameter sequences
+\[
+ t_s=\theta,\quad D_x=p_x,\quad \beta_s=b,\quad
+ \rho_x=\rho_x,\quad \eta_s=\zeta,\quad
+ \omega_s=\omega,\quad \xi_s=\widehat\zeta.
+\]
+They satisfy
+\[
+ 0<b<\widehat\zeta<\zeta,\quad 0<\theta,\quad
+ 0<\omega<e,\quad b\leq e,
+\]
+\[
+ 2\sqrt\zeta\leq\theta,\quad
+ \zeta+\Delta\sqrt\zeta\leq\theta,\quad
+ \zeta+2\Delta\zeta\leq\theta,
+\]
+and, for every $x\leq\Delta$,
+\[
+ 4\theta<\rho_x,\quad 2\zeta<\rho_x,\quad
+ 2\zeta<1-\rho_x.
+\]
+Also $2\zeta<d/2$, $2\zeta<1-d/2$, and
+$2b<p_y-p_{y+1}$ for every $y<\Delta$.
+Every $K$-matching constant at round zero and exposure $x\leq\Delta$
+is finite. Thus $K$ contains actual witness and host thinnings at input
+error $b$, and Four Graphs data for every ordered pair $x,y\leq\Delta$.
+\end{lemma}
+\begin{proof}
+All quantities used below are finite real numbers: $d\leq1$,
+$0<\rho_x<p_x\leq1$, and $0<e\leq1$.
+In particular $0<d/2<1$ and $0<\rho_x<1$.
+For each ordered pair $x,y\leq\Delta$, apply
+\noderef{NearEqualFourGraphs} to $(\rho_x,\rho_y,d/2)$.
+Its six density hypotheses hold by these inequalities. Write $u_{xy}>0$
+for its output-error cap. Take $\omega$ to be one half of the minimum
+of $e$, $1$, and all $u_{xy}$ (allowing an infinite cap does not affect
+this minimum). The index set is finite and nonempty, including when
+$\Delta=0$. Hence $0<\omega<e$ and $\omega\leq u_{xy}$.
+Only now use the output-error universal quantifier in Four Graphs:
+for each pair it supplies a positive input-error cap $v_{xy}$ at
+this fixed $\omega$.
+
+Let $\theta$ be one half of the minimum of $1$, all $v_{xy}$,
+and all $\rho_x/8$. Then $\theta>0$, $\theta\leq v_{xy}$, and
+$4\theta\leq\rho_x/4<\rho_x$.
+At this fixed input error, Four Graphs supplies an exponential-constant
+cap $c_{xy}>0$. Set $a_{xy}=\min(1,c_{xy})/2$.
+Thus $0<a_{xy}\leq1$ and $a_{xy}\leq c_{xy}$; apply its last
+universal quantifier at $a_{xy}$ and record the resulting order threshold
+and probability guarantee. This follows the output-error, input-error,
+exponential-constant quantifier order exactly. Both exposure coordinates
+range independently over the full set $\{0,\ldots,\Delta\}$.
+
+For each $x\leq\Delta$, apply \noderef{UniformPerfectMatchingSpread}
+at $(\theta,\rho_x)$: $\theta>0$, $4\theta<\rho_x$, and
+$\rho_x\leq1$ verify its hypotheses. Record its finite constant
+$M_x\geq1$, threshold, and spread guarantee. Its map to matching
+functions is exactly the map to ambient-vertex-valued functions in the
+certificate, after composing with the right-subtype inclusion.
+Explicitly, unfold \noderef{VertexSpreadOn} and \noderef{CylinderEvent}.
+For each cylinder of ambient prescriptions $y_i$, if any
+$y_i$ is outside the right part its mass is zero; otherwise form the
+right-subtype prescriptions with these values. Their cylinder is the
+preimage of the ambient cylinder under the inclusion, so the same
+$(M_x/m)^k$ bound holds. The constraint $M_x/m\leq1$ is unchanged.
+Apply \noderef{MatchingEnumeration} at $(\theta,\rho_x)$, since
+$2\theta\leq4\theta<\rho_x$. Its lower bound
+$(\rho_x-2\theta)^m m!$ is positive: the base is positive and finite,
+its natural power is positive also for $m=0$, and $m!>0$.
+Consequently the finite set of perfect matchings has positive cardinality,
+so a matching exists. Record this threshold and existence guarantee.
+
+Choose a positive real $h$ strictly below each of
+\[
+ 1,\quad\frac{\theta}{2(\Delta+1)},\quad
+ \frac{\theta}{1+2\Delta},\quad
+ \min_{x\leq\Delta}\frac{\rho_x}{20},\quad
+ \min_{x\leq\Delta}\frac{1-\rho_x}{4},\quad
+ \frac{d/2}{20},\quad\frac{1-d/2}{4}.
+\]
+Every entry is positive, so half their minimum is a valid explicit
+choice. Set $\zeta=h^2$ and $\widehat\zeta=\zeta/2$.
+Since $0<h<1$, $\zeta\leq h$ and $\sqrt\zeta=h$.
+It follows that
+\[
+ 2\sqrt\zeta=2h<\theta,\qquad
+ \zeta+\Delta\sqrt\zeta\leq(\Delta+1)h<\theta,\qquad
+ \zeta+2\Delta\zeta\leq(1+2\Delta)h<\theta.
+\]
+Also $2\zeta\leq2h<\rho_x,1-\rho_x,d/2,1-d/2$, and
+$10\widehat\zeta=5h^2\leq5h<\rho_x,d/2$.
+These verify all the claimed padding reserves, including the strict
+inner gap $\zeta-\widehat\zeta>0$.
+
+Let $b$ be half the minimum of $e$, $\widehat\zeta/16$, and the
+finitely many $(p_y-p_{y+1})/4$ for $y<\Delta$.
+When $\Delta=0$ omit the last family. Thus
+$0<b<\widehat\zeta$, $b\leq e$, and
+$2b\leq(p_y-p_{y+1})/4<p_y-p_{y+1}$.
+Put $\xi=\widehat\zeta/16>0$.
+For each witness take $(D,\rho)=(p_x,\rho_x)$; for each host take
+$(D,\rho)=(d,d/2)$. In each case $0<\rho<D\leq1$ and
+$\rho/D\leq1$; division is ordinary division because $D$ is finite
+and positive. Hence
+\[
+ 4\bigl((\rho/D)b+\xi\bigr)
+ \leq4\bigl(\widehat\zeta/16+\widehat\zeta/16\bigr)
+ =\widehat\zeta/2\leq\widehat\zeta.
+\]
+Together with $0<b<\widehat\zeta$, $\xi>0$, and
+$10\widehat\zeta<\rho$, this checks every scalar hypothesis of
+\noderef{QuantitativeSuperRegularThinning}. Apply it separately to
+each witness density and to the host density, and record the resulting
+thresholds and actual spanning-subgraph conclusions, including their
+disjointness, two size cutoffs, and both near-equality assumptions.
+
+Use the recorded data at round zero to fill the fields of $K$:
+the thinning thresholds and conclusions just obtained, the constants
+$a_{xy}$ and their Four Graphs thresholds and conclusions, and the
+constants $M_x$, matching thresholds, existence thresholds, and their
+guarantees. All fields are required only at round zero and exposures
+at most $\Delta$. Extend the data functions elsewhere by zero thresholds,
+Four Graphs constant $1/2$, and matching constant $1$; no guarantee is
+required there. The two constant comparison fields hold because
+$0<a_{xy}\leq1$ and $M_x\geq1$. This constructs exactly
+\noderef{InductionApplicationCertificate} with the displayed parameters.
+All graph guarantees are uniform in finite vertex types. One may first
+choose their scalar data at the universe of the intended certificate
+(including finite sums and subtype copies); the statements impose no
+vertex-count dependence on these choices. These are applications of the
+displayed universal graph guarantees, not transport of an auxiliary
+proof-local result. None of the choices uses $r$.
+\end{proof}

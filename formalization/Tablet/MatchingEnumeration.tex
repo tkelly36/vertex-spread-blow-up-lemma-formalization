@@ -1,0 +1,25 @@
+\begin{lemma}[Perfect-matching enumeration]
+For every $0<\varepsilon$ and $2\varepsilon<d\leq1$, there is $n_0$ such that the following holds for every $n\geq n_0$.  If $G$ is a graph on a finite vertex set, $U,W$ are disjoint sets with $|U|=|W|=n$, and $G[U,W]$ is $(\varepsilon,d)$-super-regular in the sense of \noderef{SuperRegularPair}, then $G[U,W]$ has at least
+\[
+ (d-2\varepsilon)^n n!
+\]
+perfect matchings in the sense of \noderef{PerfectMatching}.
+\end{lemma}
+\begin{proof}
+Choose the threshold supplied by \noderef{SuperRegularSpanningFactor}.  For
+$n$ above it, that lemma gives a spanning $k$-regular subgraph $F$ of
+$G[U,W]$ with $k\geq(d-2\varepsilon)n$.  By
+\noderef{RegularBipartiteMatchingCount}, $F$ has at least
+$(k/n)^n n!$ perfect matchings.  Since $2\varepsilon<d$, the number
+$d-2\varepsilon$ is nonnegative; and since the threshold may be enlarged to
+make $n>0$, division of $k\geq(d-2\varepsilon)n$ by $n$ gives
+$k/n\geq d-2\varepsilon$.  Monotonicity of the natural-number power and
+multiplication by the nonnegative number $n!$ therefore give
+\[
+ (k/n)^n n!\geq(d-2\varepsilon)^n n!.
+\]
+Every perfect matching of $F$ is a perfect matching of $G$, because $F$ is
+a subgraph of $G$.  Inclusion of the two finite matching sets and the last
+two inequalities prove the assertion, with all cardinalities and factorials
+coerced to extended nonnegative reals as in the statement.
+\end{proof}

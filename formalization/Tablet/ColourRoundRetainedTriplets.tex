@@ -1,0 +1,132 @@
+\begin{lemma}[Deterministic retained triplet family]
+Let $B,A,c,\theta,p,\varepsilon,\rho,\zeta,\omega,\xi,D,d,C,a,n,t$
+be a blow-up instance, candidacy system, colouring, parameter sequences and
+scalars, with a \noderef{ColourRoundStepParameters} record at these parameters
+and $n\ge1$. Assume each source cluster has size $n$ or $n+1$ and the same
+size as its host cluster; the original host pairs are
+$(\varepsilon_0,d)$-super-regular; every reduced edge is a
+\noderef{SaturatingSourcePair}; and
+\noderef{ColourRoundInvariant} holds for $(t,S,X,\mu)$.
+Fix $i$ with $c(i)=t$, $i\notin S$, and $f\in\operatorname{supp}\mu$.
+Write $Y=X_i$, $K_0=V_i$, $U=\{\mathrm{inl}(y):y\in Y\}$,
+$K=\{\mathrm{inr}(v):v\in K_0\}$, and
+\[
+ \mathcal J=\{j:ij\in E(R),\ j\notin S,\ c(j)\ge t\},\qquad
+ Z_j=\{\mathrm{inr}(v):v\in V_j\},\quad
+ V'_j=\{\mathrm{inl}(y):y\in X_j\}.
+\]
+Let $e_j=|N_R(j)\cap(\{k:c(k)<t\}\cup S)|$, and let $A_f^j$ be
+the graph on the ambient source/host sum whose edges are precisely the
+symmetrized pairs $\mathrm{inl}(y)\mathrm{inr}(v)$ with
+$(y,v)\in\noderef{UpdatedCandidacyCluster}$ at $(B,A,X,f,j)$.
+There are graphs $F,F_{13}^j,F_{23}^j$ on this ambient sum such that
+$F\subseteq A_f^i$, the pair $(F;U,K)$ is
+$(\theta_t,\rho_{e_i})$-super-regular, and for every $j\in\mathcal J$
+the three graphs form a \noderef{NearEqualRegularTriplet} on
+$(U,K,Z_j)$ at size $|Y|$ with parameters
+$(\theta_t,\rho_{e_i},\rho_{e_j},d/2)$.
+Moreover, for any bijection $\sigma:U\to K$, if its matching-induced
+intersection of $F_{13}^j$ and $F_{23}^j$ on the canonical subtype copies
+of $U,Z_j$ is $(\omega_{t+1},\rho_{e_j}d/2)$-super-regular, there is a graph
+$W_j$ on the ambient sum with
+\[
+ W_j\subseteq T^j_\sigma,\qquad
+ (W_j;V'_j,Z_j)\text{ is }(\varepsilon_{t+1},\rho_{e_j}d/2)
+ \text{-super-regular}.
+\]
+Here $T^j_\sigma$ is the symmetrization of the relation
+\[
+ \mathrm{inl}(y),\mathrm{inr}(v):\quad
+ \mathrm{inl}(y)\mathrm{inr}(v)\in E(A_f^j),\quad
+ \forall u\in U,\quad
+ \bigl[u=\mathrm{inl}(x),\ xy\in E(H)\bigr]
+ \Longrightarrow
+ \bigl[\sigma(u)=\mathrm{inr}(w),\ wv\in E(G)\bigr].
+\]
+This conclusion is deterministic; it asserts no matching probability law.
+\end{lemma}
+\begin{proof}
+Apply \noderef{ColourRoundWitnessThinnings} with the given instance,
+parameters, invariant and supported partial embedding. Write $x=e_i$.
+It supplies $x\le D$, independently $e_j<D$ for every $j\in\mathcal J$,
+a contained current pair $W_{12}$ of parameters $(\xi_t,\rho_x)$,
+and future families $O_j,W_j,J_j$. On the full future parts,
+$O_j\subseteq A_f^j$ has parameters $(\varepsilon_t,p_{e_j})$,
+$W_j\subseteq O_j$ has parameters $(\xi_t,\rho_{e_j})$, and
+$J_j\subseteq H_0$ on the full host parts has parameters $(\xi_t,d/2)$.
+This helper proves the exact witness-part identities, both threshold
+bounds at every application, and the universe and host-copy adapters.
+It uses the supplied guarantees, not an assertion of certificate existence.
+
+For each $j\in\mathcal J$, apply
+\noderef{ColourRoundSourceWitnessAssembly}, with $y=e_j<D$,
+the given saturating source pair, the supplied cluster sizes, and
+$O_j,W_j,J_j$. It gives a graph $F_{13}^j$ on $U,Z_j$ with parameters
+$(\zeta_t,\rho_{e_j})$, and the precise deterministic transport into
+$T^j_\sigma$ in the conclusion, for every successful bijection $\sigma$.
+The source adapter treats both injection orientations, the two
+one-point complements, artificial-row deletion, and genuine-row
+restoration using the stored old witness. Choose these finitely many
+test graphs together, and set $F_{23}^j=J_j$.
+
+We now prove simultaneous retention and triplet verification.
+Error enlargement preserves super-regularity by
+\noderef{SuperRegularPair} and \noderef{RegularPair}: for errors
+$b\le c$, a rectangle larger than $c$ times each part is also larger
+than $b$ times each part; its lower bound $d-b$ is at least $d-c$
+and its upper bound $d+b$ is at most $d+c$. The degree windows enlarge
+by the same inequalities. By the inner-reserve field of
+\noderef{ColourRoundStepParameters}, $\xi_t<\zeta_t$, so enlarge
+$W_{12}$ and each $F_{23}^j$ to error $\zeta_t$.
+
+The parts $U,K$ have the same size $m=|Y|$, since their copy maps
+are injective and source and host cluster sizes agree.
+Each $|Z_j|$ is $n$ or $n+1$, as is $m$, giving exactly the three
+near-equal alternatives. The source and host copies are disjoint.
+Also $K\cap Z_j=\varnothing$, because $ij\in E(R)$ implies $i\ne j$,
+whereas a vertex belonging to both host fibers would give $i=j$.
+The projection $\mathcal J\to N_R(i)$ is injective; the degree clause
+of \noderef{ColourRoundInvariant} therefore gives
+$|\mathcal J|\le D$.
+
+The density fields in \noderef{ColourRoundStepParameters} give
+$2\zeta_t<\rho_{e_j}$ and $2\zeta_t<d/2$, and their upper counterparts
+give $\rho_{e_j}<1$ and $d/2<1$. Indeed
+$0\le2\zeta_t<1-\rho_{e_j}$ implies $\rho_{e_j}<1$, and likewise for
+$d/2$. Moreover $\zeta_t\le2\zeta_t<1-d/2\le1$.
+The degree-loss field implies $\zeta_t\le\theta_t$.
+Define $F$ to be the \noderef{SimultaneousGoodEdgeGraph} of
+$W_{12},F_{13}^j,F_{23}^j$, with constant test error $\zeta_t$ and
+densities $\rho_{e_j},d/2$.
+For the two finite-sum hypotheses of
+\noderef{NearEqualVaryingGoodEdgeSuperRegularity}, use
+\[
+ \sum_{j\in\mathcal J}\sqrt{\zeta_t}
+   =|\mathcal J|\sqrt{\zeta_t}\le D\sqrt{\zeta_t},\qquad
+ \sum_{j\in\mathcal J}\zeta_t
+   =|\mathcal J|\zeta_t\le D\zeta_t.
+\]
+The regularity-loss and degree-loss fields give respectively
+$\zeta_t+\sum_j\sqrt{\zeta_t}\le\theta_t$ and
+$\zeta_t+2\sum_j\zeta_t\le\theta_t$.
+The square-root field gives $2\sqrt{\zeta_t}\le\theta_t$.
+All size, disjointness, density, error and super-regularity premises
+of that theorem have now been checked. Its conclusion proves the full
+$(\theta_t,\rho_x)$ super-regularity of $F$ on $U,K$.
+Every edge of $F$ is an edge of $W_{12}$, in either orientation, so
+$F\subseteq W_{12}\subseteq A_f^i$.
+
+Since $0\le\zeta_t\le1$, we have $\zeta_t\le\sqrt{\zeta_t}$, hence
+$2\zeta_t\le\theta_t$. For a retained edge from $U$ to $K$, the
+reverse orientation in the defining symmetrization of $F$ is excluded
+by $U\cap K=\varnothing$. Thus its defining test gives, for every $j$,
+the codegree window
+$(\rho_{e_j}d/2\pm2\zeta_t)|Z_j|$, with the actual future part size.
+Enlarge this window to error $\theta_t$, and enlarge the two test-pair
+errors from $\zeta_t$ to $\theta_t$. Together with the checked part
+sizes, disjointness and retained super-regularity, these are precisely
+all clauses of \noderef{NearEqualRegularTriplet}.
+The deterministic transport supplied earlier has no hypothesis about
+the retained graph $F$ and remains valid for every bijection $\sigma$.
+It is therefore exactly the final conclusion of the lemma.
+\end{proof}

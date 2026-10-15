@@ -1,0 +1,47 @@
+\begin{lemma}[Elementary-symmetric mean inequality]
+For $n>0$, $0\le k\le n$, and nonnegative real entries $a_1,\ldots,a_n$,
+\[
+ {1\over\binom n k}\sum_{\substack{A\subseteq\{1,\ldots,n\}\\|A|=k}}
+       \prod_{i\in A}a_i
+ \le\left({1\over n}\sum_{i=1}^n a_i\right)^k.
+\]
+Empty products and zeroth powers equal one.
+\end{lemma}
+\begin{proof}
+Write $e_k(a)$ for the subset sum in the statement and $\bar a$ for the
+arithmetic mean. For $k=0$ both sides are one. For $n=1$ both permitted
+values of $k$ give equality. Assume $n\ge2$, $k\ge1$.
+Holding all entries except two entries $b,c$ fixed, group the subsets
+according as they contain neither, one, or both of these entries. This
+gives
+\[
+ e_k(a)=E_k+(b+c)E_{k-1}+bcE_{k-2},
+\]
+where $E_j$ is the $j$-subset product sum of the other $n-2$ entries,
+defined to be zero for $j<0$ or $j>n-2$. Each $E_j$ is nonnegative.
+Replacing $b,c$ by $(b+c)/2,(b+c)/2$ preserves their sum and increases
+their product by $(b-c)^2/4$. Therefore it does not decrease $e_k$,
+preserves the mean, and preserves nonnegativity.
+
+Starting from $a$, apply \noderef{ElementarySymmetricExtremaStep}
+at each step. Its operation certificate says that a constant vector
+is left unchanged; otherwise the next vector is obtained by averaging
+distinct minimum and maximum entries. Each step preserves
+nonnegativity and the mean, and does not decrease $e_k$. Let
+$V_r=\sum_i(a_i^{(r)}-\bar a)^2$. If the range at step $r$ is $R_r$,
+\noderef{ElementarySymmetricPairAveraging} gives
+$V_{r+1}=V_r-R_r^2/2$ in the nonconstant case. In the constant case
+both variances and $R_r$ are zero, so the same identity holds.
+Since every entry and the mean lie between the
+smallest and largest entries, $V_r\le nR_r^2$. Hence
+\[
+ 0\le V_{r+1}\le(1-1/(2n))V_r.
+\]
+Induction gives $V_r\le(1-1/(2n))^rV_0\to0$.
+For each $i$, $|a_i^{(r)}-\bar a|\le\sqrt{V_r}$, so the entire finite
+vector converges to the constant vector $(\bar a,\ldots,\bar a)$.
+The finite sum of finite products $e_k$ is a continuous polynomial.
+Because it never decreased along this sequence,
+$e_k(a)\le e_k(\bar a,\ldots,\bar a)=\binom n k\bar a^k$.
+Finally $\binom n k>0$ for $k\le n$, so division proves the claim.
+\end{proof}

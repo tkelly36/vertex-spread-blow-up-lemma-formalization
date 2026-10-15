@@ -1,0 +1,40 @@
+\begin{lemma}[Centered hypergeometric exponential moment]
+Let $n>0$, $s,t\le n$ be natural numbers and $m=st/n$ in real arithmetic.
+For every real $\lambda$, including negative values,
+\[
+ \sum_{x=0}^n H(n,s,t,x)e^{\lambda(x-m)}
+ \le \exp\bigl(m(e^\lambda-1-\lambda)\bigr),
+\]
+where $H$ is \noderef{HypergeometricMass}.
+\end{lemma}
+\begin{proof}
+Take an $n$-element set with a distinguished $t$-subset. Assign weight
+$e^\lambda$ to a distinguished element and weight one to every other
+element. These weights are strictly positive for every real $\lambda$.
+An $s$-subset containing $x$ distinguished elements has weight
+$e^{\lambda x}$; there are
+$\binom t x\binom{n-t}{s-x}$ such subsets for $x\le s$.
+For $x>s$ there are none. A binomial coefficient is zero if its lower
+index exceeds its upper index, so this counting formula also excludes
+$x>t$ and $s-x>n-t$. Every $s$-subset is counted once, and its distinguished
+count lies in $\{0,\ldots,n\}$. Consequently the subset-product sum divided
+by $\binom n s$ equals
+$\sum_{x=0}^n H(n,s,t,x)e^{\lambda x}$, using
+\noderef{HypergeometricMass}.
+
+Apply \noderef{ElementarySymmetricMean} with $k=s$ to these weights.
+Their arithmetic mean is $1-p+pe^\lambda$, where $p=t/n\in[0,1]$.
+It follows that
+\[
+ \sum_{x=0}^n H(n,s,t,x)e^{\lambda x}
+ \le (1+p(e^\lambda-1))^s
+ \le \exp(sp(e^\lambda-1)).
+\]
+For the last inequality use $1+z\le e^z$ for every real $z$ with
+$z=p(e^\lambda-1)$. The left base is positive, since it is an average
+of positive weights, so raising both sides to the natural power $s$
+preserves the inequality. Multiplying by $e^{-\lambda m}>0$, and using
+$sp=m$, proves the assertion. No step assumes $\lambda\ge0$; in
+particular the same argument applies to the negative moment needed for
+the lower tail. If $s=0$ it gives equality, without a division by $s$.
+\end{proof}

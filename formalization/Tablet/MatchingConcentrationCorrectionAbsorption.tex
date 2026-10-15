@@ -1,0 +1,43 @@
+\begin{lemma}[Correction limit and exponential absorption]
+For $0<d\le1$, the real correction $L(d,\varepsilon)$ of
+\noderef{MatchingConcentrationCorrection} tends to zero as
+$\varepsilon\downarrow0$. Moreover, for each $\gamma>0$ there are
+$0<\varepsilon_0<1/16$, $\varepsilon_0<d/4$, and a positive integer $n_0$
+such that, simultaneously for every $0<\varepsilon\le\varepsilon_0$,
+$L(d,\varepsilon)\le\gamma$ and, for every $n\ge n_0$,
+\[
+ 2\exp\bigl(n(L(d,\varepsilon)-2\gamma)\bigr)
+ \le (e^{-\gamma/2})^n.
+\]
+\end{lemma}
+\begin{proof}
+Write $D=d+\varepsilon+3\sqrt\varepsilon$. As
+$\varepsilon\downarrow0$, continuity of the real square root gives
+$D\to d$. For $0<\varepsilon<d/4$, $d-2\varepsilon>d/2>0$
+and $D\ge d>0$. Therefore continuity of division and of logarithm at
+positive arguments gives
+$\log(D/(d-2\varepsilon))\to\log1=0$.
+The minimum function is continuous, so
+$\min(D,1)\to\min(d,1)=d>0$; consequently
+$\log\min(D,1)\to\log d$, a finite real number. Multiplication by
+$3\sqrt\varepsilon\to0$ shows the second term in
+\noderef{MatchingConcentrationCorrection} tends to zero. This proves
+the asserted one-sided limit, without assuming $D\le1$.
+
+Given $\gamma>0$, the limit supplies $r>0$ such that
+$0<\varepsilon<r$ implies $|L(d,\varepsilon)|<\gamma$.
+Choose $\varepsilon_0>0$ strictly smaller than
+$\min(r,1/16,d/4)$, for example half this positive minimum.
+Then $0<\varepsilon\le\varepsilon_0$ implies $L(d,\varepsilon)\le\gamma$.
+By the Archimedean property choose a positive integer $n_0$ with
+$\gamma n_0/2\ge\log2$. For $n\ge n_0$,
+$2\le e^{\gamma n/2}$ and $n(L-2\gamma)\le-\gamma n$.
+Monotonicity of the exponential and multiplication by positive numbers
+give
+\[
+ 2e^{n(L-2\gamma)}\le2e^{-\gamma n}
+ \le e^{-\gamma n/2}=(e^{-\gamma/2})^n.
+\]
+The threshold and error bound are independent of $\varepsilon$ inside the
+chosen interval, and of all rectangle orders and subset sizes.
+\end{proof}

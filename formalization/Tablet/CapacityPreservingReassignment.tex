@@ -1,0 +1,37 @@
+\begin{lemma}[Capacity-preserving reassignment of exceptions]
+Let $V,J$ be finite types, $E\subseteq S\subseteq V$, and let
+$f,b:V\to J$. Assume $|E|$ is strictly smaller than every old bin
+$S_j=\{v\in S:f(v)=j\}$. There is a map $f':V\to J$, equal to
+$f$ outside $S$ and equal to $b$ on $E$, whose bins in $S$ have the
+same sizes as before, and each new bin has symmetric difference
+of size at most $2|E|$ from its old bin.
+\end{lemma}
+\begin{proof}
+Write $e=|E|$, $s_j=|S_j|$, $a_j=|E\cap S_j|$, and
+$b_j=|\{v\in E:b(v)=j\}|$. The bins partition $S$, so
+$\sum_j a_j=\sum_j b_j=e$; each of $a_j,b_j$ is at most $e<s_j$.
+Remove all exceptional vertices from their old bins and put them
+in their prescribed bins. Retain ordinary vertices provisionally.
+Bin $j$ now has $s_j-a_j+b_j$ vertices, an excess $b_j-a_j$.
+For each bin of positive excess choose exactly $b_j-a_j$ of its
+ordinary vertices and remove them. This is possible because the
+number of ordinary vertices is $s_j-a_j\geq b_j-a_j$.
+The total number removed is
+$D=\sum_{b_j>a_j}(b_j-a_j)\leq\sum_j b_j=e$.
+As the signed excesses sum to zero, this is also the sum of deficits
+of the negative-excess bins. Partition the removed set into pieces
+of these deficit sizes and place each piece in its deficit bin.
+Such a partition exists by listing this finite set and cutting the
+list at the cumulative deficit sizes. All bins now have size $s_j$,
+and no exceptional vertex was moved away from its prescribed bin.
+Define $f'$ by this partition on $S$ and by $f$ elsewhere.
+
+In a fixed bin, exceptional membership changes in at most
+$a_j+b_j$ places. Ordinary membership changes in just one direction:
+exactly $|b_j-a_j|$ ordinary vertices are removed or received.
+Thus its symmetric difference has size at most
+$a_j+b_j+|b_j-a_j|=2\max(a_j,b_j)\leq2e$.
+If $J$ is empty, a map $V\to J$ forces $V$ empty and all conclusions
+are vacuous. If $E$ is empty, the construction leaves every bin
+unchanged. These cases require no division or positive size claim.
+\end{proof}

@@ -1,0 +1,14 @@
+\begin{lemma}
+Let $\mu$ be $q$-vertex-spread on $U$, let $E$ be an event of positive $\mu$-probability, and suppose $0<p\leq\mu(E)$.  If $q/p\leq1$, then the conditional distribution $\mu(\,\cdot\mid E)$ is $(q/p)$-vertex-spread on $U$.
+\end{lemma}
+\begin{proof}
+Fix $s$, pairwise distinct sources $x_1,\ldots,x_s$, and targets $y_1,\ldots,y_s\in U$, and denote their cylinder by $F$.  By the definition of conditional probability,
+\[
+ \mu(F\mid E)=\frac{\mu(F\cap E)}{\mu(E)}.
+\]
+Since $F\cap E\subseteq F$, monotonicity of probability and \noderef{VertexSpreadOn} give $\mu(F\cap E)\leq\mu(F)\leq q^s$.  The hypothesis $p\leq\mu(E)$, positivity of $\mu(E)$, and monotonicity of division therefore give
+\[
+ \mu(F\mid E)\leq\frac{q^s}{p}.
+\]
+Because $0<p\leq1$, one has $p^s\leq p$ for every $s\geq1$, whence $q^s/p\leq q^s/p^s=(q/p)^s$.  For $s=0$, the required inequality is simply $\mu(F\mid E)\leq1=(q/p)^0$.  Thus every required cylinder has conditional probability at most $(q/p)^s$, and the assumed inequality $q/p\leq1$ supplies the parameter-range condition in \noderef{VertexSpreadOn}.
+\end{proof}

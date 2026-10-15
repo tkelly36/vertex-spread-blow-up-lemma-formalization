@@ -1,0 +1,14 @@
+\begin{lemma}[The elementary matching upper bound]
+For finite disjoint vertex sets $A,B$ of equal size $y$ in a finite graph
+$G$, the number of perfect matchings from $A$ to $B$ is at most $y!$.
+This includes $y=0$.
+\end{lemma}
+\begin{proof}
+By \noderef{PerfectMatching}, a perfect matching is a bijective function
+from $A$ to $B$ satisfying the edge condition. Forgetting the edge condition
+is injective into the set of bijections. Choose any bijection between the
+two equal-size sets; composition identifies their bijections with the
+permutations of $A$. A set of size $y$ has exactly $y!$ permutations:
+successively choosing images gives $y(y-1)\cdots1$, and the empty set
+has one permutation. Taking cardinalities proves the bound.
+\end{proof}

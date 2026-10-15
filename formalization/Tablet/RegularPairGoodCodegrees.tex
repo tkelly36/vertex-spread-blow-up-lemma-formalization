@@ -1,0 +1,16 @@
+\begin{lemma}[Good codegrees in a regular pair]
+Let $G[U,W]$ be an $(\varepsilon,d)$-super-regular pair, where $|U|=|W|=n$ and $2\varepsilon<d$.  Then at most $2\varepsilon n^2$ ordered pairs $(w,w')\in W^2$ fail
+\[
+ (d-2\varepsilon)^2n\le |N(w)\cap N(w')\cap U|
+ \le (d+2\varepsilon)^2n.
+\]
+\end{lemma}
+\begin{proof}
+If $n=0$, then $W$ is empty and there are no ordered pairs to count.
+If $n>0$, apply \noderef{SuperRegularCodegreeExceptionalBound} with
+the given $U,W,n,\varepsilon,d$.  Its hypotheses are exactly the
+super-regularity, $|U|=n$, positivity of $n$, and $2\varepsilon<d$
+assumed here.  It bounds the bad ordered pairs, with the same
+common-neighborhood window, by $2\varepsilon|W|^2$.
+Substituting $|W|=n$ gives $2\varepsilon n^2$, as required.
+\end{proof}

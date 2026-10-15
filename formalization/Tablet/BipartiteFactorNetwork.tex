@@ -1,0 +1,12 @@
+\begin{definition}[Network for a bipartite regular factor]
+Given a simple graph $G$, finite sets $U,W$ of vertices, and $k\in\mathbb N$,
+the factor network, in the sense of \noderef{FiniteCapacityNetwork}, has
+vertex type $(\{s\}\sqcup U)\sqcup(W\sqcup\{t\})$, implemented as
+$\operatorname{Option}(U)\sqcup\operatorname{Option}(W)$.
+The source is the left None and the sink the right None; the left and
+right Some vertices are exact subtype copies of $U$ and $W$, respectively.
+They and the terminals are pairwise disjoint, even if the ambient sets
+overlap or are empty. Its capacities are $c(s,u)=k$, $c(w,t)=k$, and
+$c(u,w)=1$ if $G$ has the edge $uw$, with every other capacity zero.
+Each ordered pair carries exactly one capacity entry, not multiple arcs.
+\end{definition}

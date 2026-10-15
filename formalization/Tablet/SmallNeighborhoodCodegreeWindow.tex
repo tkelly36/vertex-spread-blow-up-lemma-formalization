@@ -1,0 +1,13 @@
+\begin{lemma}[Small neighborhoods have no bad codegrees]
+Let $\varepsilon,p,q\in[0,1]$, and let $k,a,c$ be nonnegative integers with $k>0$.
+If $(p-\varepsilon)_+k\leq a\leq\varepsilon k$ and $c\leq a$, then
+$(pq-2\varepsilon)_+k\leq c\leq(pq+2\varepsilon)k$.
+The subscript $+$ denotes truncated subtraction, $(x-y)_+=\max\{x-y,0\}$.
+\end{lemma}
+\begin{proof}
+Since $k$ is finite, the lower degree bound gives $pk\leq a+\varepsilon k\leq2\varepsilon k$ by distributivity of multiplication over truncated subtraction.
+The positive finite factor $k$ can be cancelled, giving $p\leq2\varepsilon$.
+Then $pq\leq p\leq2\varepsilon$ because $q\leq1$, so the lower window endpoint is zero.
+For the upper bound, $c\leq a\leq\varepsilon k\leq(pq+2\varepsilon)k$ by nonnegativity and monotonicity.
+There is no division by $\varepsilon$, and all steps remain valid when $\varepsilon=0$.
+\end{proof}

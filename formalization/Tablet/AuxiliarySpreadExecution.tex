@@ -1,0 +1,99 @@
+\begin{lemma}
+For every extended nonnegative real $0<d\leq1$ and integer $D\geq0$ there
+are $0<\varepsilon<1$, $1\leq C<\infty$ and an integer $N\geq1$, all
+chosen before the number of clusters, with this property. For every $r$
+and $n\geq N$, let $B$ be a finite blow-up instance with candidacy system
+$A$, reduced graph $R$ on $[r]$ of maximum degree at most $D$, and
+$(\varepsilon,d)$-super-regular host and candidacy pairs. Suppose each
+source cluster has size $n$ or $n+1$ and has the same size as its host
+cluster. Suppose every source pair corresponding to a reduced edge is a
+saturating matching. Then there is a law on compatible full Copies from
+the source to the host whose underlying maps are $(C/n)$-vertex-spread
+on the entire host vertex set.
+\end{lemma}
+\begin{proof}
+Set $Q=D^2+1$. Apply \noderef{EqualSizeParameterTable} at $(d,D)$ and
+choose its sequences $p,\rho,e,\omega,\theta,\zeta,\widehat\zeta$,
+certificate $\mathcal K$, numbers $a,M,C$, and cutoff $N_0$. These choices
+precede $r$. The certificate has precisely the meaning in
+\noderef{InductionApplicationCertificate}; exposures and rounds remain
+independent indices. For $s<Q$, the table gives
+$0<e_s\leq e_{s+1}\leq1$. In particular $e_0$ is positive and finite.
+Take $\varepsilon=e_0/2$, so $0<\varepsilon<1$ and
+$\varepsilon\leq e_0$. Also $1\leq M$ and $2M\leq C$, whence $1\leq C$.
+Finiteness of $C$ must not be assumed from notation: take
+$k=\max\{N_0,1\}$. The uniform-size conclusion gives $C/k\leq1$.
+Since $k$ is positive and finite, cancellation yields $C\leq k<\infty$.
+It follows from $2M\leq C$ that $M$ is finite too.
+
+The finite nonempty family $(e_s)_{s<Q}$ has a positive minimum $e_*$.
+Choose $N_e\geq1$ with $1/N_e\leq e_*$ and set
+$N=\max\{N_0,N_e,1\}$. Thus $n\geq N$ implies
+$1/n\leq e_s$ for every $s<Q$. The table's other conclusions remain
+valid at every such $n$. In particular $C/n\leq1$ and
+$D(1-a)^n\leq1/2$ with $0<a\leq1$.
+
+Fix $r,n,B,A$ as in the statement. Increasing the input error from
+$\varepsilon$ to $e_0$ preserves super-regularity. Indeed the tests in
+\noderef{RegularPair} become more restrictive while both density bounds
+become weaker, and each degree interval in \noderef{SuperRegularPair}
+widens. Applying this separately in \noderef{InstanceSuperRegular} and
+\noderef{CandidacySuperRegular} gives the input at error $e_0$ needed below.
+We check every numerical premise of \noderef{VariableSizeInductionIteration}.
+The table gives $p_0=d$, $p_{x+1}=\rho_x(d/2)$ for $x<D$, and the
+probability and failure bounds just stated. For $s<Q$ it gives
+$e_s\leq e_{s+1}\leq1$, $\omega_{s+1}<e_{s+1}$, and
+\[
+ 2\sqrt{\zeta_s}\leq\theta_s,\quad
+ \zeta_s+D\sqrt{\zeta_s}\leq\theta_s,\quad
+ \zeta_s+2D\zeta_s\leq\theta_s.
+\]
+For every $x\leq D$ it gives $0<\theta_s$, $4\theta_s<\rho_x$ and
+$2\zeta_s<\rho_x,1-\rho_x$, and it also gives
+$2\zeta_s<d/2,1-d/2$.
+For the additive density gap, fix $x<D$. Both $p_x,p_{x+1}$ lie in
+$(0,1]$. The table gives $2e_s<p_x-p_{x+1}$, forcing
+$p_{x+1}<p_x$. Thus the truncated difference is the ordinary finite real
+difference, and our added reciprocal-size bound gives
+\[
+ p_{x+1}+e_s+1/n\leq p_{x+1}+2e_s<p_x.
+\]
+This implies the required weak additive inequality, including at round zero.
+There is no comparison of two different exposures in this argument.
+
+The certificate's witness-thinning, host-thinning, matching and
+matching-existence thresholds are at most $N_0\leq n$ for every
+$s<Q,x\leq D$. Its matching constant is at most $M\leq C/2$;
+division by two is legitimate since $M,C$ are finite. For every ordered
+pair $x,y\leq D$, the Four Graphs threshold is at most $N_0\leq n$
+and its exponential constant is at least $a$. These are exactly the
+table's threshold clauses, including pairs with $x>y$.
+Finally its uniform-size clause and static strict reserve give
+\[
+ n^{-1}\leq\widehat\zeta_s<\zeta_s,\quad
+ \widehat\zeta_s+2/n\leq\zeta_s,\quad
+ \widehat\zeta_s+1/(\zeta_sn)\leq\zeta_s,
+\]
+\[
+ \omega_{s+1}+2/n\leq e_{s+1},\qquad
+ \omega_{s+1}+1/(e_{s+1}n)\leq e_{s+1}.
+\]
+These verify all six reserve/output premises of the iteration theorem.
+The size, degree, host and candidacy premises are the present hypotheses.
+The saturating-pair premise is exactly \noderef{SaturatingSourcePair};
+nonedges contain no source edges by the reduced-support field of
+\noderef{BlowUpInstance}. No additional source degree assumption is needed.
+
+Apply \noderef{VariableSizeInductionIteration}. It returns a colouring
+$c:[r]\to[Q]$ and a law $\mu$ on partial compatible embeddings with full
+domain, satisfying the invariant at round $D^2=Q-1$ with the entire last
+colour class touched. This is a legal completed last round, not an
+invariant at round $Q$. The spread conjunct of
+\noderef{ColourRoundInvariant} says that this same law's restrictions to
+the full domain are $(C/n)$-vertex-spread. Apply
+\noderef{EqualSizeTerminalConversion} with domain equal to the full source
+set. Its map produces full compatible Copies, agrees pointwise with each
+partial map, and preserves the spread assertion under pushforward. These
+are the law and bound required in the conclusion; neither conditioning nor
+a further loss of mass occurs.
+\end{proof}

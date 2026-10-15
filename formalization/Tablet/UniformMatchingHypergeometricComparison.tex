@@ -1,0 +1,92 @@
+\begin{lemma}[Uniform matching fibers versus hypergeometric masses]
+Fix real $0<d\le1$ and $0<\varepsilon<1/16$ with $2\varepsilon<d$.
+There is a positive integer $n_0$ such that the following holds uniformly
+for all finite graphs $G$, disjoint $U,W$ of size $n\ge n_0$, and
+$S\subseteq U$, $T\subseteq W$. Suppose $G[U,W]$ is
+$(\varepsilon,d)$-super-regular (parameters embedded into extended
+nonnegative reals) and its perfect-matching set is nonempty.
+Under \noderef{UniformPerfectMatching}, write $X=|f(S)\cap T|$,
+$s=|S|$, $t=|T|$. For every finite set $A$ of natural numbers,
+\[
+ \Pr(X\in A)\le e^{nL(d,\varepsilon)}\sum_{x\in A}H(n,s,t,x),
+\]
+with $L$ and $H$ defined by \noderef{MatchingConcentrationCorrection}
+and \noderef{HypergeometricMass}. The real nonnegative upper bound is
+embedded into extended nonnegative reals in the measure inequality.
+\end{lemma}
+\begin{proof}
+Put $\kappa=\sqrt\varepsilon>0$ and $D=d+\varepsilon+3\kappa>0$.
+Embed these finite nonnegative parameters in extended nonnegative reals.
+Then $\kappa^2=\varepsilon$, $0<\varepsilon$, $0<d\le1$, and
+$2\varepsilon<d$ still hold in that arithmetic.
+Take $n_0$ to be at least one and at least both thresholds supplied by
+\noderef{MatchingEnumeration} and
+\noderef{RegularInducedMatchingUpperBound}, the latter with parameter
+$\kappa$. These thresholds depend only on $d,\varepsilon$, not on any
+subsets or orders. The super-regular hypothesis supplies regularity by
+the definition \noderef{SuperRegularPair}.
+
+Let $M$ be the total matching count. The first cited enumeration statement
+gives $M\ge(d-2\varepsilon)^n n!>0$. All these real quantities are finite,
+so this is also precisely the real inequality obtained from its
+extended-nonnegative-real statement. For any balanced induced rectangle
+of order $y$ with left set in $U$ and right set in $W$, the second cited
+statement gives at most $D^y y!$ matchings when $y\ge\kappa n$.
+For $y<\kappa n$ use the bound $y!$: by
+\noderef{PerfectMatching}, every matching is a bijection between its
+parts, and there are exactly $y!$ bijections. This elementary count
+follows by assigning the first image in $y$ ways and inducting on the
+remaining $y-1$ elements; at $y=0$ the unique empty map gives $0!=1$.
+Thus the function $K(y)=D^y y!$ for $y\ge\kappa n$, and $K(y)=y!$
+otherwise, is nonnegative and bounds all the rectangles required by
+\noderef{FourRectangleMatchingFiberBound}.
+
+Consider a feasible $x$, meaning $x\le s,t$ and $t-x\le n-s$.
+The four orders in that fiber lemma are
+$y_1=x,y_2=s-x,y_3=t-x,y_4=n-s-(t-x)$; they sum to $n$.
+Since $\varepsilon<1/16$, $\kappa<1/4$.
+Not all four orders can be smaller than $\kappa n$, since their sum
+would then be less than $4\kappa n<n$. Let $I$ be the small orders and
+$q=\sum_{i\in I}y_i$. Then $|I|\le3$ and $0\le q\le3\kappa n$.
+The four rectangle bounds multiply to
+\[
+ D^{n-q}\prod_i y_i!
+ \le D^n\exp(-3\kappa n\log\min(D,1))\prod_i y_i!.
+\]
+For $D\ge1$, $D^{n-q}\le D^n$ and $\log\min(D,1)=0$.
+For $0<D<1$, write $D^{n-q}=D^n\exp(-q\log D)$ and use
+$q\le3\kappa n$ and $-\log D>0$. This proves the estimate in both
+cases; zero orders contribute $0!=1$ and no density power, as required.
+
+Divide the fiber count from \noderef{FourRectangleMatchingFiberBound}
+by $M\ge(d-2\varepsilon)^n n!>0$ and use
+\noderef{FourRectangleFactorialCancellation}. This gives
+\[
+ {M_x\over M}\le
+ \left({D\over d-2\varepsilon}\right)^n
+ \exp(-3\kappa n\log\min(D,1))
+ {\binom t x\binom{n-t}{s-x}\over\binom n s}
+ =e^{nL(d,\varepsilon)}H(n,s,t,x).
+\]
+The equality uses the definitions
+\noderef{MatchingConcentrationCorrection} and
+\noderef{HypergeometricMass}, and the identity $a^n=e^{n\log a}$
+for positive real $a$. Every denominator here is positive.
+
+For an infeasible $x$ no such matching exists: a bijection has at most
+$s$ and at most $t$ images in the intersection, while its $t-x$ remaining
+preimages of $T$ must fit in $U\setminus S$, of size $n-s$.
+The hypergeometric mass is also zero. If $x>s$ this is the explicit
+zero clause of its definition; if $x\le s$ but $x>t$, $\binom t x=0$;
+otherwise $t-x>n-s$ is equivalent to $s-x>n-t$, and the other binomial
+coefficient vanishes. In particular $x>n$ has zero fiber and zero mass.
+This proves the pointwise comparison for every natural $x$.
+
+By \noderef{UniformPerfectMatching}, every member of the finite matching
+set has mass $1/M$, so the event $X=x$ has probability $M_x/M$.
+The events $X=x$ for distinct $x\in A$ are disjoint. Finite additivity
+therefore makes $\Pr(X\in A)$ their sum. Sum the pointwise inequality
+over $A$ and factor out $e^{nL(d,\varepsilon)}$, obtaining the assertion.
+All masses and both finite sums are nonnegative and finite, so embedding
+this real calculation into extended nonnegative reals preserves it.
+\end{proof}

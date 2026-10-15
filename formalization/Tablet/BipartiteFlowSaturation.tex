@@ -1,0 +1,43 @@
+\begin{lemma}[Saturation and selected middle edges]
+Let $U,W$ be finite sets of equal size $n$, let $k\in\mathbb N$, and let
+$f$ be a feasible integral net flow on the network of
+\noderef{BipartiteFactorNetwork} with value $kn$.
+Every source-to-left and right-to-sink net flow equals $k$.
+For every copied $u\in U,w\in W$, the middle net flow is an integer
+between zero and one; if it is one then $uw$ is a $G$ edge.
+For each copied $u$, exactly $k$ distinct copied vertices $w$ have middle
+flow one, and for each copied $w$, exactly $k$ distinct copied vertices
+$u$ have middle flow one.
+\end{lemma}
+\begin{proof}
+Use the capacity table of \noderef{BipartiteFactorNetwork} and the skew
+symmetry and bounds of \noderef{FiniteIntegralFlow}. If both directional
+capacities are zero, both net flows are zero. If only the forward
+capacity can be positive, its net flow is nonnegative, since its negative
+is bounded by the zero reverse capacity. Diagonal net flows are zero by
+skew symmetry. Thus the source divergence is the sum of the $n$
+source-to-left flows, all in $[0,k]$. Its value is $kn$, so all these
+flows equal $k$: if one were less than $k$, its positive integer deficit
+would make the sum of the nonnegative deficits strictly positive,
+contrary to $nk-\sum_u f(s,u)=0$.
+
+The total divergence over all vertices is zero, since ordered-pair terms
+cancel by skew symmetry. Conservation at every nonterminal therefore
+says that the sink divergence is $-kn$. Only right-to-sink arcs can
+contribute to its negative, so the sum of their nonnegative flows is
+$kn$. There are $|W|=n$ of them, each bounded by $k$, and the same
+deficit argument saturates every one.
+
+Every middle flow is nonnegative and bounded by its capacity, which is
+zero or one. Integrality makes its value zero or one. A value of one
+forces capacity one, hence $G$-adjacency. For a fixed left vertex $u$,
+the only potentially nonzero outgoing net flows are $f(u,s)=-k$ and
+$f(u,w)$ for right vertices $w$. Its conservation equation gives
+$\sum_w f(u,w)=k$. A sum of zero-or-one integers counts exactly the
+distinct indices where the summand is one, giving the asserted row
+count. At a right vertex $w$, conservation similarly gives
+$k-\sum_u f(u,w)=0$, proving the column count. The exact subtype copies
+ensure that each index represents one ambient vertex; no selected edge
+is repeated. For empty parts the pointwise claims are vacuous, and for
+$k=0$ the same nonnegative-sum argument gives no selected middle edges.
+\end{proof}

@@ -1,0 +1,67 @@
+\begin{lemma}[Relabelling triplets and their matching intersections]
+Let $e:V\to V'$ be a bijection between finite vertex types.
+Let $F$ be a graph on $V$ with disjoint finite parts $U,K$.
+Put $U'=e(U)$, $K'=e(K)$ and $F'=e(F)$, where an edge of $e(F)$
+means that its inverse images are adjacent in $F$.
+There are bijections $e_U:U\to U'$, $e_K:K\to K'$ agreeing with $e$
+on underlying vertices, disjointness $U'\cap K'=\varnothing$, and a
+bijection $e_M$ between the perfect matchings of $(F;U,K)$ and
+$(F';U',K')$, with
+\[
+ e_M(\sigma)(e_U(u))=e_K(\sigma(u)).
+\]
+For every error and density, $(F;U,K)$ is super-regular if and only
+if $(F';U',K')$ is super-regular with those same parameters.
+For any two further graphs $F_{13},F_{23}$, part $Z$, size $m$, and
+parameters, the near-equal regular triplet on $(U,K,Z)$ is equivalent
+to the corresponding triplet of relabelled graphs on $(U',K',e(Z))$.
+For every perfect matching $\sigma$, error $\delta$, and density $p$,
+its matching-induced intersection is $(\delta,p)$-super-regular on
+the full canonical subtype copies of $U,Z$ if and only if the
+intersection induced by $e_M(\sigma)$ in the relabelled graphs is
+$(\delta,p)$-super-regular on the full subtype copies of $U',e(Z)$.
+\end{lemma}
+\begin{proof}
+Restriction of $e$ to any finite part is injective and surjective onto
+its image, yielding $e_U,e_K$ and likewise $e_Z:Z\to e(Z)$.
+If $e(u)=e(k)$ with $u\in U$, $k\in K$, injectivity would give
+$u=k$, contrary to disjointness; thus the new parts are disjoint.
+Define $e_M(\sigma)=e_K\circ\sigma\circ e_U^{-1}$.
+This is bijective because all three factors are bijective.
+Its edges are edges of $F'$ exactly when the original matching edges
+are edges of $F$, by the definition of the relabelled graph.
+Conversely $\sigma'=e_K^{-1}\circ\tau\circ e_U$ is a perfect matching
+whenever $\tau$ is one in $F'$. The two constructions are inverse,
+proving the matching bijection and the displayed evaluation identity.
+Here the meaning of a perfect matching is \noderef{PerfectMatching}.
+
+For any rectangle $P\subseteq U$, $Q\subseteq K$, the map
+$(u,k)\mapsto(e(u),e(k))$ is a bijection from its edges to the edges
+of the corresponding rectangle in $F'$. Also $|e(P)|=|P|$ and
+$|e(Q)|=|Q|$. Consequently the edge densities, defined by
+\noderef{PairDensity}, are equal, including empty rectangles.
+Every rectangle in the image parts arises in this way by inverse image.
+For each vertex the same map gives a bijection of its neighbours
+in the opposite part. Thus degrees, part sizes, and the rectangle
+size tests in \noderef{SuperRegularPair} are unchanged. All its
+inequalities transfer in both directions. Apply this argument also
+to the two other pairs. Cardinalities of the three parts and their
+disjointness are unchanged, so the three possible near-equal size
+relations are unchanged as well. For an edge of the current pair,
+$z\mapsto e(z)$ is a bijection between the tested common
+neighbourhoods in $Z$ and $e(Z)$. Hence their cardinalities and the
+window normalized by $|Z|$ are identical. These facts verify every
+clause of \noderef{NearEqualRegularTriplet} in both directions.
+
+Finally use the bijection $e_U\oplus e_Z$ between the two subtype
+sum types. By \noderef{MatchingInducedGraph}, a cross edge in the
+first intersection means
+$F_{13}(u,z)$ and $F_{23}(\sigma(u),z)$.
+In the second intersection these conditions are precisely
+$e(F_{13})(e_U(u),e_Z(z))$ and
+$e(F_{23})(e_M(\sigma)(e_U(u)),e_Z(z))$, by the evaluation identity.
+Thus this sum bijection preserves and reflects every cross edge and
+maps each full copied part exactly onto its counterpart. The same
+degree and rectangle counting argument proves the last equivalence.
+No probability statement is needed for this relabelling result.
+\end{proof}

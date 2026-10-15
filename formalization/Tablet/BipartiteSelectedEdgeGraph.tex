@@ -1,0 +1,32 @@
+\begin{lemma}[Transporting distinct selected pairs to a simple graph]
+Let $G$ be a finite simple graph and $U,W$ disjoint finite vertex sets.
+Let $P$ be a relation between the exact subtype copies of $U$ and $W$,
+and let $k\in\mathbb N$. Suppose every selected pair $P(u,w)$ is a
+$G$ edge, each copied $u$ has exactly $k$ distinct selected $w$, and
+each copied $w$ has exactly $k$ distinct selected $u$.
+There is a simple graph $F\leq G$ whose opposite-part degrees are
+exactly $k$ at every vertex in $U$ and $W$, and
+$F\operatorname{.Adj}(u,w)\iff P(u,w)$ for all copied $u,w$.
+\end{lemma}
+\begin{proof}
+Define $F\operatorname{.Adj}(a,b)$ to mean either that $a\in U,b\in W$
+and their copied pair satisfies $P$, or that $b\in U,a\in W$ and that
+copied pair satisfies $P$. This relation is symmetric. A loop would
+require the same vertex in both $U$ and $W$, impossible by disjointness;
+thus it defines a simple graph. In the first alternative adjacency in
+$G$ follows from the support hypothesis, and in the second from that
+hypothesis and symmetry of $G$. Hence $F\leq G$.
+
+For $u\in U,w\in W$ the reversed alternative is impossible by
+disjointness, so $F\operatorname{.Adj}(u,w)$ is exactly $P(u,w)$.
+For a fixed ambient $u\in U$, the map sending a copied selected $w$
+to its ambient value is a bijection onto
+$\{w\in W:F\operatorname{.Adj}(u,w)\}$. Surjectivity uses that every
+element of $W$ has its subtype copy, and injectivity uses equality of
+subtypes with the same ambient value. Its domain has cardinality $k$
+by the row hypothesis, proving the left degree assertion. The same
+argument with the column hypothesis proves the right degree assertion.
+The relation selects a set of ordered pairs, not a list with multiplicity;
+symmetrization creates exactly one unordered edge for each selected
+pair because the parts are disjoint. Empty parts and $k=0$ are included.
+\end{proof}

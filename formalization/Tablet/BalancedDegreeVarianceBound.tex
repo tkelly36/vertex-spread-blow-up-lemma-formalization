@@ -1,0 +1,29 @@
+\begin{lemma}[Balanced restricted-degree variance]
+Let $U$ be a finite set of cardinality $n$, let $d_u$ be real numbers indexed by $U$, and let $0\le q\le n$ and $0\le\delta\le p\le1$. Suppose that
+\[
+ (q-5\delta n)(p-\delta)n\le\sum_{u\in U}d_u,
+ \qquad
+ \sum_{u\in U}d_u^2\le nq^2(p+\delta)^2+5\delta n^3.
+\]
+Then
+\[
+ \sum_{u\in U}(d_u-pq)^2\le20\delta n^3.
+\]
+\end{lemma}
+\begin{proof}
+Expanding the square and summing gives
+\[
+ \sum_{u\in U}(d_u-pq)^2
+ =\sum_{u\in U}d_u^2-2pq\sum_{u\in U}d_u+np^2q^2.
+\]
+Since $2pq\ge0$, insert the upper bound for the second moment and the lower bound for the first moment, without requiring $q-5\delta n$ to be nonnegative. Expansion then yields
+\[
+ \sum_{u\in U}(d_u-pq)^2
+ \le nq^2(4p\delta+\delta^2)
+       +10\delta n^2q\,p(p-\delta)+5\delta n^3.
+\]
+The assumptions imply $4p\delta+\delta^2\le5\delta$ and
+$0\le p(p-\delta)\le p^2\le1$. Also $q^2\le n^2$ and $q\le n$.
+The first term is therefore at most $5\delta n^3$, the second is at most
+$10\delta n^3$, and the last is $5\delta n^3$. Their sum is the asserted bound.
+\end{proof}

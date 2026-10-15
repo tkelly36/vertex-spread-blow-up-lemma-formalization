@@ -1,0 +1,33 @@
+\begin{lemma}[All cuts of the factor network]
+For the network $N$ of \noderef{BipartiteFactorNetwork},
+$\sum_v c(s,v)=k|U|$. Every source-side cut $S$ has sets $A\subseteq U$
+and $B\subseteq W$ such that
+\[
+ C(S)=k|A|+e_G(U\setminus A,W\setminus B)+k|B|.
+\]
+Here $e_G(X,Y)$ counts ordered pairs $(x,y)\in X\times Y$ with $G$-adjacency;
+the formula does not require equal part sizes or disjoint ambient sets.
+\end{lemma}
+\begin{proof}
+Use the exact copies from \noderef{BipartiteFactorNetwork}. Define $A$ to
+be the ambient elements of $U$ whose left copies are outside $S$, and
+$B$ to be the ambient elements of $W$ whose right copies are inside $S$.
+The copy maps are injective and onto their corresponding parts, so
+$A\subseteq U$, $B\subseteq W$, and
+$S=\{s\}\sqcup(U\setminus A)\sqcup B$, with the copied parts understood.
+The source is in $S$ and the sink is outside $S$ by the cut hypotheses.
+
+The only positive capacities, by the network definition, are source-to-left,
+left-to-right, and right-to-sink. A source-to-left pair crosses exactly
+when its left endpoint lies in $A$, giving $k|A|$. A left-to-right pair
+crosses exactly when its endpoints are in $U\setminus A$ and
+$W\setminus B$, and has capacity one exactly for a $G$ edge. Because
+the subtype copies are exact and injective, these pairs are in bijection
+with the ordered edges counted by the displayed middle term; no edge
+is duplicated. A right-to-sink pair crosses exactly for a right endpoint
+in $B$, giving $k|B|$. All other pairs have capacity zero. Summing these
+three disjoint kinds of pairs proves the formula. Finally, exactly the
+$|U|$ source-to-left pairs contribute to $\sum_v c(s,v)$, each with
+capacity $k$, giving its asserted value. Empty parts and $k=0$ require
+no exception to these finite sums.
+\end{proof}

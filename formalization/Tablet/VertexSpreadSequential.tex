@@ -1,0 +1,10 @@
+\begin{lemma}
+Let $X$ and $Z$ be disjoint source blocks.  First choose a random function $f:X\to Y$ from a distribution $\mu$ that is $q$-vertex-spread on the whole codomain $Y$ in the sense of \noderef{VertexSpreadOn}.  Conditional on each possible $f$, choose $g:Z\to Y$ from a distribution $\kappa_f$ which is likewise $q$-vertex-spread on $Y$.  Then the resulting joint function $f\sqcup g:X\sqcup Z\to Y$ is $q$-vertex-spread on $Y$.
+\end{lemma}
+\begin{proof}
+Fix $s$ pairwise distinct prescribed sources in $X\sqcup Z$ and prescribed targets in $Y$.  Let $I_X$ and $I_Z$ be the sets of indices whose sources lie in $X$ and $Z$, and write $a=|I_X|$, $b=|I_Z|$, so $a+b=s$.  Distinctness of all prescribed sources implies that the $a$ sources in $X$ are distinct and the $b$ sources in $Z$ are distinct.
+
+Let $F_X$ be the cylinder imposing the prescriptions indexed by $I_X$.  By \noderef{VertexSpreadOn} with codomain set $Y$, $\mu(F_X)\leq q^a$.  For a fixed first-stage function $f$, the full joint cylinder is impossible unless $f\in F_X$.  If $f\in F_X$, its conditional probability is exactly the $\kappa_f$-probability of the cylinder imposing the $b$ prescriptions indexed by $I_Z$, which is at most $q^b$ by the same whole-codomain hypothesis.
+
+The law of total probability now expresses the joint-cylinder probability as the $\mu$-weighted sum of these conditional probabilities.  Terms with $f\notin F_X$ vanish and every remaining conditional probability is at most $q^b$.  Consequently the sum is at most $q^b\mu(F_X)\leq q^bq^a=q^{a+b}=q^s$.  Since this holds for every cylinder on distinct sources and $q\leq1$ follows from the first-stage hypothesis, the joint distribution satisfies \noderef{VertexSpreadOn} with codomain set $Y$.
+\end{proof}

@@ -1,0 +1,27 @@
+\begin{lemma}[Loss from small matching rectangles]
+Let $0<\kappa<1/4$, $D>0$, and let $n>0$ be an integer.
+Let four nonnegative integer orders $y_i$, indexed by $i\in\{0,1,2,3\}$,
+sum to $n$. Set $K(y)=D^y y!$ if $y\ge\kappa n$, and $K(y)=y!$
+otherwise. Then
+\[
+ \prod_i K(y_i)\le
+ D^n\exp(-3\kappa n\log\min(D,1))\prod_i y_i!.
+\]
+\end{lemma}
+\begin{proof}
+Not all four orders can be smaller than $\kappa n$, since that would
+give $n<4\kappa n<n$. Fix one large order. Put $r_i=0$ for large
+orders and $r_i=y_i$ for small orders. Each $r_i$ is nonnegative and
+at most $\kappa n$, and the fixed large order contributes zero.
+Thus $q=\sum_i r_i\le3\kappa n$.
+For every order the density factor in $K(y_i)$ equals
+$\exp((y_i-r_i)\log D)$, including zero orders. Multiplying gives
+$\exp((n-q)\log D)\prod_i y_i!$.
+If $D\ge1$, then $\log D\ge0$ and $q\ge0$, so this is at most
+$D^n\prod_i y_i!$; also $\log\min(D,1)=0$.
+If $0<D<1$, then $\log D\le0$ and $q\le3\kappa n$, so
+$(n-q)\log D\le n\log D-3\kappa n\log D$.
+Exponentiating this inequality proves the bound in this case as well.
+The factorial product is nonnegative, hence multiplication preserves
+both inequalities.
+\end{proof}

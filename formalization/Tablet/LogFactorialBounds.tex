@@ -1,0 +1,36 @@
+\begin{lemma}[Elementary logarithmic factorial bounds]
+For every positive integer $n$,
+\[
+ n\log n-n\le\log(n!)\le n\log n-n+\log n+1.
+\]
+\end{lemma}
+\begin{proof}
+For every positive real number $z$ the tangent-line inequality for the
+logarithm gives $\log z\le z-1$. Applying this inequality to $1/z$
+also gives $1-1/z\le\log z$.
+For completeness, the tangent-line inequality follows because the
+function $z-1-\log z$ has derivative $1-1/z$, which is nonpositive
+on $(0,1]$ and nonnegative on $[1,\infty)$; its value at $1$ is zero.
+For a positive integer $n$, put
+$q_n=\log(n+1)-\log n=\log((n+1)/n)$.
+The two inequalities just proved yield
+\[
+ n q_n\le1,\qquad (n+1)q_n\ge1.
+\]
+We now prove the two factorial bounds simultaneously by induction.
+At $n=1$, they read $-1\le0\le0$.
+If the lower bound holds at $n$, then
+\[
+ \log((n+1)!)\ge n\log n-n+\log(n+1)
+ \ge (n+1)\log(n+1)-(n+1),
+\]
+where the second inequality is precisely $nq_n\le1$.
+If the upper bound holds at $n$, then
+\[
+ \log((n+1)!)\le n\log n-n+\log n+1+\log(n+1)
+ \le (n+1)\log(n+1)-(n+1)+\log(n+1)+1,
+\]
+where the second inequality is precisely $(n+1)q_n\ge1$.
+Here both induction steps use $(n+1)!=(n+1)n!$ and positivity of
+its factors to take logarithms. This completes the induction.
+\end{proof}

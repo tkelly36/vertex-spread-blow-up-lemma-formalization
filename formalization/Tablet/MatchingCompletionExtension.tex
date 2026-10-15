@@ -1,0 +1,152 @@
+\begin{lemma}[Simultaneous matching completion]
+Let $\Delta,r,n$ be nonnegative integers with $1\leq\Delta$, and let
+$B=(H,G,R,(X_i)_{i\in[r]},(V_i)_{i\in[r]})$ be a finite blow-up
+instance in the sense of \noderef{BlowUpInstance}.  Let
+$c\colon V(H)\to[\Delta^2]$ be a coloring of the source vertices.  Suppose that every fiber
+\[
+ X_{i,j}=\{x\in X_i:c(x)=j\}
+\]
+has cardinality $\lfloor n/\Delta^2\rfloor$ or $\lfloor n/\Delta^2\rfloor+1$, and that whenever distinct vertices $x,y$ lie in the same original source cluster and satisfy $c(x)=c(y)$, they are nonadjacent in $H$ and have no common neighbor in $H$.  If $\Delta(R)\leq\Delta$, then there are graphs $H'\supseteq H$ and $R'$ on $[r]\times[\Delta^2]$ and a refined blow-up instance with source clusters $X_{i,j}$ such that
+\[
+ (i,j)(i',j')\in E(R')\quad\Longleftrightarrow\quad ii'\in E(R),
+\]
+$\Delta(R')\leq\Delta^3$, and $H'[X_{i,j},X_{i',j'}]$ is a saturating matching in the sense of \noderef{SaturatingSourcePair} for every edge of $R'$.  No edge is added between a pair corresponding to a nonedge of $R'$.
+\end{lemma}
+\begin{proof}
+Write $k=\Delta^2$, and write $a_H$ and $a_G$ for the source and host
+cluster maps of $B$ from \noderef{BlowUpInstance}.  Thus
+$X_i=a_H^{-1}(i)$ and $V_i=a_G^{-1}(i)$, and these fibers partition
+their respective vertex sets, with $|X_i|\leq|V_i|$ for every $i$.
+Let $P=[r]\times[k]$, and put $X_p=X_{i,j}$ for $p=(i,j)$.
+Every source vertex belongs to the unique part indexed by
+$(a_H(x),c(x))$.
+
+We first construct the refined host map, independently of adding source
+edges.  For each $i$, choose an injection $e_i:X_i\to V_i$ using the
+capacity inequality.  Explicitly, enumerate the two finite sets as
+$x_1,\ldots,x_a$ and $v_1,\ldots,v_b$, where $a\leq b$, and send
+$x_\ell$ to $v_\ell$ for $1\leq\ell\leq a$.  For $a=0$ this is the
+empty injection.  There are only finitely many indices, so make these
+choices for all $i$.  Since $1\leq\Delta$, we have $k\geq1$; fix a
+distinguished color $j_0\in[k]$ (the element $0$ of $\mathrm{Fin}(k)$
+in Lean).
+
+Apply \noderef{FiberwiseCapacityRefinement} to the total maps
+$a_H,a_G,c$, the injections $e_i$, and the default color $j_0$.
+It gives a total host coloring $d$ such that, on defining
+\[
+ V_{i,j}=\{v:a_G(v)=i,\ d(v)=j\},
+\]
+we have $|X_{i,j}|\leq|V_{i,j}|$ for every pair $(i,j)$.
+These sets are pairwise disjoint: membership in two of them forces both
+indices to agree, since $a_G$ and $d$ are functions.  Every $v\in V_i$
+belongs to $V_{i,d(v)}$, so they partition $V_i$; over all $i$ they
+partition the whole host vertex set.  The cited capacity-refinement
+statement does not presume $|X_i|=|V_i|$, and applies to empty fibers.
+If $V_i$ is empty, original capacity forces $X_i$ to be empty as well.
+
+Define $R'$ on $P$ by $R'.\mathrm{Adj}((i,j),(i',j'))$ if and only if
+$R.\mathrm{Adj}(i,i')$.  Symmetry follows from symmetry of $R$, and a
+loop would give a loop of $R$, so this is a simple graph.  For an edge
+$pq$ of $R'$, the original parts of $p$ and $q$ are distinct, so $X_p$
+and $X_q$ are disjoint.  The graph $H[X_p,X_q]$ is a matching: if
+$x_1,x_2\in X_p$ were distinct and adjacent to the same $y\in X_q$,
+they would have the same original cluster and color and would share
+the neighbor $y$, contradicting the stated hypothesis.  Applying that
+hypothesis to two distinct vertices of $X_q$ excludes a common neighbor
+on the $X_p$ side.  For any $p,q$ with $R'.\mathrm{Adj}(p,q)$ false,
+an $H$-edge between their parts would contradict the reduced-support
+field of \noderef{BlowUpInstance}; thus no such edge exists.
+
+Order $P$ by the images of its elements under
+$E=\texttt{finProdFinEquiv}:P\simeq\mathrm{Fin}(rk)$.
+Represent each unordered edge uniquely as $(p,q)$ with $E(p)<E(q)$.
+For this representative, choose $S=X_p,T=X_q$ if $|X_p|\leq|X_q|$;
+otherwise choose $S=X_q,T=X_p$.  In particular, a tie is always
+resolved in favor of $X_p$.  Let $M\subseteq S\times T$ be the
+original adjacency relation.  The two uniqueness conditions just
+proved, together with $|S|\leq|T|$, are exactly the hypotheses of
+\noderef{FinitePartialMatchingCompletion}.  Its conclusion gives an
+injection $\tau:S\to T$ retaining every pair of $M$.
+Use precisely the graph of $\tau$ as the completed bipartite relation
+$C_{p,q}$.  It is a matching saturating $S$: every $s$ has partner
+$\tau(s)$, uniqueness on $S$ is functional uniqueness, and uniqueness
+on $T$ is injectivity of $\tau$.  Every original edge is retained by
+the cited conclusion.  Empty parts are permitted by that statement.
+The argument works for arbitrary finite part sizes, hence in particular
+for the given floor and floor-plus-one sizes, including zero.
+
+Choose this completion once for each unordered edge of $R'$, and let
+$H'$ have all edges of $H$ together with all the added edges.
+More explicitly, vertices $x,y$, in parts $p,q$ respectively, are
+adjacent precisely when $R'.\mathrm{Adj}(p,q)$ and either
+$E(p)<E(q)$ with $(x,y)\in C_{p,q}$, or $E(q)<E(p)$ with
+$(y,x)\in C_{q,p}$.
+This defines a simple graph: the added pairs have endpoints in
+disjoint parts and are treated as unordered pairs, so adjacency is
+symmetric and there are no loops.  The refined source parts partition
+the source vertex set.  Thus the unordered pair of parts containing
+the endpoints of an edge is unique.  Completions for different
+unordered pairs cannot add an edge between the parts of another pair.
+It follows that $H'[X_p,X_q]$ is exactly the chosen completed matching
+for each edge $pq$ of $R'$, and is empty for every nonedge.  Also
+$H\leq H'$ by its definition.  The adjacency relations of $R'$ and
+$H'$ are decidable: the former uses the given decidable adjacency of
+$R$, and the latter is membership in a finite union of the given old
+edges and the finite lists of new edges.  Classical finite choices
+above require no additional hypothesis on the host vertex type.
+
+To construct the precise blow-up instance in the conclusion, let
+\[
+ E:\mathrm{Fin}(r)\times\mathrm{Fin}(k)\ \simeq
+   \mathrm{Fin}(rk)
+\]
+be the bijection \texttt{finProdFinEquiv}.  Use the reduced graph
+$\widetilde R=R'.\mathrm{comap}(E^{-1})$, whose adjacency at $u,w$ is
+$R'.\mathrm{Adj}(E^{-1}(u),E^{-1}(w))$, and define the two cluster maps by
+\[
+ a'_H(x)=E(a_H(x),c(x)),\qquad
+ a'_G(v)=E(a_G(v),d(v)).
+\]
+Both maps are total.  Since $E$ is bijective, the source fiber at
+$E(i,j)$ is exactly $X_{i,j}$ and the host fiber there is exactly
+$V_{i,j}$.  We now verify every field of \noderef{BlowUpInstance}.
+First, each source fiber is independent in $H'$: it is a subset of
+the original independent $X_i$, hence has no old $H$-edge, and every
+added edge joins parts over distinct original clusters, hence cannot
+have both endpoints in that fiber.  Second, its capacity inequality
+is the injection inequality already proved.  This checks every index
+of $\mathrm{Fin}(rk)$ because it is $E(i,j)$ for a unique pair.
+Third, if $xy$ is an old edge, original reduced support gives
+$R.\mathrm{Adj}(a_H(x),a_H(y))$, which gives
+$R'.\mathrm{Adj}((a_H(x),c(x)),(a_H(y),c(y)))$.  If it is an added
+edge, its pair of source parts was an edge of $R'$ by construction.
+In either case this is exactly
+$\widetilde R.\mathrm{Adj}(a'_H(x),a'_H(y))$, by the inverse identities
+for $E$.  This verifies reduced support.  These are all the fields;
+the host graph remains $G$, and \noderef{BlowUpInstance} requires no
+further edge condition on $G$.  Denote the resulting instance by $B'$.
+The inverse identity also gives
+$E^{-1}(B'.\mathrm{sourceCluster}(x))=(a_H(x),c(x))$, as required.
+For each edge $pq$ of $R'$, identifying the fibers at $E(p),E(q)$
+with $X_p,X_q$ transports the completed injection $\tau$ to those
+fibers.  The exact adjacency description gives the first disjunct
+of \noderef{SaturatingSourcePair} if $X_p$ was chosen as $S$, and the
+second disjunct if $X_q$ was chosen as $S$.
+
+Finally, the neighbors of $(i,j)$ in $R'$ are precisely the pairs
+$(i',j')$ with $i'\in N_R(i)$ and arbitrary $j'\in[k]$.  The bijection
+with $N_R(i)\times[k]$ gives
+\[
+ d_{R'}(i,j)=d_R(i)k\leq\Delta k=\Delta^3,
+\]
+where $d_R(i)\leq\Delta(R)\leq\Delta$.  Taking the maximum over the
+finite vertex set proves $\Delta(R')\leq\Delta^3$.
+If $r=0$, the original cluster maps have empty codomain, so both
+source and host vertex sets are empty.  The constructions of the
+injections and both refined maps above are then empty constructions;
+$R'$ is the graph on the empty product index set and has maximum
+degree zero, while all field and matching assertions are vacuous.
+Thus this case also satisfies the conclusion.  The degree estimate
+corrects the symbol $R$ in line 396 of the manuscript.
+\end{proof}

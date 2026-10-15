@@ -1,0 +1,24 @@
+\begin{lemma}[Non-neighbour candidacy is unchanged]
+Let $f$ be a compatible partial embedding on $X$ and $h$ one on
+$X'=X\cup Y$, agreeing on $X$. Suppose all vertices of $Y$ lie in source
+cluster $i$, source cluster $j$ is disjoint from $X'$, $j\ne i$, and
+$ji\notin E(R)$. Then the true updated candidacy sets of $j$ at $f$
+and $h$ are equal. For every source vertex of $j$, being outside $X'$
+is equivalent to being outside $X$; for every host vertex of $j$, being
+outside $h(X')$ is equivalent to being outside $f(X)$.
+\end{lemma}
+\begin{proof}
+The source equivalence follows because both domains avoid cluster $j$.
+Neither image meets its host cluster: by compatibility in
+\noderef{PartialCompatibleEmbedding} and the cluster-respecting clause
+of \noderef{CandidacySystem}, an image in host cluster $j$ would have
+its preimage in source cluster $j$, contrary to the domain assumption.
+This proves the host equivalence as well.
+In \noderef{UpdatedCandidacyCluster}, all cluster, domain, image, and
+original-allowed conditions therefore agree. The old adjacency
+constraints agree because $h=f$ on $X$. A possible new constraint is
+indexed by $y\in Y$ and an edge $xy\in H$ with $x$ in cluster $j$.
+The reduced-support property of \noderef{BlowUpInstance} would make
+$ji$ an edge of $R$, which is excluded. Thus there are no new
+constraints on this cluster, proving equality of the updated sets.
+\end{proof}

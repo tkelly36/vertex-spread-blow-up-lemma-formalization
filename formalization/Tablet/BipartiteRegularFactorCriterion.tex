@@ -1,0 +1,56 @@
+\begin{lemma}[Bipartite regular-factor cut criterion]
+Let $G$ be a finite graph and let $U,W$ be disjoint sets of the same size $n$.
+For a natural number $k$, the bipartite graph $G[U,W]$ contains a spanning
+$k$-regular subgraph if and only if, for every $A\subseteq U$ and
+$B\subseteq W$,
+\[
+ e_G(A,B)\geq k\max\{0,|A|+|B|-n\}.
+\]
+Here a spanning $k$-regular subgraph means a subgraph of $G$ in which every
+vertex of $U$ has exactly $k$ neighbours in $W$ and every vertex of $W$ has
+exactly $k$ neighbours in $U$.
+\end{lemma}
+\begin{proof}
+Suppose first that $F$ is such a subgraph.  For $A\subseteq U$ its vertices
+send $k|A|$ edges into $W$.  At most $k|W\setminus B|=k(n-|B|)$ of these
+can end outside $B$, because every vertex of $W\setminus B$ has degree $k$.
+Consequently
+$e_G(A,B)\geq e_F(A,B)\geq k(|A|+|B|-n)$; when the expression in
+parentheses is negative the asserted inequality is automatic.
+
+Conversely, form a directed network with a source $s$, a sink $t$, arcs
+$s\to u$ of capacity $k$ for $u\in U$, arcs $u\to w$ of capacity $1$ for
+each edge $uw$ of $G[U,W]$, and arcs $w\to t$ of capacity $k$ for
+$w\in W$.  We prove directly that every $s$--$t$ cut has capacity at least
+$kn$.  Write the source side of a cut as
+$\{s\}\cup (U\setminus A)\cup B$, where $A\subseteq U$ and $B\subseteq W$.
+The arcs crossing it have total capacity
+\[
+ k|A|+e_G(U\setminus A,W\setminus B)+k|B|.
+\]
+Apply the assumed inequality to $U\setminus A$ and $W\setminus B$.
+Their cardinalities sum to $2n-|A|-|B|$, so the middle term is at least
+$k\max\{0,n-|A|-|B|\}$.  If $|A|+|B|\leq n$ the displayed cut capacity is
+therefore at least $k(|A|+|B|)+k(n-|A|-|B|)=kn$; if
+$|A|+|B|\geq n$, its first and last terms already total at least $kn$.
+
+For completeness, the integral max-flow assertion needed here follows by
+the augmenting-path algorithm.  Start with the zero integral flow.  As long
+as the residual graph has an $s$--$t$ path, augment by the least residual
+capacity on that path.  All capacities and all residual capacities are
+integers, so every augmentation is by a positive integer and preserves
+integrality.  The flow value strictly increases and is bounded by the total
+capacity $kn$ out of $s$, hence the procedure terminates.  If it terminates
+below $kn$, let $S$ be the vertices reachable from $s$ in the residual
+graph.  Every original arc from $S$ to its complement is saturated and
+every original arc in the reverse direction carries zero flow.  Summing
+flow conservation over $S\setminus\{s\}$ then says that the flow value is
+exactly the capacity of this cut, contradicting the cut bound.  Thus an
+integral flow of value $kn$ exists.
+
+All $kn$ units leaving $s$ and entering $t$ are then used.  Since each
+$U$--$W$ arc has capacity one and the flow is integral, the arcs carrying
+one unit form a subgraph of $G[U,W]$.  Flow conservation and saturation of
+the source and sink arcs give degree exactly $k$ at every vertex on both
+sides, as required.
+\end{proof}

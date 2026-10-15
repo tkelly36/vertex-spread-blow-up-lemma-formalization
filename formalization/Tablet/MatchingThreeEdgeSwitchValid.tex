@@ -1,0 +1,23 @@
+\begin{lemma}[A valid three-edge switching preserves prescribed entries]
+Let $G$ be a graph on a finite vertex set, with disjoint parts $U,W$.
+Let $f:U\to W$ be a perfect matching as in \noderef{PerfectMatching}.
+Take pairwise distinct $x,a,b\in U$ and $y\in W$ with $f(x)=y$.
+Suppose $xf(a)$, $af(b)$, and $bf(x)$ are edges of $G$.
+Let $(x_i,y_i)_{i\in I}$ be any family of prescribed entries such that
+$f(x_i)=y_i$ and $x_i\notin\{x,a,b\}$ for every $i$.
+Then $g=S(f;x,a,b)$, defined in \noderef{MatchingThreeEdgeSwitch}, is a
+perfect matching, satisfies $g(x_i)=y_i$ for every $i$, and does not
+contain the edge $xy$, that is, $g(x)\ne y$.
+\end{lemma}
+\begin{proof}
+The matching definition in \noderef{PerfectMatching} says that $f$ is
+bijective and each $zf(z)$ is an edge. By
+\noderef{MatchingThreeEdgeSwitchProperties}, $g$ is bijective.
+At $x,a,b$, its matching edges are respectively $xf(a)$, $af(b)$,
+and $bf(x)$, which are edges by assumption. At every other $z$ its edge
+is the original edge $zf(z)$. Hence it is a perfect matching.
+Each $x_i$ is outside the three modified vertices, so the same value
+identities give $g(x_i)=f(x_i)=y_i$. Finally $g(x)=f(a)$. If this were
+$y=f(x)$, injectivity of $f$ would imply $a=x$, contradicting the
+assumed distinctness. Thus $xy$ is removed.
+\end{proof}

@@ -1,0 +1,26 @@
+\begin{lemma}[Intersection tails for product-permutation blocks]
+Let $I$ be finite and let $F_j$ be finite sets. Fix $i\in I$ with
+$|F_i|=n>0$, subsets $S,T\subseteq F_i$, and a real number $a>0$.
+For $\Omega=\prod_{j\in I}\operatorname{Sym}(F_j)$, one has
+\[
+\frac{|\{\omega\in\Omega:
+ \bigl||\omega_i(S)\cap T|-|S||T|/n\bigr|>an\}|}{|\Omega|}
+\leq 2\exp\!\left(-\frac{a^2n}{2(1+a/3)}\right).
+\]
+\end{lemma}
+\begin{proof}
+By \noderef{ProductPermutationSubsetLaw}, the fraction on the left is
+the fraction of $|S|$-subsets $U$ of $F_i$ for which
+$\bigl||U\cap T|-|S||T|/n\bigr|>an$.
+The integer $|U\cap T|$ lies between $0$ and $n$, since
+$U\cap T\subseteq T\subseteq F_i$. Partition this event according
+to that integer $x$. By \noderef{UniformSubsetIntersectionLaw},
+the fraction of all $|S|$-subsets giving the value $x$ is
+$H(n,|S|,|T|,x)$. The required fraction is therefore exactly the sum
+of these masses over $0\leq x\leq n$ with
+$|x-|S||T|/n|>an$. Both subset sizes are at most $n$.
+Applying \noderef{HypergeometricTwoTail} with these sizes and the
+positive parameter $a$ bounds that sum by the displayed quantity.
+All events use the original product-permutation space; no independence
+of intersection counts is asserted or needed.
+\end{proof}

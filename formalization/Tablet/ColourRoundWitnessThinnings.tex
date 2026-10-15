@@ -1,0 +1,96 @@
+\begin{lemma}[Contained thinnings of the full untouched witnesses]
+Let $B,A,c,\theta,p,\varepsilon,\rho,\zeta,\omega,\xi,D,d,C,a,n,t$
+be an instance, candidacy system, colouring, sequences and scalars, with a
+\noderef{ColourRoundStepParameters} record at these parameters.
+Assume every source cluster has size $n$ or $n+1$ and equals its host
+cluster in size, the original host pairs are
+$(\varepsilon_0,d)$-super-regular, and
+\noderef{ColourRoundInvariant} holds for $(t,S,X,\mu)$.
+Fix $i$ with $c(i)=t$, $i\notin S$, and $f\in\operatorname{supp}\mu$.
+Let $L_j=\mathrm{inl}(X_j)$, $Q_j=\mathrm{inr}(V_j)$ be the full copied
+clusters, let
+$\mathcal J=\{j:ij\in E(R),j\notin S,c(j)\ge t\}$, and put
+$e_j=|N_R(j)\cap(\{k:c(k)<t\}\cup S)|$.
+On the source/host sum let $A_f^j$ be the symmetrization of
+$\mathrm{inl}(x)\mathrm{inr}(v)$ for
+$(x,v)\in\noderef{UpdatedCandidacyCluster}$ at $(B,A,X,f,j)$,
+and let $H_0$ have exactly the original host edges on host copies and
+no edges incident to source copies.
+Then $e_i\le D$ and $e_j<D$ for every $j\in\mathcal J$.
+There are graphs $W_{12}$ and families $O_j,W_j,J_j$ on the ambient sum
+with $W_{12}\subseteq A_f^i$ and
+$(W_{12};L_i,Q_i)$ $(\xi_t,\rho_{e_i})$-super-regular, and, for each
+$j\in\mathcal J$,
+\[
+ O_j\subseteq A_f^j,\quad
+ (O_j;L_j,Q_j)\text{ is }(\varepsilon_t,p_{e_j})\text{-super-regular},
+ \quad W_j\subseteq O_j,\quad
+ (W_j;L_j,Q_j)\text{ is }(\xi_t,\rho_{e_j})\text{-super-regular},
+\]
+\[
+ J_j\subseteq H_0,\qquad
+ (J_j;Q_i,Q_j)\text{ is }(\xi_t,d/2)\text{-super-regular}.
+\]
+\end{lemma}
+\begin{proof}
+Unpack \noderef{ColourRoundInvariant}. Its degree, square-colouring and
+touched-colour clauses meet all hypotheses of
+\noderef{ColourRoundUntouchedGeometry} at $i$. Thus the touched-neighbour
+sets of $i$ and every $j\in\mathcal J$ are empty, and $e_j<D$ for each
+such $j$. The invariant separately gives $e_i\le D$. No comparison of
+$e_i$ and $e_j$ is made.
+
+For any $j\notin S$ with $c(j)\ge t$, the exact domain clause says that
+a vertex $x\in X_j$ cannot belong to $X$: membership would say
+$c(j)<t$ or $j\in S$, both impossible. If a vertex $v\in V_j$ were
+$f(x)$ for $x\in X$, compatibility in
+\noderef{PartialCompatibleEmbedding} and the cluster-respecting clause
+of \noderef{CandidacySystem} would give
+$B.\mathrm{sourceCluster}(x)=B.\mathrm{hostCluster}(v)=j$.
+This contradicts the preceding exclusion. Hence $V_j\cap f(X)$ is empty.
+The two finite parts in the witness clause of
+\noderef{ColourRoundInvariant} are therefore exactly $L_j$ and $Q_j$,
+not merely subsets: each copy in the full cluster satisfies the unused
+condition, and every vertex in a witness part is by its definition a
+copy in that cluster. Since the touched-neighbour set is empty, its
+conditional witness error is $\varepsilon_t$. Select its graph $O_j$,
+with containment in $A_f^j$ as defined by
+\noderef{UpdatedCandidacyCluster}. The same argument gives $O_i$.
+
+The source and host injections into the sum preserve cardinalities and
+have disjoint images. Thus $|L_j|=|Q_j|\in\{n,n+1\}$, so both
+near-equal inequalities hold. The witness threshold in
+\noderef{ColourRoundStepParameters} at $(t,e_j)$ is at most $n$ and
+hence at most both part sizes. Its round bound is $t<q$; the invariant
+provides the required exposure bound separately for each call.
+Apply the witness-thinning guarantee of
+\noderef{InductionApplicationCertificate} through
+\noderef{FiniteSuperRegularThinning}. This adapter uses an equivalence
+with a lifted finite ordinal in the guarantee's universe, preserves
+both exact parts and sizes, and pulls back containment. It supplies
+$W_j\subseteq O_j$ with parameters $(\xi_t,\rho_{e_j})$, and supplies
+$W_{12}\subseteq O_i\subseteq A_f^i$ with parameters
+$(\xi_t,\rho_{e_i})$.
+
+For each $j\in\mathcal J$, the host clusters $V_i,V_j$ are disjoint:
+the reduced edge implies $i\ne j$, while a common vertex would have
+both cluster labels. Their sizes belong to $\{n,n+1\}$, giving both
+near-equal inequalities. The host threshold from
+\noderef{ColourRoundStepParameters} is at most $n$, hence at most
+both sizes. The input super-regularity is the $ij$ clause of
+\noderef{InstanceSuperRegular}. Apply the host-thinning guarantee of
+\noderef{InductionApplicationCertificate}, again through
+\noderef{FiniteSuperRegularThinning}, obtaining a graph $T_j\subseteq G$
+with $(\xi_t,d/2)$ super-regularity on $V_i,V_j$.
+Let $J_j$ have precisely the edges
+$\mathrm{inr}(v)\mathrm{inr}(w)$ for $vw\in E(T_j)$, symmetrized
+on the ambient sum. Its containment in $H_0$ follows edgewise from
+$T_j\subseteq G$, in either orientation. For host vertices its
+adjacency is equivalent to that of $T_j$: the forward implication
+uses symmetry in the reversed orientation, and the backward implication
+uses looplessness to satisfy the unequal-endpoint condition of the
+symmetrization. Apply \noderef{SuperRegularPairEmbedding} with the
+injective host map $\mathrm{inr}$. Its exact neighbourhood and rectangle
+count identities give the desired super-regularity on $Q_i,Q_j$.
+Choose these finitely many graphs together to obtain all families.
+\end{proof}

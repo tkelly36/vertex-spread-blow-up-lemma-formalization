@@ -1,0 +1,42 @@
+\begin{lemma}[Variance bound from restricted degree moments]
+Let $U$ be a finite set, let $(d_u)_{u\in U}$ be real numbers, and write $m=|U|$.
+Let $q>0$, $k\geq0$, $0\leq\delta\leq p\leq1$, and $0<\eta\leq1$ with
+$q>\eta k$. Suppose that
+\[
+ (q-6\delta k)(p-\delta)m\leq\sum_{u\in U}d_u,
+ \qquad
+ \sum_{u\in U}d_u^2\leq mq^2(p+\delta)^2+6\delta k^2m.
+\]
+Then
+\[
+ \eta^2\sum_{u\in U}(d_u-pq)^2\leq23\delta mq^2.
+\]
+\end{lemma}
+\begin{proof}
+Put $t=k/q\geq0$. Then $k=tq$ and $t<1/\eta$, since $q>\eta k$ and
+$q,\eta$ are positive. Expanding the square, and using $p,q\geq0$ to
+substitute the first-moment lower bound into the negative term, gives
+\begin{align*}
+ \sum_{u\in U}(d_u-pq)^2
+ &=\sum_{u\in U}d_u^2-2pq\sum_{u\in U}d_u+mp^2q^2\\
+ &\leq mq^2(p+\delta)^2+6\delta k^2m
+       -2pq(q-6\delta k)(p-\delta)m+mp^2q^2\\
+ &=mq^2\bigl(4p\delta+\delta^2
+       +12p\delta(p-\delta)t+6\delta t^2\bigr).
+\end{align*}
+The bounds $p\leq1$ and $\delta\leq1$ imply
+$4p\delta+\delta^2\leq5\delta$. Also
+$0\leq p-\delta\leq1$ and $0\leq p\leq1$, so
+$p(p-\delta)\leq1$. Multiplying this inequality by the nonnegative
+$12\delta t$ bounds the third term by $12\delta t$. As $mq^2\geq0$, we obtain
+\[
+ \sum_{u\in U}(d_u-pq)^2\leq\delta mq^2(5+12t+6t^2).
+\]
+Finally $\eta^2\leq1$, $\eta^2t=\eta(\eta t)\leq1$, and
+$\eta^2t^2=(\eta t)^2\leq1$, using $0<\eta\leq1$ and $0\leq\eta t<1$.
+Thus $\eta^2(5+12t+6t^2)\leq5+12+6=23$.
+Multiplication of the preceding variance estimate by $\eta^2$, followed
+by multiplication of this last scalar bound by $\delta mq^2\geq0$,
+proves the claimed inequality. The argument also applies when $m=0$
+or $\delta=0$, since no division by either is used.
+\end{proof}

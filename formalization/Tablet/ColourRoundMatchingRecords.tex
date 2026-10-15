@@ -1,0 +1,96 @@
+\begin{lemma}[Matching records and true updated containment]
+Let $B$ be a blow-up instance and $A$ a candidacy system, and let $c$
+be a colouring into $q$ colours. Fix $t,S,i$ with $c(i)=t$ and $i\notin S$.
+Let $X$ consist exactly of the source vertices whose cluster has colour
+less than $t$ or belongs to $S$, and let $f$ be a compatible partial
+embedding on $X$. Put $Y=X_i$, assume $Y\ne\varnothing$, and put
+$U=\mathrm{inl}(Y)$, $K=\mathrm{inr}(V_i)$.
+Let $X'$ consist exactly of the source vertices whose cluster has colour
+less than $t$ or belongs to $S\cup\{i\}$.
+For any ambient graph $F$ contained in the symmetrized old updated
+candidacy graph $A_f^i$, with disjoint parts $U,K$ and a perfect matching,
+there are a bijection $e:Y\to U$, an injection $v:K\to V(G)$, and an
+injection $\ell$ from its perfect matchings to compatible partial
+embedding records on $Y$ for $A_f$, such that
+\[
+ e(y)=\mathrm{inl}(y),\qquad
+ \mathrm{inr}(v(k))=k,\qquad
+ \ell(\sigma)(y)=v(\sigma(e(y))).
+\]
+For every matching $\sigma$, every compatible partial embedding $h$ on
+$X'$ agreeing with $f$ on $X$ and $\ell(\sigma)$ on $Y$, and every $j$
+with $ij\in E(R)$, $j\notin S$, $c(j)\ge t$, the graph $T^j_\sigma$
+defined by symmetrizing
+\[
+ \mathrm{inl}(y)\mathrm{inr}(w)\in E(A_f^j),\quad
+ \forall u\in U,\quad
+ [u=\mathrm{inl}(x),\ xy\in E(H)]\Longrightarrow
+ [\sigma(u)=\mathrm{inr}(z),\ zw\in E(G)]
+\]
+is contained in the true updated candidacy graph $A_h^j$ at $(X',h)$.
+Moreover the source part outside $X'$ is exactly $\mathrm{inl}(X_j)$,
+and the host part outside $h(X')$ is exactly $\mathrm{inr}(V_j)$.
+\end{lemma}
+\begin{proof}
+The map $y\mapsto\mathrm{inl}(y)$ is injective with image $U$ by its
+definition, giving $e$. Each member of $K$ uniquely has the form
+$\mathrm{inr}(w)$ with $w\in V_i$; define $v$ to be this $w$.
+Equality of its values gives equality of the original sum vertices,
+so $v$ is injective. These give the first two identities.
+
+Choose a fixed perfect matching $\sigma_*$, which exists by assumption,
+and choose $y_*\in Y$. Then $v(\sigma_*(e(y_*)))$ is a host vertex.
+For each matching $\sigma$ define a total function on source vertices
+by $v(\sigma(e(y)))$ on $Y$ and this fixed host vertex off $Y$.
+Its restriction to $Y$ is injective, by injectivity of $e$ and $v$
+and the bijectivity clause of \noderef{PerfectMatching}.
+The matching-edge clause of \noderef{PerfectMatching} puts each
+matching edge in $F\subseteq A_f^i$.
+The source/host sum tags force the forward orientation in the
+symmetrization, so it is an allowed edge of the updated candidacy
+system at $(X,f)$ by \noderef{UpdatedCandidacyCluster} and
+\noderef{UpdatedCandidacy}. Finally $Y$ is independent by the source-independent
+clause of \noderef{BlowUpInstance}; the graph-homomorphism condition on
+$Y$ is therefore vacuous. These verify every field of
+\noderef{PartialCompatibleEmbedding}, giving the record $\ell(\sigma)$.
+If two records are equal, their values on every $y\in Y$ are equal.
+Injectivity of $v$ and surjectivity of $e$ recover the two matching
+functions. By \noderef{PerfectMatching}, the remaining fields assert
+bijectivity and edge membership and are propositions, so proof
+irrelevance identifies them. Thus
+$\ell$ is injective.
+
+The definitions of the domains give $X'=X\cup Y$: membership is the
+disjunction of old membership and source-cluster equality with $i$.
+For a tested $j$, the edge $ij$ implies $j\ne i$.
+Since $j\notin S$ and $c(j)\ge t$, its source cluster meets neither
+$X$ nor $Y$, and hence does not meet $X'$.
+For any $z\in X'$, \noderef{PartialCompatibleEmbedding} supplies
+$A.\mathrm{allowed}(z,h(z))$ from compatibility of $h$; the cluster-respecting
+clause of \noderef{CandidacySystem} then implies that $h(z)$ belongs to the
+host cluster of $z$. No such $z$ has cluster $j$, so the full host
+cluster $V_j$ is disjoint from $h(X')$. This proves both exact part
+equalities, including the reverse inclusions: every vertex of these
+full clusters is genuinely unused.
+
+Consider a forward edge of $T^j_\sigma$, written
+$\mathrm{inl}(y)\mathrm{inr}(w)$. Its old-candidacy premise, by
+\noderef{UpdatedCandidacyCluster} and \noderef{UpdatedCandidacy}, gives
+the two cluster equalities, $A.\mathrm{allowed}(y,w)$, and every
+adjacency requirement to $f(X)$. The preceding unused-part argument
+gives $y\notin X'$ and $w\notin h(X')$.
+For a neighbour $z\in X'$ of $y$, split according to $X'=X\cup Y$.
+If $z\in X$, the old requirement and $h(z)=f(z)$ give
+$G(w,h(z))$.
+If $z\in Y$, put $u=e(z)$. Symmetry of the source graph gives
+$H(z,y)$, so the defining new constraint of $T^j_\sigma$ supplies
+$\sigma(u)=\mathrm{inr}(z')$ and $G(z',w)$.
+The second and third displayed identities imply
+$z'=v(\sigma(e(z)))=\ell(\sigma)(z)=h(z)$.
+Symmetry of the host graph then gives $G(w,h(z))$.
+Thus every new updated-candidacy constraint holds, so the forward edge
+belongs to $A_h^j$. The reverse orientation follows by symmetry of
+both symmetrized graphs. Consequently $T^j_\sigma\subseteq A_h^j$.
+The argument uses only the stated agreements of $h$ and therefore
+applies to every compatible agreeing lift, not just a chosen extension.
+\end{proof}

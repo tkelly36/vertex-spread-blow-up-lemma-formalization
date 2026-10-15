@@ -1,0 +1,71 @@
+\begin{lemma}[Lower super-regularity after sampling and correction]
+Let $B,A$ have $r$ original source and host clusters of common size $n$,
+with lower $(\varepsilon,d)$-super-regular host and candidacy pairs.
+Let $k\geq1$, $n\geq2k$, and let $\sigma$ refine the source map into
+fibers of sizes $m$ or $m+1$, $m=\lfloor n/k\rfloor$. Let $f,f'$
+refine the host map with exactly the same capacities. Suppose each
+$f'$-bin differs from its $f$-bin in at most $2k\varepsilon n$ positions.
+Suppose every source vertex has degree at least $(d-2\varepsilon)$
+times the bin size into every $f$-bin of its original cluster;
+every original host vertex has the same bound into every $f$-bin
+of each adjacent original cluster; and every host vertex has at least
+$(d-2\varepsilon)$ times the size of its assigned $\sigma$-bin
+as candidacy degree into that source bin. Assume
+\[
+ \theta<1,\qquad (4k^2+2)\varepsilon\leq\theta,
+ \qquad 2k\varepsilon\leq\theta.
+\]
+Then every refined host pair whose original indices are adjacent in
+$R$ is lower $(\theta,d)$-super-regular, and every corresponding
+tagged source/$f'$-host candidacy pair is lower
+$(\theta,d)$-super-regular. Counts and parameters use extended
+nonnegative reals, with truncated lower endpoints.
+\end{lemma}
+\begin{proof}
+The displayed smallness bound implies $\varepsilon\leq\theta<1$,
+so $\varepsilon$ is finite. Also $m\geq n/(2k)>0$.
+For a refined capacity $s\geq m$,
+$\varepsilon n\leq2k\varepsilon s\leq\theta s$.
+Each source or corrected host bin is contained in its original bin,
+by its projection identity. Thus the original lower regularity
+transfers to the refined parts by \noderef{LowerRegularRestriction}.
+For candidacy use the disjoint tagged copies; their inclusions and
+cardinalities are precisely the ordinary fiber inclusions and sizes.
+Original lower regularity is supplied by
+\noderef{InstanceLowerSuperRegular} and
+\noderef{CandidacyLowerSuperRegular}, unpacked with
+\noderef{LowerSuperRegularPair}.
+
+For any fixed vertex and any predicate specifying its neighbors,
+its old neighbor count is at most its new neighbor count plus the
+bin symmetric-difference size. Indeed old neighbors not still in
+the new bin inject into the old bin minus the new bin, a subset
+of the symmetric difference. The two capacities are equal.
+Consequently, from an old degree bound $(d-2\varepsilon)s$,
+the new count is at least $(d-2\varepsilon)s-2k\varepsilon n$
+in real notation when $d$ is finite and $d>2\varepsilon$.
+Since $n\leq2ks$, the loss is at most $4k^2\varepsilon s$,
+and this gives degree at least $(d-\theta)s$ on both host
+orientations and for every refined source vertex into its host bin.
+The host estimates apply to all original vertices, including those
+which changed bins. The hypothesis on the assigned source bin
+directly supplies reverse candidacy degrees; weakening
+$2\varepsilon\leq\theta$ gives the desired lower bound.
+Tagging preserves these degree counts: an edge from an inl endpoint
+to an inr endpoint is exactly an allowed pair, with no reversed-tag
+branch, so all degree clauses of \noderef{LowerSuperRegularPair}
+hold. Together with the transferred regularity this proves both claims.
+
+For completeness this argument remains valid with all extended
+parameters in the statement. If $d$ is finite and $d\leq\theta$,
+the requested degree lower endpoint is zero and no real subtraction
+is needed. If $d>\theta$, it is a finite positive endpoint and the
+calculation above applies. If $d=\top$ and any original required
+pair or candidacy cluster exists, its positive opposite cardinality
+$n$ and finite $\varepsilon$ would make its prescribed minimum degree
+infinite, contradicting the finite neighbor count. Thus with $d=\top$
+there can be no such original pair or candidacy cluster; the asserted
+families are vacuous. Densities in the finite-$d$ cases are the same
+ordered-edge ratios before and after taking tagged copies, by
+\noderef{PairDensity}. Empty index sets are also vacuous.
+\end{proof}

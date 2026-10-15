@@ -1,0 +1,139 @@
+\begin{lemma}[One-colour-class matching extension]
+Let \(R\) have maximum degree at most \(D\), let \(c:V(R)\to[q]\)
+distinguish vertices at distance at most two, and fix \(t<q\).
+Suppose a particular law \(\mu\) satisfies
+\(\mathcal I(t,S;X(t,S),\mu)\) of \noderef{ColourRoundInvariant} for
+\(S\subseteq c^{-1}(t)\), and let \(i\in c^{-1}(t)\setminus S\).
+Write \(x_j\) for the number of already embedded neighbours of an
+unembedded cluster \(j\), and assume
+\(\varepsilon_t\leq\varepsilon_{t+1}\leq1\).
+
+The certificate has certified round bound $q$; hence the hypothesis $t<q$
+licenses each of its guarantee clauses used below.  Assume every source and host cluster has the same cardinality in
+\(\{n,n+1\}\), the initial host pairs are
+\((\varepsilon_0,d)\)-super-regular, and every reduced edge carries a
+saturating source matching. Fix an \noderef{InductionApplicationCertificate}
+whose thinning, matching-existence, matching-spread, and Four-Graphs
+conclusions use the displayed parameter sequences.
+
+Assume that every \((\varepsilon_t,D_x)\)-super-regular witness and relevant
+host pair on parts of sizes in \(\{n,n+1\}\) admits the required contained
+spanning thinning, and that
+\[
+ 2\sqrt{\zeta_t}\leq\theta_t,\qquad
+ \zeta_t+D\sqrt{\zeta_t}\leq\theta_t,\qquad
+ \zeta_t+2D\zeta_t\leq\theta_t,
+\]
+and, for every exposure \(x\leq D\),
+\[
+ 0<\theta_t,\quad 4\theta_t<\rho_x,\quad
+ 2\zeta_t<\rho_x,\quad 2\zeta_t<1-\rho_x,\quad
+ 2\zeta_t<d/2,\quad 2\zeta_t<1-d/2.
+\]
+Assume also that, for every \(x<D\),
+\[
+ D_{x+1}=\rho_xd/2,
+ \qquad D_{x+1}+\varepsilon_t+1/n\leq D_x.
+\]
+where \(\theta_t\) lies below the Four-Graphs input cutoff for all ordered
+density triples \((\rho_x,\rho_y,d/2)\), \(x,y\leq D\), with output error
+\(\omega_{t+1}<\varepsilon_{t+1}\). Take \(n\) above the finitely many
+thinning, matching, and Four-Graphs thresholds. Suppose each retained current
+pair has a uniform \((C/(2n))\)-vertex-spread matching law, each relevant
+Four-Graphs failure probability is at most \((1-a)^n\), and
+\[
+ D(1-a)^n\leq\tfrac12,\qquad C/n\leq1.
+\]
+More precisely, for every exposure at most \(D\), all four certificate
+thresholds are at most \(n\), its matching constant is at most \(C/2\), and
+for every ordered pair \(x,y\leq D\) its Four-Graphs threshold is at most \(n\) and
+its exponential constant is at least \(a\), where \(0<a\leq1\). For the
+present round assume
+\[
+ n^{-1}\leq\xi_t<\zeta_t,\quad \xi_t+2/n\leq\zeta_t,\quad
+ \xi_t+(\zeta_tn)^{-1}\leq\zeta_t,
+\]
+\[
+ \omega_{t+1}+2/n\leq\varepsilon_{t+1},\qquad
+ \omega_{t+1}+(\varepsilon_{t+1}n)^{-1}\leq\varepsilon_{t+1}.
+\]
+Then there is a total conditional extension kernel \(\kappa\), assigning to
+every partial embedding of \(X(t,S)\) a law on compatible partial embeddings
+of \(X(t,S\cup\{i\})\), such that, for every input embedding
+\(f\in\operatorname{supp}(\mu)\), every extension in
+\(\operatorname{supp}(\kappa(f))\) agrees with \(f\) on \(X(t,S)\), and the
+restriction of \(\kappa(f)\) to the newly embedded cluster is
+\((C/n)\)-vertex-spread. The
+output law is exactly the composition
+\(\mu\mathbin{\mathrm{bind}}\kappa\).  This very law satisfies
+\(\mathcal I(t,S\cup\{i\};X(t,S\cup\{i\}),\mu\mathbin{\mathrm{bind}}\kappa)\).
+Every future
+neighbour \(j\) of \(i\) acquires a contained
+\((\varepsilon_{t+1},D_{x_j+1})\)-super-regular witness in its true updated
+candidacy graph. A witness touched before processing \(i\) remains a contained
+\((\varepsilon_{t+1},D_{x_j})\)-super-regular witness, while every witness
+which is neither previously nor newly touched retains its
+\((\varepsilon_t,D_{x_j})\)-super-regular witness.  The current cluster and
+every future witness tested at it are untouched, and hence have input error
+\(\varepsilon_t\).  In every case the new law remains
+\((C/n)\)-vertex-spread and the touched-neighbour set has size at most one.
+
+\end{lemma}
+\begin{proof}
+Package the displayed certificate and numerical inequalities as the data
+record of \noderef{ColourRoundStepParameters}; every field is one of the
+hypotheses, with exactly the original sequences and the same certified round
+bound \(q\). The signature and all parameter dependencies are unchanged.
+
+Fix \(f\in\operatorname{supp}(\mu)\). By
+\noderef{ColourRoundUntouchedGeometry}, the current cluster and every
+future neighbour tested at it have no neighbour in \(S\). Their stored
+witnesses therefore have the common error \(\varepsilon_t\); the exposure
+indices \(x_i,x_j\) remain independent, with \(x_i\le D\) and \(x_j<D\).
+The latter lemma also gives the exact exposure increment and the at-most-one
+touched-neighbour bound after adding \(i\).
+
+Apply \noderef{ColourRoundMatchingPreparation} to this supported \(f\),
+the original host super-regularity, the saturating source pairs, and the
+numerical record. It uses the actual witness and host thinning guarantees,
+the simultaneous retained-edge estimate, and the ordered Four-Graphs
+guarantees, explicitly at \(t<q\) and the two separate exposure bounds.
+The density upper bounds used there follow from
+\(2\zeta_t<1-\rho_x\) and \(2\zeta_t<1-d/2\).
+Its transport components are
+\noderef{EqualSizeSourceWitnessTransport},
+\noderef{CurrentExtraSourceWitnessTransport}, and
+\noderef{FutureExtraSourceWitnessTransport}.
+They keep the parts of sizes \(n\) or \(n+1\) and the codegree windows
+normalised by the actual future part.
+In the current-extra case the source map has only the residual domain:
+the artificial row is inserted before testing and deleted after Four
+Graphs. In the future-extra case the unmatched future row is deleted
+before testing; the output is transported to the exact residual source
+part, and a subset of the genuine unchanged old row is restored.
+Each transport uses both exact-image equivalences and proves containment
+in the true updated candidacy graph, not equality with that graph.
+
+The preparation supplies a local raw law \(\nu_0\), an event \(E\) with
+probability at least one half and a supported member, and the conditioned
+law \(\nu_f=\nu_0(\,\cdot\mid E)\).
+Its restriction to the new cluster is \(C/n\)-vertex-spread, and every
+supported local embedding has the required contained witness for each
+future neighbour, for every compatible lift agreeing with \(f\) on the
+old domain. The conditioning concerns this one current-cluster matching
+only, not a global event for the colour class.
+
+These are precisely the pointwise input hypotheses of
+\noderef{ColourRoundKernelAssembly}. That lemma lifts through
+\noderef{ExtendUpdatedPartialEmbedding}, uses a supported input's law
+as filler outside the old support to produce a total kernel, and checks
+all the invariant clauses. Non-neighbours keep their old true candidacy
+sets and witnesses by \noderef{UpdatedCandidacyNonneighborExtension};
+the touched and untouched errors are preserved separately.
+The conclusion of \noderef{ColourRoundKernelAssembly} includes the
+full joint spread clause for the very law
+\(\mu\mathbin{\mathrm{bind}}\kappa\), as part of its asserted
+colour-round invariant.
+Thus the kernel has both asserted support properties and its exact bind
+law satisfies the new colour-round invariant, as required.
+\end{proof}

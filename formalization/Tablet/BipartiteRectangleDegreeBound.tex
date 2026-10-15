@@ -1,0 +1,29 @@
+\begin{lemma}[Degree counting inside a rectangle]
+Let $U,W$ be finite sets, $P$ a relation between their ambient elements,
+and $k\in\mathbb N$. Suppose every $u\in U$ is related to at least $k$
+elements of $W$, and every $w\in W$ is related from at most $k$ elements
+of $U$. Then for all $A\subseteq U$, $B\subseteq W$,
+\[
+ k\max\{0,|A|+|B|-|W|\}\leq
+ |\{(u,w)\in A\times B:P(u,w)\}|.
+\]
+No equality of part sizes, symmetry of $P$, or disjointness is assumed.
+\end{lemma}
+\begin{proof}
+Write $e(X,Y)$ for the ordered-pair count in the statement. By
+\noderef{FilteredProductRowCount},
+$e(A,W)=\sum_{u\in A}|\{w\in W:P(u,w)\}|\geq k|A|$.
+Counting the pairs with right endpoint in $W\setminus B$ by columns gives
+$e(A,W\setminus B)=\sum_{w\in W\setminus B}|\{u\in A:P(u,w)\}|$:
+this is the same finite double sum with its summation order exchanged.
+Since $A\subseteq U$, each column count is at most its count over $U$,
+hence at most $k$. Thus $e(A,W\setminus B)\leq k(|W|-|B|)$.
+Partitioning right endpoints into $B$ and $W\setminus B$ gives
+$e(A,W)=e(A,B)+e(A,W\setminus B)$. It follows that
+$k|A|\leq e(A,B)+k(|W|-|B|)$.
+If $|A|+|B|\geq |W|$, then
+$|A|=(|A|+|B|-|W|)+(|W|-|B|)$, so cancelling
+$k(|W|-|B|)$ yields the desired inequality. Otherwise its left side
+is zero and nonnegativity of the pair count proves it. All these counts
+include empty sets and $k=0$.
+\end{proof}

@@ -1,0 +1,23 @@
+.DS_Store
+*.aux
+*.log
+*.out
+*.olean
+*.ilean
+__pycache__/
+*.pyc
+
+# Lean/Trellis runtime state
+**/.lake/
+**/.trellis/
+**/.trellis-history/
+.trellis-viewer-print-axioms.lean
+**/.trellis-viewer-print-axioms.lean
+
+# Keep the selected release verification evidence, including build logs.
+!verification/**
+
+# The frozen manuscript and local operator state are not public artifacts.
+paper/*
+!paper/README.md
+source-checkpoint/

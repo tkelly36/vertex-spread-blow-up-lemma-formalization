@@ -1,0 +1,28 @@
+\begin{lemma}[Refining finite capacities by colors]
+Let $X,V$ be finite sets, $I,J$ be index sets, $a:X\to I$ and
+$b:V\to I$ be total maps, $c:X\to J$ be a coloring, and $j_0\in J$.
+Suppose that for every $i\in I$ an injection
+$e_i:a^{-1}(i)\to b^{-1}(i)$ is given.
+Then there is a total map $d:V\to J$ such that, for every $i\in I,j\in J$,
+\[
+ |\{x:a(x)=i,\ c(x)=j\}|\leq
+ |\{v:b(v)=i,\ d(v)=j\}|.
+\]
+No equality of the original capacities, nonempty fiber, or ordering of
+$V$ is required.
+\end{lemma}
+\begin{proof}
+For $x\in X$, define $f(x)$ to be the underlying vertex of
+$e_{a(x)}(x)$.  Then $b(f(x))=a(x)$.
+If $f(x)=f(y)$, applying $b$ gives $a(x)=a(y)=i$.
+Both images can therefore be compared in the same fiber $b^{-1}(i)$,
+where injectivity of $e_i$ gives $x=y$.  Thus $f:X\to V$ is injective.
+For $v\in f(X)$, let $x$ be its unique preimage and set $d(v)=c(x)$.
+For $v\notin f(X)$, set $d(v)=j_0$.  This defines $d$ on all of $V$,
+and $d(f(x))=c(x)$ for every $x$.
+Consequently $f$ restricts to an injection from
+$\{x:a(x)=i,c(x)=j\}$ to $\{v:b(v)=i,d(v)=j\}$.
+The cardinality inequality for this injection gives the assertion at
+every pair $(i,j)$.  Empty fibers give empty restricted injections, and
+unused host vertices are covered by the default color.
+\end{proof}

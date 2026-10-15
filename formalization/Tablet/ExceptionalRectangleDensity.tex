@@ -1,0 +1,44 @@
+\begin{lemma}[Density after exceptional-position changes]
+Let $F,G$ be simple graphs on the same vertex set, and let $U,W,U_0,W_0$ be finite vertex
+sets. Let $n>0$ be an integer and let real numbers satisfy
+$0<c<1$, $0<h\leq c/100$, $0<\eta$, $3h<\eta$, and
+$2h+4h/\eta<\eta$. Suppose
+$|U\setminus U_0|,|W\setminus W_0|\leq2hn$, and $G$ agrees with $F$
+between $U_0,W_0$. Suppose
+$|d_F(A,B)-c|\leq2h$ for every $A\subseteq U_0,B\subseteq W_0$
+with $|A|,|B|>hn$.
+Then $|d_G(X,Y)-c|<\eta$ for all $X\subseteq U,Y\subseteq W$
+with $|X|,|Y|>\eta n$.
+\end{lemma}
+\begin{proof}
+Put $X_0=X\cap U_0$, $Y_0=Y\cap W_0$, and write
+$a=|X|,b=|Y|,a_0=|X_0|,b_0=|Y_0|$.
+Since $X\setminus U_0\subseteq U\setminus U_0$, we have
+$a-a_0\leq2hn$, and similarly $b-b_0\leq2hn$.
+The size tests and $3h<\eta$ imply $a_0,b_0>hn>0$.
+In particular all four tested sets are nonempty.
+The number of positions outside $X_0\times Y_0$ is
+$R=ab-a_0b_0\geq0$. Because $a_0\leq a,b_0\leq b$,
+\[
+R=(a-a_0)b+a(b-b_0)-(a-a_0)(b-b_0)
+\leq2hn(a+b)\leq(4h/\eta)ab.
+\]
+For the last bound multiply $a,b>\eta n$ by $2h/\eta>0$,
+and then by $b,a$, respectively, and add the resulting inequalities.
+Let $e_0$ count the edges of $F$ in $X_0\times Y_0$, and let $e$ count
+the edges of $G$ in $X\times Y$.
+Agreement on the core gives $e_0\leq e\leq e_0+R$.
+By \noderef{PairDensityReal}, the core density hypothesis, multiplied by
+$a_0b_0>0$, gives
+$(c-2h)a_0b_0\leq e_0\leq(c+2h)a_0b_0$.
+Here $0<c-2h<1$, using $h\leq c/100$, $h>0$, and $c<1$.
+Consequently
+\[
+e\geq(c-2h)(ab-R)\geq(c-2h)ab-R
+\geq(c-2h-4h/\eta)ab,
+\]
+whereas $a_0b_0\leq ab$ gives
+$e\leq(c+2h)ab+R\leq(c+2h+4h/\eta)ab$.
+Divide by $ab>0$ and apply \noderef{PairDensityReal} to the full rectangle.
+The budget $2h+4h/\eta<\eta$ yields the claimed strict density bound.
+\end{proof}

@@ -1,0 +1,137 @@
+\begin{lemma}[Near-equal Four Graphs lemma]
+For all $0<d_{12},d_{13},d_{23}\leq1$ there exists $\varepsilon'_0>0$ such that, for every $0<\varepsilon'\leq\varepsilon'_0$, there exists $\varepsilon_0>0$ such that, for every $0<\varepsilon\leq\varepsilon_0$, there exists $a_0>0$ such that, for every $0<a\leq a_0$, there exists $n_0$ with the following property.  Let $m\geq n_0$, let $|W_1|=|W_2|=m$, and let $|W_3|\in\{m-1,m,m+1\}$.  If $(F_{12},F_{13},F_{23})$ is a near-equal $(\varepsilon,d_{12},d_{13},d_{23})$-regular triplet in the sense of \noderef{NearEqualRegularTriplet}, then, for every witness that $F_{12}[W_1,W_2]$ has a perfect matching and a uniformly random such matching $\sigma$ in the sense of \noderef{UniformPerfectMatching},
+\[
+ \Pr\bigl[A_\sigma\text{ is }(\varepsilon',d_{13}d_{23})\text{-super-regular on }W_1,W_3\bigr]
+ \geq1-(1-a)^m,
+\]
+where $A_\sigma$ is \noderef{MatchingInducedGraph}.  The constants and failure bound are uniform over all three permitted values of $|W_3|$.
+\end{lemma}
+\begin{proof}
+Put $q=d_{13}d_{23}$ and first choose $0<\varepsilon'_0\leq1$.
+Fix $0<\varepsilon'\leq\varepsilon'_0$, and put $k=|W_3|$.
+Use \noderef{NearEqualFourGraphsParameters} with $\eta=\varepsilon'$
+to obtain positive finite $\delta,\zeta,e$, with
+$\delta\leq\min(q,\varepsilon')$, $32\delta\leq(\varepsilon')^5$,
+and all the degree, set-size, and polynomial windows stated there for
+every $0\leq\varepsilon\leq e$.
+Invoke \noderef{UniformMatchingSetImageConcentration}, always with matching
+density $d_{12}$ and additive error $\zeta$, first with lower set-density
+bounds $d_{13}/2,d_{23}/2$, and then with lower bounds
+$(d_{13}/2)^2,(d_{23}/2)^2$.  Let $\theta_{\rm deg}>0$ and
+$\theta_{\rm cod}>0$ be the two admissible input-error thresholds supplied
+by that node.
+
+Choose $\varepsilon_0=\min(e,\theta_{\rm deg},\theta_{\rm cod})>0$.
+For every $0<\varepsilon\leq\varepsilon_0$, the parameter lemma gives
+\[
+ 2\varepsilon<\min(d_{12},d_{13},d_{23}),\qquad
+ \varepsilon\leq\min(\delta,\varepsilon'),
+\]
+as well as $d_{ij}/2\leq d_{ij}-\varepsilon$ and
+$(d_{ij}/2)^2\leq(d_{ij}-2\varepsilon)^2$ for $ij=13,23$.
+Its two sharp degree inequalities are
+\[
+ q-\delta\leq(d_{13}-\varepsilon)(d_{23}-\varepsilon)-\zeta,
+ \qquad
+ (d_{13}+\varepsilon)(d_{23}+\varepsilon)+\zeta\leq q+\delta.
+\]
+Its polynomial window is
+\[
+ (d_{13}+2\varepsilon)^2(d_{23}+2\varepsilon)^2+\zeta
+ \leq(q+\delta)^2.
+\tag{1}
+\]
+
+Fix any $0<\varepsilon\leq\varepsilon_0$.  The two concentration
+invocations now apply.  Take the larger of their size thresholds and the
+larger of their exponential constants, calling the latter $c<1$; increasing
+a constant below $1$ only weakens the asserted upper bound.  Thus one $c$
+and one threshold work for every vertex-neighborhood and good-codegree set
+used below.  Denote this common size threshold by $N_*$.  The relation
+$|k-m|\leq1$ gives explicitly
+\[
+ m-1\leq k\leq m+1,
+ \qquad 1-m^{-1}\leq k/m\leq1+m^{-1}.
+\tag{2}
+\]
+We will use the upper inequality in the union bounds.  The degree windows
+below retain their actual opposite-part cardinalities, and the near-equal
+regularity criterion itself accepts $k\in\{m-1,m,m+1\}$, so no unrecorded
+replacement of $k$ by $m$ is needed.  The perfect-matching witness in the
+statement makes the uniform distribution well-defined.
+
+The adjacency and cardinality identifications on the copied graph
+are supplied by \noderef{MatchingInducedGraphIdentities}.
+For $v\in W_1$, the matching edge $v\sigma(v)$ lies in $F_{12}$.
+The last clause of \noderef{NearEqualRegularTriplet}, normalized by the actual $k$, gives deterministically
+\[
+ \deg_{A_\sigma}(v)=(q\pm\varepsilon)k.
+\tag{3}
+\]
+For $w\in W_3$, put $S=N_{F_{13}}(w)\cap W_1$ and $T=N_{F_{23}}(w)\cap W_2$.  Both sets are normalized by $m$, because their opposite parts are $W_1,W_2$, and
+\[
+ \deg_{A_\sigma}(w)=|\sigma(S)\cap T|.
+\]
+Super-regularity gives $|S|=(d_{13}\pm\varepsilon)m$ and
+$|T|=(d_{23}\pm\varepsilon)m$. The lower endpoints are at least
+$(d_{13}/2)m,(d_{23}/2)m$, respectively, so the first concentration
+invocation applies. Its center $|S||T|/m$ lies between
+$(d_{13}-\varepsilon)(d_{23}-\varepsilon)m$ and
+$(d_{13}+\varepsilon)(d_{23}+\varepsilon)m$.
+The two sharp degree inequalities above put the concentration interval
+inside $[(q-\delta)m,(q+\delta)m]$.
+\noderef{MatchingInducedDegreeConcentration} makes precisely these
+estimates simultaneous, with failure at most $kc^m$.
+In particular every such $w$ has at least $(q-\delta)m$ neighbors,
+exactly the criterion's lower-degree condition. Also $\delta\leq\varepsilon'$
+puts these degrees in the final super-regularity window.
+
+On the $W_1$ side, (3) is already normalized by the actual opposite-part
+size $k$, and $\varepsilon\leq\varepsilon'$ puts it in the
+required $(q\pm\varepsilon')k$ window.  Thus no replacement of $k$ by $m$
+is made in either final degree condition.
+
+For regularity, apply \noderef{NearEqualRegularPairGoodCodegrees} to $F_{13}[W_1,W_3]$ and $F_{23}[W_2,W_3]$.  At most $6\varepsilon k^2$ ordered pairs of $W_3^2$ are bad for one of the two input graphs.  For any remaining $(w,w')$, take the two common-neighborhood sets $S\subseteq W_1$ and $T\subseteq W_2$.  Their sizes are at most $(d_{13}+2\varepsilon)^2m$ and $(d_{23}+2\varepsilon)^2m$.  Set-image concentration and (1) imply
+\[
+ |N_{A_\sigma}(w)\cap N_{A_\sigma}(w')|
+ =|\sigma(S)\cap T|\leq(q+\delta)^2m
+\]
+except with probability $c^m$.  Here the good-codegree lower bounds are at
+least $(d_{13}-2\varepsilon)^2m\geq(d_{13}/2)^2m$ and
+$(d_{23}-2\varepsilon)^2m\geq(d_{23}/2)^2m$, so the second concentration
+invocation really applies; its conclusion differs from $|S||T|/m$ by at
+most $\zeta m$, while (1) gives the displayed upper bound.
+Applying \noderef{MatchingInducedCodegreeConcentration} to these two
+exceptional-set bounds, the squared lower set-size bounds, (1), and the
+second concentration invocation gives the following simultaneous event.
+
+There are at most $k^2\leq(m+1)^2$ good ordered pairs, with diagonal pairs
+retained. A union bound makes their concentration estimates simultaneous. On that event, every pair
+which is good in both input graphs satisfies the displayed codegree bound,
+and the retained vertex estimate gives the criterion's $(q-\delta)m$ lower
+degree bound.  Hence only the at most $6\varepsilon k^2\leq6\delta k^2$
+input-bad ordered pairs are bad for the output.  We have
+$0\leq\delta\leq q\leq1$, $\varepsilon'\leq1$, $1\leq\delta m$, and
+$32\delta\leq(\varepsilon')^5$ by the choices above. Therefore the
+deterministic adapter \noderef{MatchingInducedSuperRegularCertificate},
+which applies \noderef{NearEqualDegreeCodegreeRegularityCriterion} with
+exactly these sizes and exceptional-pair allowance, combines this regularity
+estimate with the two degree sides to prove $(\varepsilon',q)$-super-regularity
+in the sense of \noderef{SuperRegularPair}.
+
+The first union bound has $k$ events and the second has $k^2$ events, so the
+total failure probability is explicitly
+\[
+ kc^m+k^2c^m\leq\bigl((m+1)+(m+1)^2\bigr)c^m.
+\]
+Use \noderef{FourGraphsPolynomialLossAbsorption} to select $a_0>0$
+after $\varepsilon$ and the common $c$ have been fixed. For every
+$0<a\leq a_0$ it supplies a threshold above which the last display is
+at most $(1-a)^m$, including when $c=0$. Take $n_0$ at least this
+threshold and $N_*$, and at least $2$ and $1/\delta$ (rounded up).
+Then $1\leq\delta m$ for every $m\geq n_0$, as needed above.
+Thus the success probability is at least $1-(1-a)^m$.
+All thresholds and both union bounds used only
+$k\leq m+1$ and $|k-m|\leq1$, so they are uniform for
+$k=m-1,m,m+1$, as required.
+\end{proof}

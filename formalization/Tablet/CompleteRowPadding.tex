@@ -1,0 +1,13 @@
+\begin{lemma}[Lower super-regularity under complete-row padding]
+Let $L,Q$ be finite vertex sets of a simple graph $F$, let $e$ inject its vertex set into that of a simple graph $F^+$, and let $D$ be a finite vertex set disjoint from $e(L)$. Let $\varepsilon,\eta,d$ be extended nonnegative reals. Suppose $|e(L)\cup D|=|Q|$, adjacency between $e(L)$ and $e(Q)$ agrees exactly with adjacency between $L$ and $Q$, and every vertex of $D$ is adjacent to every vertex of $e(Q)$. If $(L,Q)$ is lower-$(\varepsilon,d)$-super-regular, $0<\varepsilon\leq\eta^2$, $\eta\leq1$, and $d\leq1$, then $(e(L)\cup D,e(Q))$ is lower-$(\eta,d)$-super-regular.
+\end{lemma}
+\begin{proof}
+Write $M=|L|$, $K=|D|$, and $N=|Q|=M+K$. The budgets give $0<\eta$ and $\varepsilon\leq\eta$. If $d\leq\eta$, all required lower bounds are zero, so assume $\eta<d$. All parameters are then finite.
+
+For tested subsets $S\subseteq e(L)\cup D$ and $T\subseteq e(Q)$, write $S=e(S_0)\cup S_D$ disjointly and $T=e(T_0)$, with $S_0\subseteq L$, $S_D\subseteq D$, and $T_0\subseteq Q$. Their thresholds are $|S|>\eta N$ and $|T_0|>\eta N$, so both cardinalities are positive. Exact adjacency and complete dummy rows give the edge count
+$E_{F^+}(S,T)=E_F(S_0,T_0)+|S_D||T_0|$.
+If $|S_0|>\varepsilon M$, the right threshold also exceeds $\varepsilon N$. The lower-regularity clause of \noderef{LowerSuperRegularPair}, expressed by \noderef{LowerRegularPair} and \noderef{PairDensity}, gives $E_F(S_0,T_0)\geq(d-\varepsilon)|S_0||T_0|$. As $d-\eta\leq d-\varepsilon$ and $d-\eta\leq1$, the displayed edge count is at least $(d-\eta)|S||T_0|$.
+Otherwise $|S_0|\leq\varepsilon M\leq\varepsilon N\leq\eta^2N<\eta|S|$. Consequently $|S_D|\geq(1-\eta)|S|\geq(d-\eta)|S|$, and the complete rows alone give the same bound. Divide by the positive finite rectangle cardinality to obtain lower regularity. Empty parts admit no tested rectangle and require no division.
+
+For an old left vertex its degree is unchanged and at least $(d-\varepsilon)N\geq(d-\eta)N$; a dummy has degree $N$. A right vertex has its old degree plus $K$, at least $(d-\varepsilon)M+K\geq(d-\eta)(M+K)$, because the difference is $(\eta-\varepsilon)M+(1-d+\eta)K\geq0$. These are exactly the two degree clauses of \noderef{LowerSuperRegularPair}.
+\end{proof}

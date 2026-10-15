@@ -1,0 +1,500 @@
+⚠ [3363/3468] Replayed HajnalSzemerediFormalization.AuxiliaryReachabilitySimplePath
+warning: HajnalSzemerediFormalization/AuxiliaryReachabilitySimplePath.lean:17:12: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/AuxiliaryReachabilitySimplePath.lean:26:14: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/AuxiliaryReachabilitySimplePath.lean:31:13: `List.getLast?_eq_getLast` has been deprecated: Use `List.getLast?_eq_some_getLast` instead
+warning: HajnalSzemerediFormalization/AuxiliaryReachabilitySimplePath.lean:60:24: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/AuxiliaryReachabilitySimplePath.lean:11:5: unused variable `hsmall_ne_large`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3364/3468] Replayed HajnalSzemerediFormalization.SimpleAuxiliaryPathRecoloringEquitable
+warning: HajnalSzemerediFormalization/SimpleAuxiliaryPathRecoloringEquitable.lean:22:14: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/SimpleAuxiliaryPathRecoloringEquitable.lean:125:22: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/SimpleAuxiliaryPathRecoloringEquitable.lean:151:14: Try `simp at hnodup` instead of `simpa using hnodup`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SimpleAuxiliaryPathRecoloringEquitable.lean:197:35: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/SimpleAuxiliaryPathRecoloringEquitable.lean:242:36: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/SimpleAuxiliaryPathRecoloringEquitable.lean:267:26: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/SimpleAuxiliaryPathRecoloringEquitable.lean:268:28: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+⚠ [3381/3468] Replayed HajnalSzemerediFormalization.FilteredAuxiliaryReachabilitySimplePath
+warning: HajnalSzemerediFormalization/FilteredAuxiliaryReachabilitySimplePath.lean:18:12: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/FilteredAuxiliaryReachabilitySimplePath.lean:30:14: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/FilteredAuxiliaryReachabilitySimplePath.lean:35:13: `List.getLast?_eq_getLast` has been deprecated: Use `List.getLast?_eq_some_getLast` instead
+warning: HajnalSzemerediFormalization/FilteredAuxiliaryReachabilitySimplePath.lean:64:24: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+⚠ [3382/3468] Replayed HajnalSzemerediFormalization.FirstTransformationOrdinaryTargetCaseEquitable
+warning: HajnalSzemerediFormalization/FirstTransformationOrdinaryTargetCaseEquitable.lean:203:14: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/FirstTransformationOrdinaryTargetCaseEquitable.lean:236:18: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/FirstTransformationOrdinaryTargetCaseEquitable.lean:252:18: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/FirstTransformationOrdinaryTargetCaseEquitable.lean:333:16: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/FirstTransformationOrdinaryTargetCaseEquitable.lean:409:40: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/FirstTransformationOrdinaryTargetCaseEquitable.lean:467:14: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/FirstTransformationOrdinaryTargetCaseEquitable.lean:485:35: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/FirstTransformationOrdinaryTargetCaseEquitable.lean:107:31: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  simp [newColorVal, hy̵,̵ ̵h̵z, hzy, hXacc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: HajnalSzemerediFormalization/FirstTransformationOrdinaryTargetCaseEquitable.lean:318:27: This simp argument is unused:
+  hz_ne_y₁
+
+Hint: Omit it from the simp argument list.
+  simp [hvy,̵ ̵h̵z̵_̵n̵e̵_̵y̵₁̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3386/3468] Replayed HajnalSzemerediFormalization.SecondTransformationCaseDescent
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:97:38: Try `simp at hvwG` instead of `simpa using hvwG`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:173:39: Try `simp at hvwG` instead of `simpa using hvwG`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:477:22: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:491:24: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:535:22: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:589:22: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:614:22: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:650:20: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:653:20: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:693:24: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:706:24: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:727:26: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:779:24: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:790:22: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:814:20: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:911:31: `List.Chain'` has been deprecated: Use `List.IsChain` instead
+warning: HajnalSzemerediFormalization/SecondTransformationCaseDescent.lean:918:23: `List.getLast?_eq_getLast` has been deprecated: Use `List.getLast?_eq_some_getLast` instead
+⚠ [3402/3468] Replayed Tablet.ClusterwiseDeletionBuffer
+warning: Tablet/ClusterwiseDeletionBuffer.lean:11:5: unused variable `hm`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3432/3468] Replayed Tablet.ExtractionTailCutoffs
+info: Tablet/ExtractionTailCutoffs.lean:53:8: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: Tablet/ExtractionTailCutoffs.lean:73:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Tablet/ExtractionTailCutoffs.lean:73:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Tablet/ExtractionTailCutoffs.lean:74:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Tablet/ExtractionTailCutoffs.lean:74:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Tablet/ExtractionTailCutoffs.lean:75:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Tablet/ExtractionTailCutoffs.lean:75:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Tablet/ExtractionTailCutoffs.lean:76:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Tablet/ExtractionTailCutoffs.lean:76:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3434/3469] Built Tablet.FiniteGreedySpreadLaw (9.5s)
+⚠ [3435/3469] Replayed Tablet.LowerSuperRegularDeletionSlicing
+warning: Tablet/LowerSuperRegularDeletionSlicing.lean:7:5: unused variable `hDU`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/LowerSuperRegularDeletionSlicing.lean:7:20: unused variable `hDW`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3436/3469] Replayed Tablet.ExceptionalLeftLowerSuperRegular
+warning: Tablet/ExceptionalLeftLowerSuperRegular.lean:8:5: unused variable `hDL`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/ExceptionalLeftLowerSuperRegular.lean:8:22: unused variable `hDR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/ExceptionalLeftLowerSuperRegular.lean:9:5: unused variable `hE`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3454/3561] Built Tablet.RebalancingResidualHost (1.6s)
+⚠ [3455/3561] Replayed Tablet.RebalancingResidualCandidacy
+warning: Tablet/RebalancingResidualCandidacy.lean:152:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3459/3561] Replayed Tablet.RegularExtractionParameters
+warning: Tablet/RegularExtractionParameters.lean:6:58: unused variable `hη1`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3460/3561] Replayed Tablet.SuperRegularExtractionParameters
+warning: Tablet/SuperRegularExtractionParameters.lean:6:45: unused variable `hd1`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3462/3561] Replayed Tablet.RegularExtractionPartitionGeometry
+warning: Tablet/RegularExtractionPartitionGeometry.lean:12:18: unused variable `hd`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/RegularExtractionPartitionGeometry.lean:12:44: unused variable `hγ1`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3463/3561] Replayed Tablet.WeightedRectangleExpectation
+warning: Tablet/WeightedRectangleExpectation.lean:11:40: unused variable `hEP`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3625/3692] Replayed Tablet.SuperRegularExceptionalRestoration
+warning: Tablet/SuperRegularExceptionalRestoration.lean:14:5: unused variable `hcover`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/SuperRegularExceptionalRestoration.lean:15:5: unused variable `hbip`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/SuperRegularExceptionalRestoration.lean:19:38: unused variable `hη1`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3626/3692] Replayed Tablet.CompleteRowPadding
+warning: Tablet/CompleteRowPadding.lean:19:52: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: Tablet/CompleteRowPadding.lean:152:26: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/CompleteRowPadding.lean:193:13: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/CompleteRowPadding.lean:200:18: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+⚠ [3636/3692] Replayed Tablet.CapacityPreservingReassignment
+warning: Tablet/CapacityPreservingReassignment.lean:115:4: Try `simp at hv` instead of `simpa using hv`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3640/3692] Replayed Tablet.ExposureDensityRecursion
+warning: Tablet/ExposureDensityRecursion.lean:54:20: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+⚠ [3642/3692] Replayed Tablet.PerfectMatching
+warning: Tablet/PerfectMatching.lean:5:5: unused variable `hUW`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3646/3692] Replayed Tablet.DirectedReachabilitySimplePath
+warning: Tablet/DirectedReachabilitySimplePath.lean:44:54: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [3651/3692] Built Tablet.PartialEmbeddingParameters (11s)
+⚠ [3654/3692] Replayed Tablet.HostExceptionalCorrection
+warning: Tablet/HostExceptionalCorrection.lean:16:5: unused variable `hε`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/HostExceptionalCorrection.lean:16:62: unused variable `hd`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3655/3692] Replayed Tablet.RefinedLowerSuperRegularTransfer
+warning: Tablet/RefinedLowerSuperRegularTransfer.lean:14:35: unused variable `hθ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/RefinedLowerSuperRegularTransfer.lean:18:5: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3665/3693] Replayed Tablet.FiniteIndependentSubgaussianTail
+warning: Tablet/FiniteIndependentSubgaussianTail.lean:48:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3666/3693] Built Tablet.UniformSubsetIntersectionLaw (1.6s)
+warning: Tablet/UniformSubsetIntersectionLaw.lean:5:44: unused variable `hs`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3677/3694] Built Tablet.PartialEmbedding (1.0s)
+⚠ [3679/3694] Replayed Tablet.SimultaneousUnequalRetention
+warning: Tablet/SimultaneousUnequalRetention.lean:150:10: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3680/3694] Replayed Tablet.BipartiteRegularFactorCriterion
+warning: Tablet/BipartiteRegularFactorCriterion.lean:15:7: unused variable `hUW`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3682/3694] Built Tablet.ProductPermutationIntersectionTail (1.5s)
+✔ [3683/3694] Built Tablet.RestrictedSmallBlowUpInterface (1.6s)
+⚠ [3684/3694] Replayed Tablet.SuperRegularSpanningFactor
+warning: Tablet/SuperRegularSpanningFactor.lean:22:7: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SuperRegularSpanningFactor.lean:10:9: unused variable `hUW`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3686/3694] Built Tablet.RegularSubgraph (2.3s)
+⚠ [3687/3694] Built Tablet.SuperRegularInitialSample (7.1s)
+warning: Tablet/SuperRegularInitialSample.lean:17:5: unused variable `hbip`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3688/3694] Built Tablet.PrescribedHostPartitionSample (3.9s)
+✔ [3689/3714] Built Tablet.ClusterRebalancing (2.5s)
+ℹ [3740/3807] Replayed EgorychevFalikmanFormalization.SymmetricMatrixFirstPivotSchurComplementSplit
+info: EgorychevFalikmanFormalization/SymmetricMatrixFirstPivotSchurComplementSplit.lean:165:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+⚠ [3792/3807] Replayed Tablet.MatchingEnumeration
+warning: Tablet/MatchingEnumeration.lean:53:6: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+⚠ [3832/3933] Replayed Tablet.FourRectangleMatchingPartition
+warning: Tablet/FourRectangleMatchingPartition.lean:10:23: unused variable `hW`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3834/3933] Replayed Tablet.FourRectangleFactorialCancellation
+warning: Tablet/FourRectangleFactorialCancellation.lean:8:18: unused variable `ht`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/FourRectangleFactorialCancellation.lean:8:45: unused variable `hxt`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3837/3933] Built Tablet.SuperRegularSubgraph (2.0s)
+warning: Tablet/SuperRegularSubgraph.lean:121:11: `ENNReal.toReal_eq_toReal` has been deprecated: Use `ENNReal.toReal_eq_toReal_iff'` instead
+⚠ [3845/3933] Replayed Tablet.MatchingSwitchCandidateCount
+warning: Tablet/MatchingSwitchCandidateCount.lean:28:19: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+✔ [3852/3933] Built Tablet.SuperRegularErrorMonotone (1.4s)
+⚠ [3856/3933] Replayed Tablet.CodegreeWindowTransfer
+warning: Tablet/CodegreeWindowTransfer.lean:20:31: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/CodegreeWindowTransfer.lean:26:41: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: Tablet/CodegreeWindowTransfer.lean:30:39: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: Tablet/CodegreeWindowTransfer.lean:36:20: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: Tablet/CodegreeWindowTransfer.lean:36:49: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+⚠ [3857/3933] Replayed Tablet.SmallNeighborhoodCodegreeWindow
+warning: Tablet/SmallNeighborhoodCodegreeWindow.lean:20:11: `ENNReal.mul_le_mul_right` has been deprecated: Use `ENNReal.mul_le_mul_iff_left` instead
+warning: Tablet/SmallNeighborhoodCodegreeWindow.lean:22:59: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: Tablet/SmallNeighborhoodCodegreeWindow.lean:30:14: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+⚠ [3858/3933] Replayed Tablet.RegularityAfterDensityLoss
+warning: Tablet/RegularityAfterDensityLoss.lean:19:5: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/RegularityAfterDensityLoss.lean:21:5: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+⚠ [3863/3933] Replayed Tablet.VertexSpreadConditioning
+warning: Tablet/VertexSpreadConditioning.lean:6:33: unused variable `hp0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3870/3934] Replayed Tablet.FourRectangleMatchingFiberBound
+warning: Tablet/FourRectangleMatchingFiberBound.lean:14:5: unused variable `hfit`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3872/3934] Built Tablet.SuperRegularCodegreeExceptionalBound (2.9s)
+warning: Tablet/SuperRegularCodegreeExceptionalBound.lean:26:32: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SuperRegularCodegreeExceptionalBound.lean:67:32: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: Tablet/SuperRegularCodegreeExceptionalBound.lean:70:54: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+⚠ [3873/3934] Replayed Tablet.UpdatedCandidacyNonneighborExtension
+warning: Tablet/UpdatedCandidacyNonneighborExtension.lean:13:24: unused variable `hij`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3877/3934] Replayed Tablet.MatchingInducedDegreeConcentration
+warning: Tablet/MatchingInducedDegreeConcentration.lean:53:8: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/MatchingInducedDegreeConcentration.lean:54:8: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/MatchingInducedDegreeConcentration.lean:111:41: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/MatchingInducedDegreeConcentration.lean:119:15: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+⚠ [3878/3934] Replayed Tablet.MatchingInducedCodegreeConcentration
+warning: Tablet/MatchingInducedCodegreeConcentration.lean:74:8: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/MatchingInducedCodegreeConcentration.lean:75:8: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/MatchingInducedCodegreeConcentration.lean:105:14: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/MatchingInducedCodegreeConcentration.lean:154:15: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/MatchingInducedCodegreeConcentration.lean:12:18: unused variable `hU`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/MatchingInducedCodegreeConcentration.lean:12:36: unused variable `hW`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3879/3934] Built Tablet.FiniteTripletRelabelling (2.7s)
+✔ [3880/3934] Built Tablet.NearEqualSuperRegularExtraction (4.4s)
+⚠ [3881/3934] Built Tablet.MatchingManyEdges (2.4s)
+warning: Tablet/MatchingManyEdges.lean:111:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3886/3934] Replayed Tablet.OneIndexBadPairCounting
+warning: Tablet/OneIndexBadPairCounting.lean:131:24: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: Tablet/OneIndexBadPairCounting.lean:136:45: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+⚠ [3888/3934] Replayed Tablet.ColourRoundMatchingRecords
+warning: Tablet/ColourRoundMatchingRecords.lean:12:17: unused variable `hi`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/ColourRoundMatchingRecords.lean:12:47: unused variable `hiS`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3892/3934] Replayed Tablet.EqualSizeSourceWitnessTransport
+warning: Tablet/EqualSizeSourceWitnessTransport.lean:10:47: unused variable `hKZ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/EqualSizeSourceWitnessTransport.lean:12:5: unused variable `hU`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/EqualSizeSourceWitnessTransport.lean:12:23: unused variable `hK`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/EqualSizeSourceWitnessTransport.lean:12:41: unused variable `hV`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/EqualSizeSourceWitnessTransport.lean:12:59: unused variable `hZ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3893/3934] Replayed Tablet.CurrentExtraSourceWitnessTransport
+warning: Tablet/CurrentExtraSourceWitnessTransport.lean:12:5: unused variable `hUK`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Tablet/CurrentExtraSourceWitnessTransport.lean:12:47: unused variable `hKZ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3894/3934] Replayed Tablet.FutureExtraSourceWitnessTransport
+warning: Tablet/FutureExtraSourceWitnessTransport.lean:12:47: unused variable `hKZ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3895/3934] Built Tablet.RegularPairGoodCodegrees (1.4s)
+✔ [3898/3944] Built Tablet.IndependentRetentionConcentration (2.2s)
+✔ [3900/3944] Built Tablet.NearEqualRegularPairGoodCodegrees (1.5s)
+⚠ [3901/3944] Replayed Tablet.MatchingInducedSuperRegularCertificate
+warning: Tablet/MatchingInducedSuperRegularCertificate.lean:79:13: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/MatchingInducedSuperRegularCertificate.lean:85:13: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+⚠ [3905/3944] Replayed Tablet.NearEqualVaryingGoodEdgeSuperRegularity
+warning: Tablet/NearEqualVaryingGoodEdgeSuperRegularity.lean:194:31: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/NearEqualVaryingGoodEdgeSuperRegularity.lean:201:38: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/NearEqualVaryingGoodEdgeSuperRegularity.lean:229:15: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/NearEqualVaryingGoodEdgeSuperRegularity.lean:230:15: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+✔ [3906/3944] Built Tablet.FiniteSuperRegularThinning (1.5s)
+✔ [3908/3944] Built Tablet.SimultaneousHostCandidacyRefinement (2.7s)
+⚠ [3911/3944] Built Tablet.RetentionBadEventUnion (2.1s)
+warning: Tablet/RetentionBadEventUnion.lean:81:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Tablet/RetentionBadEventUnion.lean:81:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Tablet/RetentionBadEventUnion.lean:81:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Tablet/RetentionBadEventUnion.lean:138:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Tablet/RetentionBadEventUnion.lean:138:42: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3912/3944] Built Tablet.SupportedResidualComposition (1.8s)
+warning: Tablet/SupportedResidualComposition.lean:191:25: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SupportedResidualComposition.lean:185:18: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+✔ [3913/3944] Built Tablet.BlowupOrderMargins (2.3s)
+✔ [3914/3944] Built Tablet.BlowUpReductionToAuxiliary (1.7s)
+⚠ [3917/3944] Built Tablet.MatchingSwitching (5.2s)
+warning: Tablet/MatchingSwitching.lean:34:19: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/MatchingSwitching.lean:50:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [3919/3944] Built Tablet.RestrictReductionEmbedding (1.4s)
+⚠ [3921/3944] Replayed Tablet.RegularInducedMatchingUpperBound
+warning: Tablet/RegularInducedMatchingUpperBound.lean:35:8: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+✔ [3924/3944] Built Tablet.QuantitativeSuperRegularThinning (4.8s)
+⚠ [3925/3944] Replayed Tablet.SourceClusterPadding
+warning: Tablet/SourceClusterPadding.lean:70:6: Try `simp at h` instead of `simpa using h`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Tablet/SourceClusterPadding.lean:71:6: Try `simp at h` instead of `simpa using h`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Tablet/SourceClusterPadding.lean:72:6: Try `simp at h` instead of `simpa using h`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Tablet/SourceClusterPadding.lean:217:6: Try `simp at h` instead of `simpa using h`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Tablet/SourceClusterPadding.lean:218:6: Try `simp at h` instead of `simpa using h`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Tablet/SourceClusterPadding.lean:219:6: Try `simp at h` instead of `simpa using h`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Tablet/SourceClusterPadding.lean:179:40: This simp argument is unused:
+  exists_eq_left
+
+Hint: Omit it from the simp argument list.
+  simp only [Lp, Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_map,
+  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲Function.Embedding.inl_apply, Sum.inl.injEq, Sum.inr_ne_inl, Sum.inl_ne_inr,
+  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲e̵x̵i̵s̵t̵s̵_̵e̵q̵_̵l̵e̵f̵t̵,̵ ̵exists_eq_right, exists_eq_left', false_and, and_false, exists_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3926/3944] Built Tablet.UniformPerfectMatchingSpread (2.1s)
+warning: Tablet/UniformPerfectMatchingSpread.lean:20:5: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+✔ [3927/3944] Built Tablet.NearEqualFourGraphs (2.4s)
+✔ [3928/3944] Built Tablet.InductionApplicationCertificate (1.7s)
+⚠ [3929/3944] Built Tablet.OneClusterExtension (1.8s)
+warning: Tablet/OneClusterExtension.lean:101:8: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+✔ [3930/3944] Built Tablet.ColourRoundStepParameters (1.7s)
+✔ [3931/3944] Built Tablet.EqualSizeCommonOrderBounds (2.1s)
+⚠ [3932/3944] Built Tablet.ColourRoundSourceWitnessAssembly (2.6s)
+warning: Tablet/ColourRoundSourceWitnessAssembly.lean:117:26: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Tablet/ColourRoundSourceWitnessAssembly.lean:129:26: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [3933/3944] Built Tablet.ColourRoundWitnessThinnings (1.9s)
+✔ [3934/3944] Built Tablet.ColourRoundRetainedTriplets (2.1s)
+⚠ [3935/3944] Built Tablet.EqualSizeOneRoundChoices (7.4s)
+warning: Tablet/EqualSizeOneRoundChoices.lean:10:45: unused variable `he1`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3936/3944] Built Tablet.EqualSizeBackwardCertificates (1.8s)
+warning: Tablet/EqualSizeBackwardCertificates.lean:41:19: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: Tablet/EqualSizeBackwardCertificates.lean:65:24: `Nat.add_eq_zero` has been deprecated: Use `Nat.add_eq_zero_iff` instead
+warning: Tablet/EqualSizeBackwardCertificates.lean:101:13: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+⚠ [3937/3944] Built Tablet.EqualSizeParameterTable (1.6s)
+warning: Tablet/EqualSizeParameterTable.lean:65:22: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+⚠ [3938/3944] Built Tablet.ColourRoundMatchingPreparation (3.9s)
+warning: Tablet/ColourRoundMatchingPreparation.lean:82:33: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/ColourRoundMatchingPreparation.lean:126:37: Try `simp at hpos` instead of `simpa using hpos`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Tablet/ColourRoundMatchingPreparation.lean:161:8: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: Tablet/ColourRoundMatchingPreparation.lean:222:20: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: Tablet/ColourRoundMatchingPreparation.lean:349:20: This simp argument is unused:
+  PMF.toOuterMeasure_apply
+
+Hint: Omit it from the simp argument list.
+  simp [hempty,̵ ̵P̵M̵F̵.̵t̵o̵O̵u̵t̵e̵r̵M̵e̵a̵s̵u̵r̵e̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3939/3944] Built Tablet.VariableSizeInductionStep (1.6s)
+✔ [3940/3944] Built Tablet.VariableSizeInductionIteration (1.6s)
+⚠ [3941/3944] Built Tablet.AuxiliarySpreadExecution (1.9s)
+warning: Tablet/AuxiliarySpreadExecution.lean:41:35: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+⚠ [3942/3944] Built Tablet.SpreadBlowup (2.8s)
+warning: Tablet/SpreadBlowup.lean:65:31: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: Tablet/SpreadBlowup.lean:86:10: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:87:10: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:89:13: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:91:13: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:100:12: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:101:25: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:126:12: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:127:12: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:129:15: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:131:15: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:139:12: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:140:12: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:142:15: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+warning: Tablet/SpreadBlowup.lean:144:15: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead
+✔ [3943/3944] Built Tablet (1.4s)
+Build completed successfully (3944 jobs).

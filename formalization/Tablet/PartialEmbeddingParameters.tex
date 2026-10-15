@@ -1,0 +1,64 @@
+\begin{lemma}[Parameters for the partial-embedding construction]
+Fix $\Delta\in\mathbb N$ and $0<d\leq1$, and put $a=d(d/2)^\Delta$.
+There is $0<d'_0<d$ such that for every $0<d'\leq d'_0$ there is
+$0<\varepsilon_0<\infty$ such that for every
+$0<\varepsilon\leq\varepsilon_0$ there is $1\leq C_0<\infty$
+such that for every $C_0\leq C<\infty$ there is $n_0\in\mathbb N$
+with the following inequalities for every integer $n\geq n_0$:
+\[
+\begin{gathered}
+ n>0,\quad \varepsilon\leq\tfrac12,\quad\varepsilon\leq d/2,
+ \quad 0<a\leq d,\\
+ a\leq d(d-\varepsilon)_+^k\quad(0\leq k\leq\Delta),\\
+ \varepsilon(1+\varepsilon)<a,\qquad
+ (\Delta+1)\varepsilon(1+\varepsilon)\leq a/2,\\
+ d'\leq a/4,\qquad 2/a\leq C,\qquad 2\leq C,
+ \qquad C/n\leq1.
+\end{gathered}
+\]
+In addition, every natural number $t\geq(a/2)n$ satisfies
+$1/t\leq C/n$, and every natural number $t\geq(1-\varepsilon)_+n$
+is positive and satisfies $1/t\leq C/n$.
+All scalars are extended nonnegative reals; the displayed bounds force
+them to be finite, and the subtraction is truncated subtraction.
+\end{lemma}
+\begin{proof}
+The assumptions make $d$ finite. Put $a=d(d/2)^\Delta$ and $d'_0=a/4$.
+Since $0<d/2\leq1/2$, its $\Delta$th power is positive and at most
+one, including when $\Delta=0$. Thus $0<a\leq d\leq1$ and
+$0<a/4<d$. Fix $0<d'\leq a/4$ and choose
+\[
+ \varepsilon_0=\min\{1/2,d/2,d'/4,a/(8(\Delta+1))\}.
+\]
+All four entries are positive and finite, so the same holds for their
+minimum. For $0<\varepsilon\leq\varepsilon_0$, choose
+\[
+ C_0=\max\{1,2/a,2/d',1/\varepsilon\}.
+\]
+Its entries are finite and it is at least one. Given finite $C\geq C_0$,
+choose an integer $n_0\geq\max\{1,C\}$, using the Archimedean
+property on the finite real representative of $C$. Then $n\geq n_0$
+implies $n>0$, $C\leq n$, and $C/n\leq1$.
+Because $\varepsilon\leq d/2$, the truncated difference is the ordinary
+nonnegative difference and satisfies $d-\varepsilon\geq d/2$.
+For $k\leq\Delta$ we have
+$(d-\varepsilon)^k\geq(d/2)^k\geq(d/2)^\Delta$; the second
+inequality uses $0<d/2\leq1$. Multiplication by $d$ gives the power
+bound. Also $1+\varepsilon\leq3/2$ and
+$(\Delta+1)\varepsilon\leq a/8$, so
+\[
+ (\Delta+1)\varepsilon(1+\varepsilon)\leq3a/16\leq a/2.
+\]
+Since $\Delta+1\geq1$, the same bound $3a/16$ holds for
+$\varepsilon(1+\varepsilon)$, and it is strictly less than $a$
+because $a>0$. Finally $d'\leq a/4$ was imposed, $C\geq2/a$ follows
+from $C\geq C_0$, and $a\leq1$ gives $2/a\geq2$.
+For $t\geq(a/2)n$, the lower bound is positive, so reciprocation gives
+$1/t\leq2/(an)\leq C/n$. For $t\geq(1-\varepsilon)n$, we have
+$t\geq n/2>0$ because $\varepsilon\leq1/2$; consequently
+$1/t\leq2/n\leq C/n$.
+Every computation is on finite nonnegative real representatives, where
+the field operations agree with extended nonnegative real operations
+because every denominator used is positive. The choices depend only
+on the parameters quantified earlier, never on a graph or on $r$.
+\end{proof}

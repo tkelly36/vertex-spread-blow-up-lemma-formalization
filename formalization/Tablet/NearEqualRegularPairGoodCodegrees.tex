@@ -1,0 +1,18 @@
+\begin{lemma}[Good codegrees in a near-equal regular pair]
+Let $|U|=m\geq2$ and $|W|\in\{m-1,m,m+1\}$.  If $(U,W)$ is $(\varepsilon,d)$-super-regular and $2\varepsilon<d$, then at most
+$3\varepsilon|W|^2$ ordered pairs $(w,w')\in W^2$ have their common-neighborhood size in $U$ outside
+\[
+ [(d-2\varepsilon)^2m,(d+2\varepsilon)^2m].
+\]
+All degree and codegree windows are thus normalized by the actual opposite-part size $m=|U|$.
+\end{lemma}
+\begin{proof}
+Since $m\geq2$, we have $m>0$.
+Apply \noderef{SuperRegularCodegreeExceptionalBound} to the given
+super-regular pair, with $n=m=|U|$ and $2\varepsilon<d$.
+It bounds the bad ordered pairs in precisely the stated window by
+$2\varepsilon|W|^2\leq3\varepsilon|W|^2$.
+The helper allows arbitrary $|W|$, so the near-equal size hypothesis
+requires no additional adjustment.  Throughout, the window is
+normalized by the actual opposite-part size $|U|=m$.
+\end{proof}

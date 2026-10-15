@@ -1,0 +1,54 @@
+\begin{lemma}[Equal-size pullback and contained transport]
+In a finite disjoint-union ambient vertex set, let $U,K,V,Z$ have size
+$m$, with $U\cap K=U\cap Z=K\cap Z=V\cap Z=\varnothing$.
+Let $M,O,W,J,H$ be graphs and let $\tau:U\to V$ be a bijection such that
+$uv\in M$ if and only if $v=\tau(u)$, for $u\in U,v\in V$.
+Assume $W\subseteq O$, $J\subseteq H$, $\xi\le\eta$, $\omega\le e$,
+and $W[V,Z]$ is $(\xi,p)$-super-regular.
+There is a graph $F$ with $F[U,Z]$ $(\eta,p)$-super-regular and
+$uz\in F\Longleftrightarrow\tau(u)z\in W$ on $U\times Z$.
+For every bijection $\sigma:U\to K$, if the graph on subtype copies of
+$U,Z$ with edges $uz\in F$ and $\sigma(u)z\in J$ is
+$(\omega,ph)$-super-regular, then the graph
+\[
+ T_\sigma:\quad vz\in E(T_\sigma)\Longleftrightarrow
+ v\in V,\ z\in Z,\ vz\in O,\quad
+ \forall u\in U\ (uv\in M\Rightarrow\sigma(u)z\in H),
+\]
+symmetrized as a simple graph, contains a spanning
+$(e,ph)$-super-regular graph on $V,Z$.
+\end{lemma}
+\begin{proof}
+Define $F$ to have just the edges $uz$ with $u\in U,z\in Z$ and
+$\tau(u)z\in W$, and their reverses. Disjointness excludes loops and
+ambiguity between the two orientations. The bijection $\tau$ preserves
+every degree on the opposite side and every edge count in a tested
+rectangle: the rectangle $A\times B$ corresponds to
+$\tau(A)\times B$, with unchanged cardinalities. Thus the degree and
+regularity inequalities in \noderef{SuperRegularPair} hold with error
+$\xi$ and hence with error $\eta$. Error enlargement decreases the lower
+bounds, increases the upper bounds, and only restricts the sets tested for
+regularity.
+
+For a given $\sigma$, define $W_{\rm new}$ to have just the edges
+$\tau(u)z$ for which $uz\in F$ and $\sigma(u)z\in J$, and their
+reverses. It is not defined to be $T_\sigma$. On these edges, $W\subseteq O$
+gives the old constraint and $J\subseteq H$ gives the new constraint.
+The source-matching equivalence says that $u$ is the only vertex of $U$
+adjacent in $M$ to $\tau(u)$. Therefore all the new constraints hold and
+$W_{\rm new}\subseteq T_\sigma$.
+
+Apply \noderef{MatchingInducedUpdatedCandidacyTransport} with the
+source bijection $\tau$, the graph $W_{\rm new}$ as its target graph,
+and the complete bipartite graph on $U,K$ as its matching graph. The
+bijection $\sigma$ is a perfect matching of that graph in the sense of
+\noderef{PerfectMatching}. The target adjacency equivalence is precisely
+the definition of $W_{\rm new}$, not an equality with $T_\sigma$.
+The required part conditions are the two equivalences
+$v\in V\Longleftrightarrow\exists u\in U\ v=\tau(u)$ and
+$z\in Z\Longleftrightarrow\exists w\in Z\ z=w$.
+Both follow from bijectivity and the identity on $Z$.
+Transport gives error $\omega$ on the exact parts $V,Z$. Enlarge that
+error to $e$ by the degree and rectangle inequalities just described.
+This proves the required spanning contained witness.
+\end{proof}

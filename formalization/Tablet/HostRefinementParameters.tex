@@ -1,0 +1,32 @@
+\begin{lemma}[Parameters for host refinement]
+For an integer $k\geq1$, an integer extraction cutoff $N$, and real
+numbers $0<\eta<1$, $0<\theta$, there is $e>0$, depending only on
+$k,\eta,\theta$, such that
+\[
+ e<\eta,\quad e<1,\quad e<1/(8k^2),\quad
+ (4k^2+2)e\leq\theta,\quad 2ke\leq\theta.
+\]
+For every integer $r\geq0$ there is $n_0$ such that for all $n\geq n_0$,
+$n\geq2k$, $\lfloor n/k\rfloor\geq N$, and
+\[
+ 2rk(r+1)n\exp\left(-\frac{(e/(2k))^2}{2(1+e/(6k))}n\right)<1.
+\]
+\end{lemma}
+\begin{proof}
+Take $e=\min\{\eta/2,\theta/(8k^2),1/(16k^2)\}$.
+All three entries are positive. Since $k\geq1$,
+$4k^2+2\leq8k^2$ and $2k\leq8k^2$; these inequalities give
+the two non-strict margins. The first entry gives $e<\eta<1$;
+the last gives $e<1/(8k^2)$.
+Set $c=(e/(2k))^2/(2(1+e/(6k)))>0$. For each fixed $r$, the
+function $2rk(r+1)n\exp(-cn)$ tends to zero as $n$ tends to infinity.
+For instance $x\exp(-x)\to0$ with $x=cn$, and the prefactor
+becomes the fixed constant $2rk(r+1)/c$. Choose an integer $M$
+above which this function is less than one. Then
+$n_0=\max\{2k,kN,M\}$ gives all three assertions; $kN\leq n$
+implies $N\leq\lfloor n/k\rfloor$ because $k>0$.
+When $r=0$ the tail expression is zero for every $n$ and this
+same construction still works. Thus $e$ is selected before $r$;
+only the order cutoff can depend on $r$. The positive rate here is
+the weaker hypergeometric rate actually used in host sampling.
+\end{proof}

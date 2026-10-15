@@ -1,0 +1,38 @@
+\begin{lemma}[Uniform numerical threshold for near-equal retention tests]
+For real $\xi,h>0$, there exists an integer $n_0\geq1$ such that for
+all integers $a,b\geq n_0$ with $a\leq b+1$ and $b\leq a+1$,
+\[
+\operatorname{ofReal}\left(
+ 2(a+b)e^{-2\xi^2\min(a,b)}
+ +2\,2^{a+b}e^{-2\xi^2h^2ab}\right)<1.
+\]
+The threshold depends only on $\xi,h$.
+\end{lemma}
+\begin{proof}
+Put $k=2\xi^2>0$, $c=kh^2>0$ and $s=\min(a,b)$. The two
+near-equal inequalities imply $\max(a,b)\leq s+1$, hence
+$a+b\leq2s+1$; also $ab\geq s^2$. For $s\geq1$, the degree term is
+at most $6s e^{-ks}$.
+
+For $x>0$, the nonnegative power series for $e^x$ gives
+$e^x\geq x^3/6$ and $e^x\geq x^2/2$. Consequently
+$6s e^{-ks}\leq36/(k^3s^2)$. Choose an integer $n_0\geq1$ strictly
+larger than each of
+\[
+\sqrt{72/k^3},\qquad 4\log(2)/c,\qquad 8/c.
+\]
+Such an integer exists by the Archimedean property, and this choice is
+independent of $a,b$ or any graph. The first inequality makes the
+degree term strictly smaller than $1/2$ whenever $s\geq n_0$.
+
+For the rectangle term use $2^{a+b}=e^{(a+b)\log2}$. It is at most
+$4e^{2s\log2-cs^2}$. Since $s>4\log(2)/c$, we have
+$2s\log2\leq cs^2/2$. The term is therefore at most
+$4e^{-cs^2/2}$. The inequality $e^x\geq x^2/2$ applied to
+$x=cs^2/2>0$ bounds this by $32/(c^2s^4)$.
+Since $s>8/c$ and $s\geq1$, we have
+$c^2s^4\geq c^2s^2>64$, so the rectangle term is strictly smaller
+than $1/2$. The sum of the two nonnegative terms is strictly smaller
+than one. For a nonnegative real $B$, $\operatorname{ofReal}(B)<1$
+is equivalent to $B<1$, proving the displayed assertion.
+\end{proof}

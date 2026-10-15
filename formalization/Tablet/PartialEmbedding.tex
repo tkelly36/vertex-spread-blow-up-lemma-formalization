@@ -1,0 +1,107 @@
+\begin{lemma}[Partial embedding lemma]
+For every $\Delta\in\mathbb N$ and $0<d\leq1$, there is $0<d'_0<d$ such that, for every $0<d'\leq d'_0$, there is a finite real $\varepsilon_0>0$ such that, for every $0<\varepsilon\leq\varepsilon_0$, there is a finite real $C_0\geq1$ such that, for every finite real $C\geq C_0$, there is $n_0\in\mathbb N$ with the following property for every integer $n\geq n_0$. All scalar parameters in this hierarchy are finite real numbers.
+
+Let $(H,G,R,(X_i)_{i\in[r]},(V_i)_{i\in[r]},(A^i)_{i \in [r]})$ be a finite blow-up instance with candidacy graphs.  Suppose it is host-lower-$(\varepsilon,d)$-regular in the sense of \noderef{InstanceLowerRegular}, $\Delta(H),\Delta(R)\leq\Delta$, $|X_i|\leq\varepsilon|V_i|$, and $(1-\varepsilon)n\leq|V_i|\leq(1+\varepsilon)n$ for every $i$.  Suppose also that every $x\in X_i$ has at least $dn$ candidates in $A^i$.
+
+Then there is a probability distribution on compatible embeddings $\varphi:H\hookrightarrow G$ whose underlying maps are $(C/n)$-vertex-spread on the whole codomain $V(G)$ in the sense of \noderef{VertexSpreadOn}.  Moreover, for every $X\subseteq V(H)$ there is such a $(C/n)$-vertex-spread distribution on partial compatible embeddings $f:H[X]\hookrightarrow G$ for which every unembedded vertex $x$ has at least $d'n$ candidates in its restricted updated candidacy graph $A_f^i$ from \noderef{UpdatedCandidacyCluster}, where $x\in X_i$.
+\end{lemma}
+\begin{proof}
+Apply \noderef{PartialEmbeddingParameters} to $\Delta,d$ and use its
+$d'_0,\varepsilon_0,C_0,n_0$ in precisely the quantifier order in the
+statement. Fix the subsequent parameters, $n\geq n_0$, and an instance
+satisfying the hypotheses. Put $a=d(d/2)^\Delta$ and $q=C/n$.
+The parameter lemma gives $n>0$, $q\leq1$, $0<a\leq d$,
+$\varepsilon\leq1/2$, the power floor
+$a\leq d(d-\varepsilon)^k$ for $k\leq\Delta$, and
+\[
+ \varepsilon(1+\varepsilon)<a,\quad
+ (\Delta+1)\varepsilon(1+\varepsilon)\leq a/2,\quad d'\leq a/4.
+\]
+Since $\Delta+1\geq1$, the loss bound also gives
+$\varepsilon(1+\varepsilon)\leq a/2$, and $d'\leq a/2$.
+All parameter choices are independent of $r$ and the graphs.
+
+For a total map $f:V(H)\to V(G)$ define $\mathrm{Good}(S,f)$ to mean
+that $f$ is the underlying map of a greedy state on $S$ from
+\noderef{GreedyPartialEmbedding}. We check the three invariant
+hypotheses of the finite law construction explicitly.
+First, goodness depends only on values on $S$. Indeed, injectivity
+on $S$, edge preservation inside $S$, and compatibility on $S$ use
+only those values by \noderef{PartialCompatibleEmbedding}.
+For an unembedded $x$, the raw set from \noderef{RawCandidates}
+uses only images of vertices in $S$. Its cardinality is consequently
+unchanged when the map is changed outside $S$, as is the exposure
+count $|S\cap N_H(x)|$. Thus the raw-bound field of the greedy state
+is unchanged too. This proves both directions of the locality
+equivalence by transporting the state to the new total map.
+
+Second, every total map is good on the empty set. The three partial
+compatibility requirements are vacuous. The raw set is the original
+candidate set, its exposure count is zero, and its raw bound is
+exactly the assumed inequality $dn\leq|\{v:A(x,v)\}|$.
+
+Third, let $z\notin S$ and let $f$ be good on $S$.
+Apply \noderef{GreedyPartialEmbeddingStep} to a witnessing state.
+Its hypotheses are the parameter inequalities above, host lower
+regularity, the degree bound on $H$, source-cluster smallness, and
+the upper host-size bound. It gives a nonempty legal set $L$ of
+size at least $(a/2)n$, and for every $v\in L$ a good state on
+$S\cup\{z\}$ with total map exactly $f[z\mapsto v]$.
+The reciprocal-cardinality clause of
+\noderef{PartialEmbeddingParameters} gives $1/|L|\leq q$.
+In particular this step bounds bad rows by lower regularity and
+removes occupied images within the single source cluster; it does
+not introduce any loss depending on $|S|$ or $r$.
+
+For each source vertex $u$, take the fallback set $T(u)=V_{c(u)}$.
+The lower host-size hypothesis gives
+$|T(u)|\geq(1-\varepsilon)n$. The other reciprocal-cardinality
+clause of \noderef{PartialEmbeddingParameters} shows that $T(u)$
+is nonempty and $1/|T(u)|\leq q$. We have now checked every
+hypothesis of \noderef{FiniteGreedySpreadLaw}. For every prescribed
+$X$ it supplies a PMF on total maps good on $X$ whose projected law
+is $q$-vertex-spread on all of $V(G)$. Its proof uses the checked
+uniform probabilities of Mathlib's \texttt{PMF.toOuterMeasure\_uniformOfFinset\_apply} and
+the full joint-cylinder result of \noderef{VertexSpreadSequential}:
+kernels have a spread bound even at zero-mass invalid prefixes, and
+stored values outside $X$ are appended independently and uniformly
+from $T(u)$, rather than deterministically fixed.
+
+For each good map in this law choose a witnessing greedy state.
+By \noderef{GreedyPartialEmbeddingReserve}, its underlying partial
+compatible embedding has at least $d'n$ updated candidates for
+every $x\notin X$. The hypotheses of that reserve lemma are the
+power floor, $\varepsilon(1+\varepsilon)\leq a/2$, $d'\leq a/2$,
+the source degree bound, cluster smallness, and the upper host-size
+bound, all established above. Moreover, completing stored values
+outside $X$ cannot change the updated graph by
+\noderef{UpdatedCandidacyCongruence}, since the maps agree on $X$.
+Every candidate for $x$ lies in $V_{c(x)}$ by
+\noderef{CandidacySystem}, so the restriction in
+\noderef{UpdatedCandidacyCluster} removes no additional candidate
+for this $x$.
+
+Push the law forward to the subtype of partial compatible embeddings
+with these reserve proofs. Choosing the witness and adding the
+proofs does not change its underlying total map: by the definition
+of goodness, that map is exactly the original good map. The
+projection of the pushforward back to total maps is therefore the
+original projected law. Every cylinder probability is identical,
+giving the partial conclusion with full joint spread on total maps.
+
+For the full conclusion apply the same finite-law construction with
+$X=V(H)$. Every witnessing state is injective on the whole source,
+preserves every source edge, and satisfies $A(x,f(x))$ for every $x$.
+It therefore gives a graph copy which is compatible in the sense of
+\noderef{CompatibleEmbedding}. Push forward to these compatible
+copies. Once again the underlying total maps are unchanged, so
+their projected law has the same cylinders and the same spread bound.
+
+If the source is empty, the construction uses the unique empty map
+and no fallback fiber, even if the host is empty. If $X$ is empty
+but the source is not, only the independent completion is performed,
+and the initial degree bound gives the reserve. When $\Delta=0$,
+the exposure count is always zero and $a=d$; the parameter and
+extension lemmas use $\Delta+1$, not division by $\Delta$, and
+remain valid. Thus all stated endpoint cases are included.
+\end{proof}

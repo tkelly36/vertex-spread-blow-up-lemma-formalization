@@ -1,0 +1,35 @@
+\begin{lemma}[Extending a core by exceptional rows]
+Let $H,F$ be finite simple graphs on the same vertex set, and let
+$U,W$ be disjoint finite sets with $U_0\subseteq U,W_0\subseteq W$.
+Suppose $F\subseteq H$ and every edge of $F$ joins $U_0$ to $W_0$.
+Let $k$ be a nonnegative integer. Suppose each vertex of $U\setminus U_0$
+has at least $k$ neighbors in $W_0$ in $H$, and each vertex of
+$W\setminus W_0$ has at least $k$ neighbors in $U_0$ in $H$.
+There is a simple graph $F\subseteq G\subseteq H$ on the same vertex set
+which agrees with $F$ between $U_0,W_0$, gives each exceptional vertex
+exactly $k$ neighbors in the opposite full part, and satisfies
+\[
+\deg_F(u,W_0)\leq\deg_G(u,W)\leq\deg_F(u,W_0)+|W\setminus W_0|
+\quad(u\in U_0),
+\]
+and the analogous inequalities with $U,W$ exchanged.
+\end{lemma}
+\begin{proof}
+For each exceptional vertex choose a $k$-element subset of its neighbors
+in the opposite core. Such a subset exists by the cardinality hypothesis.
+Add all chosen edges, in both orientations, to $F$ to obtain $G$.
+All added edges belong to $H$, which proves containment and looplessness;
+including both orientations proves symmetry. Finite adjacency is decidable.
+An added edge has exactly one exceptional endpoint, since the other endpoint
+is in the opposite core and the full parts are disjoint. In particular no
+added edge joins two core vertices, so $G$ agrees with $F$ on the core.
+The support hypothesis on $F$ gives an exceptional vertex no old neighbors.
+No other exceptional vertex can prescribe an edge incident to it, because
+every prescribed opposite endpoint is in a core. Its opposite-part neighbor
+set is therefore exactly its chosen set, of size $k$.
+For a core vertex in $U_0$, all old neighbors lie in $W_0$, all such edges
+are retained, and every new opposite-part neighbor lies in $W\setminus W_0$.
+Its neighbor set is thus contained in the union of its old neighbor set
+with $W\setminus W_0$. Taking cardinalities proves the two bounds.
+The identical argument for a vertex in $W_0$ proves the other bounds.
+\end{proof}

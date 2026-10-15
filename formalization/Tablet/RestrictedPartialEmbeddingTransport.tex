@@ -1,0 +1,46 @@
+\begin{lemma}[Transport of a restricted partial law]
+Let $B,A$ be a finite blow-up instance and candidacy system, let $X\subseteq S$
+be source subsets, and let $B_S,A_S$ be an instance on the literal subtype
+$S$ with induced source graph, unchanged host and reduced graphs, and
+$A_S(x,v)\iff A(x,v)$. Let $T\subseteq S$ consist exactly of the subtype
+vertices whose ambient value belongs to $X$, and fix a function
+$g:V(H)\to V(G)$. Suppose a law $\nu$ on partial compatible embeddings
+of $T$ has $q$-spread total-map law on $S$ and, for every sampled map,
+at least $\rho$ updated candidates at every vertex of $S\setminus T$.
+Then there is a law $\mu$ on ambient partial compatible embeddings of $X$
+whose restrictions to $X$ are $q$-spread. Every $f$ with $\mu(f)\ne0$ has
+at least $\rho$ ambient updated candidates at every $x\in S\setminus X$.
+All host values are allowed in both spread assertions.
+\end{lemma}
+\begin{proof}
+For a sampled restricted map $t$, define $F_t(x)=t(\langle x,x\in S\rangle)$
+when $x\in X$, and $F_t(x)=g(x)$ otherwise. Injectivity on $X$ follows from
+injectivity on $T$ and injectivity of the subtype inclusion. The induced
+source graph has exactly the original edges between its vertices, so
+edge preservation on $X$ follows from edge preservation on $T$.
+The assumed candidacy equivalence transfers compatibility on $X$.
+These are all fields of \noderef{PartialCompatibleEmbedding}.
+The two images are exactly equal, $F_t(X)=t(T)$: send $x\in X$ to its
+subtype lift for one inclusion, and send a vertex of $T$ to its ambient
+value for the other.
+
+For $x\in S$, expand \noderef{UpdatedCandidacy}. The exclusion $x\notin X$
+is equivalent to its lift not lying in $T$. The unused-host exclusion is
+identical by the image equality. Original candidacy transfers by assumption.
+For every embedded neighbor $y\in X$, its lift belongs to $T$, induced
+adjacency is original adjacency, and $F_t(y)=t(y)$. Conversely every
+$y\in T$ arises this way. Thus both directions of the updated-candidacy
+equivalence hold, and the two candidate sets are literally equal, with
+equal cardinalities, including exactly the same removed image.
+
+Push $\nu$ forward by $t\mapsto F_t$ to define $\mu$. The law on restrictions
+to $X$ is the restriction of the original law on $S$ along the injection
+$X\hookrightarrow S$: equality holds pointwise on all coordinates of $X$,
+and the two iterated PMF pushforwards therefore agree.
+Apply \noderef{VertexSpreadRestriction} to this injection. This proves
+spread on $X$; it asserts no spread for the fixed values outside $X$.
+Finally the support of a PMF pushforward is the image of its support.
+Every supported $F$ therefore has a sampled preimage $t$; transfer its
+reserve by the candidate-set equality just proved. This also covers
+noninjective pushforwards: no selection of a unique preimage is needed.
+\end{proof}

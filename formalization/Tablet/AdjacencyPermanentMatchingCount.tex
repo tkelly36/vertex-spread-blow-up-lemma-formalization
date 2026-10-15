@@ -1,0 +1,20 @@
+\begin{lemma}
+Let $F$ be a graph on a finite vertex set, let $U,W$ be disjoint subsets,
+and choose bijections
+$e_U:U\to\mathrm{Fin}(n)$ and $e_W:W\to\mathrm{Fin}(n)$.
+Let $A_{ij}$ be one if $F$ joins $e_U^{-1}(i)$ to $e_W^{-1}(j)$ and zero
+otherwise. Then the real permanent of $A$ is the natural cardinality,
+cast to $\mathbb R$, of the perfect matchings $U\to W$.
+\end{lemma}
+\begin{proof}
+By \noderef{PerfectMatching}, a perfect matching is exactly an edge-respecting
+bijection. Mathlib uses $\sum_\sigma\prod_j A_{\sigma(j),j}$.
+Replacing $\sigma$ by $\sigma^{-1}$ and reindexing $j=\sigma(i)$ gives
+$\sum_\tau\prod_i A_{i,\tau(i)}$.
+The product for $\tau$ is one precisely when every chosen pair is an edge,
+and otherwise is zero because it has a zero factor. Such permutations
+correspond bijectively to matchings by
+$f=e_W^{-1}\circ\tau\circ e_U$, with inverse
+$\tau=e_W\circ f\circ e_U^{-1}$. The sum of these indicators is their
+cardinality. All these operations apply to the empty permutation and map.
+\end{proof}

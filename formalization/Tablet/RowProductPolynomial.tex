@@ -1,0 +1,9 @@
+\begin{definition}
+For a real $n\times n$ matrix $A$, its row-product polynomial is the
+Mathlib multivariate polynomial
+\[
+ P_A(X)=\prod_{i\in\mathrm{Fin}(n)}\sum_{j\in\mathrm{Fin}(n)} A_{ij}X_j.
+\]
+An empty product is one. Permanents below are Mathlib's
+$\operatorname{per}(A)=\sum_\sigma\prod_j A_{\sigma(j),j}$.
+\end{definition}

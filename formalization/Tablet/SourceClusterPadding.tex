@@ -1,0 +1,25 @@
+\begin{lemma}[Padding source clusters to host capacity]
+Let $(H,G,R,(X_i),(V_i),(A^i))$ be a blow-up instance with candidacy graphs, and suppose the candidacy graphs are lower-$(\varepsilon,d)$-super-regular, where $0<\varepsilon\leq\eta^2$, $\eta\leq1$, and $d\leq1$.  On the vertex set \noderef{PaddedSource}, there is a graph $H^+$, a blow-up instance with the same $G$ and $R$, and candidacy graphs $(A^{+,i})$ such that:
+\begin{enumerate}
+\item the original vertices induce exactly $H$, every dummy vertex is isolated, original vertices retain their cluster, and a dummy indexed by $i$ belongs to cluster $i$;
+\item the host cluster map is unchanged and $|X_i^+|=|V_i|$ for every $i$;
+\item $A^{+,i}$ restricts to $A^i$ on $X_i$, while every dummy in $X_i^+\setminus X_i$ is adjacent in $A^{+,i}$ to every vertex of $V_i$;
+\item $\Delta(H^+)\leq\Delta(H)$, every lower-super-regularity assertion for the host instance is preserved with the same parameters, and the padded candidacy graphs are lower-$(\eta,d)$-super-regular;
+\item restriction along the inclusion $V(H)\hookrightarrow V(H^+)$ sends every compatible embedding of $H^+$ into $G$ to a compatible embedding of $H$ into $G$, and sends every $q$-vertex-spread law on the former embeddings to a $q$-vertex-spread law on the latter embeddings.
+\end{enumerate}
+All graph, cluster, and candidacy assertions above are literal equalities or if-and-only-if statements.
+\end{lemma}
+\begin{proof}
+For each $i$, capacity in \noderef{BlowUpInstance} gives $|X_i|\leq|V_i|$.  Adjoin the $|V_i|-|X_i|$ vertices in the $i$th dummy summand of \noderef{PaddedSource}, assign them to $i$, and give them no edges in $H^+$.  Extend $A^i$ by joining every new row completely to $V_i$; all allowed pairs remain within corresponding source and host clusters, as required by \noderef{CandidacySystem}.  The source fibers now have size $|X_i|+(|V_i|-|X_i|)=|V_i|$.  Since no source edge was introduced, source independence and reduced support persist, old degrees are unchanged, dummy degrees are zero, and $\Delta(H^+)\leq\Delta(H)$.  The host data are unchanged, so host lower super-regularity in the sense of \noderef{InstanceLowerSuperRegular} is preserved literally.
+
+Fix a candidacy pair, which is lower-$(\varepsilon,d)$-super-regular by the hypothesis and \noderef{CandidacyLowerSuperRegular}, and use its lower-regularity clause from \noderef{LowerSuperRegularPair}.  Put $M=|X_i|$, $N=|V_i|$, and let $S\subseteq X_i^+$ and $T\subseteq V_i$ have $|S|>\eta N$ and $|T|>\eta N$, the test thresholds of \noderef{LowerRegularPair} for the padded pair.  Write $S_0=S\cap X_i$ and $S_D=S\setminus X_i$.  If $|S_0|>\varepsilon M$, original lower regularity in \noderef{LowerRegularPair} gives at least $(d-\varepsilon)|S_0||T|$ old edges, using the edge-count interpretation of density in \noderef{PairDensity}, and the dummy rows contribute $|S_D||T|$; since $d\leq1$ and $\varepsilon\leq\eta$, the sum is at least $(d-\eta)|S||T|$.  Otherwise $|S_0|\leq\varepsilon M$, and
+\[
+ |S_0|/|S|<\varepsilon N/(\eta N)\leq\eta.
+\]
+Thus the complete dummy rows alone contribute at least $(1-\eta)|S||T|\geq(d-\eta)|S||T|$.  This explicitly covers subsets mixing old and dummy rows.  Dividing the edge bound by $|S||T|$ as in \noderef{PairDensity} proves the padded lower-regularity clause of \noderef{LowerRegularPair}.
+
+The degree clauses of \noderef{LowerSuperRegularPair} give old left degrees at least $(d-\varepsilon)N\geq(d-\eta)N$, and dummy degrees are $N$.  If $K=N-M$, every right degree is at least $(d-\varepsilon)M+K$.  After subtracting $(d-\eta)N$, the remainder is
+$(\eta-\varepsilon)M+(1-d+\eta)K\geq0$.  Hence the padded pair is lower-$(\eta,d)$-super-regular by \noderef{LowerSuperRegularPair}; since this holds for every $i$, the padded candidacy system satisfies \noderef{CandidacyLowerSuperRegular}.
+
+Restrict a padded embedding to the original summand.  Injectivity is inherited, exact inducedness gives preservation of source edges, and the old-row candidacy equivalence gives compatibility in the sense of \noderef{CompatibleEmbedding}.  Push any law forward by restriction.  By \noderef{CylinderEvent}, the inverse image of a cylinder on distinct original vertices $x_1,\ldots,x_s$ is exactly the padded cylinder on $\operatorname{inl}(x_1),\ldots,\operatorname{inl}(x_s)$, so its probability remains at most $q^s$ by the padded law's \noderef{VertexSpreadOn} hypothesis.  The same hypothesis gives $q\leq1$, unchanged under restriction, so all clauses of \noderef{VertexSpreadOn} hold for the pushed-forward law.  This proves the embedding and spread-transfer clauses.
+\end{proof}

@@ -1,0 +1,70 @@
+\begin{lemma}[Simultaneous degree estimates for prescribed host capacities]
+Let $k\geq1$, $n\geq2k$, $0<\varepsilon<1$, $d\leq1$.
+Let $B$ be a blow-up instance with $r$ source and host clusters of
+size $n$, and $A$ its candidacy system. Suppose the host and candidacy
+pairs are lower $(\varepsilon,d)$-super-regular. Let
+$\sigma:V(H)\to[r]\times[k]$ project to the original source map,
+with each fiber of size $m$ or $m+1$, where $m=\lfloor n/k\rfloor$.
+Put $a=\varepsilon/(2k)$ and
+$c=a^2/(2(1+\varepsilon/(6k)))$, using finite real values.
+If $2rk(r+1)n\exp(-cn)<1$, there is a host map
+$f:V(G)\to[r]\times[k]$ projecting to the original host map and
+with each fiber size exactly the corresponding $\sigma$-fiber size,
+such that every original source vertex has at least
+$(d-2\varepsilon)|f^{-1}(i,j)|$ candidates in every bin of its
+original cluster $i$, and every original host vertex $v$ has at least
+$(d-2\varepsilon)|f^{-1}(i,j)|$ neighbors in every bin of every
+cluster $i$ adjacent to its original cluster in $R$.
+Lower endpoints are truncated at zero.
+\end{lemma}
+\begin{proof}
+The source fibers partition each original source cluster, by the
+projection identity, so their prescribed sizes $s_{ij}$ sum to $n$.
+For each original host cluster choose a uniform permutation and cut
+it into consecutive blocks of those sizes. This gives an ordered
+partition of exactly the prescribed capacities. Each block is a
+uniform $s_{ij}$-subset: for any fixed such subset the number of
+permutations placing it in those positions is $s_{ij}!(n-s_{ij})!$,
+independent of the subset. The finite product of these probability
+spaces over the original clusters gives simultaneous partitions;
+no independence between the subsequent failure events is claimed.
+
+For a fixed source vertex, or a fixed host vertex and a supported
+opposite original cluster, its neighbors form a fixed subset $T$
+of that cluster, of size $t\leq n$. By
+\noderef{CandidacyLowerSuperRegular}, \noderef{InstanceLowerSuperRegular},
+and the degree clauses of \noderef{LowerSuperRegularPair},
+$t\geq(d-\varepsilon)n$ if $d>\varepsilon$; otherwise the required
+output lower bound is already zero. Tagged candidacy degrees equal
+the ordinary relation counts, because the map $v\mapsto\mathrm{inr}(v)$
+bijections the tested candidates and the opposite tagged neighbors.
+The reversed branch of the symmetric relation graph introduces no
+additional candidates, since its endpoints have opposite tags.
+
+By \noderef{UniformSubsetIntersectionLaw}, the block intersection
+count $Z$ has masses $H(n,s_{ij},t,x)$ for $0\leq x\leq n$.
+The elementary floor bound $m\geq n/k-1\geq n/(2k)$ gives
+$\varepsilon s_{ij}\geq an$. Apply
+\noderef{HypergeometricTwoTail} with parameter $a>0$.
+It bounds the probability that $|Z-s_{ij}t/n|>an$ by
+$2\exp(-cn)$. The failure $Z<(d-2\varepsilon)s_{ij}$,
+when its threshold is positive, implies
+$s_{ij}t/n-Z>\varepsilon s_{ij}\geq an$; hence it is among
+these strictly bounded deviations. If the threshold is nonpositive,
+failure is impossible. This uses exactly the exponent in that
+checked tail, not a sharper sampling estimate.
+
+There are $rkn$ source/bin tests and at most $r^2kn$ directed
+host/bin tests. The union bound makes their total failure
+probability at most $2rk(r+1)n\exp(-cn)<1$.
+Thus at least one outcome has no failure. Its partitions define
+$f$ and give the asserted projection and capacities. Every host
+test was imposed on every original vertex of the relevant cluster,
+so the estimates remain available for vertices later reassigned.
+If $r=0$, the two cluster maps force both vertex types empty; the
+unique empty map proves the result without sampling.
+All parameters are finite: $d\leq1$, $\varepsilon<1$.
+Converting back to extended nonnegative reals gives the same counts
+and inequalities when endpoints are nonnegative, and gives the
+automatic zero lower bound otherwise.
+\end{proof}

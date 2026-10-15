@@ -1,0 +1,46 @@
+\begin{lemma}[Area of ineligible partition rectangles]
+Let $G$ be a finite simple graph and let $U,W$ be vertex sets of size $n$.
+Let $\mathcal P$ be an equipartition of the full vertex set, which has size
+$2n$, and put $m=|\mathcal P|$. Suppose $1\leq l\leq m\leq n$,
+$\gamma,\alpha>0$, every part has size at most $3n/m$, and
+$\mathcal P$ is $\alpha$-uniform: at most $\alpha m(m-1)$ ordered
+distinct pairs of parts fail $\alpha$-uniformity.
+Let $E$ consist exactly of pairs $(S,T)$ of parts satisfying $S\ne T$,
+$\alpha$-uniformity, $\gamma|S|\leq|U\cap S|$, and
+$\gamma|T|\leq|W\cap T|$. Then
+\[
+ \sum_{(S,T)\in(\mathcal P\times\mathcal P)\setminus E}
+ |U\cap S||W\cap T|
+ \leq (4\gamma+9\alpha+6/l)n^2.
+\]
+\end{lemma}
+\begin{proof}
+Write $a_S=|U\cap S|$, $b_S=|W\cap S|$, and $c_S=|S|$.
+The parts are disjoint and cover all vertices. Intersecting with $U$
+or $W$ preserves disjointness and gives a cover of that set. Consequently
+$\sum_S a_S=\sum_S b_S=n$ and $\sum_S c_S=2n$.
+All three quantities are nonnegative, and $a_S,b_S\leq c_S$.
+
+For a nonsubstantial $U$ chunk, $a_S<\gamma c_S$. Hence
+$\sum_{S:a_S<\gamma c_S}a_S\leq\gamma\sum_S c_S=2\gamma n$.
+Summing its rectangle areas over all $T$ multiplies this bound by
+$\sum_T b_T=n$, giving $2\gamma n^2$. The identical argument with
+$b_T<\gamma c_T$ gives another $2\gamma n^2$.
+
+Let $N$ be the set of ordered distinct nonuniform pairs. Its cardinality
+is at most $\alpha m(m-1)\leq\alpha m^2$. For each such pair,
+$a_Sb_T\leq c_Sc_T\leq(3n/m)^2$. Since $m\geq l\geq1$,
+division by $m$ is legitimate, and the total area over $N$ is at most
+$\alpha m^2(3n/m)^2=9\alpha n^2$.
+
+The diagonal area satisfies
+\[
+ \sum_S a_Sb_S\leq\sum_S c_S^2
+ \leq (3n/m)\sum_S c_S=6n^2/m\leq6n^2/l.
+\]
+Finally, every pair outside $E$ is diagonal, has a nonsubstantial chunk
+on at least one side, or is distinct and nonuniform. Pointwise its area
+is at most the sum of the four corresponding nonnegative area indicators.
+This does not require these causes to be disjoint: repetitions increase
+the bound. Summing and using the four estimates proves the claim.
+\end{proof}

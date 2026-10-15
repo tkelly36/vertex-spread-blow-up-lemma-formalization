@@ -1,0 +1,84 @@
+\begin{lemma}[Equitable extraction geometry]
+Let $G$ be a finite simple graph, and let disjoint sets $U,W$ cover its
+vertex set, with $|U|=|W|=n$. Let $1\leq l$, $M\leq n$, and let real
+parameters satisfy $\varepsilon,d,\gamma,\alpha>0$, $\gamma\leq1$,
+$\alpha\leq\gamma$, $\alpha\leq\gamma^2$, and
+$\varepsilon M<\gamma$. Assume $d_G(A,B)\geq d$ whenever
+$A\subseteq U$, $B\subseteq W$, and $|A|,|B|>\varepsilon n$.
+Let $\mathcal P$ be a partition of the entire vertex set into nonempty
+parts whose sizes differ by at most one, with
+$l\leq m=|\mathcal P|\leq M$. Assume at most $\alpha m(m-1)$ ordered
+distinct pairs of parts fail $\alpha$-uniformity. Here $(S,T)$ is
+$\alpha$-uniform precisely when every $A\subseteq S$, $B\subseteq T$
+with $|A|\geq\alpha|S|$, $|B|\geq\alpha|T|$ satisfies
+$|d_G(A,B)-d_G(S,T)|<\alpha$, with zero density when a denominator
+is zero.
+Then every part $S$ satisfies $n/m\leq|S|\leq3n/m$.
+There is a set $E\subseteq\mathcal P\times\mathcal P$ consisting
+exactly of pairs $(S,T)$ with $S\ne T$, $(S,T)$ $\alpha$-uniform,
+$|U\cap S|\geq\gamma|S|$, and $|W\cap T|\geq\gamma|T|$.
+For $(S,T)\in E$, put $D_{ST}=d_G(U\cap S,W\cap T)$. Then
+$d\leq D_{ST}\leq1$. For $A\subseteq U\cap S$, $B\subseteq W\cap T$
+with $|A|>\gamma|U\cap S|$, $|B|>\gamma|W\cap T|$,
+\[
+ |d_G(A,B)-D_{ST}|<2\alpha.
+\]
+Finally the total area of the ineligible rectangles satisfies
+\[
+ \sum_{(S,T)\in(\mathcal P\times\mathcal P)\setminus E}
+       |U\cap S||W\cap T|
+ \leq (4\gamma+9\alpha+6/l)n^2.
+\]
+\end{lemma}
+\begin{proof}
+The disjoint cover gives $|V|=2n$. The equipartition condition says
+that sizes of parts differ by at most one. Their sum is $2n$, so each
+size lies between $\lfloor2n/m\rfloor$ and $\lceil2n/m\rceil$:
+if a size were below the floor, every size would be at most the floor,
+with at least one strictly below it, contradicting the sum; the
+argument for the ceiling is the reverse inequality. Since
+$1\leq l\leq m\leq M\leq n$, it follows that
+$|S|\geq2n/m-1\geq n/m$ and $|S|\leq2n/m+1\leq3n/m$.
+In particular $n>0$, $m>0$, and every part is nonempty.
+
+Define $E$ by the four conditions in the statement, restricted to
+$\mathcal P\times\mathcal P$. A substantial chunk, for example
+$U\cap S$ of size at least $\gamma|S|$, has size at least
+$\gamma n/m\geq\gamma n/M>\varepsilon n$. Here $M>0$ and
+$n>0$, and the strict last inequality is precisely
+$\varepsilon M<\gamma$. Thus for every eligible pair the assumed
+lower density bound applies to its chunks and gives $D_{ST}\geq d>0$.
+Both chunks are nonempty. The number of edges is at most the
+Cartesian-product size, so $D_{ST}\leq1$.
+
+For the smaller sets in the statement,
+$|A|>\gamma|U\cap S|\geq\gamma^2|S|\geq\alpha|S|$, and the
+same holds for $B,T$. Moreover the chunks themselves have size at
+least $\gamma|S|\geq\alpha|S|$, and similarly on the other side.
+The actual uniformity condition is the subset test with weak size
+thresholds $\alpha|S|,\alpha|T|$ and a strict error $\alpha$.
+Applying it once to $A,B$ and once to the two chunks bounds each
+density's distance from $d_G(S,T)$ by $\alpha$. The triangle
+inequality gives the strict error $2\alpha$ asserted above.
+
+It remains to count all ineligible positions. Nonsubstantial
+$U$ chunks have total size at most
+$\gamma\sum_{S\in\mathcal P}|S|=2\gamma n$; multiplying by $|W|=n$
+bounds all rectangles with such a chunk by $2\gamma n^2$.
+Nonsubstantial $W$ chunks cost at most another $2\gamma n^2$.
+The definition of $\mathcal P$ being $\alpha$-uniform bounds the
+number of ordered distinct nonuniform pairs by $\alpha m(m-1)$.
+Each rectangle for such a pair has area at most $(3n/m)^2$, so
+their total area is at most $9\alpha n^2$. This counts ordered
+pairs, not unordered pairs, exactly as required for $U\times W$.
+The diagonal pairs cost at most
+\[
+ \sum_S |U\cap S||W\cap S|
+ \leq\sum_S|S|^2
+ \leq(3n/m)\sum_S|S|=6n^2/m\leq6n^2/l.
+\]
+Every ineligible pair either has a nonsubstantial chunk, is a
+distinct nonuniform pair, or is diagonal. Summing the three bounds
+therefore covers every ineligible position. Repeated coverage can
+only increase the upper bound, proving the stated area inequality.
+\end{proof}

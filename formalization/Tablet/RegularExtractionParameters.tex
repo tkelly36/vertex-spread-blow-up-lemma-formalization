@@ -1,0 +1,54 @@
+\begin{lemma}[Uniform extraction parameters]
+For every real $0<\eta<1$, there exist reals $h,\gamma,\alpha,\varepsilon$
+and natural numbers $l,M,n_0$ such that
+\[
+ 0<h<\eta,\quad h\leq1/100,\quad
+ 0<\gamma\leq1,\quad 0<\alpha\leq\gamma,\quad\alpha\leq\gamma^2.
+\]
+\[
+ 0<\varepsilon<\eta,\quad \varepsilon M<\gamma,\quad
+ 1\leq l\leq M,\quad
+ \operatorname{SzemerediRegularity.bound}(\alpha,l)\leq M,
+ \quad1\leq n_0,\quad M\leq n_0,
+\]
+\[
+ 2\alpha+\frac{6\gamma+9\alpha+6/l}{h^2}<h/4,
+ \qquad
+ 2\,4^n\exp(-h^4n^2/8)<1\quad(n\geq n_0).
+\]
+All choices depend only on $\eta$.
+\end{lemma}
+\begin{proof}
+Set $h=\min\{\eta/100,1/100\}$, $\gamma=h^4/100$,
+$\alpha=\gamma^2/4$, and $l=\lceil100/h^4\rceil$.
+Then $0<h\leq1/100$, $h<\eta$, $0<\gamma<1$,
+$0<\alpha\leq\gamma/4$, $\alpha\leq\gamma^2$, $l\geq1$,
+and $1/l\leq\gamma$. Put
+$M=\max\{1,l,\operatorname{SzemerediRegularity.bound}(\alpha,l)\}$
+and $\varepsilon=\min\{\eta/2,\gamma/(2M)\}$.
+The two entries of this last minimum are positive, so
+$0<\varepsilon<\eta$ and $\varepsilon M\leq\gamma/2<\gamma$.
+The required upper bounds on $l$ and the regularity bound hold by
+the definition of $M$.
+
+To check the margin, $\alpha\leq\gamma/4$ and $1/l\leq\gamma$
+give $6\gamma+9\alpha+6/l\leq(57/4)\gamma<15\gamma$.
+Also $2\alpha\leq h^4/200$. Consequently
+\[
+ 2\alpha+\frac{6\gamma+9\alpha+6/l}{h^2}
+ \leq h^4/200+15h^2/100
+ \leq31h^2/200<h/4.
+\]
+The middle inequality uses $h\leq1$, and the last uses
+$0<h\leq1/100$.
+
+Choose a natural number $n_0\geq\max\{M,1\}$ large enough that
+$n_0\geq16\log4/h^4$ and
+$n_0^2\geq16\log4/h^4$. Such an integer exists because $h>0$;
+for example take a ceiling exceeding the first quantity and its
+square root. For $n\geq n_0$ we have
+$n\log4\leq h^4n^2/16$ and $h^4n^2/16\geq\log4$.
+Using $4^n=\exp(n\log4)$, the expression in the statement is at most
+$2\exp(-h^4n^2/16)\leq2\exp(-\log4)=1/2<1$.
+This proves the uniform cutoff as well as all scalar conditions.
+\end{proof}

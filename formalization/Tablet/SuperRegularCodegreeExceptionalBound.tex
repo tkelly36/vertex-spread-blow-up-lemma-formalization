@@ -1,0 +1,73 @@
+\begin{helper}[Ordered codegree exceptions in a super-regular pair]
+Let $G$ be a simple graph, let $U,W$ be finite vertex sets, and let
+$|U|=n>0$.  Let $\varepsilon,d\in[0,\infty]$, with subtraction interpreted
+as truncated subtraction.  Suppose $2\varepsilon<d$ and $(U,W)$ is
+$(\varepsilon,d)$-super-regular.  Then at most $2\varepsilon|W|^2$
+ordered pairs $(w,w')\in W^2$ have common-neighborhood size in $U$ outside
+\[
+ [(d-2\varepsilon)^2n,(d+2\varepsilon)^2n].
+\]
+No restriction on $|W|$ is required.
+\end{helper}
+\begin{proof}
+Put $k=|W|$.  If $W$ is empty, the assertion is immediate.  Otherwise fix
+$w\in W$ and put $A=N_G(w)\cap U$.  The degree clause of
+\noderef{SuperRegularPair} gives
+\[
+ (d-\varepsilon)n\leq |A|\leq(d+\varepsilon)n.
+\]
+The inequality $2\varepsilon<d$ implies that $\varepsilon$ is finite and
+$\varepsilon<d-\varepsilon$.  As $n>0$, it follows that
+$|A|>\varepsilon n=\varepsilon|U|$, so $A$ is nonempty.
+The displayed lower degree bound also forces $d$ to be finite: otherwise
+$(d-\varepsilon)n=\infty>|A|$.  Thus all quantities in the following
+density comparisons are finite, and all denominators used are positive.
+Monotonicity and the degree bounds give
+\[
+ (d-2\varepsilon)^2n\leq(d-\varepsilon)^2n
+ \leq(d-\varepsilon)|A|,
+ \qquad
+ (d+\varepsilon)|A|\leq(d+\varepsilon)^2n
+ \leq(d+2\varepsilon)^2n.
+\]
+Define
+\[
+ L=\{w'\in W:|A\cap N_G(w')|<(d-2\varepsilon)^2n\},\qquad
+ H=\{w'\in W:(d+2\varepsilon)^2n<|A\cap N_G(w')|\}.
+\]
+Suppose $|L|>\varepsilon k$.  Both $A\subseteq U$ and $L\subseteq W$
+then exceed their respective regularity thresholds, so the regularity
+clause of \noderef{SuperRegularPair} gives $d_G(A,L)\geq d-\varepsilon$.
+Counting edges by their second endpoint, using
+\noderef{FilteredProductRowCount} (and interchanging the two finite sums),
+gives
+\[
+ e_G(A,L)=\sum_{w'\in L}|A\cap N_G(w')|
+ <\sum_{w'\in L}(d-\varepsilon)|A|
+ =(d-\varepsilon)|A||L|.
+\]
+Indeed, every summand satisfies the strict inequality by the definition
+of $L$ and the first comparison above; also $L$ is nonempty since
+$|L|>\varepsilon k\geq0$.  Dividing by $|A||L|>0$, as in the density
+definition \noderef{PairDensity}, contradicts the regularity lower bound.
+Consequently $|L|\leq\varepsilon k$.
+
+Similarly, if $|H|>\varepsilon k$, regularity gives
+$d_G(A,H)\leq d+\varepsilon$, while the second comparison and the
+defining strict inequalities of $H$ give
+\[
+ e_G(A,H)=\sum_{w'\in H}|A\cap N_G(w')|
+ >\sum_{w'\in H}(d+\varepsilon)|A|
+ =(d+\varepsilon)|A||H|.
+\]
+Here $H$ is nonempty, so the summed inequality is strict.  Dividing by
+$|A||H|>0$ contradicts the regularity upper bound.  Hence
+$|H|\leq\varepsilon k$ as well.
+
+For this fixed $w$, the bad second coordinates are exactly $L\cup H$,
+because $A\cap N_G(w')=N_G(w)\cap N_G(w')\cap U$.
+Their number is at most $|L|+|H|\leq2\varepsilon k$.
+Finally \noderef{FilteredProductRowCount} expresses the number of bad
+ordered pairs as the sum of these row counts over $w\in W$.
+There are $k$ rows, giving at most $k(2\varepsilon k)=2\varepsilon k^2$.
+\end{proof}

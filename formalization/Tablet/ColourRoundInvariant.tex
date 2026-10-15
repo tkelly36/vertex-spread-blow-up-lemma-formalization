@@ -1,0 +1,32 @@
+\begin{definition}[Colour-round induction invariant]
+Fix a graph $R$ of maximum degree at most $D$, a colouring
+$c:V(R)\to[q]$ that assigns different colours to every two distinct
+vertices at distance at most two, an error sequence
+$(\varepsilon_t)_{t=0}^{q}$, exposure-density sequence $(D_x)_{x=0}^D$,
+and a round $t<q$.  For a set $S\subseteq c^{-1}(t)$ of current clusters
+already processed within the round, let $X(t,S)$ be the union of all source
+clusters whose colour is less than $t$, together with the clusters in $S$.
+For a specified law $\mu$ on compatible partial embeddings with domain $X$,
+the invariant $\mathcal I(t,S;X,\mu)$ says first that $X=X(t,S)$ and that
+$\mu$ is $(C/n)$-vertex-spread.  It also says that, for every law
+outcome and every unembedded cluster $j$, the true updated candidacy graph
+contains a spanning
+\[
+  (\varepsilon(t,S,j),D_{x_j(t,S)})\text{-super-regular witness},
+  \qquad
+  x_j(t,S)=|N_R(j)\cap(\{k:c(k)<t\}\cup S)|.
+\]
+Here
+\[
+ \varepsilon(t,S,j)=
+ \begin{cases}
+   \varepsilon_{t+1},&N_R(j)\cap S\ne\varnothing,\\
+   \varepsilon_t,&N_R(j)\cap S=\varnothing.
+ \end{cases}
+\]
+Moreover, the invariant records the square-colouring consequence
+$|N_R(j)\cap S|\leq1$ for every such $j$.  Thus a witness touched earlier in
+the current round has the next-round error, an untouched witness retains the
+current-round error, and in both cases its density coordinate is exactly its
+actual exposure coordinate.
+\end{definition}

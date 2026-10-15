@@ -1,0 +1,20 @@
+\begin{lemma}[Monotonicity of positive factorial roots]
+For positive integers $m$ and $y$ with $m\le y$,
+\[
+ (m!)^{1/m}\le (y!)^{1/y}.
+\]
+\end{lemma}
+\begin{proof}
+First fix a positive integer $n$ and put $a=(n!)^{1/n}$.
+Every factor in $n!=\prod_{j=1}^n j$ is at most $n+1$, so
+$n!\le(n+1)^n$. Since $a\ge0$ and $a^n=n!$, taking the
+positive $n$th root gives $a\le n+1$. Consequently
+\[
+ a^{n+1}=a^n a=n!a\le n!(n+1)=(n+1)!.
+\]
+Taking the positive $(n+1)$st root proves
+$(n!)^{1/n}\le((n+1)!)^{1/(n+1)}$.
+Starting at $n=m$ and applying this adjacent inequality successively
+for $n=m,m+1,\ldots,y-1$ gives the desired inequality by transitivity.
+When $m=y$, the assertion is equality, so no adjacent step is required.
+\end{proof}

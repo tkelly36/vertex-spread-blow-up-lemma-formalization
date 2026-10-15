@@ -1,0 +1,66 @@
+\begin{lemma}[Simultaneous unequal retention]
+Let $G$ be a simple graph on a finite vertex set, let $U,W$ be disjoint
+sets of size $n>0$, and let $h>0$. Let $p:V\times V\to[0,1]$ be zero
+on nonedges. Assume
+\[
+ 2\,4^n\exp(-h^4n^2/8)<1.
+\]
+There is a graph $H$ on the same entire vertex set, with decidable
+adjacency, contained in $G$, retaining every edge from $U$ to $W$ of
+weight one, such that for all $A\subseteq U$, $B\subseteq W$ with
+$|A|,|B|>hn$,
+\[
+ \left|e_H(A,B)-\sum_{(a,b)\in A\times B}p(a,b)\right|
+ \leq(h/4)|A||B|.
+\]
+\end{lemma}
+\begin{proof}
+Index the trials by the oriented existing edges
+$I=\{(u,w)\in U\times W:G(u,w)\}$. Disjointness gives a unique
+$U$-to-$W$ orientation to each undirected edge meeting both sets.
+For $e\in I$, its given weight lies in $[0,1]$, so
+\noderef{IndependentUnequalEdgeSampleLaw} supplies the finite product
+Bernoulli probability law, with independent coordinate indicators of
+expectation $p(e)$ and centered subgaussian parameter $1/4$.
+For an outcome, take exactly the selected undirected edges from $I$
+on the original vertex set, deleting any edges outside this list.
+This graph is simple and contained in $G$; it retains vertices even
+if they are isolated. Its finite edge list makes adjacency decidable.
+
+Fix one tested pair $A,B$. Its count is the sum of the indicators
+indexed by $I_{AB}=I\cap(A\times B)$, and its expectation is the
+sum of their weights. This is the weight sum on all of $A\times B$,
+since nonedge weights are zero. Put $r=|I_{AB}|$ and $N=|A||B|$.
+We have $r\leq N$ and $N>h^2n^2>0$. For completeness, the
+subgaussian conclusion gives the following tail bound without any
+equal-probability assumption. Independence yields
+\[
+ \mathbb E\exp\bigl(s(Z-\mathbb EZ)\bigr)\leq\exp(rs^2/8)
+ \quad(s\in\mathbb R).
+\]
+If $r>0$, Markov's inequality for this nonnegative exponential,
+with $s=4t/r$, bounds the upper tail at $t>0$ by
+$\exp(-2t^2/r)$. Applying the same argument to the negative centered
+sum bounds the lower tail identically. Thus the probability of
+$|Z-\mathbb EZ|>t$ is at most $2\exp(-2t^2/r)$, which is at most
+$2\exp(-2t^2/N)$ because $r\leq N$. If $r=0$, the discrepancy
+is identically zero and the failure probability is zero.
+Taking $t=(h/4)N$ therefore bounds the failure probability by
+\[
+ 2\exp(-h^2N/8)\leq2\exp(-h^4n^2/8).
+\]
+There are $2^n$ subsets of each side, hence $4^n$ subset pairs;
+restricting to large pairs does not increase this number. For a
+finite family of events, the indicator of the union is bounded by
+the sum of their indicators. Integrating gives the finite union
+bound, so the probability of any failed test is at most the
+left side of the assumed strict cutoff and is strictly less than one.
+
+A trial of weight one succeeds with probability one. The finite
+intersection of these probability-one success events still has
+probability one, so removing their null complement from the good
+test event leaves positive probability. In a finite probability
+space a positive-probability event is nonempty. Choose an outcome
+in this intersection. Its graph retains all weight-one edges and
+satisfies every asserted weak discrepancy bound simultaneously.
+\end{proof}

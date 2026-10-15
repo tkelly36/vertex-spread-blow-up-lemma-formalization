@@ -1,0 +1,64 @@
+\begin{lemma}[Initial colour-round law]
+Let $B$ be a finite blow-up instance with candidacy system $A$ and reduced
+graph $R$ on $[r]$. Fix $q>0$, a colouring $c:[r]\to\{0,\ldots,q-1\}$,
+sequences $\varepsilon,p:\mathbb N\to[0,\infty]$, $D,n\in\mathbb N$,
+and $d,C\in[0,\infty]$. Assume $p_0=d$, $C/n\leq1$, every reduced
+vertex has at most $D$ neighbours, and distinct reduced vertices that are
+adjacent or have a common neighbour have different colours.
+Suppose \noderef{CandidacySuperRegular} holds with parameters
+$(\varepsilon_0,d)$. Then there is a law $\mu$ on
+\noderef{PartialCompatibleEmbedding} with empty domain satisfying
+\[
+ \mathcal I(0,\varnothing;\varnothing,\mu)
+\]
+of \noderef{ColourRoundInvariant}, with parameters $(\varepsilon,p,D,C,n)$.
+\end{lemma}
+\begin{proof}
+We first justify a total representative for the empty-domain embedding;
+its values outside the empty domain impose no embedding constraints.
+For each source vertex $x$, its source fibre at
+$j=B.\mathrm{sourceCluster}(x)$ is nonempty. Capacity in
+\noderef{BlowUpInstance} says that the corresponding host fibre has at
+least this cardinality, and hence is nonempty. Choose a host vertex from
+that fibre for each $x$, obtaining a total function $f_0:V_H\to V_G$.
+If $V_H$ is empty this is instead the unique empty function, also when
+$V_G$ is empty. Injectivity on the empty domain, edge preservation on that
+domain, and candidacy compatibility there are vacuous. Thus $f_0$ defines
+an element of \noderef{PartialCompatibleEmbedding} with domain
+$\varnothing$. Put $\mu$ equal to its point mass.
+
+The round is legal because $q>0$. The degree and colouring clauses are
+the assumptions, and the touched-set clause is vacuous. No colour is
+negative, so the domain selected by colour less than zero or membership
+in the empty touched set is empty. To check \noderef{VertexSpreadOn},
+the bound $C/n\leq1$ is assumed. For a positive number $s$ of prescribed
+vertices there is no map from $\operatorname{Fin}(s)$ to the empty domain,
+so there is no such cylinder to test. For $s=0$ the cylinder is the entire
+function space, has probability one, and the bound is $(C/n)^0=1$.
+
+For the only supported outcome $f_0$ and any cluster $j$, both the
+exposure finset and the touched-neighbour finset are empty. Their
+cardinalities are zero, so the bounds by $D$ and by one hold and the
+required witness error is $\varepsilon_0$ with density $p_0=d$.
+There are no used source or host vertices. By \noderef{UpdatedCandidacy},
+the updated allowed relation at the empty domain is exactly $A.allowed$:
+both exclusions and the universal embedded-neighbour condition are
+vacuous. By \noderef{UpdatedCandidacyCluster}, the updated cluster graph
+is therefore precisely the original candidacy graph of cluster $j$.
+
+More explicitly, take $W_j$ to be the graph whose edges are the allowed
+pairs between the left copy of $X_j$ and the right copy of $V_j$, with
+all other vertices isolated. Its containment in the updated cluster
+graph is equality. The graph used in \noderef{CandidacySuperRegular}
+may retain allowed pairs for other clusters, but on the parts
+$L_j=\operatorname{inl}(X_j)$ and $Q_j=\operatorname{inr}(V_j)$ its
+edges are exactly those of $W_j$. Indeed an allowed pair respects
+clusters by \noderef{CandidacySystem}; restricting its source to $X_j$
+automatically restricts its host to $V_j$. Thus all degrees into these
+parts and all edge counts between their subsets are identical.
+Expanding \noderef{SuperRegularPair} and \noderef{RegularPair} transfers
+the asserted $(\varepsilon_0,d)$-super-regularity to $W_j$ on these
+exact parts. This supplies every witness clause, using the original
+candidacy graphs and no thinning. All clauses of
+\noderef{ColourRoundInvariant} are now verified.
+\end{proof}

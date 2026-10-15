@@ -1,0 +1,59 @@
+\begin{lemma}[Uniform perfect matchings are spread]
+For every $0<\varepsilon$ and $4\varepsilon<d\leq1$, there are a finite constant $1\leq C<\infty$ and $n_0$ such that the following holds for every $n\geq n_0$. If $G$ is a graph on a finite vertex set, $U,W$ are disjoint sets of size $n$, and $G[U,W]$ is $(\varepsilon,d)$-super-regular, then the uniform distribution of \noderef{UniformPerfectMatching}, viewed as a distribution on maps $U\to W$, is $(C/n)$-vertex-spread on the whole codomain $W$ in the sense of \noderef{VertexSpreadOn}.
+\end{lemma}
+\begin{proof}
+The inequality $4\varepsilon<d$ implies $2\varepsilon<d$. Take finite
+constants $C_{\rm many},C_{\rm sw}\geq1$ and their order thresholds from
+\noderef{MatchingManyEdges} and \noderef{MatchingSwitching}, respectively.
+Since $d>0$, choose a positive integer $r$ with $dr\geq2$, and set
+\[
+ C=\max\{C_{\rm sw},C_{\rm many}^r\}.
+\]
+This constant is finite and at least one. Choose $n_0$ at least both support
+thresholds, at least one, and greater than $C$. Thus $n\geq n_0$ implies
+$n>0$ and $C/n\leq1$. Fix such an instance and any supplied witness that
+the finite type of perfect matchings is nonempty. Use that witness to form
+the uniform distribution of \noderef{UniformPerfectMatching}, and denote
+its image on maps $U\to W$ by $\mu$.
+
+Fix distinct $x_1,\ldots,x_s\in U$ and arbitrary
+$y_1,\ldots,y_s\in W$. Write $E_s$ for their cylinder event as defined in
+\noderef{CylinderEvent}. If $\mu(E_s)=0$, the desired inequality holds.
+Otherwise, some map in the support of $\mu$ belongs to $E_s$: on a finite
+space an event of positive mass contains an atom of positive mass. Every
+map in this support comes from a perfect matching by
+\noderef{UniformPerfectMatching}. By \noderef{PerfectMatching}, it is
+bijective and every pair $x f(x)$ is an edge. Consequently all prescribed
+pairs are edges and the $y_i$ are distinct, since the $x_i$ are distinct.
+Thus the prescriptions form a matching. This also explains why repeated
+right endpoints or nonedges have zero cylinder probability.
+
+If $s\geq dn/2$, \noderef{MatchingManyEdges} gives
+\[
+ \Pr[x_i y_i\in M\ (1\leq i\leq s)]\leq C_{\rm many}^{n}/n^s
+ \leq C_{\rm many}^{rs}/n^s\leq C^s/n^s=(C/n)^s,
+\]
+because $rs\geq rdn/2\geq n$, $C_{\rm many}\geq1$, and
+$C_{\rm many}^r\leq C$.
+
+If $s<dn/2$, for $0\leq k\leq s$ let $E_k$ be the cylinder imposing just
+the first $k$ prescriptions, and put $p_k=\mu(E_k)$. We prove
+$p_k\leq(C/n)^k$ by induction. The empty cylinder $E_0$ is the whole map
+space, so $p_0=1=(C/n)^0$; this includes the case $s=0$.
+For $k<s$, the first $k$ pairs form a matching $N_k$ of size
+$k\leq s<dn/2$, and neither endpoint of $x_{k+1}y_{k+1}$ is covered by
+$N_k$, by distinctness on both sides. Moreover
+$E_{k+1}=E_k\cap\{f:f(x_{k+1})=y_{k+1}\}$.
+If $p_k=0$, containment $E_{k+1}\subseteq E_k$ gives $p_{k+1}=0$.
+If $p_k>0$, it is finite because $\mu$ is a probability distribution.
+Applying \noderef{MatchingSwitching} with this prefix and fresh edge gives
+\[
+ p_{k+1}/p_k\leq C_{\rm sw}/n\leq C/n.
+\]
+Multiplication by the finite nonzero $p_k$ and the induction hypothesis yield
+\[
+ p_{k+1}\leq(C/n)p_k\leq(C/n)^{k+1}.
+\]
+At $k=s$ this proves the required cylinder inequality. Together with
+$C/n\leq1$, it is exactly \noderef{VertexSpreadOn} on the entire codomain $W$.
+\end{proof}

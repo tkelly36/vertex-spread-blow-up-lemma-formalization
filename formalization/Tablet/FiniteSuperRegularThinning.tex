@@ -1,0 +1,28 @@
+\begin{lemma}[Universe-independent finite thinning]
+Fix a natural number $N$ and parameters $\varepsilon,p,\xi,\rho$.
+Assume that, for every finite vertex type in one fixed universe, every graph
+$G$ and disjoint finite parts $L,R$ with $N\le |L|,|R|$ and
+$|L|\le |R|+1$, $|R|\le |L|+1$, an
+$(\varepsilon,p)$-super-regular pair admits a contained
+$(\xi,\rho)$-super-regular graph on the same parts.
+Then the same conclusion holds for a graph on any finite vertex type,
+with the same hypotheses, threshold, parts, and parameters.
+\end{lemma}
+\begin{proof}
+Identify the given finite vertex type $V$ with
+$\operatorname{ULift}(\{0,\ldots,|V|-1\})$ in the universe of the
+assumed guarantee, using an equivalence $e$. Put $T=G\circ e^{-1}$
+edgewise and $L'=e(L)$, $R'=e(R)$. By
+\noderef{FiniteTripletRelabelling}, disjointness and the input
+super-regularity are preserved. Injectivity of $e$ gives
+$|L'|=|L|$, $|R'|=|R|$, so both threshold and both near-equal-size
+inequalities hold unchanged. The assumed guarantee supplies $T'\subseteq T$
+with parameters $(\xi,\rho)$ on $L',R'$.
+Pull back $T'$ by $e$ to obtain $G'$. An edge $xy$ of $G'$ is an edge
+$e(x)e(y)$ of $T'$, hence of $T$, hence an edge of $G$; this proves
+containment on the whole ambient type. Apply
+\noderef{SuperRegularPairEmbedding} to the injective map $e^{-1}$ and $T'$,
+using the adjacency equivalence of the pullback on the two parts. The images
+$e^{-1}(L')=L$ and $e^{-1}(R')=R$ are exact, so the output
+super-regularity has the original parts and unchanged parameters.
+\end{proof}

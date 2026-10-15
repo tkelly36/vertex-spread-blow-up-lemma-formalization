@@ -1,0 +1,8 @@
+\begin{lemma}[Equitable square coloring]
+Let $H$ be the source graph of a blow-up instance \noderef{BlowUpInstance}, suppose $\Delta(H)\leq\Delta$ with $\Delta\geq1$, and suppose every source cluster $X_i$ has size $n$.  There is a map $c:V(H)\to[\Delta^2]$ such that every fiber $X_{i,j}:=\{x\in X_i:c(x)=j\}$ has size $\lfloor n/\Delta^2\rfloor$ or $\lfloor n/\Delta^2\rfloor+1$, and any two distinct vertices in the same $X_{i,j}$ are nonadjacent in $H$ and have no common neighbor in $H$.
+\end{lemma}
+\begin{proof}
+Fix $i$ and form the graph $Q_i$ on $X_i$ in which two distinct vertices are adjacent when their distance in $H$ is at most two.  Since $X_i$ is independent by \noderef{BlowUpInstance}, a vertex $x\in X_i$ has no distance-one neighbor in $X_i$.  Each of its at most $\Delta$ neighbors has at most $\Delta-1$ further neighbors other than $x$, so $d_{Q_i}(x)\leq\Delta(\Delta-1)<\Delta^2$.
+
+Apply the Hajnal--Szemer\'edi equitable-coloring theorem to $Q_i$ with $\Delta^2$ colors: a finite graph of maximum degree strictly below $k$ has a proper $k$-coloring whose color-class sizes differ by at most one.  Thus the color classes have sizes $\lfloor n/\Delta^2\rfloor$ or $\lceil n/\Delta^2\rceil$, and the latter is either the former or one larger.  A proper color class in $Q_i$ contains neither an $H$-edge nor two vertices with a common $H$-neighbor, by the definition of $Q_i$.  Choose such a coloring independently for every finite cluster and combine them into the asserted map $c$.
+\end{proof}

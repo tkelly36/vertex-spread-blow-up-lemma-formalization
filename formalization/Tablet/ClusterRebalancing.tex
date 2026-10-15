@@ -1,0 +1,160 @@
+\begin{lemma}[Cluster rebalancing]
+For every integer $\Delta\geq1$ and $0<d\leq1$, there is $0<d'_0<d$ such that, for every $0<d'\leq d'_0$, there is $\varepsilon'_0>0$ such that, for every $0<\varepsilon'\leq\varepsilon'_0$, there is $\varepsilon_0>0$ such that, for every $0<\varepsilon\leq\varepsilon_0$, there is a finite $C_0$ with $1\leq C_0<\infty$ such that the following holds for $C\geq C_0$ (with $C/n\leq1$), every $r$, and every sufficiently large $n$ (depending also on $r$).
+
+Let $(H,G,R,(X_i)_{i\in[r]},(V_i)_{i\in[r]},(A^i)_{i\in[r]})$ be a lower-$(\varepsilon,d)$-super-regular blow-up instance with lower-$(\varepsilon,d)$-super-regular candidacy graphs.  Suppose $\Delta(H),\Delta(R)\leq\Delta$, $|X_i|=|V_i|$, and
+\[
+ (1-\varepsilon)n\leq |V_i|\leq(1+\varepsilon)n
+ \qquad(i\in[r]).
+\]
+Then there are a deterministic set $X\subseteq V(H)$ and a probability distribution on partial compatible embeddings $f:H[X]\hookrightarrow G$ whose restrictions $f|_X:X\to V(G)$ form a $(C/n)$-vertex-spread law (with all of $V(G)$ allowed), such that every $f$ in its support has the following property.  Thus, for any distinct $x_1,\ldots,x_s\in X$ and arbitrary $v_1,\ldots,v_s\in V(G)$, the probability that $f(x_j)=v_j$ for every $j$ is at most $(C/n)^s$.  On the literal residual vertex sets $V(H)\setminus X$ and $V(G)\setminus f(X)$, the induced graphs $H-X$ and $G-f(X)$, the unchanged reduced graph $R$, the exact residual fibers $X_i\setminus X$ and $V_i\setminus f(X)$, and the updated candidacy relation $A_f$ form a lower-$(\varepsilon',d')$-super-regular blow-up instance with lower-$(\varepsilon',d')$-super-regular candidacy graphs.  Moreover, for every $i$,
+\[
+ |X_i\setminus X|=|V_i\setminus f(X)|=\lfloor(1-\varepsilon)n\rfloor.
+\]
+Here ``exact'' means that the residual cluster maps are restrictions of the original maps and that a residual pair $(x,v)$ is allowed if and only if it belongs to \noderef{UpdatedCandidacy}.
+\end{lemma}
+\begin{proof}
+Fix $\Delta,d$, and put $\widehat d=d/2$. This is positive and at most
+$1$, so the principal statement of \noderef{PartialEmbedding} supplies
+$b>0$ with $b<\widehat d$. Put $d'_0=\min\{d/4,b/2\}$.
+Both entries are positive, and $d'_0\leq d/4\leq d/2<d$.
+For $0<d'\leq d'_0$ we have both $d'\leq d/4$ and $d'\leq b$.
+The same principal statement, at output reserve $d'$, supplies a finite
+positive input-error cutoff $a_0$. Choose
+$a=\min\{1/4,a_0/2\}$. Then $0<a\leq1/4$ and $a\leq a_0$.
+
+Apply \noderef{RebalancingLossMargins} at $(\Delta,d,d',a)$.
+It supplies $\varepsilon'_0>0$ bounded by $\min\{1/4,d'/2\}$ and,
+for each admissible $\varepsilon'$, a positive $\varepsilon_0$.
+Fix admissible $\varepsilon$, and let $n_a$ be its numerical order
+threshold from that node. Independently apply the principal statement
+of \noderef{PartialEmbedding} at input error $a$, not $\varepsilon$,
+and output reserve $d'$. It supplies a finite $C_0\geq1$.
+These choices are independent of $r$ and use no constants from the proof
+of that theorem.
+
+If $C=\infty$, choose $n_0=4$ for every $r$.
+For $n\geq4$ the condition $C/n\leq1$ is impossible, since division
+of $\infty$ by the finite scalar $n$ is $\infty$.
+For finite $C\geq C_0$, let $n_p$ be the order threshold supplied by
+\noderef{PartialEmbedding} at $(\Delta,\widehat d,d',a,C)$.
+For every $r$ choose $n_0=\max\{n_a,n_p\}$; allowing an $r$-dependent
+threshold does not require introducing $r$ into any earlier cutoff.
+
+Fix $n\geq n_0$ and an instance satisfying the assumptions. Write
+$N_i=|V_i|=|X_i|$. The numerical node supplies integers $m,k$ with
+\[
+ m\leq(1-\varepsilon)n<m+1,\qquad n/2\leq m\leq n,\qquad n\geq4,
+ \qquad k\leq4\varepsilon n.
+\]
+In particular $m=\lfloor(1-\varepsilon)n\rfloor$.
+Its window implications give, for every $i$,
+\[
+\begin{gathered}
+ m\leq N_i,\quad N_i-m\leq k,\quad N_i-m\leq3\varepsilon n,\quad
+ (3+4\Delta^2)\varepsilon n\leq aN_i,\\
+ (d/2)n\leq(d-\varepsilon)N_i,\qquad
+ \varepsilon N_i\leq\varepsilon'm,\\
+ (d'-\varepsilon')m\leq(d-\varepsilon)N_i-3\varepsilon n,\qquad
+ (d'-\varepsilon')m\leq(d-\varepsilon)N_i-3\varepsilon n
+                                     -4\Delta^2\varepsilon n,\\
+ (d'-\varepsilon')+8\Delta^2\varepsilon/\varepsilon'\leq d-\varepsilon.
+\end{gathered}
+\]
+It also supplies $\varepsilon\leq a$ and $\varepsilon'<\infty$.
+Thus every floor, ceiling, strict-threshold transfer, density loss,
+and degree margin used below has a statement-level source.
+
+Apply \noderef{ClusterwiseDeletionBuffer} with $m,k,\Delta$, using equal
+fibers, $m\leq N_i$, $N_i-m\leq k$, and the original two maximum-degree
+bounds. It gives a deterministic $X$ with the exact filtered count
+$|X\cap X_i|=N_i-m$. Substituting the numerical loss bound gives
+$|X\cap X_i|\leq3\varepsilon n$. For the exact external buffer
+\[
+ E=\{x\notin X:\exists y\in X,\ xy\in E(H)\},\qquad S=X\cup E,
+\]
+the same theorem gives $|E\cap X_i|\leq\Delta^2k$. Casting this natural-number
+inequality to the nonnegative scalars and using $k\leq4\varepsilon n$ yields
+$|E\cap X_i|\leq\Delta^2k\leq4\Delta^2\varepsilon n$.
+Filtering $X\cup E$ by its cluster commutes with union, and the cardinality
+of a union is at most the sum of the cardinalities. Consequently
+\[
+ |S\cap X_i|\leq |X\cap X_i|+|E\cap X_i|
+ \leq3\varepsilon n+4\Delta^2\varepsilon n
+ =(3+4\Delta^2)\varepsilon n\leq aN_i.
+\]
+In particular the entire external buffer is
+included in the restricted source, while only $X$ will be embedded.
+
+Apply \noderef{RebalancingRestrictionEstimates} with the original
+host and candidacy lower-super-regularity, $\varepsilon\leq a$,
+the original size window, and $(d/2)n\leq(d-\varepsilon)N_i$.
+It supplies host lower-$(a,d/2)$-regularity, the host-size window
+with error $a$, and at least $(d/2)n$ original candidates at every
+original source vertex. These are not degree-only substitutes for
+regularity. Together with the two original degree bounds and
+$|S\cap X_i|\leq aN_i$, they verify every assumption of
+\noderef{RestrictedSmallBlowUpInterface}. That node supplies $B_S,A_S$
+on the literal source subtype $S$, with unchanged host and reduced
+graphs, restricted source map, unchanged host map, exact original
+candidacy relation, and all numerical premises of
+\noderef{PartialEmbedding} at $(\Delta,d/2,a,n)$.
+
+Use the partial conclusion of \noderef{PartialEmbedding} on $B_S,A_S$
+and the subset $T=\{x\in S:x\in X\}$. It gives a law $\nu$ on partial
+compatible maps with reserve at least $d'n$ at every vertex of
+$S\setminus T$, whose total-map law on $S$ is $(C/n)$-spread.
+For every original vertex $x$ the candidate-degree bound is strictly
+positive, because $d/2>0$ and $n\geq4$. Hence choose an original candidate
+$g(x)$ once and for all (the choice is the empty function if the source
+is empty). Apply \noderef{RestrictedPartialEmbeddingTransport} with
+this $g$, the exact restricted candidacy equivalence, $X\subseteq S$,
+the defining equivalence for $T$, $q=C/n$, and $\rho=d'n$.
+It supplies the ambient partial law $\mu$ with spread on its restrictions
+to $X$, and reserve $d'n$ on every vertex of $S\setminus X$, in particular
+every vertex of $E$, for every supported ambient map. The transport
+identifies the updated candidate sets in both directions and removes
+exactly the same image. It claims spread only on $X$, not on the fixed
+ignored ambient values.
+
+Fix $f$ with $\mu(f)\ne0$. Apply \noderef{RebalancingResidualGeometry}
+with equal original fibers, $m\leq N_i$, and $|X\cap X_i|=N_i-m$.
+It constructs $B_r,A_r$ on the literal source and host complements,
+the induced graphs, and the unchanged reduced graph. Its two cluster
+maps are the restrictions of the originals; its allowed relation is
+exactly the ambient \noderef{UpdatedCandidacy} relation, in both directions.
+Both residual fibers have size $m$, and it also proves
+$|f(X)\cap V_i|=|X\cap X_i|\leq3\varepsilon n$.
+
+For the host apply \noderef{RebalancingResidualHost} with
+$L=3\varepsilon n$. The exact host-map identity and host fiber size
+come from geometry, original host super-regularity is assumed, and
+the removed-host bound was just proved. Its threshold-transfer
+and degree-margin hypotheses are exactly the displayed numerical
+bounds. Its density hypothesis follows by discarding the nonnegative
+$8\Delta^2\varepsilon/\varepsilon'$ term. This proves
+host lower-$(\varepsilon',d')$-super-regularity for $B_r$.
+
+For candidacy apply \noderef{RebalancingResidualCandidacy} with
+\[
+ L=3\varepsilon n,\quad J=4\Delta^2\varepsilon n,\quad
+ \eta=8\Delta^2\varepsilon,\quad \rho=d'n.
+\]
+The exact residual interfaces and both fiber sizes are supplied by
+geometry; equal original fibers and original candidacy super-regularity
+are assumptions. The source and host deletion bounds are at most $L$,
+and the external-buffer estimate proved above gives the exceptional count at most $J$.
+Since $m\geq n/2$, we have $J\leq\eta m$.
+Positivity of $\varepsilon'$ is assumed and its finiteness was supplied
+by the numerical node. Threshold transfer, density loss, and the full
+right-degree margin are exactly the numerical bounds displayed above.
+Finally $m\leq n$ and $d'-\varepsilon'\leq d'$ give
+$(d'-\varepsilon')m\leq d'n=\rho$; every external-buffer vertex has
+that reserve by the transported law. Thus every hypothesis is checked.
+The candidacy node applies exceptional-row slicing, including ordinary
+row equality and the right-degree buffer loss, and transports edge
+counts, density, neighborhood counts, and fiber sizes to the literal
+residual subtypes. It yields candidacy
+lower-$(\varepsilon',d')$-super-regularity. These two regularity
+conclusions and the exact geometry give the required conclusion
+for every supported $f$.
+\end{proof}

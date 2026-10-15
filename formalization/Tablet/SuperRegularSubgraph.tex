@@ -1,0 +1,81 @@
+\begin{lemma}[Super-regular subgraph]
+For every $0<\varepsilon'<1$ and every $0<d<1$, there are $0<\varepsilon<\varepsilon'$ and $n_0\in\mathbb N$ with the following property.  Let $G$ be a finite bipartite graph with bipartition $\{U,W\}$, where $|U|=|W|=n\geq n_0$.  If $(U,W)$ is lower $(\varepsilon,d+\varepsilon)$-regular and every vertex has at least $dn$ neighbors in the opposite class, then $G$ has a spanning subgraph $G'\subseteq G$ for which $(U,W)$ is $(\varepsilon',d^2/2)$-super-regular.
+\end{lemma}
+\begin{proof}
+Since $\varepsilon',d<1$, both extended nonnegative parameters are
+finite. Write $\eta,d_R$ for their real values; then
+$0<\eta,d_R<1$, and converting them back recovers
+$\varepsilon',d$. Put $c=d_R^2/2>0$, so $c<1$.
+Apply \noderef{SuperRegularExtractionParameters} to $\eta,d_R$.
+Its statement chooses $h,\gamma,\alpha,\varepsilon,l,M,n_0$
+depending only on these two parameters, with
+$0<\varepsilon<\eta$, $1\leq l\leq M\leq n_0$, the regularity
+bound, the expectation margin, $h\leq1/100$, $h\leq c/100$,
+$3h<\eta$, $4h<\eta$, and $2h+4h/\eta<\eta$.
+For every $n\geq n_0$, it also gives $hn\geq1$ and the four
+tail cutoffs less than $1/4$. Use the extended nonnegative value
+of this $\varepsilon$ as the theorem's witness. Its strict
+positivity and comparison with $\varepsilon'$ follow from the
+real inequalities, since all parameters are finite.
+
+Fix any input graph and $n\geq n_0$. Then $n>0$ and $M\leq n$.
+Unpack the input using \noderef{LowerSuperRegularPair} and
+\noderef{LowerRegularPair}, with parameters given by the extended
+values of $\varepsilon$ and $d_R+\varepsilon$. Since these values
+are finite, the truncated difference
+$(d_R+\varepsilon)-\varepsilon$ equals the extended value of $d_R$.
+For $A\subseteq U,B\subseteq W$ with
+$|A|,|B|>\varepsilon n$, all cardinalities and parameters are finite,
+so taking real values identifies these strict tests with the
+extended tests $|A|>\varepsilon|U|$, $|B|>\varepsilon|W|$.
+Moreover $|A|,|B|>\varepsilon n\geq0$, so both tested sets are
+nonempty. The lower-regularity clause therefore gives an extended
+density at least $d_R$. By \noderef{PairDensityReal}, this density
+is finite and its real value is $d_G(A,B)$. Taking real values
+gives $d_G(A,B)\geq d_R$.
+For $u\in U$, the first degree clause, after the same cancellation,
+gives the extended inequality
+$d_R|W|\leq|N_G(u)\cap W|$. Both sides are finite; taking real
+values and using $|W|=n$ gives $d_Rn\leq|N_G(u)\cap W|$ in
+$\mathbb R$. For $w\in W$, the second clause similarly gives
+$d_R|U|\leq|N_G(w)\cap U|$, hence the real bound
+$d_Rn\leq|N_G(w)\cap U|$ using $|U|=n$.
+Apply \noderef{SuperRegularInitialSample} using these
+bounds, the partition parameters, expectation margin, and the
+first two tail cutoffs. Its statement supplies a spanning
+$H\subseteq G$ with opposite-part minimum degrees at least
+$7cn/4$ and
+\[
+|d_H(A,B)-d_R|<h/2\quad(|A|,|B|>hn).
+\]
+Since $h\leq1/100<1$, \noderef{SuperRegularTypicalCore} applies
+and gives $U_0\subseteq U,W_0\subseteq W$, complements of sizes
+at most $2hn$, and core degrees in
+$[(d_R-3h)n,(d_R+h)n]$ on both sides. The same density bound
+holds for tests inside the core, because those sets are still
+subsets of $U,W$.
+
+The core parts are disjoint and have cardinalities at most $n$.
+Apply \noderef{SuperRegularCoreSample} with their degree
+intervals, inherited density tests, and the third and fourth
+tail cutoffs. Its statement gives a graph $F\subseteq H$ on
+the original vertex set, with edges only between the core
+parts, core degrees in $[(c-4h)n,(c+2h)n]$, and core rectangle
+density error at most $2h$.
+
+All hypotheses of \noderef{SuperRegularExceptionalRestoration}
+are now available: the disjoint covering full parts, inherited
+bipartition of $H$, minimum-degree reserve $7cn/4$, the two
+exceptional-size bounds, $F$'s containment and support, its
+core degree and rectangle bounds, and the scalar and floor
+margins listed above. Its statement yields a spanning
+$G'\subseteq H$ which is $(\eta,c)$-super-regular in the
+extended nonnegative predicates. Transitivity gives
+$G'\subseteq G$. Finally the extended value of $\eta$ equals
+$\varepsilon'$, and the extended value of $d_R^2/2$ equals
+$d^2/2$: real conversion commutes with powers and division
+by the positive finite number $2$. Thus this is precisely the
+required super-regularity. All graphs use the same vertex
+set and have decidable adjacency, and the choices of
+$\varepsilon,n_0$ preceded the choice of the graph.
+\end{proof}

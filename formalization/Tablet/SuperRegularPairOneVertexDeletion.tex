@@ -1,0 +1,40 @@
+\begin{lemma}[Deleting at most one vertex from each part]
+Let $G$ be a simple graph with finite parts $L,R$ and subsets
+$A\subseteq L,B\subseteq R$. Let $m\geq1$ be an integer with
+$|A|,|B|\geq m$, $|L|\leq|A|+1$, and $|R|\leq|B|+1$.
+For real parameters suppose $0\leq\tau$, $0<\eta\leq1$,
+$0\leq c\leq1$, $4\tau\leq\eta$, and $\eta m\geq4$.
+If $(L,R)$ is $(\tau,c)$-super-regular, then $(A,B)$ is
+$(\eta,c)$-super-regular. All parameters in the pair predicates
+are interpreted as extended nonnegative reals, with truncated lower endpoints.
+\end{lemma}
+\begin{proof}
+Since $|A|,|B|\geq1$, we have $|L|\leq2|A|$ and
+$|R|\leq2|B|$. Thus $\tau|L|\leq\eta|A|$ and
+$\tau|R|\leq\eta|B|$. Every strict regularity test for $A,B$
+is therefore a test for $L,R$. Its ordered-edge count and density
+are the same, and the interval with error $\tau$ is contained in
+the interval with error $\eta$. This gives \noderef{RegularPair}.
+
+For either degree orientation, denote the original opposite part by
+$S$, its retained subset by $T$, and the old and retained neighbor
+counts by $a,b$. Since $|S\setminus T|\leq1$, we have
+$b\leq a\leq b+1$. Put $k=|T|$ and $s=|S|$; then
+$k\leq s\leq k+1$, $\eta k\geq4$, and $\tau k\leq\eta k/4$.
+The degree bounds in \noderef{SuperRegularPair} give
+$(c-\tau)s\leq a\leq(c+\tau)s$ as real inequalities:
+if the first endpoint is negative, the first inequality is automatic.
+If $c\geq\eta$, then $c-\tau\geq0$ and
+\[
+ b\geq(c-\tau)s-1\geq(c-\tau)k-1\geq(c-\eta)k,
+\]
+because $(\eta-\tau)k\geq3\eta k/4\geq3$.
+If $c<\eta$, the required truncated lower bound is zero.
+For the upper bound, $\tau\leq1$ and $c\leq1$ give
+\[
+ b\leq(c+\tau)(k+1)\leq(c+\tau)k+2\leq(c+\eta)k.
+\]
+Apply this argument at every vertex of $A$ with $S=R,T=B$, and
+at every vertex of $B$ with $S=L,T=A$. These are both required
+degree intervals, completing the three clauses of super-regularity.
+\end{proof}

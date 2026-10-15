@@ -1,0 +1,36 @@
+\begin{lemma}[Copied matching-induced degree and codegree identities]
+Let $F,H$ be graphs on a finite vertex set, let $U,W,Z$ be finite parts,
+and let $f:U\to W$ be any function. Put
+$A=\noderef{MatchingInducedGraph}(F,H,U,W,Z,f)$, with copied parts
+$L=\{\operatorname{inl}x:x\in U\}$ and
+$R=\{\operatorname{inr}z:z\in Z\}$. Then $|L|=|U|$, $|R|=|Z|$,
+$L\cap R=\varnothing$, and
+\[
+ A(\operatorname{inl}x,\operatorname{inr}z)
+ \iff F(x,z)\ \text{and}\ H(f(x),z).
+\]
+In particular, the degree of $\operatorname{inl}x$ into $R$ is
+$|\{z\in Z:F(x,z)\land H(f(x),z)\}|$, the degree of
+$\operatorname{inr}z$ into $L$ is
+$|\{x\in U:F(x,z)\land H(f(x),z)\}|$, and for every ordered pair
+$(z,z')\in Z^2$, including diagonal pairs, its common-neighborhood size
+in $L$ is
+\[
+ |\{x\in U:(F(x,z)\land F(x,z'))\land
+                    (H(f(x),z)\land H(f(x),z'))\}|.
+\]
+\end{lemma}
+\begin{proof}
+The two injections into a disjoint sum preserve cardinalities and have
+disjoint images. By the definition in \noderef{MatchingInducedGraph},
+an edge between the indicated copies can only arise from the forward
+generating relation: its reverse would identify a right copy with a left
+copy. Injectivity of each inclusion forces its witnesses to be exactly
+$x,z$, giving the displayed adjacency equivalence. For the left degree,
+the map $\operatorname{inr}z\mapsto z$ is a bijection between the filtered
+copied part and the stated subset of $Z$. For the right degree,
+$\operatorname{inl}x\mapsto x$ gives the corresponding bijection.
+Applying the same bijection with both adjacency conditions gives the
+codegree identity. This uses no inequality or distinctness condition on
+$z,z'$, so includes the diagonal.
+\end{proof}

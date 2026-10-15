@@ -1,0 +1,32 @@
+\begin{helper}[Bennett entropy lower bound]
+For every real $z\ge0$,
+\[
+ (1+z)\log(1+z)-z\ge\frac{z^2}{2(1+z/3)}.
+\]
+\end{helper}
+\begin{proof}
+On $[0,\infty)$ the quantities $1+x$, $x+3$, and $1+x/3$ are
+strictly positive. The identity
+\[
+ \frac{x^2}{2(1+x/3)}=\frac32\left(x-3+\frac9{x+3}\right)
+\]
+follows by multiplying by the positive denominators. Define the
+difference between the left entropy and this rational expression by
+\[
+ f(x)=(1+x)\log(1+x)-x-\frac32\left(x-3+\frac9{x+3}\right).
+\]
+It is differentiable at every $x\ge0$, with
+\[
+ f'(x)=g(x)=\log(1+x)-\frac32+\frac{27}{2(x+3)^2},\qquad
+ g'(x)=\frac1{1+x}-\frac{27}{(x+3)^3}.
+\]
+Both denominators in $g'$ are positive. Consequently $g'(x)\ge0$
+is equivalent to $(x+3)^3\ge27(1+x)$. Their difference is
+$x^3+9x^2\ge0$ for $x\ge0$, which proves this sign. The functions
+$f$ and $g$ are continuous on $[0,\infty)$, so the mean value theorem
+on each compact subinterval shows first that $g$ is nondecreasing.
+Since $g(0)=0$, this gives $f'(x)=g(x)\ge0$ on the same half-line.
+Applying the mean value theorem once more makes $f$ nondecreasing.
+Finally $f(0)=0$ implies $f(z)\ge0$ for every $z\ge0$. Substituting
+the displayed rational identity gives the result.
+\end{proof}

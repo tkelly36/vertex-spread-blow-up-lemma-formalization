@@ -1,0 +1,65 @@
+\begin{lemma}[Four Graphs parameter windows]
+For $0<d_{12},d_{13},d_{23}\leq1$ and $0<\eta\leq1$, put
+$q=d_{13}d_{23}$. There exist positive finite numbers $\delta,\zeta,e$
+such that $\delta\leq q$, $\delta\leq\eta$,
+$32\delta\leq\eta^5$, and $e\leq1$. For every $0\leq\varepsilon\leq e$,
+\[
+ \varepsilon\leq\min(\delta,\eta),\qquad
+ 2\varepsilon<\min(d_{12},d_{13},d_{23}),
+\]
+\[
+ d_{13}/2\leq d_{13}-\varepsilon,\quad
+ d_{23}/2\leq d_{23}-\varepsilon,\quad
+ (d_{13}/2)^2\leq(d_{13}-2\varepsilon)^2,\quad
+ (d_{23}/2)^2\leq(d_{23}-2\varepsilon)^2,
+\]
+and the following sharp degree and codegree windows hold:
+\[
+ q-\delta\leq(d_{13}-\varepsilon)(d_{23}-\varepsilon)-\zeta,
+ \qquad (d_{13}+\varepsilon)(d_{23}+\varepsilon)+\zeta\leq q+\delta,
+\]
+\[
+ (d_{13}+2\varepsilon)^2(d_{23}+2\varepsilon)^2+\zeta
+ \leq(q+\delta)^2.
+\]
+Subtractions here are truncated at zero, as for nonnegative extended reals.
+\end{lemma}
+\begin{proof}
+All input numbers are finite. Work in the nonnegative reals and take
+\[
+ \delta=\min\{q/8,\eta/4,\eta^5/128\},\quad
+ \zeta=\min\{\delta/4,q\delta/4\},\quad
+ e=\min\{1/2,\delta/8,d_{12}/4,d_{13}/8,d_{23}/8,q\delta/64\}.
+\]
+Every entry of each minimum is strictly positive. The required bounds on
+$\delta,e$ follow immediately. Fix $0\leq\varepsilon\leq e$ and write
+$x=d_{13},y=d_{23}$. Then $\varepsilon\leq x/8,y/8$ gives both
+lower set-density bounds and both squared lower bounds, and gives
+$2\varepsilon<x,y$. Also $2\varepsilon\leq d_{12}/2<d_{12}$.
+Since $x,y\leq1$ and $\varepsilon\leq1/2$,
+\[
+ (x-\varepsilon)(y-\varepsilon)
+ =q-(x+y)\varepsilon+\varepsilon^2\geq q-2\varepsilon,
+ \qquad
+ (x+\varepsilon)(y+\varepsilon)\leq q+3\varepsilon.
+\]
+Here $2\varepsilon+\zeta\leq\delta/2$ and
+$3\varepsilon+\zeta\leq5\delta/8\leq\delta$, proving the two
+degree windows (and $q\geq\delta$ removes any ambiguity about their
+lower endpoints). For the last window,
+\[
+ (x+2\varepsilon)^2\leq x^2+6\varepsilon,\qquad
+ (y+2\varepsilon)^2\leq y^2+6\varepsilon,
+\]
+because $4x\varepsilon+4\varepsilon^2\leq6\varepsilon$.
+Multiplication gives an upper bound
+$q^2+12\varepsilon+36\varepsilon^2\leq q^2+30\varepsilon$.
+Consequently
+\[
+ 30\varepsilon+\zeta\leq(30/64+1/4)q\delta
+ <2q\delta\leq2q\delta+\delta^2.
+\]
+Adding $q^2$ proves the required polynomial inequality. Embedding these
+finite nonnegative real choices into the extended nonnegative reals
+preserves all the stated arithmetic operations and inequalities.
+\end{proof}

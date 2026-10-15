@@ -1,0 +1,26 @@
+\begin{lemma}[The uniform subset intersection law]
+Let $T\subseteq S$ be finite sets and $s\leq |S|$. For every
+nonnegative integer $x$, the fraction of $s$-subsets $U$ of $S$
+with $|U\cap T|=x$ equals $H(|S|,s,|T|,x)$, the mass defined
+in \noderef{HypergeometricMass}.
+\end{lemma}
+\begin{proof}
+There are $\binom{|S|}{s}>0$ such subsets, including when $S$ is
+empty (then $s=0$). If $x>s$, none has intersection size $x$, and
+the defining conditional branch of \noderef{HypergeometricMass}
+is zero. If $x\leq s$, the map
+$U\mapsto(U\cap T,U\setminus T)$ is a bijection between the
+subsets being counted and pairs consisting of an $x$-subset of $T$
+and an $(s-x)$-subset of $S\setminus T$. Its inverse is union;
+the two chosen sets are disjoint, their union has size $s$, and its
+intersection with $T$ is exactly the first chosen set. The number
+of pairs is
+$\binom{|T|}{x}\binom{|S|-|T|}{s-x}$, since $T\subseteq S$.
+This also gives zero in the infeasible cases, by the vanishing of
+the relevant binomial coefficient. Divide by the positive total
+number to obtain the formula in \noderef{HypergeometricMass}.
+For interpretation as probability, Mathlib's \texttt{PMF.toOuterMeasure\_uniformOfFinset\_apply}
+says that the uniform finite law assigns exactly this fraction to
+the event. The proof of the equality itself is the counting bijection,
+so no tail or independence assumption is being used.
+\end{proof}

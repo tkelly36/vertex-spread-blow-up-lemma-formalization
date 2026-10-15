@@ -1,0 +1,90 @@
+\begin{lemma}[Near-equal degree--codegree criterion]
+Let $U,W$ be disjoint, let $|U|=m\geq2$, and let $|W|\in\{m-1,m,m+1\}$.  Suppose $0\leq\delta\leq p\leq1$, $\eta\leq1$, $1\leq\delta m$, and $32\delta\leq\eta^5$.  In a bipartite graph $G[U,W]$, call an ordered pair $(w,w')\in W^2$ bad if either endpoint has fewer than $(p-\delta)m$ neighbors in $U$, or if the pair has more than $(p+\delta)^2m$ common neighbors in $U$.  If at most $6\delta|W|^2$ ordered pairs are bad, then $(U,W)$ is $(\eta,p)$-regular in the sense of \noderef{RegularPair}.
+\end{lemma}
+\begin{proof}
+First, $\eta>0$: otherwise $32\delta\leq\eta^5=0$ would give
+$\delta=0$, contrary to $1\leq\delta m$.  Write $k=|W|$ and let
+$U'\subseteq U$ and $W'\subseteq W$ satisfy $|U'|>\eta m$ and
+$|W'|>\eta k$.  Put $q=|W'|$.  The assumptions $m\geq2$ and
+$k\in\{m-1,m,m+1\}$ imply $k\geq1$, so $q>\eta k>0$ and
+\begin{equation}\label{eq:near-equal-ratio}
+ t\coloneqq \frac{k}{q}<\frac1\eta.
+\end{equation}
+
+Let $L\subseteq W$ be the set of vertices having fewer than
+$(p-\delta)m$ neighbors in $U$.  For every $w\in L$ and every $z\in W$,
+the ordered pair $(w,z)$ is bad by the endpoint condition.  These
+$|L|k$ ordered pairs are distinct, whence
+\[
+ |L|k\leq 6\delta k^2
+ \quad\text{and therefore}\quad |L|\leq6\delta k.
+\]
+Every vertex in $W'\setminus L$ has at least $(p-\delta)m$ neighbors in
+$U$.  Thus, writing $S_1=e(U,W')$, we obtain the explicit first-moment
+bound
+\begin{align*}
+ S_1
+ &=\sum_{w\in W'}|N_G(w)\cap U|\\
+ &\geq |W'\setminus L|(p-\delta)m\\
+ &\geq (q-6\delta k)(p-\delta)m.
+\end{align*}
+The last inequality remains valid when $q-6\delta k<0$, since its
+right-hand side is then nonpositive while $S_1\geq0$.
+
+For the second moment put $d_u=|N_G(u)\cap W'|$.  Double-counting
+ordered length-two paths with middle vertex in $U$ gives
+\[
+ \sum_{u\in U}d_u^2
+ =\sum_{(w,w')\in W'^2}|N_G(w)\cap N_G(w')\cap U|.
+\]
+There are at most $6\delta k^2$ bad ordered pairs in the restricted set
+$W'^2$.  Every good summand is at most $(p+\delta)^2m$, while every bad
+summand is at most $m$.  Consequently, with
+$S_2=\sum_{u\in U}d_u^2$,
+\[
+ S_2\leq (p+\delta)^2mq^2+6\delta k^2m
+ =mq^2\bigl((p+\delta)^2+6\delta t^2\bigr).
+\]
+Since $p\geq0$, the lower bound on $S_1$ may be substituted into the
+negative first-moment term in the centered second moment.  Expanding it
+line by line and using $k=tq$ yields
+\begin{align*}
+ \sum_{u\in U}(d_u-pq)^2
+ &=S_2-2pqS_1+mp^2q^2\\
+ &\leq mq^2\bigl((p+\delta)^2+6\delta t^2
+       -2p(p-\delta)(1-6\delta t)+p^2\bigr)\\
+ &=mq^2\bigl(4p\delta+\delta^2
+       +12p\delta(p-\delta)t+6\delta t^2\bigr).
+\end{align*}
+Here $0\leq\delta\leq p\leq1$, so
+$4p\delta+\delta^2\leq5\delta$ and
+$12p\delta(p-\delta)t\leq12\delta t$.  By
+\eqref{eq:near-equal-ratio} and $0<\eta\leq1$, it follows that
+\begin{align*}
+ \sum_{u\in U}(d_u-pq)^2
+ &<\delta mq^2\left(5+\frac{12}{\eta}
+                         +\frac6{\eta^2}\right)\\
+ &\leq \frac{23\delta}{\eta^2}mq^2
+ \leq \frac{23}{32}\eta^3mq^2
+ <\eta^3mq^2,
+\end{align*}
+where the penultimate inequality is exactly $32\delta\leq\eta^5$.
+
+Suppose now that the density between $U'$ and $W'$ differed from $p$
+by more than $\eta$.  Since
+$e(U',W')=\sum_{u\in U'}d_u$, this says
+\[
+ \left|\sum_{u\in U'}(d_u-pq)\right|>\eta|U'|q.
+\]
+Cauchy--Schwarz, followed by $|U'|>\eta m$, then gives
+\[
+ \sum_{u\in U}(d_u-pq)^2
+ \geq\sum_{u\in U'}(d_u-pq)^2
+ \geq\frac{\left(\sum_{u\in U'}(d_u-pq)\right)^2}{|U'|}
+ >\eta^2|U'|q^2
+ >\eta^3mq^2.
+\]
+This contradicts the preceding upper bound.  Hence every admissible
+$(U',W')$ has density in $[p-\eta,p+\eta]$, which is precisely
+\noderef{RegularPair}.
+\end{proof}

@@ -1,0 +1,51 @@
+\begin{lemma}[Finite union bound on all retention tests]
+Let $G$ be a finite graph, $L,R$ nonempty finite parts, $0\leq q\leq1$,
+$\xi>0$, and $0<\eta<\infty$. Put $a=|L|$, $b=|R|$, $s=\min(a,b)$,
+and $h=\eta.\operatorname{toReal}$. On the single sample space of
+\noderef{IndependentEdgeSample}, the probability of failing
+\noderef{RetentionCountControl} is at most
+\[
+B_{\xi,h}(a,b)=2(a+b)e^{-2\xi^2s}
+       +2\,2^{a+b}e^{-2\xi^2h^2ab}.
+\]
+The inequality is in the extended nonnegative reals, using
+$\operatorname{ofReal}(B_{\xi,h}(a,b))$ on the right.
+\end{lemma}
+\begin{proof}
+For a left vertex $v$, its tested coordinate set
+$A(\{v\},R)$ is a subset of $\{v\}\times R$, so its size is at most $b$.
+Apply \noderef{IndependentRetentionConcentration} with $m=b$:
+the probability of violating that degree test is at most
+$2e^{-2\xi^2b}\leq2e^{-2\xi^2s}$. A right vertex has a coordinate
+set of size at most $a$ and the same argument with $m=a$ gives the
+same final bound. Summing over the $a+b$ tested vertices gives the
+first term in $B_{\xi,h}$. Empty coordinate sets are explicitly allowed
+by that concentration node.
+
+For a tested rectangle $U\subseteq L,W\subseteq R$, the thresholds
+are equivalent to $|U|>ha$, $|W|>hb$. This conversion is valid because
+$\eta$ and the finite cardinalities are finite. Also $h>0$, since
+$0<\eta<\infty$. Thus both subset sizes are positive, and
+$m=|U||W|>h^2ab>0$. Its edge coordinate set is a subset of $U\times W$
+and hence has size at most $m$. The concentration node with this $m$
+gives failure probability at most
+$2e^{-2\xi^2m}\leq2e^{-2\xi^2h^2ab}$.
+There are exactly $2^a$ subsets of $L$ and $2^b$ subsets of $R$: each
+subset is specified by its membership bits. Hence there are at most
+$2^{a+b}$ tested rectangles, even when no rectangle passes the
+thresholds. Sum the last bound over the tested rectangles for the
+second term in $B_{\xi,h}$.
+
+By the definition in \noderef{RetentionCountControl}, its complement
+is the union of precisely these vertex and rectangle failure events.
+For a finite family $E_1,\ldots,E_N$, the pointwise inequality
+$1_{\cup E_j}\leq\sum_j1_{E_j}$, integrated against $\mu_q$, proves
+the union bound; no independence between different tests is required.
+All tests use the same law and the same coordinate function $\omega$.
+All events are measurable on this finite discrete space and have
+finite probability by \noderef{IndependentUnequalEdgeSampleLaw}
+specialized to the constant coordinate probabilities $q_i=q$. Thus taking
+real probabilities, adding the displayed nonnegative bounds, and then
+applying $\operatorname{ofReal}$ is legitimate and yields exactly the
+stated extended-real bound.
+\end{proof}

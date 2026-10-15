@@ -1,0 +1,24 @@
+\begin{lemma}[Four-rectangle factorial cancellation]
+Let $s,t\le n$, $x\le s,t$, and $t-x\le n-s$ be natural numbers.
+Put $y_1=x$, $y_2=s-x$, $y_3=t-x$, and
+$y_4=n-s-(t-x)=n-s-t+x$. Then
+\[
+ \binom s x\binom t x\binom{n-t}{s-x}\binom{n-s}{t-x}
+ {y_1!y_2!y_3!y_4!\over n!}
+ ={\binom t x\binom{n-t}{s-x}\over\binom n s}.
+\]
+This includes zero orders, including $n=0$.
+\end{lemma}
+\begin{proof}
+The factorial identity $\binom a b b!(a-b)!=a!$ for $b\le a$
+applied to $(a,b)=(s,x),(n-s,t-x),(n,s)$ gives, respectively,
+\[
+ \binom s x x!(s-x)!=s!,\quad
+ \binom{n-s}{t-x}(t-x)!y_4!=(n-s)!,\quad
+ \binom n s s!(n-s)!=n!.
+\]
+Multiplying the first two identities and then the third proves the desired
+identity after multiplying both sides by the positive numbers $n!$ and
+$\binom n s$. These numbers are positive also when $n=0$. All factorials
+of zero equal one, so no cancellation excludes an empty rectangle.
+\end{proof}

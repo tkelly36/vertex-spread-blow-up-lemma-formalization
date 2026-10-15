@@ -1,0 +1,28 @@
+\begin{lemma}[Bad rows of a lower-regular pair]
+Let $G$ be a graph, $L,R,S$ finite vertex sets, and $\varepsilon,d$ extended
+nonnegative reals. Suppose $G[L,R]$ is lower-$(\varepsilon,d)$-regular,
+$S\subseteq R$, and $\varepsilon|R|<|S|$. Then
+\[
+ |\{v\in L:|N_G(v)\cap S|<(d-\varepsilon)_+|S|\}|
+       \leq\varepsilon|L|.
+\]
+Here subtraction is truncated subtraction, as in
+\noderef{LowerRegularPair}.
+\end{lemma}
+\begin{proof}
+Let $T$ be the displayed bad-row set and suppose $\varepsilon|L|<|T|$.
+The strict thresholds imply that $T$ and $S$ are nonempty, so
+$|T||S|$ is positive and finite. By \noderef{FilteredProductRowCount},
+the ordered edge count is $\sum_{v\in T}|N_G(v)\cap S|$.
+Every summand is strictly below $(d-\varepsilon)_+|S|$; summing over
+the nonempty finite set $T$ therefore gives a strict upper bound
+$(d-\varepsilon)_+|T||S|$ on the edge count. Division by the positive
+finite denominator gives $d_G(T,S)<(d-\varepsilon)_+$, with density
+as defined in \noderef{PairDensity}. But $T\subseteq L$, $S\subseteq R$,
+and both strict thresholds hold, so \noderef{LowerRegularPair} gives
+$d_G(T,S)\geq(d-\varepsilon)_+$. This contradiction proves the bound.
+The argument does not require upper regularity or positive $\varepsilon$.
+If the truncated lower endpoint is infinite, the strict sum inequality
+and division still hold in the extended nonnegative reals; the
+denominator remains positive and finite.
+\end{proof}

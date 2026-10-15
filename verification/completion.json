@@ -1,0 +1,76 @@
+{
+  "source_checkpoint": "2c9924e1bc633639c6f5dc54c617c17e75debbd1",
+  "trellis_revision": "98db307f88de34ac4d6311d2efafeb88b5f21827",
+  "phase": "Complete",
+  "stage": "Complete",
+  "cycle": 322,
+  "present_node_count": 219,
+  "ordinary_node_count": 218,
+  "open_nodes": [],
+  "sketch_proof_nodes": [],
+  "placeholder_definition_nodes": [],
+  "coverage": {
+    "lem:spread-blowup": [
+      "SpreadBlowup"
+    ]
+  },
+  "protected_closure_nodes_per_target": {
+    "lem:spread-blowup": [
+      "BlowUpInstance",
+      "CandidacyLowerSuperRegular",
+      "CandidacySystem",
+      "CompatibleEmbedding",
+      "CylinderEvent",
+      "InstanceLowerSuperRegular",
+      "LowerRegularPair",
+      "LowerSuperRegularPair",
+      "PairDensity",
+      "VertexSpreadOn"
+    ]
+  },
+  "local_closure_unverified_nodes": [],
+  "local_closure_failures": {},
+  "human_input_outstanding": false,
+  "paper_status": {
+    "lem:spread-blowup": "Pass"
+  },
+  "current_correspondence_nonpassing": {},
+  "current_substantiveness_nonpassing": {},
+  "retained_soundness_nonpassing": {
+    "EquitableSquareColoring": "Fail"
+  },
+  "equitable_square_coloring": {
+    "sound_assessment": {
+      "status": "ReviewerPinnedFail",
+      "origin": "ReviewerAction",
+      "fingerprints": {
+        "own_tex_hash": "cfa65c4fb913aa4687632829fa0294478174f88a2ae9e38c677e1f0242a357bb",
+        "dep_statement_hashes": {
+          "BlowUpInstance": "a3a69ad5449553e110a66c806d1024b376e838ddc0705417592b3ec59ee8dc56"
+        },
+        "combined_sound_fp": "sound-v2:f4a6c75b917db3462773b462ca252bf0bf5026ae910886aea24d9baa4742e58d"
+      },
+      "lane_votes": {},
+      "reviewer_action_id": null
+    },
+    "current_sound_fingerprint": "sound-v2:f4a6c75b917db3462773b462ca252bf0bf5026ae910886aea24d9baa4742e58d",
+    "local_closure_accepted_at": "revalidate-cycle-316",
+    "local_closure_axcheck_status": "Agreed",
+    "kernel_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "certified_source_sha256": "3e0de7ddebc78cec440997d08f3fc17fce8d4505eda81941b21b4cd6f14d5661",
+    "current_source_sha256": "3e0de7ddebc78cec440997d08f3fc17fce8d4505eda81941b21b4cd6f14d5661"
+  },
+  "build": {
+    "command": "lake build Tablet",
+    "exit_code": 0,
+    "jobs": 3944,
+    "log": "lean-build.log"
+  },
+  "source_dirty_paths": [
+    " M .trellis-history/event-log/cycle-000322.jsonl"
+  ]
+}

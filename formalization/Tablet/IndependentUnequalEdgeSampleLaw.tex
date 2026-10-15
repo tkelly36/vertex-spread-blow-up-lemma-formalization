@@ -1,0 +1,23 @@
+\begin{lemma}[Independent unequal Bernoulli law]
+Let $I$ be a finite index type and let $q_i\in[0,1]$ be nonnegative real
+numbers. On $\Omega=\{0,1\}^I$ put the product of the Bernoulli laws with
+success probabilities $q_i$. This is a probability measure; the coordinate
+indicators $X_i$ are independent, $\mathbb E X_i=q_i$, and every centered
+indicator $X_i-q_i$ has subgaussian moment-generating-function parameter
+$1/4$, that is, for every real $s$,
+\[
+ \mathbb E\exp(s(X_i-q_i))\leq\exp(s^2/8).
+\]
+\end{lemma}
+\begin{proof}
+Each Bernoulli law is a probability measure, including $q_i=0$ and $q_i=1$,
+so its finite product is a probability measure. Evaluation at coordinate
+$i$ preserves measure to that coordinate's Bernoulli law. Consequently
+the integral of its indicator is the Bernoulli expectation $q_i$.
+The coordinate functions are measurable, and functions of distinct
+coordinates in a product measure are independent. Each indicator takes
+values in $[0,1]$. Mathlib's proved Hoeffding lemma
+\texttt{hasSubgaussianMGF\_of\_mem\_Icc} therefore gives the centered
+indicator parameter $(1-0)^2/4=1/4$. These are exactly the claimed
+independence, expectation, and moment-generating-function conclusions.
+\end{proof}

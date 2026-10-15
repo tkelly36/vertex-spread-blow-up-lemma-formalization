@@ -1,0 +1,17 @@
+\begin{lemma}[Values and bijectivity of a three-edge switch]
+Let $f:A\to B$ and let $x,a,b\in A$ be pairwise distinct. For the map
+$g=S(f;x,a,b)$ of \noderef{MatchingThreeEdgeSwitch},
+\[
+g(x)=f(a),\qquad g(a)=f(b),\qquad g(b)=f(x).
+\]
+For every $z\notin\{x,a,b\}$, $g(z)=f(z)$. If $f$ is bijective, then $g$
+is bijective.
+\end{lemma}
+\begin{proof}
+By \noderef{MatchingThreeEdgeSwitch}, first interchange $a,b$, then
+interchange $x,a$, and finally apply $f$. The two interchanges send
+$x$ to $a$, $a$ to $b$, and $b$ to $x$, since the three elements are
+distinct. They fix every other element. This gives all four value
+identities. Each interchange is its own inverse, so both are
+bijections. Their composition with the bijection $f$ is a bijection.
+\end{proof}

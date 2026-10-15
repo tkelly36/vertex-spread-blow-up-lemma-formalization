@@ -1,0 +1,51 @@
+\begin{lemma}[One pair-averaging step]
+Let $a=(a_t)_{t\in\{1,\ldots,n\}}$ have nonnegative real entries, let
+$i\ne j$, and let $k\ge0$ be an integer. Put $m=(a_i+a_j)/2$, and let
+$b$ agree with $a$ except that $b_i=b_j=m$. Then $b$ has nonnegative
+entries, $\sum_t b_t=\sum_t a_t$, and
+\[
+ \sum_{|A|=k}\prod_{t\in A}a_t
+ \le \sum_{|A|=k}\prod_{t\in A}b_t.
+\]
+Moreover, for every real $c$,
+\[
+ \sum_t(b_t-c)^2=\sum_t(a_t-c)^2-\frac{(a_i-a_j)^2}{2}.
+\]
+All subsets in the displayed sums are subsets of $\{1,\ldots,n\}$.
+\end{lemma}
+\begin{proof}
+The new entries $m$ are nonnegative, and their sum $2m=a_i+a_j$
+is the old sum of the two changed entries. Every other entry is unchanged,
+which proves nonnegativity and preservation of the total sum.
+For $k=0$ the only subset is empty and both product sums equal one.
+For $k=1$ the product sum is the total sum of the entries, so the
+claimed inequality is equality.
+
+For $k\ge2$, put $S=\{1,\ldots,n\}\setminus\{i,j\}$ and
+$E_r=\sum_{A\subseteq S,\ |A|=r}\prod_{t\in A}a_t$ for each
+nonnegative integer $r$. In particular these sums are zero if $r>|S|$.
+Partition the $k$-subsets into those containing neither $i$ nor $j$,
+only $i$, only $j$, and both. Removing the indicated indices gives
+bijections with the $k$-, $(k-1)$-, $(k-1)$-, and $(k-2)$-subsets
+of $S$, respectively. In each bijection the product is multiplied
+by $1,a_i,a_j$, or $a_i a_j$, respectively. Thus the old product sum is
+\[
+ E_k+(a_i+a_j)E_{k-1}+a_i a_j E_{k-2}.
+\]
+The entries on $S$ are unchanged, so the new product sum is
+$E_k+2mE_{k-1}+m^2E_{k-2}$. Their difference is
+\[
+ (m^2-a_i a_j)E_{k-2}
+ =\frac{(a_i-a_j)^2}{4}E_{k-2}\ge0,
+\]
+because every product defining $E_{k-2}$ is nonnegative.
+No negative-index sum is used in either small-$k$ case.
+
+Finally all terms of the squared-deviation sums except the two at
+$i,j$ cancel. Expanding those two terms gives
+\[
+ 2(m-c)^2-(a_i-c)^2-(a_j-c)^2
+ =-\frac{(a_i-a_j)^2}{2},
+\]
+which proves the last assertion for every $c$.
+\end{proof}

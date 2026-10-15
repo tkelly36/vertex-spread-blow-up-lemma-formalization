@@ -1,0 +1,11 @@
+\begin{definition}[Feasible integral net flow]
+For a network as in \noderef{FiniteCapacityNetwork}, a feasible integral
+net flow is a function $f:V\times V\to\mathbb Z$ such that
+$f(v,w)=-f(w,v)$, $f(v,w)\leq c(v,w)$, and
+$\sum_w f(v,w)=0$ whenever $v\ne s,t$.
+Its value is $|f|=\sum_w f(s,w)$. In particular
+$-c(w,v)\leq f(v,w)\leq c(v,w)$; if the reverse arc is absent, this
+is the usual nonnegative integral arc flow. A residual step from $v$ to
+$w$ is a pair with $f(v,w)<c(v,w)$, with residual capacity
+$c(v,w)-f(v,w)$.
+\end{definition}

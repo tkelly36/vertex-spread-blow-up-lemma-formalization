@@ -1,0 +1,18 @@
+\begin{lemma}[Real density adapter]
+For a simple graph $G$ and nonempty finite vertex sets $A,B$, the value
+$\operatorname{PairDensity}(G,A,B)$ of \noderef{PairDensity} is finite.
+Its real value equals Mathlib's rational edge density, viewed in $\mathbb R$,
+and both equal
+\[
+ \frac{|\{(a,b)\in A\times B:G(a,b)\}|}{|A||B|}.
+\]
+\end{lemma}
+\begin{proof}
+Nonemptiness makes both cardinalities positive, so their product is
+nonzero. The finite numerator divided by this nonzero finite denominator
+is finite. Applying the real-value map to the quotient in
+\noderef{PairDensity} gives the displayed real quotient. Expanding
+Mathlib's edge-density definition gives the same filtered Cartesian
+product and the same denominator, first in $\mathbb Q$ and then in
+$\mathbb R$. Thus the two densities agree.
+\end{proof}

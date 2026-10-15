@@ -1,0 +1,52 @@
+\begin{lemma}[Residual host lower super-regularity]
+Let $B,A$ be a finite blow-up instance with candidacy system and let $f$
+be a partial compatible embedding on $X$. Let $B_r$ be an instance on
+the literal complement subtypes with induced source and host graphs and
+the unchanged reduced graph, whose host map is the original host map
+restricted to the complement and whose host fibers have size $m$.
+Suppose $B$ has host lower-$(\varepsilon,d)$-super-regularity, at most $L$
+vertices are removed from each host fiber, and, for every $i$,
+\[
+ \varepsilon|V_i|\leq\varepsilon'm,\qquad
+ d'-\varepsilon'\leq d-\varepsilon,\qquad
+ (d'-\varepsilon')m\leq(d-\varepsilon)|V_i|-L.
+\]
+Then $B_r$ has host lower-$(\varepsilon',d')$-super-regularity.
+\end{lemma}
+\begin{proof}
+Fix an edge $ij$ of the unchanged reduced graph. By
+\noderef{InstanceLowerSuperRegular} its original host pair is
+lower-super-regular. Write $U=V_i$, $W=V_j$ and
+$D_U=f(X)\cap V_i$, $D_W=f(X)\cap V_j$.
+These deletion sets are subsets of the corresponding parts.
+The subtype projection identifies each residual fiber bijectively with
+the ambient part minus its deletion set, so both residual parts have
+cardinality $m$.
+
+First verify the lower-regularity premise of
+\noderef{LowerSuperRegularDeletionSlicing}. For subsets
+$P\subseteq U\setminus D_U$, $Q\subseteq W\setminus D_W$ with
+$|P|>\varepsilon'm$ and $|Q|>\varepsilon'm$, the threshold assumptions
+give $|P|>\varepsilon|U|$ and $|Q|>\varepsilon|W|$.
+The first clause of \noderef{LowerSuperRegularPair} and
+\noderef{LowerRegularPair} therefore give density at least
+$d-\varepsilon\geq d'-\varepsilon'$ in the original graph.
+The assumed degree inequalities and $|D_U|,|D_W|\leq L$ give
+\[
+ (d'-\varepsilon')m\leq(d-\varepsilon)|U|-|D_U|,
+ \qquad (d'-\varepsilon')m\leq(d-\varepsilon)|W|-|D_W|,
+\]
+by antitonicity of truncated subtraction in the deleted amount.
+All hypotheses of \noderef{LowerSuperRegularDeletionSlicing} are now
+verified; it supplies lower-super-regularity of the ambient residual pair.
+
+To transfer it to the literal subtype graph, use the subtype value map
+from $S=V(G)\setminus f(X)$ into $V(G)$. This map is injective, and
+adjacency in $G[S]$ is exactly adjacency of the images in $G$.
+The exact fiber-image equalities established above identify the images
+of the two residual fibers with $U\setminus D_U$ and $W\setminus D_W$.
+The reverse implication of \noderef{LowerSuperRegularPairEmbedding}
+therefore transfers the ambient lower-super-regularity to the subtype
+pair. Doing this for every edge of $R$ proves
+\noderef{InstanceLowerSuperRegular} for $B_r$.
+\end{proof}

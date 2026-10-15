@@ -1,0 +1,65 @@
+\begin{lemma}[Outgoing switching candidates]
+Let $G$ be a graph on a finite vertex set, and let $U,W$ be disjoint sets of
+the same positive size $n$. Suppose that $0<\varepsilon$, $4\varepsilon<d\leq1$,
+and $G[U,W]$ is $(\varepsilon,d)$-super-regular. Let
+$x_N:\{1,\ldots,k\}\to U$ and $y_N:\{1,\ldots,k\}\to W$ be injective,
+with $k\leq dn/2$. Let $f:U\to W$ be a perfect matching satisfying
+$f(x_N(i))=y_N(i)$ for every $i$, and let $x\in U$, $y\in W$ satisfy $f(x)=y$.
+Write $\mathcal C_f$ for the ordered pairs $(a,b)\in U^2$ such that
+$x,a,b$ are pairwise distinct, $xf(a),af(b),bf(x)$ are edges of $G$,
+and $a,b\notin\operatorname{range}(x_N)$. Then, interpreting the finite
+parameters $d,\varepsilon$ as real numbers,
+\[
+ (d-\varepsilon)(d/2-\varepsilon)^2 n^2\leq |\mathcal C_f|+3n.
+\]
+\end{lemma}
+\begin{proof}
+Since $\varepsilon<d\leq1$, both parameters are finite; all inequalities
+below use their real representatives.
+By \noderef{PerfectMatching}, $f$ is a bijection. Let
+$X_N=\operatorname{range}(x_N)$ and $Y_N=\operatorname{range}(y_N)$.
+The indexing injections give $|X_N|=|Y_N|=k$.
+Moreover, $f(a)\in Y_N$ if and only if $a\in X_N$: the reverse implication
+follows from the prescribed equalities, while if $f(a)=y_N(i)=f(x_N(i))$,
+injectivity of $f$ gives $a=x_N(i)$.
+Define
+\[
+ A_0=\{a\in U:xf(a)\in E(G)\},\quad
+ B_0=\{b\in U:by\in E(G)\},\quad
+ A=A_0\setminus X_N,\quad B=B_0\setminus X_N.
+\]
+Equivalently, $A$ is the inverse matching image of the uncovered neighbors
+of $x$ in $W$. The degree clauses of \noderef{SuperRegularPair}, together
+with the bijection from $A_0$ to the neighbors of $x$ in $W$, give
+$|A_0|,|B_0|\geq(d-\varepsilon)n$. Removing at most $k$ vertices gives
+\[
+ |A|,|B|\geq(d-\varepsilon)n-k\geq(d/2-\varepsilon)n.
+\]
+Set $L=A\subseteq U$ and $R=f(B)\subseteq W$, as subsets of the ambient
+vertex set. The matching image preserves cardinality, so
+$|L|=|A|$ and $|R|=|B|$. Since $4\varepsilon<d$ and $n>0$, both sizes
+strictly exceed $\varepsilon n$. The regularity clause in
+\noderef{SuperRegularPair} therefore gives density at least $d-\varepsilon$
+between $L$ and $R$. By the density definition in \noderef{PairDensity},
+the number of these edges is at least
+\[
+ (d-\varepsilon)|A||B|
+ \geq(d-\varepsilon)(d/2-\varepsilon)^2 n^2.
+\]
+The factors used in this multiplication are nonnegative, and the density
+denominator is positive because both sets have positive size.
+
+The map $(a,b)\mapsto(a,f(b))$ bijects
+$T=\{(a,b)\in A\times B:af(b)\in E(G)\}$ with those ambient edges:
+injectivity follows from injectivity of $f$, and surjectivity follows from
+the definitions of $L$ and $R$. Exclude from $T$ pairs with $a=x$, with
+$b=x$, or with $a=b$. Each exclusion lies in a set of exactly $n$ pairs,
+namely $\{(x,b):b\in U\}$, $\{(a,x):a\in U\}$, or
+$\{(a,a):a\in U\}$. Their union thus has size at most $3n$.
+The remaining pairs are exactly $\mathcal C_f$: membership in $A$ gives
+$xf(a)\in E(G)$ and $a\notin X_N$; membership in $B$ gives
+$by=bf(x)\in E(G)$ and $b\notin X_N$; membership in $T$ supplies $af(b)$;
+and the three exclusions impose the required distinctness. Conversely,
+these conditions put every candidate in $T$ outside the three excluded sets.
+It follows that $|T|\leq|\mathcal C_f|+3n$, proving the claim.
+\end{proof}

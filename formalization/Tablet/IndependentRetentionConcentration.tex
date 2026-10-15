@@ -1,0 +1,45 @@
+\begin{lemma}[Two-sided concentration for one retention test]
+Let $I$ be a subset of a finite coordinate set, $0\leq q\leq1$,
+$m$ a positive integer with $|I|\leq m$, and $\xi>0$. Under the common
+law of \noderef{IndependentEdgeSample}, the count of
+\noderef{IndependentRetentionCount} satisfies
+\[
+\mu_q\{\omega:|K_I(\omega)-q|I||>\xi m\}
+\leq 2\exp(-2\xi^2 m).
+\]
+The bound is interpreted as an extended nonnegative real.
+\end{lemma}
+\begin{proof}
+Write $k=|I|$ and $t=\xi m>0$. If $k=0$, the count is zero by
+\noderef{IndependentRetentionCount}, so the failure event is empty and
+its probability is zero. Suppose $k>0$. By
+\noderef{IndependentUnequalEdgeSampleLaw} specialized to the constant
+coordinate probabilities $q_i=q$, the coordinates have expectations $q$,
+and $X_i-q$ are independent centered
+sub-Gaussian variables with parameters $1/4$. Independence is preserved
+under coordinatewise translation and negation. The count definition gives
+$K_I-qk=\sum_{i\in I}(X_i-q)$, and
+$qk-K_I=\sum_{i\in I}(-(X_i-q))$. Negation preserves the same MGF bound:
+substitute $-u$ for $u$ in that bound.
+
+Apply the checked Mathlib theorem
+\texttt{ProbabilityTheory.HasSubgaussianMGF.measure\_sum\_ge\_le\_of\_iIndepFun}:
+for independent variables with parameters $c_i$ and $t\geq0$, it bounds
+the real probability of $t\leq\sum_iY_i$ by
+$\exp(-t^2/(2\sum_i c_i))$. Here $\sum_{i\in I}c_i=k/4$, so each of
+the two non-strict tail events has probability at most
+$\exp(-2t^2/k)$. The strict absolute-value failure event is contained
+in their union; subadditivity therefore bounds its probability by
+$2\exp(-2\xi^2m^2/k)$. Since $0<k\leq m$, we have $m^2/k\geq m$.
+Multiplication by $-2\xi^2$ reverses this inequality, and monotonicity
+of the exponential gives the claimed bound.
+
+All events are measurable because the sample space is finite and
+discrete. By the probability clause of
+\noderef{IndependentUnequalEdgeSampleLaw} with the same constant-coordinate specialization,
+every event measure is at most one and thus finite. Its real conversion
+is therefore reversible: $\operatorname{ofReal}(\mu(E).\operatorname{toReal})
+=\mu(E)$. Applying the monotone map $\operatorname{ofReal}$ to the real
+tail and union inequalities proves precisely the stated extended-real
+inequality. No division by a zero summand count is used.
+\end{proof}

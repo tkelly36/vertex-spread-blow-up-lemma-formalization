@@ -1,0 +1,78 @@
+\begin{lemma}[Weighted rectangle expectation]
+Let $G$ be a finite simple graph, let $|U|=|W|=n$, let
+$0<d\leq1$, $\gamma,\alpha>0$, and let $l$ be natural.
+Let $\mathcal P$ be a partition of the whole vertex set and let
+$E\subseteq\mathcal P\times\mathcal P$. Assume that, for every
+$(S,T)\in E$, $d\leq D_{ST}=d_G(U\cap S,W\cap T)\leq1$, and that
+\[
+ |d_G(A,B)-D_{ST}|<2\alpha
+\]
+whenever $A\subseteq U\cap S$, $B\subseteq W\cap T$ have
+$|A|>\gamma|U\cap S|$, $|B|>\gamma|W\cap T|$.
+Assume also
+\[
+ \sum_{(S,T)\in(\mathcal P\times\mathcal P)\setminus E}
+ |U\cap S||W\cap T|\leq(4\gamma+9\alpha+6/l)n^2.
+\]
+There is a function $p:V\times V\to[0,1]$, zero on nonedges and
+outside $U\times W$, which assigns to every edge from
+$u\in U\cap S$ to $w\in W\cap T$ the value $d/D_{ST}$ if
+$(S,T)\in E$, and the value $1$ otherwise. For all $A\subseteq U$,
+$B\subseteq W$, its total weight satisfies
+\[
+ \left|\sum_{(a,b)\in A\times B}p(a,b)-d|A||B|\right|
+ \leq2\alpha|A||B|+(6\gamma+9\alpha+6/l)n^2.
+\]
+The same function $p$ has the following property for every real $h$:
+if $h>0$ and $2\alpha+(6\gamma+9\alpha+6/l)/h^2<h/4$, then
+for all such $A,B$ with $|A|,|B|>hn$ the same discrepancy is
+strictly less than $(h/4)|A||B|$. Real division is used, with the usual
+zero-denominator convention.
+\end{lemma}
+\begin{proof}
+Each vertex lies in exactly one part of the partition. For an edge
+in $U\times W$, use these unique parts to assign the stated weight;
+set all other weights to zero. Thus there is no ambiguity in the
+definition. For every eligible pair, $D_{ST}\geq d>0$, so the
+denominator is positive and $0<d/D_{ST}\leq1$. The other possible
+values are zero and one. All probabilities are consequently valid
+before any sampling is undertaken.
+
+Fix $A\subseteq U$, $B\subseteq W$ and write $A_S=A\cap S$,
+$B_T=B\cap T$. These chunks partition $A,B$, and their Cartesian
+rectangles partition $A\times B$. On an eligible rectangle whose
+two intersections exceed their $\gamma$ thresholds, the weight sum
+is $(d/D_{ST})e_G(A_S,B_T)$. Both intersections are nonempty:
+their sizes are strictly greater than nonnegative numbers. Hence
+the count-density identity gives
+\[
+ \left|(d/D_{ST})e_G(A_S,B_T)-d|A_S||B_T|\right|
+ = (d/D_{ST})|d_G(A_S,B_T)-D_{ST}||A_S||B_T|
+ \leq2\alpha|A_S||B_T|.
+\]
+For every other rectangle the weight sum and the target
+$d|A_S||B_T|$ both lie in $[0,|A_S||B_T|]$, since $p,d\in[0,1]$.
+Their distance is therefore at most its area, also for empty
+rectangles.
+
+All ineligible rectangles cost at most
+$(4\gamma+9\alpha+6/l)n^2$ by the assumed area inequality and
+$A_S\subseteq U\cap S$, $B_T\subseteq W\cap T$.
+For eligible rectangles with a small $A_S$, the union of all such
+$A_S$ has size at most
+$\gamma\sum_S|U\cap S|=\gamma n$, so these rectangles cost at most
+$\gamma n^2$. The small $B_T$ rectangles cost at most another
+$\gamma n^2$. These bounds apply whether or not the corresponding
+other intersection is small, and overlap only overcounts the cost.
+On the remaining rectangles the sum of the areas is at most
+$|A||B|$. Adding all discrepancies by the triangle inequality
+gives exactly
+$2\alpha|A||B|+(6\gamma+9\alpha+6/l)n^2$.
+For the last assertion fix any real $h>0$ satisfying the stated margin
+inequality and put $N=|A||B|$. The strict thresholds and
+$h>0$ imply $N>h^2n^2$ and $N>0$, even if $n=0$.
+The coefficient $K=6\gamma+9\alpha+6/l$ is nonnegative, including
+the real-division convention when $l=0$. Thus $n^2/N\leq1/h^2$.
+Dividing the bound just proved by $N$ gives an error at most
+$2\alpha+K/h^2<h/4$, as required.
+\end{proof}

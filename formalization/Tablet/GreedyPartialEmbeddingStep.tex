@@ -1,0 +1,78 @@
+\begin{lemma}[One-vertex greedy extension]
+Let $\Delta,n$ be natural numbers with $n>0$, and let $d,\varepsilon,a$
+be extended nonnegative reals satisfying
+\[
+ 0<a,\quad a\leq d(d-\varepsilon)_+^k\ (k\leq\Delta),\quad
+ \varepsilon(1+\varepsilon)<a,\quad
+ (\Delta+1)\varepsilon(1+\varepsilon)\leq a/2.
+\]
+Let $B,A$ be a finite blow-up instance with candidacy system, whose
+host is lower-$(\varepsilon,d)$-regular, with
+$\Delta(H)\leq\Delta$, $|X_i|\leq\varepsilon|V_i|$, and
+$|V_i|\leq(1+\varepsilon)n$ for every $i$. For every greedy state
+$f$ on $S$ and every $z\notin S$, there is a nonempty finite set $L$
+of at least $(a/2)n$ possible images such that each $v\in L$ gives a
+greedy state on $S\cup\{z\}$ whose total map is exactly $f$ with its
+value at $z$ replaced by $v$. Greedy states are those of
+\noderef{GreedyPartialEmbedding}.
+\end{lemma}
+\begin{proof}
+Write $b=(d-\varepsilon)_+$ and $i=c(z)$. The exposure count
+$k_S(x)=|S\cap N_H(x)|$ is at most $\Delta$. Hence
+\noderef{GreedyPartialEmbedding} and the power hypothesis give
+$|D_S^f(x)|\geq an$ for every $x\notin S$. By
+\noderef{RawCandidates} and \noderef{CandidacySystem}, this set lies
+in $V_{c(x)}$.
+For each unembedded neighbor $w$ of $z$, put $j=c(w)$ and
+\[
+ E_w=\{v\in V_i:|N_G(v)\cap D_S^f(w)|<b|D_S^f(w)|\}.
+\]
+We have $|D_S^f(w)|\geq an>\varepsilon(1+\varepsilon)n
+\geq\varepsilon|V_j|$. The strict inequality follows by multiplying
+the strict threshold hypothesis by the positive finite integer $n$.
+The edge $zw$ gives $R(i,j)$ by \noderef{BlowUpInstance}.
+Thus \noderef{InstanceLowerRegular} supplies the lower-regular pair
+$(V_i,V_j)$, and \noderef{LowerRegularBadRows} gives
+$|E_w|\leq\varepsilon|V_i|$. This uses only lower regularity.
+
+Let $O_i=f(S)\cap V_i$. On $S$ the map is injective and compatible
+by \noderef{PartialCompatibleEmbedding}. Cluster respect implies
+that an image lies in $V_i$ exactly when its source lies in $X_i$.
+Thus $|O_i|=|S\cap X_i|\leq|X_i|\leq\varepsilon|V_i|$.
+Define
+\[
+ L=D_S^f(z)\setminus\left(O_i\cup
+                      \bigcup_{w\in N_H(z)\setminus S}E_w\right).
+\]
+There are at most $\Delta$ bad sets. Subtracting the size of a union
+of forbidden sets from the size of $D_S^f(z)$ gives
+\[
+ |L|\geq an-(\Delta+1)\varepsilon|V_i|
+ \geq an-(\Delta+1)\varepsilon(1+\varepsilon)n\geq(a/2)n.
+\]
+All quantities subtracted here are finite. Indeed, if $a$ were infinite,
+$an\leq|D_S^f(z)|$ would contradict finiteness of this raw set.
+If $\varepsilon$ were infinite, the strict threshold hypothesis would
+fail. The loss inequality is therefore ordinary subtraction of finite
+nonnegative real quantities. Since $a>0$ and $n>0$, the last lower
+bound is positive and $L$ is nonempty.
+
+Fix $v\in L$ and replace the value at $z$ by $v$. Raw membership
+gives $A(z,v)$ and every required edge to an embedded neighbor of $z$.
+It also places $v$ in $V_i$. Because $v\notin O_i$, it is outside
+$f(S)$: any image equal to $v$ necessarily lies in $V_i$. Thus the
+updated map is injective on $S\cup\{z\}$, remains compatible, and
+preserves all edges of the induced source graph. Values on $S$ did
+not change. For each remaining vertex $w$ adjacent to $z$, its new
+raw set is exactly $D_S^f(w)\cap N_G(v)$ and its new exposure count
+is $k_S(w)+1$. Because $v\notin E_w$, its size is at least
+\[
+ b|D_S^f(w)|\geq d b^{k_S(w)+1}n.
+\]
+Multiplication is monotone in the extended nonnegative reals, including
+zero endpoints. A remaining vertex not adjacent to $z$ has exactly
+the same raw set and exposure count as before. Hence the invariant
+holds for every remaining vertex, not just vertices of a prescribed
+future embedded set. Together with partial compatibility this is
+precisely the required greedy state.
+\end{proof}

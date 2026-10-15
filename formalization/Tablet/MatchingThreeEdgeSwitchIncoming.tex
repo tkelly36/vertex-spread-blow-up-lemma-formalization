@@ -1,0 +1,30 @@
+\begin{lemma}[Incoming reconstruction from the third matching edge]
+Fix an injective map $g:A\to B$, $x,a\in A$, and $y\in B$.
+Suppose $f_1,f_2:A\to B$ and $b_1,b_2\in A$ satisfy
+$f_1(x)=f_2(x)=y$, that $x,a,b_j$ are pairwise distinct for each
+$j\in\{1,2\}$, and that
+\[
+ S(f_1;x,a,b_1)=g=S(f_2;x,a,b_2)
+\]
+with the switch of \noderef{MatchingThreeEdgeSwitch}.
+Then $b_1=b_2$ and $f_1=f_2$. Thus, for a fixed outgoing matching $g$
+and removed edge $xy$, the left endpoint $a$ of the further matching
+edge determines at most one incoming matching.
+\end{lemma}
+\begin{proof}
+By \noderef{MatchingThreeEdgeSwitchProperties},
+$g(b_1)=f_1(x)=y=f_2(x)=g(b_2)$. Injectivity of $g$ gives
+$b_1=b_2$; denote the common element by $b$.
+The same value identities recover the original functions at the
+three modified elements:
+\[
+ f_j(x)=y,\qquad f_j(a)=g(x),\qquad f_j(b)=g(a).
+\]
+At every other $z$, that node says $f_j(z)=g(z)$.
+These four cases exhaust $A$ and show that $f_1$ and $f_2$ have
+identical values everywhere. Hence they are equal.
+In the matching interpretation, the edges of $g$ on the cycle are
+$xg(x)$, $ag(a)$, and $bg(b)=by$. The first and last meet the ends
+of $xy$, while the edge at $a$ is the further edge. This verifies
+the reconstruction description.
+\end{proof}

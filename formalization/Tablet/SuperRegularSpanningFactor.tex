@@ -1,0 +1,63 @@
+\begin{lemma}[Regular factor in a super-regular pair]
+For every $0<\varepsilon$ and $2\varepsilon<d\leq1$, there is $n_0$ such
+that, whenever $n\geq n_0$ and $G[U,W]$ is an
+$(\varepsilon,d)$-super-regular pair with $|U|=|W|=n$, it contains a
+spanning $k$-regular subgraph for some natural number $k$ satisfying
+$k\geq(d-2\varepsilon)n$.
+\end{lemma}
+\begin{proof}
+Because $d\leq1$ and $2\varepsilon<d$, both parameters are finite real
+numbers despite being represented as extended nonnegative reals.  Choose
+$n_0$ so large that $\varepsilon n\geq2$ for $n\geq n_0$, and fix such an
+$n$.  By \noderef{SuperRegularPair}, the super-regular hypothesis supplies
+the $\operatorname{RegularPair}$ clause used below for the large--large
+density estimate, together with the two opposite-side degree bounds used in
+the two small-side cases.  Put
+\[
+ q=(d-2\varepsilon)n,qquad k=\lceil q\rceil.
+\]
+Then $k\geq q$.  Also $k<q+1\leq(d-\varepsilon)n$, the last inequality
+following from $1\leq\varepsilon n$.  We verify the cut condition of
+\noderef{BipartiteRegularFactorCriterion}.
+
+Fix $A\subseteq U$ and $B\subseteq W$, write $a=|A|$, $b=|B|$, and put
+$s=a+b-n$.  There is nothing to prove if $s\leq0$, so assume $s>0$.
+First suppose $a>\varepsilon n$ and $b>\varepsilon n$.  Regularity gives
+\[
+ e_G(A,B)\geq(d-\varepsilon)ab.
+\]
+Indeed the definition of density says
+$e_G(A,B)=d_G(A,B)ab$, and neither $a$ nor $b$ is zero.  The elementary
+identity
+\[
+ ab-n(a+b-n)=(n-a)(n-b)\geq0
+\]
+gives $ab\geq ns$.  Since $k\leq(d-\varepsilon)n$, it follows that
+$e_G(A,B)\geq(d-\varepsilon)ns\geq ks$.
+
+Suppose next that $a\leq\varepsilon n$.  Since $s>0$, write $b=n-t$ with
+$0\leq t<a$.  Every vertex of $A$ has at least $(d-\varepsilon)n$
+neighbours in $W$, and at most $t$ of them lie in $W\setminus B$.  Thus
+\[
+ e_G(A,B)\geq a((d-\varepsilon)n-t).
+\]
+If $a\leq k$, then
+\[
+ a((d-\varepsilon)n-t)-k(a-t)
+ =a((d-\varepsilon)n-k)+t(k-a)\geq0.
+\]
+Here both terms are nonnegative because $k\leq(d-\varepsilon)n$.  If
+$a>k$, the same affine expression is decreasing in $t$, so it is bounded
+below by its value at $t=a$ (even though the actual integer satisfies
+$t<a$).  That value is $a((d-\varepsilon)n-a)$, which is nonnegative since
+$a\leq\varepsilon n<(d-\varepsilon)n$ by $2\varepsilon<d$.
+Thus $e_G(A,B)\geq k(a-t)=ks$ in either subcase.
+
+The case $b\leq\varepsilon n$ is identical with $U,W$ interchanged, using
+the minimum-degree condition on vertices of $B$.  The remaining possibility
+has already been treated by regularity.  Therefore every cut inequality
+holds, and \noderef{BipartiteRegularFactorCriterion} supplies the desired
+spanning $k$-regular subgraph.  Its construction uses only edges of $G$, and
+the ceiling choice gives the stated extended-nonnegative-real inequality
+after coercing the natural number $k$.
+\end{proof}

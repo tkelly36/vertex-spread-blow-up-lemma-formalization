@@ -1,0 +1,17 @@
+\begin{lemma}[Rectangle inequalities bound the cut expression]
+Let $G$ be a simple graph and let $U,W$ be finite sets with
+$|U|=|W|=n$. Let $k\in\mathbb N$ and suppose
+$k\max\{0,|X|+|Y|-n\}\leq e_G(X,Y)$ for every $X\subseteq U$ and
+$Y\subseteq W$. Then, for every $A\subseteq U$ and $B\subseteq W$,
+\[
+ kn\leq k|A|+e_G(U\setminus A,W\setminus B)+k|B|.
+\]
+\end{lemma}
+\begin{proof}
+Write $a=|A|$, $b=|B|$. The subset hypotheses give $a,b\leq n$ and
+$|U\setminus A|=n-a$, $|W\setminus B|=n-b$. If $a+b\leq n$, applying
+the rectangle inequality to these two complements gives
+$e_G(U\setminus A,W\setminus B)\geq k(n-a-b)$. Adding $ka+kb$ yields
+$kn$. If $a+b>n$, already $ka+kb=k(a+b)\geq kn$, and the edge count
+is nonnegative. This also covers $n=0$ and $k=0$.
+\end{proof}

@@ -1,0 +1,115 @@
+\begin{lemma}[Finite greedy law with random total-map completion]
+Let $U,V$ be finite sets, $q\in[0,1]$ an extended nonnegative real,
+and $T(u)\subseteq V$ a nonempty finite set for every $u\in U$,
+with $1/|T(u)|\leq q$. Let $\mathrm{Good}(S,f)$ be a predicate on
+finite subsets $S\subseteq U$ and total maps $f:U\to V$ satisfying:
+\begin{enumerate}
+\item If $f$ and $g$ agree on $S$, then
+$\mathrm{Good}(S,f)\Longleftrightarrow\mathrm{Good}(S,g)$.
+\item $\mathrm{Good}(\varnothing,f)$ holds for every total map $f$.
+\item Whenever $z\notin S$ and $\mathrm{Good}(S,f)$, there is a
+nonempty finite set $L\subseteq V$ with $1/|L|\leq q$ such that
+$\mathrm{Good}(S\cup\{z\},f[z\mapsto v])$ for every $v\in L$.
+\end{enumerate}
+Then for every $S\subseteq U$ there is a PMF on the subtype of total
+maps satisfying $\mathrm{Good}(S,f)$ whose projection to total maps
+is $q$-vertex-spread on all of $V$, in the sense of
+\noderef{VertexSpreadOn}.
+\end{lemma}
+\begin{proof}
+First choose $b(u)\in T(u)$ for every $u$. These choices define a total
+map $b$ even if $U$ is empty; no element of $V$ is needed in the empty
+case. For a map $h:S\to V$, let $e_S(h)$ be the total map equal to
+$h$ on $S$ and equal to $b$ outside $S$. The locality assumption
+implies that whether $\mathrm{Good}(S,e_S(h))$ holds is independent
+of these outside values. Call such a restricted map $h$ valid.
+
+Fix the prescribed $S$ and list its vertices without repetition as
+$z_1,\ldots,z_m$. Put $S_t=\{z_1,\ldots,z_t\}$.
+We construct a law on functions $S_t\to V$ which is $q$-spread and
+whose positive-mass functions are valid. For $t=0$, use the point
+mass on the unique empty function. By \noderef{CylinderEvent}, its
+only cylinders are of length zero, with mass $1=q^0$; an injective
+positive-length prescription into the empty domain is impossible.
+Validity follows from the empty
+set assumption applied to $b$. Together with $q\leq1$, these cylinder
+checks establish \noderef{VertexSpreadOn} on the whole codomain $V$.
+
+Suppose the law on $S_t$ has been constructed. For every valid
+function $h:S_t\to V$, apply the extension assumption to
+$e_{S_t}(h)$ and $z=z_{t+1}$ and choose a corresponding set $L_h$.
+On the singleton block $\{z\}$ choose its value uniformly in $L_h$.
+For every invalid $h$, define the kernel instead by uniform choice
+in $T(z)$. This defines a kernel for every prefix function, including
+all functions of mass zero. Both choice sets are nonempty. By
+Mathlib's \texttt{PMF.toOuterMeasure\_uniformOfFinset\_apply}, the probability of a prescribed
+value $v$ is zero if $v$ is outside the choice set and otherwise is
+its reciprocal cardinality, which is at most $q$. Mapping the chosen
+value to a function on the singleton does not change this probability,
+since evaluation at its sole element is an inverse to that map.
+Every kernel on the singleton block is therefore $q$-spread by
+\noderef{VertexSpreadOn}, using the cylinders of \noderef{CylinderEvent}:
+the empty cylinder has mass one, a one-point cylinder has the bound
+just proved, and an injective prescription of length at least two on
+a singleton does not exist. Its scalar condition $q\leq1$ is assumed.
+
+Apply \noderef{VertexSpreadSequential} with first source type $S_t$,
+second source type $\{z\}$, and target type $V$. Its bind and map
+give a $q$-spread law on functions on their disjoint sum. Identify this
+sum with $S_{t+1}$ by sending each old vertex to itself and the sole
+new vertex to $z$. This is a bijection because $z\notin S_t$. By
+\noderef{CylinderEvent}, under precomposition by its inverse a cylinder
+corresponds to a cylinder with the same number of prescriptions and
+injective sources. The resulting cylinder probabilities are equal and
+the scalar condition $q\leq1$ is unchanged, so
+\noderef{VertexSpreadOn} is preserved.
+
+To check support, suppose an extended function has positive mass.
+All spaces are finite, so the bind and map formulas express its mass
+as a finite sum of products of prefix masses and conditional masses.
+If this sum is positive, at least one product is positive. Thus its
+prefix has positive mass and is valid, and its new value belongs to
+$L_h$: a value outside the uniform choice set has mass zero by
+\texttt{PMF.toOuterMeasure\_uniformOfFinset\_apply}. The extension assumption makes
+$e_{S_t}(h)[z\mapsto v]$ good on $S_{t+1}$. This total map agrees on
+$S_{t+1}$ with the extension of the actual restricted function, so
+locality makes that restricted function valid. The invalid-prefix
+fallback is consequently never used at a positive-mass prefix.
+This proves both induction assertions, yielding a law on $S$.
+
+Next list the vertices of $U\setminus S$. Append their values one at
+a time using independent uniform choices in their sets $T(u)$.
+Each kernel is constant as a function of the prefix, hence is defined
+on every prefix, and has the same singleton spread bound as above.
+Repeated applications of \noderef{VertexSpreadSequential} and the
+same cylinder-preserving bijections give a law $\nu$ on total maps
+$U\to V$ satisfying \noderef{VertexSpreadOn} on the whole codomain.
+Appending values never changes the restriction
+to $S$. Therefore every positive-mass total map satisfies
+$\mathrm{Good}(S,f)$ by the locality assumption and the established
+validity of its restriction. This is why independent random values,
+rather than the deterministic values of $b$, were used for the
+stored completion: the desired bound concerns all source vertices.
+
+For completeness, package this law into the subtype without changing
+its projected law. The finite support
+$P=\{f:\nu(f)\ne0\}$ is nonempty because the masses sum to one.
+Every $f\in P$ has a proof of $\mathrm{Good}(S,f)$. Choose $f_0\in P$.
+Map a total map $f$ to $\langle f,\mathrm{Good}(S,f)\rangle$ when
+it belongs to $P$, and map it to the packaged $f_0$ otherwise. This
+is a total function to the asserted subtype. Let $\mu$ be its
+pushforward of $\nu$. For every event $E$ of total maps, the mass
+of its preimage under the subtype projection is
+\[
+ \sum_{f\in P}\nu(f)\mathbf1_E(f)
+       +\sum_{f\notin P}0\mathbf1_E(f_0)=\nu(E).
+\]
+Thus the projected law is exactly $\nu$. In particular, taking $E$ to
+be each cylinder of \noderef{CylinderEvent} preserves every cylinder
+bound, and the scalar condition $q\leq1$ is unchanged. Hence the
+projected law satisfies \noderef{VertexSpreadOn} on the whole codomain
+$V$. If $U$ is empty this construction is the point mass on
+the empty map, even if $V$ is empty. If $S$ is empty but $U$ is not,
+only the independent-completion steps are performed. Both cases
+are covered by the same reasoning.
+\end{proof}

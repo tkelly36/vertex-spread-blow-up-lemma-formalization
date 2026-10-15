@@ -1,0 +1,88 @@
+\begin{lemma}[Contained extraction on equal or consecutive parts]
+Let $0<\eta<1$, $0<c<d^2/2$, and $d\leq1$, in extended
+nonnegative reals. There are $0<\theta<\eta$ and an integer $N\geq1$,
+depending only on these parameters, such that the following holds.
+If $G$ is a finite simple graph, $U,W$ are disjoint, both sizes belong
+to $\{m,m+1\}$ with $m\geq N$, and $(U,W)$ is lower
+$(\theta,d)$-super-regular, then there is a graph $F$ on the original
+vertex set, contained in $G$, with edges only between $U$ and $W$, for
+which $(U,W)$ is $(\eta,c)$-super-regular. Neither coverage of the
+ambient vertex set nor absence of other edges in $G$ is required.
+\end{lemma}
+\begin{proof}
+The hypotheses imply that all three parameters are finite,
+$0<d\leq1$ and $0<c<1/2$. Work with their real values. Put
+$q=\sqrt{2c}$, $g=(d-q)/4$, and $\tau=\eta/4$.
+Then $0<q<d\leq1$ and $g>0$. By \noderef{SuperRegularSubgraph},
+choose $0<\alpha<\tau$ and a cutoff $N_1$ for extraction with
+input density $q$ and output error $\tau$. The same parameters may
+be required for two vertex universes at once: take the minimum of
+their two supplied errors and the maximum of their two cutoffs.
+Weakening an input error only strengthens the required degree and
+subset hypotheses, so each supplied extraction still applies.
+Choose $0<\theta<\min\{\eta,\alpha/4,g\}$ and an integer
+$N\geq\max\{1,N_1,2/\alpha,1/(\alpha g),8/\eta\}$.
+These choices precede $G,U,W,m$.
+
+First restrict $G$ to its crossing edges on $U\cup W$, and regard
+this graph as a graph on the subtype $U\cup W$. Cardinalities,
+opposite-part degrees, and densities of subsets of the two parts are
+unchanged. This follows directly from the ordered-edge count in
+\noderef{PairDensity}: inclusion of the subtype is a bijection on
+each part and on its ordered crossing edges.
+The hypotheses of \noderef{LowerSuperRegularPair} give degree
+at least $(d-\theta)$ times the opposite size and density at least
+$d-\theta$ whenever both subset sizes exceed their $\theta$ thresholds.
+
+If the two sizes are equal, tests above the $\alpha$ thresholds
+are above the $\theta$ thresholds, and $d-\theta>q$.
+Thus the restricted graph meets the minimum-degree and density
+hypotheses of \noderef{SuperRegularSubgraph}: its lower
+$(\alpha,q+\alpha)$-regularity is exactly density at least $q$
+on those tests, by \noderef{LowerRegularPair}. Extraction yields
+error $\tau$ and density $q^2/2=c$. Weakening the error to $\eta$
+preserves all degree inequalities and makes the tested family smaller,
+by \noderef{RegularPair} and \noderef{SuperRegularPair}.
+
+Suppose next the sizes are $m$ and $h=m+1$, with $U$ the smaller
+part. Add one new vertex to $U$ and join it to every vertex of $W$.
+The padded parts cover their enlarged vertex set and have size $h$.
+Original vertices of $U$ have degree at least $(d-\theta)h>qh$;
+the new vertex has degree $h\geq qh$. A vertex of $W$ has degree
+at least $(d-\theta)m+1\geq q(m+1)$, since $d-\theta>q$ and $q<1$.
+For padded tests $S,T$ of sizes greater than $\alpha h$, put
+$S_0=S\setminus\{*\}$. Then
+$|S_0|>\alpha(m+1)-1\geq\alpha m/2>\theta m$
+and $|T|>\alpha h>\theta h$. The original lower-regularity
+test applies, and, even discarding the new edges,
+\[
+ d_{\rm pad}(S,T)\geq(d-\theta)|S_0|/|S|
+ \geq d-\theta-1/|S|>d-\theta-1/(\alpha h)
+ \geq d-\theta-g>q.
+\]
+Here $0<d-\theta\leq1$ and the choice of $N$ were used.
+Apply \noderef{SuperRegularSubgraph} to the padded graph.
+
+Delete the new vertex from the extracted graph. Degrees from $U$
+to $W$ are unchanged. Degrees from $W$ to $U$ lose at most one,
+and therefore lie between $(c-\tau)(m+1)-1$ and
+$(c+\tau)(m+1)$. Their error relative to $m$ is at most
+$\tau+2/m\leq\eta/2<\eta$, since $c<1/2$, $\tau<1/4$,
+and $m\geq8/\eta$. Tests of sizes greater than $\eta m$ and
+$\eta(m+1)$ exceed the padded $\tau(m+1)$ thresholds:
+$\eta m>\tau(m+1)$ for $m\geq1$. Their edges are unchanged
+by deletion, so their densities lie within $\tau$ of $c$ and hence
+within $\eta$. These are precisely the clauses of
+\noderef{SuperRegularPair}. If $W$ was the smaller part, interchange
+the parts in this argument; ordered-edge density is symmetric because
+swapping coordinates bijects the two ordered-edge sets.
+
+Finally extend the extracted graph by isolated vertices to the original
+ambient type. Its edges are original crossing edges of $G$, and all
+tested counts are unchanged. No dummy vertex remains. The real and
+extended inequalities agree because every quantity is finite. Input
+$d-\theta$ is positive. An output real lower endpoint that is negative
+corresponds to truncated endpoint zero and is automatic; otherwise it
+is the identical lower bound just proved. This proves the extended
+statement as well, including both degree orientations.
+\end{proof}

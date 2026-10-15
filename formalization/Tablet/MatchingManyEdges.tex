@@ -1,0 +1,23 @@
+\begin{lemma}[Many prescribed matching edges]
+For every $0<\varepsilon$ and $2\varepsilon<d\leq1$, there are a finite constant $1\leq C<\infty$ and $n_0$ such that the following holds for every $n\geq n_0$.  Let $G$ be a graph on a finite vertex set, let $U,W$ be disjoint sets of size $n$, and suppose $G[U,W]$ is $(\varepsilon,d)$-super-regular.  If $M$ is sampled from the uniform perfect-matching distribution of \noderef{UniformPerfectMatching}, then for every $s\geq0$, pairwise distinct $x_1,\ldots,x_s\in U$, and arbitrary $y_1,\ldots,y_s\in W$,
+\[
+ \Pr[x_i y_i\in M\text{ for every }i]\leq \frac{C^n}{n^s}.
+\]
+\end{lemma}
+\begin{proof}
+Choose $n_0$ at least the threshold in \noderef{MatchingEnumeration}, and then enlarge it so that $(en)^{1/n}\leq2$ for $n\geq n_0$.  Choose a finite $C\geq\max\{1,2e/(d-2\varepsilon)\}$; this is possible because $d-2\varepsilon>0$.  If two prescriptions have the same right endpoint, or a prescribed pair is not an edge, the event is empty; otherwise the distinctness of the $x_i$ leaves at most $(n-s)!$ bijections extending all prescriptions.  By Mathlib's \texttt{PMF.toOuterMeasure\_uniformOfFinset\_apply} applied to the uniform distribution in \noderef{UniformPerfectMatching}, the probability of the event is the number of perfect matchings extending all the prescriptions divided by the total number of perfect matchings.  By \noderef{MatchingEnumeration}, this denominator is at least $(d-2\varepsilon)^n n!$.  Hence
+\[
+ \Pr[x_i y_i\in M\ (1\leq i\leq s)]
+ \leq\frac{(n-s)!}{(d-2\varepsilon)^n n!}.
+\]
+For $s\leq n$, the elementary factorial estimates $n!\geq(n/e)^n$ and $(n-s)!\leq en((n-s)/e)^{n-s}\leq en(n/e)^{n-s}$ give
+\[
+ \frac{(n-s)!}{n!}\leq en(e/n)^s.
+\]
+Consequently the probability is at most
+\[
+ \left(\frac{(en)^{1/n}}{d-2\varepsilon}\right)^n(e/n)^s
+ \leq C^n/n^s.
+\]
+If $s>n$, injectivity of the $x_i$ into the $n$-element set $U$ is impossible, so there is no remaining case.
+\end{proof}

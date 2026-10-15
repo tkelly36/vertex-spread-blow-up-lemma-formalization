@@ -1,0 +1,109 @@
+\begin{lemma}[Conditional switching estimate]
+For every $0<\varepsilon$ and $4\varepsilon<d\leq1$, there are a finite constant $1\leq C<\infty$ and $n_0$ such that the following holds for every $n\geq n_0$. Let $G$ be a graph on a finite vertex set, let $U,W$ be disjoint sets of size $n$, and suppose $G[U,W]$ is $(\varepsilon,d)$-super-regular. Let $N=\{x_i y_i:1\leq i\leq k\}$ be a matching of edges of $G$ with $k\leq dn/2$, and let $xy\in E(G)$ have neither endpoint covered by $N$. If $M$ is sampled from the uniform distribution of \noderef{UniformPerfectMatching}, then
+\[
+ \Pr[xy\in M\mid N\subseteq M]\leq C/n,
+\]
+where the conditional probability is $0$ if no perfect matching contains $N$.
+\end{lemma}
+\begin{proof}
+Put
+\[
+ c=(d-\varepsilon)(d/2-\varepsilon)^2.
+\]
+The assumptions $4\varepsilon<d\leq1$ imply $d-\varepsilon>0$ and
+$d/2-\varepsilon>\varepsilon$, so $c>0$.  Choose
+$1\leq C<\infty$ with $C\geq\max\{1,2/c\}$, and then choose $n_0$ large enough that
+$3n\leq(c/2)n^2$ whenever $n\geq n_0$.
+
+Let $\mathcal M_{\rm in}$ be the perfect matchings containing
+$N\cup\{xy\}$ and let $\mathcal M_{\rm out}$ be the perfect matchings
+containing $N$ but not $xy$.  If $\mathcal M_{\rm in}$ is empty, the
+conditional probability is zero.  Otherwise, because the distribution in
+\noderef{UniformPerfectMatching} gives the same mass to every perfect
+matching, Mathlib's \texttt{PMF.toOuterMeasure\_uniformOfFinset\_apply}
+expresses each event probability as its matching count divided by the total
+matching count. Conditioning on containment of $N$ therefore gives
+\[
+ \Pr[xy\in M\mid N\subseteq M]
+ =\frac{|\mathcal M_{\rm in}|}
+ {|\mathcal M_{\rm in}|+|\mathcal M_{\rm out}|}.
+\]
+
+Form a bipartite auxiliary graph $A$ with parts $\mathcal M_{\rm in}$ and
+$\mathcal M_{\rm out}$.  Join $M_1\in\mathcal M_{\rm in}$ to
+$M_2\in\mathcal M_{\rm out}$ when their symmetric difference is an
+alternating six-cycle containing $xy$ and containing no edge of $N$; toggling
+the six edges then changes $M_1$ into $M_2$.  Fix
+$M_2\in\mathcal M_{\rm out}$.  Such a cycle must use $xy$, the unique
+$M_2$-edge at $x$, the unique $M_2$-edge at $y$, and exactly one further
+$M_2$-edge.  Once that further edge is chosen, alternation and the already
+specified edges determine the cycle.  There are at most $n$ choices, and
+hence
+\[
+ d_A(M_2)\leq n. \tag{1}
+\]
+
+Now fix $M\in\mathcal M_{\rm in}$.  For a vertex $z$, write $m(z)$ for its
+unique partner in $M$.  Define
+\[
+ U'=\{m(a):a\in N_G(x)\cap W,\ a\notin V(N)\},\qquad
+ W'=\{m(b):b\in N_G(y)\cap U,\ b\notin V(N)\}.
+\]
+The degree clause in \noderef{SuperRegularPair} gives at least
+$(d-\varepsilon)n$ choices before deleting vertices covered by $N$.
+On either side, $N$ covers exactly $k\leq dn/2$ vertices.  Since $m$ is a
+bijection between the two sides, it follows that
+\[
+ |U'|,|W'|\geq(d/2-\varepsilon)n>\varepsilon n. \tag{2}
+\]
+The regularity clause in \noderef{SuperRegularPair}, applied using (2), now
+gives
+\[
+ e_G(U',W')\geq(d-\varepsilon)|U'||W'|\geq cn^2. \tag{3}
+\]
+
+Consider an edge $u'w'\in E_G(U',W')$.  Let $a=m(u')$ and $b=m(w')$;
+then $xa,u'a,w'b,yb,xy$ are edges, with $u'a,w'b,xy$ in $M$.  Exclude the
+candidate if $u'=x$, if $w'=y$, or if $u'w'\in M$.  At most $n$ candidate
+edges are incident with $x$, at most $n$ are incident with $y$, and $M$ has
+only $n$ edges, so at most $3n$ candidates are excluded.  By (3) and the
+choice of $n_0$, at least
+\[
+ cn^2-3n\geq(c/2)n^2 \tag{4}
+\]
+candidates remain.
+
+For every remaining candidate, the cyclic sequence
+\[
+ x,a,u',w',b,y,x
+\]
+is a genuine alternating six-cycle.  Indeed, $u'\ne x$ implies $a\ne y$,
+and $w'\ne y$ implies $b\ne x$, by uniqueness of partners in $M$ and the
+fact that $m(x)=y$.  The condition $u'w'\notin M$ implies
+$u'\ne b$ and $w'\ne a$.  Thus the three vertices $x,u',b$ on the $U$ side
+are distinct, as are the three vertices $a,w',y$ on the $W$ side; vertices
+on opposite sides are distinct because $U$ and $W$ are disjoint.
+Furthermore, none of the cycle edges belongs to $N$.  The edge $xy$ does not,
+because neither endpoint is covered by $N$; the matching edges $u'a$ and
+$w'b$ do not, because $a,b\notin V(N)$; and the other three edges are outside
+$M$ whereas $N\subseteq M$.  Hence toggling this cycle preserves every edge
+of $N$ and removes $xy$, producing a member of $\mathcal M_{\rm out}$.
+Distinct candidate edges give distinct cycles, so (4) proves
+\[
+ d_A(M)\geq(c/2)n^2. \tag{5}
+\]
+
+Double-counting the edges of $A$ using (1), (5), and $1/C\leq c/2$ yields
+\[
+ \frac{n^2}{C}|\mathcal M_{\rm in}|
+ \leq |E(A)|\leq n|\mathcal M_{\rm out}|.
+\]
+Consequently $|\mathcal M_{\rm out}|\geq
+(n/C)|\mathcal M_{\rm in}|$.  Substitution in the displayed conditional
+probability gives
+\[
+ \Pr[xy\in M\mid N\subseteq M]
+ \leq\frac{1}{1+n/C}\leq\frac Cn,
+\]
+as required.
+\end{proof}

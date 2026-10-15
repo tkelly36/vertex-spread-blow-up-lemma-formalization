@@ -1,0 +1,20 @@
+\begin{lemma}[Counting ordered two-edge paths]
+Let $U\subseteq A$ and $W\subseteq B$ be finite sets and let $P$ be a relation
+between $A$ and $B$. Then
+\[
+ \sum_{u\in U}|\{w\in W:P(u,w)\}|^2
+ =\sum_{(w,z)\in W^2}|\{u\in U:P(u,w)\text{ and }P(u,z)\}|.
+\]
+The ordered pairs on the right include pairs with $w=z$.
+\end{lemma}
+\begin{proof}
+Both sides count triples $(u,w,z)\in U\times W\times W$ for which
+$P(u,w)$ and $P(u,z)$ hold. For a fixed $u$, the two endpoints can be
+chosen independently from its related elements of $W$, giving the square
+on the left; no distinctness condition is imposed. For a fixed ordered
+pair $(w,z)$, the allowed middle elements are exactly the elements counted
+on the right. Equivalently, expand both sides as the finite sum of
+$\mathbf1_{P(u,w)}\mathbf1_{P(u,z)}$ over all such triples and interchange
+the three finite summations. This proves the identity, including the
+diagonal terms.
+\end{proof}

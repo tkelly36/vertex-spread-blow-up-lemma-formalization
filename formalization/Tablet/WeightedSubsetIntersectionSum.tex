@@ -1,0 +1,45 @@
+\begin{lemma}[Weighted subset count by marked intersection]
+Let $n,s$ be natural numbers with $s\le n$, let $M\subseteq\{0,\ldots,n-1\}$,
+and let $r$ be real. Write $t=|M|$ and assign weight $r$ to each member of
+$M$ and weight $1$ to each remaining index. Then
+\[
+ \sum_{\substack{A\subseteq\{0,\ldots,n-1\}\\|A|=s}}
+   \prod_{i\in A}\begin{cases}r&i\in M,\\1&i\notin M\end{cases}
+ =\sum_{x=0}^n
+   \begin{cases}
+    \binom{t}{x}\binom{n-t}{s-x}r^x,&x\le s,\\
+    0,&x>s.
+   \end{cases}
+\]
+The empty product and $r^0$ are both $1$.
+\end{lemma}
+\begin{proof}
+Put $U=\{0,\ldots,n-1\}$. For each $s$-subset $A$ of $U$, its weight is
+$r^{|A\cap M|}$, since precisely the factors indexed by $A\cap M$ are
+$r$, and the other factors are $1$. Its intersection size lies between
+$0$ and $s\le n$, so partitioning all $s$-subsets according to this size
+accounts for each summand exactly once.
+
+Fix $x\le s$. The map
+\[
+ A\longmapsto (A\cap M,A\setminus M)
+\]
+is a bijection from the $s$-subsets having marked intersection size $x$
+to the pairs $(B,C)$ where $B\subseteq M$, $|B|=x$,
+$C\subseteq U\setminus M$, and $|C|=s-x$.
+Indeed, for an $A$ in this fiber, $A\cap M$ has size $x$, and the disjoint
+decomposition $A=(A\cap M)\cup(A\setminus M)$ gives
+$|A\setminus M|=s-x$. Conversely, for such a pair, $B$ and $C$ are
+disjoint, so $A=B\cup C$ has size $x+(s-x)=s$; moreover
+$A\cap M=B$ and $A\setminus M=C$. Union is therefore a two-sided inverse.
+There are $\binom{t}{x}$ choices for $B$ and
+$\binom{n-t}{s-x}$ choices for $C$, by the finite-subset counting formula.
+All members of the fiber have weight $r^x$, giving the stated contribution.
+If either requested subset size exceeds the corresponding ambient size,
+its family is empty and the same counting formula gives zero.
+
+For $x>s$ the fiber is empty because $A\cap M\subseteq A$ implies
+$|A\cap M|\le |A|=s$. Its contribution is thus zero, independently of
+any convention for truncated subtraction. Summing the fiber contributions
+over $x=0,\ldots,n$ proves the identity, also when $s=0$ or $r=0$.
+\end{proof}

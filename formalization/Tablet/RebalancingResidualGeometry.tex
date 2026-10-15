@@ -1,0 +1,30 @@
+\begin{lemma}[Exact residual geometry]
+Let $B$ be a finite blow-up instance with candidacy system $A$, equally
+large source and host fibers, and let $f$ be a partial compatible embedding
+on $X$. Suppose $m\leq |V_i|$ and $|X\cap X_i|=|V_i|-m$ for every $i$.
+On the literal complement subtypes $Y=V(H)\setminus X$ and
+$W=V(G)\setminus f(X)$ there exist a blow-up instance $B_r$ on the induced
+graphs and the unchanged reduced graph, and a candidacy system $A_r$,
+whose cluster maps are restrictions of those of $B$ and whose allowed
+relation is exactly the restriction of $A_f$. Both residual fibers have
+size $m$. In addition,
+$|f(X)\cap V_i|=|X\cap X_i|$ for every $i$.
+\end{lemma}
+\begin{proof}
+Compatibility in \noderef{PartialCompatibleEmbedding} and cluster respect
+in \noderef{CandidacySystem} give $c_G(f(x))=c_H(x)$ for every $x\in X$.
+Consequently $f(X)\cap V_i=f(X\cap X_i)$: cluster respect gives one
+inclusion, and writing a vertex in the left side as $f(x)$ gives the other.
+Injectivity on $X$ makes this restriction a bijection. Thus the two removed
+fiber counts agree, and subtraction from $|X_i|=|V_i|$ leaves size $m$
+on both sides (the hypothesis $m\leq |V_i|$ makes natural subtraction exact).
+Restrict the cluster maps to the literal complements. The independence
+and reduced-support fields of \noderef{BlowUpInstance} are inherited:
+an induced edge is an original edge, and distinct subtype vertices have
+distinct ambient values. Capacity follows from the equal residual counts.
+These fields define $B_r$. Define $A_r(x,v)$ to be
+$(\noderef{UpdatedCandidacy}\ B\ A\ X\ f)(x,v)$. Its cluster respect is
+the cluster respect of that updated system. The two cluster-map identities
+and both directions of the allowed-relation equivalence hold by
+construction. Nothing replaces either residual set by an abstract copy.
+\end{proof}

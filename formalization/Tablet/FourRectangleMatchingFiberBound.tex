@@ -1,0 +1,41 @@
+\begin{lemma}[Counting four-rectangle matching fibers]
+Let $G$ be a graph on a finite vertex set, with disjoint parts $U,W$ of
+size $n$, and $S\subseteq U$, $T\subseteq W$. Write $s=|S|$, $t=|T|$.
+Let $x\le s,t$ and $t-x\le n-s$. Suppose $K(y)\ge0$ for $0\le y\le n$
+and every balanced pair $A\subseteq U$, $B\subseteq W$ of order $y$ has
+at most $K(y)$ perfect matchings, in the sense of
+\noderef{PerfectMatching}. Then the number $M_x$ of perfect matchings
+$f:U\to W$ with $|f(S)\cap T|=x$ satisfies
+\[
+ M_x\le\binom s x\binom t x\binom{n-t}{s-x}\binom{n-s}{t-x}
+ K(x)K(s-x)K(t-x)K(n-s-(t-x)).
+\]
+\end{lemma}
+\begin{proof}
+By \noderef{PerfectMatching}, each counted map is a bijection and uses
+only graph edges. For such a map define
+$A=\{u\in S:f(u)\in T\}$, $B=f(A)$,
+$C=f(S\setminus A)$, and $E=f^{-1}(T\setminus B)$.
+These sets have sizes $x,x,s-x,t-x$, respectively; they lie in
+$S,T,W\setminus T,U\setminus S$, respectively. There are exactly
+$\binom s x\binom t x\binom{n-t}{s-x}\binom{n-s}{t-x}$ possible
+quadruples $(A,B,C,E)$, by choosing subsets of the specified sizes
+independently in those four fixed sets.
+
+For a fixed quadruple, restriction sends a counted map to four perfect
+matchings on the balanced pairs
+\[
+ (A,B),\quad (S\setminus A,C),\quad(E,T\setminus B),\quad
+ (U\setminus(S\cup E),W\setminus(T\cup C)).
+\]
+Their orders are $x,s-x,t-x,n-s-(t-x)$. The left sets partition $U$
+and the right sets partition $W$. Thus the four restrictions determine
+the map uniquely. Conversely their union is a bijection using graph
+edges and has exactly $x$ images of $S$ in $T$. This also works for empty
+parts: the unique empty map is a perfect matching. The assumed rectangle
+bound therefore bounds the size of this fiber by the product of the four
+$K$ values. All four orders lie between zero and $n$, so these bounds are
+nonnegative and can be multiplied. Summing over the possible quadruples
+proves the displayed inequality (in fact the restriction construction
+gives an exact sum of the four matching-count products).
+\end{proof}

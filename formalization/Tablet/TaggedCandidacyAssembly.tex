@@ -1,0 +1,39 @@
+\begin{lemma}[Assembly of tagged candidacy extractions]
+Let $B,A$ be a blow-up instance with candidacy system and let $B'$
+be another blow-up instance on the same source and host vertex types,
+with possibly different graphs and cluster index set. Suppose for
+each cluster of $B'$ there is a graph on the disjoint tagged union
+of the source and host types, contained in the symmetric tagged
+graph of the original allowed relation, and
+$(\eta,c)$-super-regular on that cluster's tagged source and host
+fibers. There is a candidacy system $A'$ for $B'$ contained in $A$
+whose every cluster pair is $(\eta,c)$-super-regular.
+\end{lemma}
+\begin{proof}
+Choose one supplied graph $F_j$ for each refined index $j$.
+Declare $(x,v)$ allowed in $A'$ exactly when the two refined
+cluster indices agree and $F_j$ joins $\mathrm{inl}(x)$ to
+$\mathrm{inr}(v)$, where $j$ is the source index. The first
+condition proves cluster-respecting, so this is a system as defined
+by \noderef{CandidacySystem}. Containment of $F_j$ in the original
+tagged graph proves the pair was originally allowed: on endpoints
+with these tags, the forward branch of the symmetric relation graph
+is precisely $A(x,v)$ and the backward branch is impossible.
+
+For a fixed refined index $j$ and endpoints in its source and host
+fibers, the two refined indices already agree and the source index
+equals $j$. Therefore the new tagged relation graph agrees exactly
+with $F_j$ on the relevant crossing edges. By
+\noderef{SuperRegularPairEmbedding}, specialized to the injective
+identity map on the tagged vertex type, with source graph $F_j$ and
+target the tagged graph of $A'$, this transfers its super-regularity.
+The crossing-edge equivalence above is the required adjacency hypothesis;
+the identity images of both finite fibers are the original fibers.
+The parameters $\eta,c$ are unchanged, including infinite values, and
+the argument also applies to empty fibers. Applying this for
+every index gives \noderef{CandidacySuperRegular}. No off-pair
+edges of any selected graph enter this comparison, and no union of
+independently chosen graphs is taken on one candidacy pair.
+All maps and graphs retain the original vertex types; classical
+decidability of the finite relations supplies the required instances.
+\end{proof}

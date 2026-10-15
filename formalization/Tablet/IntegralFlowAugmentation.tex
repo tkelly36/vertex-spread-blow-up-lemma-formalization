@@ -1,0 +1,41 @@
+\begin{lemma}[Integral augmentation along a simple residual path]
+Let $f$ be a feasible integral flow on a finite integer-capacity network
+with distinct terminals, and let $p(0),\ldots,p(m)$ be a simple residual
+source-to-sink path, as in \noderef{SimpleResidualPath}.
+There are an integer $\delta>0$ and a feasible integral flow $g$ such that
+$\delta\leq c(p(i),p(i+1))-f(p(i),p(i+1))$ for every $i<m$,
+\[
+g(v,w)=f(v,w)+\delta\bigl(
+ |\{i<m:p(i)=v,\ p(i+1)=w\}|-
+ |\{i<m:p(i)=w,\ p(i+1)=v\}|\bigr),
+\qquad |g|=|f|+\delta.
+\]
+\end{lemma}
+\begin{proof}
+By \noderef{SimpleResidualPath}, the $m$ residual capacities are positive
+integers and $m>0$. Let $\delta$ be their minimum. This minimum exists
+because there are finitely many and at least one; it is a positive integer
+and is no greater than each residual capacity. Define $g$ by the displayed
+formula. Its values are integers. Interchanging $v,w$ negates the change,
+so skew symmetry follows from \noderef{FiniteIntegralFlow}.
+
+Injectivity of $p$ implies that each directed pair occurs at most once.
+An edge and its reverse cannot both occur: such occurrences would repeat
+both endpoints, whereas their positions in an injective sequence are
+unique. Consecutive vertices are distinct. Thus the change on any pair is
+either $0$, $\delta$, or $-\delta$. On a forward path edge, the choice of
+$\delta$ gives $g(v,w)\leq c(v,w)$. On a reverse path edge the flow
+decreases, so its upper capacity bound is preserved. On other pairs the
+bound is unchanged. This checks all upper bounds, and skew symmetry also
+checks all lower bounds.
+
+At an internal path vertex $p(j)$, $0<j<m$, its outgoing sum gains
+$\delta$ on the pair to $p(j+1)$ and loses $\delta$ on the pair to
+$p(j-1)$, and changes on no other pair. Its divergence is unchanged.
+Vertices outside the path have unchanged divergence as well. The only
+remaining path vertices are the distinct terminals. The source occurs
+only as $p(0)$ and gains $\delta$ on its sole outgoing path step, with
+no incoming path step. The sink has the opposite change. Hence every
+required conservation equation is preserved and the value increases
+by exactly $\delta$.
+\end{proof}

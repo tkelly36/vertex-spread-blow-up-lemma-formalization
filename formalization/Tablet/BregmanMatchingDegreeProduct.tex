@@ -1,0 +1,30 @@
+\begin{lemma}[Matching row-degree product]
+Let $G$ be a finite simple graph, let $S,T$ be disjoint finite sets, and
+let $e_S:S\to\{0,\ldots,y-1\}$ and $e_T:T\to\{0,\ldots,y-1\}$ be
+bijections. Put $r_i=|\{w\in T:G(e_S^{-1}(i),w)\}|$ and let $m$ be
+the number of perfect matchings from $S$ to $T$. If some $r_i=0$, then
+$m=0$. If every $r_i>0$, then
+\[
+ m\le\prod_{i=0}^{y-1}(r_i!)^{1/r_i}.
+\]
+The empty product is one, so the positive-row assertion includes $y=0$.
+\end{lemma}
+\begin{proof}
+Form the natural-number matrix $A_{ij}=1$ when
+$G(e_S^{-1}(i),e_T^{-1}(j))$ holds and $A_{ij}=0$ otherwise.
+Every entry is either zero or one, which is exactly the hypothesis
+\texttt{ZeroOneMatrix} of the checked imported theorem
+\texttt{EntropyMethodsFormalization.BregmanMinc}. Its row support is
+$\{j:A_{ij}=1\}$; the bijection $e_T^{-1}$ identifies this set with the
+neighbors of $e_S^{-1}(i)$ in $T$, so its cardinality is $r_i$.
+
+Casting the permanent from natural numbers to real numbers commutes with
+its finite sum of finite products. The cast matrix is the real zero-one
+adjacency matrix. By \noderef{AdjacencyPermanentMatchingCount}, its
+permanent is $m$, with perfect matchings interpreted as in
+\noderef{PerfectMatching}. Thus the natural-number permanent also equals
+$m$, since the natural-to-real map is injective. Apply the zero-row branch
+of the imported Bregman--Minc theorem when a row support is empty, and
+its positive-row branch otherwise. These give respectively $m=0$ and
+the stated product inequality. No entropy argument is required locally.
+\end{proof}

@@ -1,0 +1,181 @@
+\begin{lemma}[Finite execution of the colour-round induction]
+Fix $d,a,C\in[0,\infty]$, $\Delta,n\in\mathbb N$, and put $Q=\Delta^2+1$.
+Fix exposure sequences $p,\rho$ and round sequences
+$\varepsilon,\omega,\theta,\zeta,\widehat\zeta$, all mapping $\mathbb N$
+to $[0,\infty]$, and a certificate $\mathcal K$ of
+\noderef{InductionApplicationCertificate} for
+$(\Delta,Q,d,\theta,p,\varepsilon,\rho,\zeta,\omega,\widehat\zeta)$.
+Assume
+\[
+ p_0=d,\qquad p_{x+1}=\rho_x(d/2)\ (x<\Delta),\qquad
+ 0<a\leq1,\quad C/n\leq1,\quad \Delta(1-a)^n\leq\tfrac12.
+\]
+For every round $s<Q$ assume all of the following inequalities:
+\[
+ \varepsilon_s\leq\varepsilon_{s+1}\leq1,\qquad
+ 2\sqrt{\zeta_s}\leq\theta_s,\quad
+ \zeta_s+\Delta\sqrt{\zeta_s}\leq\theta_s,\quad
+ \zeta_s+2\Delta\zeta_s\leq\theta_s,
+\]
+\[
+ 0<\theta_s,\quad4\theta_s<\rho_x,\quad
+ 2\zeta_s<\rho_x,\quad2\zeta_s<1-\rho_x\qquad(x\leq\Delta),
+\]
+\[
+ 2\zeta_s<d/2,\quad2\zeta_s<1-d/2,\quad
+ p_{x+1}+\varepsilon_s+1/n\leq p_x\ (x<\Delta),\quad
+ \omega_{s+1}<\varepsilon_{s+1}.
+\]
+Writing the certificate fields as $N^{\rm wit}_{s,x},N^{\rm host}_s,
+N^{\rm mat}_{s,x},N^{\rm exist}_{s,x},M_{s,x},
+N^{\rm FG}_{s,x,y},a_{s,x,y}$, assume
+\[
+ N^{\rm wit}_{s,x},N^{\rm host}_s,N^{\rm mat}_{s,x},
+ N^{\rm exist}_{s,x}\leq n,\quad M_{s,x}\leq C/2\qquad(x\leq\Delta),
+\]
+\[
+ N^{\rm FG}_{s,x,y}\leq n,\quad a\leq a_{s,x,y}
+ \qquad(x,y\leq\Delta).
+\]
+Finally assume, for every $s<Q$,
+\[
+ n^{-1}\leq\widehat\zeta_s<\zeta_s,\quad
+ \widehat\zeta_s+2/n\leq\zeta_s,\quad
+ \widehat\zeta_s+1/(\zeta_sn)\leq\zeta_s,
+\]
+\[
+ \omega_{s+1}+2/n\leq\varepsilon_{s+1},\qquad
+ \omega_{s+1}+1/(\varepsilon_{s+1}n)\leq\varepsilon_{s+1}.
+\]
+Then the following holds for every finite blow-up instance $B$ with
+candidacy system $A$ and reduced graph on $[r]$. Suppose
+$|X_j|=|V_j|\in\{n,n+1\}$ for every $j$, $\Delta(R)\leq\Delta$,
+\noderef{InstanceSuperRegular} and \noderef{CandidacySuperRegular} hold
+with $(\varepsilon_0,d)$, and \noderef{SaturatingSourcePair} holds on
+every reduced edge. There are a colouring $c:[r]\to\{0,\ldots,Q-1\}$
+and a specified law $\mu$ on compatible partial embeddings with domain
+all of $V_H$ such that
+\[
+ \mathcal I(Q-1,B_{Q-1};V_H,\mu),\qquad
+ B_{Q-1}=\{j:c(j)=Q-1\},
+\]
+in the sense of \noderef{ColourRoundInvariant}, with
+$(\varepsilon,p,\Delta,C,n)$. In particular the full-domain restricted
+maps have the $(C/n)$-vertex-spread bound. The final round is $Q-1$,
+not $Q$.
+\end{lemma}
+\begin{proof}
+The corrected paper processes each finite colour class sequentially and
+then changes only the round bookkeeping. We give that finite execution,
+leaving all local graph and probability estimates to the stated local
+transition.
+
+By \noderef{ReducedSquareColoring}, choose $q>0$, $q\leq Q$, and a
+colouring $c_0:[r]\to\operatorname{Fin}(q)$ separating distinct adjacent
+vertices and distinct vertices with a common neighbour. Define
+$c(j)=\operatorname{Fin.castLE}(q\leq Q)(c_0(j))$.
+This lift does not change the natural-number value of any colour.
+It is injective on colour values: equality after lifting gives equality
+of the original values and hence, by extensionality of finite indices,
+equality in $\operatorname{Fin}(q)$. Thus $c$ satisfies precisely the
+square-colouring separation used below. It takes values in
+$\operatorname{Fin}(Q)$; unused colours are allowed. For each reduced
+vertex $j$, the finset $\{k:R.Adj(j,k)\}$ has cardinality
+$\deg_R(j)\leq\Delta(R)\leq\Delta$. This supplies the local per-vertex
+degree hypothesis; it is valid also when there are no reduced vertices.
+
+We next verify the one-cluster transition for any legal round $s<Q$.
+Apply \noderef{VariableSizeInductionStep} with the substitution
+\[
+ (\theta,\mathrm{density},\epsilon,\rho,\eta,\omega,\xi)
+       =(\theta,p,\varepsilon,\rho,\zeta,\omega,\widehat\zeta),
+ \qquad D=\Delta,\quad q=Q.
+\]
+Use exactly the given certificate $\mathcal K$. Its type is the
+\noderef{InductionApplicationCertificate} type required by this
+substitution, with independent exposure and round indices.
+The round bound is $s<Q$; the first displayed round inequalities give
+$\varepsilon_s\leq\varepsilon_{s+1}$ and $\varepsilon_{s+1}\leq1$.
+The derived degree bounds and the lifted square colouring give the next
+two hypotheses. The assumed source/host size equalities give both
+alternatives $n,n+1$ and the balance condition required there.
+The given \noderef{InstanceSuperRegular} hypothesis has exactly error
+$\varepsilon_0$ and density $d$, and the assumed
+\noderef{SaturatingSourcePair} supplies its source-matching hypothesis.
+
+The assumptions $0<a\leq1$, $C/n\leq1$, and
+$\Delta(1-a)^n\leq1/2$ give the three constant/size bounds.
+The three square-root and linear loss bounds give the simultaneous
+good-edge inequalities. For every $x\leq\Delta$, the next display
+gives $0<\theta_s$, $4\theta_s<\rho_x$, and both density and complementary
+density bounds for $2\zeta_s$; the two corresponding host bounds
+are also explicitly assumed. The recursion supplies
+$p_{x+1}=\rho_x(d/2)$ for every $x<\Delta$, and the assumed density-gap
+inequality supplies $p_{x+1}+\varepsilon_s+1/n\leq p_x$.
+The output comparison is $\omega_{s+1}<\varepsilon_{s+1}$.
+All four scalar thinning/matching thresholds and the comparison
+$M_{s,x}\leq C/2$ are given for every exposure $x\leq\Delta$.
+For every ordered pair $x,y\leq\Delta$ the Four Graphs threshold and
+$a\leq a_{s,x,y}$ are given, without requiring $x\leq y$.
+
+The final two displays give respectively the inner reserve
+$n^{-1}\leq\widehat\zeta_s$, its strict inequality
+$\widehat\zeta_s<\zeta_s$, the two padding inequalities, and both
+output degree/regularity slack inequalities. The last two are
+independent of $x$ and so hold for each $x\leq\Delta$ as required.
+This checks every numerical and instance hypothesis of the local step.
+Consequently, for every current touched set $T\subseteq B_s$, domain
+$Z$, and actual law $\nu$ satisfying $\mathcal I(s,T;Z,\nu)$, and for
+every $i\in B_s\setminus T$, that node supplies the total kernel
+$\kappa$ preserving all old maps on $Z$, the conditional new-cluster
+spread bound, and the new invariant for the actual law
+$\nu\mathbin{\mathrm{bind}}\kappa$. This is exactly the transition
+hypothesis of \noderef{ColourClassSequentialCompletion}. It does
+not resample the past or condition on success for the whole class.
+
+Put $P_s=\{j:c(j)<s\}$ and let $Z_s$ be its union of source clusters.
+Since $Q\geq1$, \noderef{VariableSizeInductionBase} applies at zero:
+$p_0=d$, $C/n\leq1$, the degree and colouring bounds hold, and the
+given \noderef{CandidacySuperRegular} provides the original witnesses.
+It gives a specified law $\nu_0$ with
+$\mathcal I(0,\varnothing;Z_0,\nu_0)$, where $Z_0=\varnothing$.
+
+Induct over $s=0,\ldots,Q-1$. Starting with a specified law
+$\nu_s$ satisfying $\mathcal I(s,\varnothing;Z_s,\nu_s)$, apply
+\noderef{ColourClassSequentialCompletion} to the just verified local
+transition. Retain its composite kernel $K_s$ and its completed law
+$\bar\nu_s=\nu_s\mathbin{\mathrm{bind}}K_s$, on the exact domain
+\[
+ \bar Z_s=\{x:c(B.\mathrm{sourceCluster}(x))<s
+                   \text{ or }c(B.\mathrm{sourceCluster}(x))=s\}.
+\]
+The node gives $\mathcal I(s,B_s;\bar Z_s,\bar\nu_s)$ for that very law,
+and preservation of every previously embedded map. Its empty-class
+case is included: the kernel is the point-mass identity after identifying
+equal domains, rather than an additional probabilistic step.
+If $s+1<Q$, apply \noderef{ColourRoundReset} with
+$\varepsilon_s\leq\varepsilon_{s+1}$ to this completed law.
+It supplies $\mathcal I(s+1,\varnothing;\bar Z_s,\bar\nu_s)$ without
+changing the domain or the law. The identity
+\[
+ c(j)<s\ \text{or}\ c(j)=s\quad\Longleftrightarrow\quad c(j)<s+1
+\]
+identifies $\bar Z_s=Z_{s+1}$, so use the same law, with only this
+domain identification, as $\nu_{s+1}$. This completes the induction at
+every intermediate boundary. The construction binds only the successive
+local kernels, so it retains their recursively produced law throughout.
+
+At $s=Q-1$ do not reset. Every colour value is less than $Q$, hence is
+either less than $Q-1$ or equal to $Q-1$. Therefore
+$\bar Z_{Q-1}=V_H$. This holds even if the last class is empty.
+Identify the last law with a PMF on
+$\mathcal E(V_H)=\operatorname{PartialCompatibleEmbedding}(B,A,V_H)$
+without changing any underlying function. The completed invariant is
+precisely $\mathcal I(Q-1,B_{Q-1};V_H,\bar\nu_{Q-1})$.
+The witness clause now has no unembedded cluster, and the domain,
+colouring, degree and spread clauses remain the completed invariant's
+clauses. Set $\mu=\bar\nu_{Q-1}$. This proves the claimed final state
+and its \noderef{VertexSpreadOn} bound. When $Q=1$ the same argument
+consists of the base and the single class completion, with no reset;
+no round-$Q$ invariant is ever introduced.
+\end{proof}

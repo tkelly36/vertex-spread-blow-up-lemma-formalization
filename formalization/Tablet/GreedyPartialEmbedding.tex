@@ -1,0 +1,14 @@
+\begin{definition}[Greedy partial-embedding state]
+A greedy state on $S$ is a partial compatible embedding as in
+\noderef{PartialCompatibleEmbedding}, represented by a total map $f$,
+with the additional invariant
+\[
+ d(d-\varepsilon)_+^{|S\cap N_H(x)|}n\leq |D_S^f(x)|
+                  \qquad\text{for every }x\notin S.
+\]
+The sets $D_S^f(x)$ are those of \noderef{RawCandidates}; occupied
+images are not removed in this invariant. The exponent is the actual
+number of embedded neighbors, and subtraction is truncated subtraction
+of extended nonnegative reals. Values of the total map outside $S$
+are not otherwise constrained.
+\end{definition}

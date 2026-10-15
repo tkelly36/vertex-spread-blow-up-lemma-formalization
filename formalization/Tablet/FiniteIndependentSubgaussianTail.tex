@@ -1,0 +1,24 @@
+\begin{lemma}[Finite independent subgaussian tail]
+Let $\mu$ be a probability measure, let $(X_i)_{i\in I}$ be independent
+real random variables, and let $s\subseteq I$ be finite. Suppose each
+$X_i$ with $i\in s$ has centered subgaussian parameter $1/4$, meaning
+$\mathbb E e^{uX_i}\leq e^{u^2/8}$ for every real $u$, with the
+exponentials integrable. If $0<N$, $|s|\leq N$, and $t\geq0$, then
+\[
+ \mu\left(\left|\sum_{i\in s}X_i\right|>t\right)
+ \leq 2\exp(-2t^2/N).
+\]
+\end{lemma}
+\begin{proof}
+If $s$ is empty the sum is zero, and the asserted event is empty.
+Otherwise the independent-sum subgaussian theorem gives parameter
+$|s|/4$ to the sum $S$. Since $|s|\leq N$, its exponential bound is
+also bounded by $\exp(Nu^2/8)$, so $S$ has parameter $N/4$.
+The checked subgaussian Chernoff inequality gives
+$\mu(S\geq t)\leq\exp(-t^2/(2(N/4)))$.
+Negation preserves the subgaussian parameter, so the same inequality
+applies to $-S$. The event $|S|>t$ lies in the union of these two
+weak-tail events. Subadditivity of probability and
+$-t^2/(2(N/4))=-2t^2/N$ give the assertion. These arguments do not
+require the random variables to have identical distributions.
+\end{proof}

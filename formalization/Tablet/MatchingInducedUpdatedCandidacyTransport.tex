@@ -1,0 +1,36 @@
+\begin{lemma}[Transport of the matching-induced candidacy graph]
+Let $L_1,L_2,K,R$ be finite parts. Suppose the edges of $M$ between
+$L_1$ and $L_2$ are exactly a perfect matching, and write
+$\tau:L_1\to L_2$ for its canonical bijection, so that
+$xy\in E(M)$ if and only if $y=\tau(x)$. Let $F_{12}$ be a graph between
+$L_1$ and $K$, and let $\sigma:L_1\to K$ be a perfect matching in $F_{12}$
+used to extend the current partial embedding. Suppose $F_{13},F_{23}$ and
+the next updated candidacy graph $A'$ satisfy, for every $x\in L_1$ and
+$z\in R$,
+\[
+ \tau(x)z\in E(A')
+ \quad\Longleftrightarrow\quad
+ xz\in E(F_{13})\ \hbox{ and }\ \sigma(x)z\in E(F_{23}).
+\]
+Assume also, in both directions, that
+\[
+y\in L'\Longleftrightarrow y=\tau(x)\text{ for some }x\in L_1,
+\qquad
+z\in R'\Longleftrightarrow z=w\text{ for some }w\in R,
+\]
+where the last equality uses the canonical coercion into the ambient vertex
+type. Thus $L'$ is exactly the image $\tau(L_1)$ and $R'$ is exactly the
+ambient copy of $R$. If the graph \noderef{MatchingInducedGraph} determined
+by $F_{13},F_{23},\sigma$ on the parts $L_1,K,R$ is
+$(\varepsilon,d)$-super-regular between its disjoint-union copies of $L_1$
+and $R$, then $A'$ is $(\varepsilon,d)$-super-regular between $L'$ and $R'$.
+
+In the equal-size induction, $M=H[X_{i+1},X_j]$, whose perfect matching gives $\tau(x)$ as the unique neighbor of $x$ in $X_j$; $F_{13}$ is the pullback of $A_f^j$ along $\tau$, $F_{23}=G[V_{i+1},V_j]$, and $A'=A_{f'}^j$ for $f'=f\cup\sigma$.  Thus the displayed equivalence is precisely the paper's identification, while the conclusion records the preservation of super-regularity under that identification.
+\end{lemma}
+\begin{proof}
+By the displayed adjacency equivalence and the definition of \noderef{MatchingInducedGraph}, for every $x\in L_1$ and $z\in R$ the vertices $\operatorname{inl}(x)$ and $\operatorname{inr}(z)$ are adjacent in the matching-induced graph if and only if $\tau(x)$ and $z$ are adjacent in $A'$.  The forward directions of the two membership equivalences put every $\tau(x)$ in $L'$ and every coerced $z$ in $R'$; their reverse directions say that every member of $L'$ and $R'$ arises in this way.  Since $\tau$ and subtype coercions are injective, these maps are bijections of the displayed parts.
+
+It remains to verify rather than merely invoke invariance.  For subsets $P\subseteq L'$ and $Q\subseteq R'$, take their inverse images $\widetilde P\subseteq L_1$ and $\widetilde Q\subseteq R$.  The forward membership implications put the images of these inverse images in $P$ and $Q$, while the reverse implications show that every element of $P$ and $Q$ is hit; injectivity makes both restrictions bijective.  Hence $|P|=|\widetilde P|$ and $|Q|=|\widetilde Q|$, and applying the same argument to the full parts gives $|L'|=|L_1|$ and $|R'|=|R|$.  The edgewise equivalence gives a bijection between the edges of $A'$ from $P$ to $Q$ and the matching-induced edges from $\widetilde P$ to $\widetilde Q$.  Consequently their edge counts and pair densities agree.  Using the full-part cardinality equalities, the size hypotheses in regularity transfer in both directions, so the $(\varepsilon,d)$-regularity clause transfers to $A'$.
+
+For $y\in L'$, the reverse left-membership implication supplies $x\in L_1$ with $y=\tau(x)$, and injectivity of $\tau$ makes it unique.  The edgewise equivalence together with both directions of the right-membership equivalence bijects $N_{A'}(y)\cap R'$ with the matching-induced neighborhood of $\operatorname{inl}(x)$ in the right part.  Their cardinalities are equal; since $|R'|=|R|$, both the lower and upper $(d\pm\varepsilon)|R'|$ degree bounds transfer.  For $z\in R'$, the reverse right-membership implication supplies its unique preimage in $R$.  Applying the adjacency equivalence for every $x$ and both directions of the left-membership equivalence bijects $N_{A'}(z)\cap L'$ with the corresponding matching-induced neighborhood.  Since $|L'|=|L_1|$, both degree bounds on this side transfer as well.  These regularity and two degree conclusions are exactly \noderef{SuperRegularPair} for $(L',R')$.
+\end{proof}

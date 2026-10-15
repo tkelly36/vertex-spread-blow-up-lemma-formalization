@@ -1,0 +1,16 @@
+\begin{lemma}[Clusterwise deletion and its external buffer]
+Let a finite blow-up instance have equally large source and host clusters.  Fix natural numbers $m,k,\Delta$.  Suppose $m\leq |V_i|$, $|V_i|-m\leq k$ for every $i$, and $\Delta(H),\Delta(R)\leq\Delta$.  Then there is $X\subseteq V(H)$ such that
+\[
+ |X\cap X_i|=|V_i|-m\leq k\quad\text{for every }i.
+\]
+For its external neighbor buffer
+\[
+ X'=\{x\notin X:N_H(x)\cap X\ne\varnothing\}
+\]
+one moreover has $|X'\cap X_i|\leq\Delta^2k$ for every $i$.  In particular, taking $m=\lfloor(1-\varepsilon)n\rfloor$ and $k=3\varepsilon n$ gives exactly the deletion sizes and the $3\varepsilon\Delta^2n$ buffer bound used in the paper (whenever the displayed real bounds imply the corresponding integral inequalities).
+\end{lemma}
+\begin{proof}
+For each $i$, choose exactly $|V_i|-m$ vertices from $X_i$; this is possible because $|X_i|=|V_i|$ and $m\leq|V_i|$.  The source fibers are disjoint, so the union of these choices is a set $X$ having the asserted equality in every cluster, and the hypothesis $|V_i|-m\leq k$ gives the first bound.
+
+Fix $i$ and count ordered pairs $(x,y)$ with $x\in X'\cap X_i$, $y\in X$, and $xy\in E(H)$.  Every $x\in X'\cap X_i$ occurs in at least one such pair, by the definition of $X'$.  If $y\in X_j$ occurs, the reduced-support axiom in \noderef{BlowUpInstance} gives $ij\in E(R)$.  There are at most $\Delta$ possible clusters $j$, because $\Delta(R)\leq\Delta$.  For each such $j$ there are at most $k$ choices for $y\in X\cap X_j$, and each $y$ has at most $\Delta$ neighbors because $\Delta(H)\leq\Delta$.  Thus the number of pairs, and hence $|X'\cap X_i|$, is at most $\Delta\,k\,\Delta=\Delta^2k$.
+\end{proof}

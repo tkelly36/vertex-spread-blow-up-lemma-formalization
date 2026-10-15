@@ -1,0 +1,16 @@
+\begin{definition}[Hypergeometric masses]
+For natural numbers $n,s,t,x$, define the real number
+\[
+ H(n,s,t,x)=
+ \begin{cases}
+ \displaystyle {\binom t x\binom{n-t}{s-x}\over\binom n s},&x\le s,\\
+ 0,&x>s.
+ \end{cases}
+\]
+Natural-number subtraction is truncated and real division by zero is
+defined to be zero. In applications $s,t\le n$, so the denominator is
+positive. When $s,t\le n$, these are the masses for the number of marked elements in a
+uniform $s$-subset of an $n$-element set with $t$ marked elements. The
+explicit $x\le s$ condition prevents truncated subtraction from assigning
+a spurious mass to $x>s$.
+\end{definition}

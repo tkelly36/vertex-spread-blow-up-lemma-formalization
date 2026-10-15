@@ -1,0 +1,127 @@
+\begin{lemma}[Source-matching assembly of a future test]
+Let $B,A$ be a blow-up instance and candidacy system, and let
+$\theta,p,\varepsilon,\rho,\zeta,\omega,\xi,D,d,C,a,n,t$
+carry a \noderef{ColourRoundStepParameters} record. Assume $n\ge1$,
+$y<D$, every source cluster has size $n$ or $n+1$ and equals its host
+cluster in size. Fix $ij\in E(R)$ and assume
+\noderef{SaturatingSourcePair} for $(B,i,j)$.
+For a partial compatible embedding $f$ on $X$, put
+$U=\mathrm{inl}(X_i)$, $K=\mathrm{inr}(V_i)$,
+$V=\mathrm{inl}(X_j)$, $Z=\mathrm{inr}(V_j)$.
+Let $A_f^j$ symmetrize the copied pairs belonging to
+\noderef{UpdatedCandidacyCluster} at $(B,A,X,f,j)$, and let $H_0$
+have exactly the original host edges on host copies and no other edges.
+Suppose $O,W,J$ are ambient graphs with
+$O\subseteq A_f^j$, $W\subseteq O$, $J\subseteq H_0$, and
+\[
+ (O;V,Z)\text{ is }(\varepsilon_t,p_y)\text{-super-regular},\qquad
+ (W;V,Z)\text{ is }(\xi_t,\rho_y)\text{-super-regular}.
+\]
+There is a graph $F_{13}$ whose pair on $U,Z$ is
+$(\zeta_t,\rho_y)$-super-regular. For every bijection $\sigma:U\to K$,
+if the \noderef{MatchingInducedGraph} of $F_{13},J$ on the canonical
+subtype copies of $U,Z$ is
+$(\omega_{t+1},\rho_y d/2)$-super-regular, there is an ambient graph
+$W_{\mathrm{new}}$ on the full parts $V,Z$, contained in the
+symmetrization $T_\sigma$ of
+\[
+ \mathrm{inl}(x),\mathrm{inr}(v):\quad
+ (x,v)\in\mathrm{UpdatedCandidacyCluster}(B,A,X,f,j),\quad
+ \forall u\in U,\quad
+ [u=\mathrm{inl}(z),\ zx\in E(H)]\Longrightarrow
+ [\sigma(u)=\mathrm{inr}(w),\ wv\in E(G)],
+\]
+and $(W_{\mathrm{new}};V,Z)$ is
+$(\varepsilon_{t+1},\rho_y d/2)$-super-regular.
+\end{lemma}
+\begin{proof}
+Write $m=|U|=|K|$ and $k=|V|=|Z|$. The copied-part equalities follow
+from injectivity of the sum injections and the assumed cluster-size
+equalities. Each of $m,k$ belongs to $\{n,n+1\}$. The parts $U,K,Z$
+are pairwise disjoint: source and host copies are disjoint, and the
+two host clusters are disjoint since $ij\in E(R)$ implies $i\ne j$.
+Also $V$ and $Z$ are disjoint.
+Let $M$ have exactly the source edges on source copies and no other
+edges. Its adjacency between copied source vertices is precisely that
+of $H$. By \noderef{SaturatingSourcePair}, in one orientation there
+is an injection between the source cluster subtypes whose graph is
+exactly the source-pair edges. The maps from those subtypes to $U,V$
+are equivalences: every vertex in the displayed image part has a
+unique preimage under $\mathrm{inl}$. Conjugate the injection by these
+equivalences. We obtain either an injection $U\to V$ with
+$M(u,v)$ equivalent to $v=\tau(u)$, or an injection $V\to U$ with
+$M(u,v)$ equivalent to $u=\tau(v)$.
+
+Here are the parameter checks, all from
+\noderef{ColourRoundStepParameters}, using $y\le D$.
+Its witness density bounds give $0<\rho_y<1$: the lower bound is
+$2\zeta_t<\rho_y$, and the upper bound follows from
+$0\le2\zeta_t<1-\rho_y$. The host bounds similarly give
+$0<d/2<1$, and give $\zeta_t\le2\zeta_t<1-d/2\le1$.
+Thus $\rho_y(d/2)\le1$. We have
+$\xi_t<\zeta_t$, $1/n\le\xi_t$,
+$\xi_t+2/n\le\zeta_t$ and
+$\xi_t+1/(\zeta_t n)\le\zeta_t$.
+Also $\omega_{t+1}<\varepsilon_{t+1}\le1$,
+$\omega_{t+1}+2/n\le\varepsilon_{t+1}$ and
+$\omega_{t+1}+1/(\varepsilon_{t+1}n)\le\varepsilon_{t+1}$.
+Finally $\varepsilon_t\le\varepsilon_{t+1}\le1$.
+
+If $m=k$, the injection in either orientation is surjective, since its
+image has the domain cardinality and the finite codomain has that same
+cardinality. It therefore gives an equivalence $U\simeq V$, inverted
+if its orientation was $V\to U$. In the inverted case,
+$u=\tau(v)$ is equivalent to $v=\tau^{-1}(u)$ by applying the inverse.
+Apply \noderef{EqualSizeSourceWitnessTransport} with error
+enlargements $\xi_t\le\zeta_t$ and
+$\omega_{t+1}\le\varepsilon_{t+1}$.
+
+If $m=k+1$, the cluster-size alternatives force $k=n$ and $m=n+1$.
+There cannot be an injection $U\to V$, since injectivity would give
+$m\le k$. The injection $V\to U$ has image of size $n$, so its
+complement in $U$ has exactly one element $u_0$. Its range is therefore
+exactly $U\setminus\{u_0\}$, yielding an equivalence
+$V\simeq U\setminus\{u_0\}$ with the original adjacency equivalence.
+Apply \noderef{CurrentExtraSourceWitnessTransport}, supplying every
+inner, integer and outer reserve checked above. This produces the
+full-current-part test graph, with an artificial row at $u_0$, and its
+transport deletes that artificial row.
+
+If $k=m+1$, necessarily $m=n$, $k=n+1$, and only the injection
+$U\to V$ is possible. Its image has a singleton complement $v_0$,
+and gives an equivalence $U\simeq V\setminus\{v_0\}$.
+The adjacency equivalence also shows that $v_0$ has no source neighbour
+in $U$, since $v_0$ lies outside the image.
+Apply \noderef{FutureExtraSourceWitnessTransport}. Supply the stored
+old witness $O$ with its stated parameters
+$(\varepsilon_t,p_y)$, not just its thinning $W$.
+Because $y<D$, the density update and gap fields give
+$p_{y+1}=\rho_y(d/2)$ and
+$\rho_y(d/2)+\varepsilon_t+1/n\le p_y$.
+This is its old-row gap hypothesis. All other reserves have already
+been checked. Its transport restores a subset of the genuine unmatched
+old row after testing the smaller part.
+These three cases exhaust $m,k\in\{n,n+1\}$.
+
+In every case the cited transport supplies the asserted $F_{13}$ and,
+for each successful bijection, a contained super-regular graph on the
+full parts $V,Z$ inside the symmetrization of
+$v\in V$, $z\in Z$, $O(v,z)$ and
+$\forall u\in U, M(u,v)\Rightarrow H_0(\sigma(u),z)$.
+This auxiliary graph is contained in $T_\sigma$, as follows.
+In the forward orientation, write $v=\mathrm{inl}(x)$ and
+$z=\mathrm{inr}(a)$ by their part memberships.
+The edge $O(v,z)$ belongs to $A_f^j$. The reverse alternative in the
+symmetrization defining $A_f^j$ is impossible on a source/host pair;
+hence $(x,a)$ belongs to the displayed updated candidacy cluster.
+For any $u=\mathrm{inl}(b)$ with $H(b,x)$, the definition of $M$
+gives $M(u,v)$. The auxiliary constraint gives
+$H_0(\sigma(u),z)$. Since $\sigma(u)\in K$, it is
+$\mathrm{inr}(w)$ for some $w$. The host-edge definition of $H_0$,
+using symmetry of $G$ for its reverse alternative, yields $G(w,a)$.
+This proves the required true constraint. The reverse orientation of
+an auxiliary edge follows by symmetry of $T_\sigma$.
+Transitivity of graph containment now gives the claimed
+$W_{\mathrm{new}}\subseteq T_\sigma$, without changing its
+super-regularity, its parameters or its exact parts.
+\end{proof}

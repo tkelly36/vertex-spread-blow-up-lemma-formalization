@@ -1,0 +1,14 @@
+\begin{lemma}[Counting a relation by rows]
+Let $U\subseteq A$ and $W\subseteq B$ be finite sets, and let $P$ be a relation on $A\times B$.
+Then
+\[
+ |\{(x,y)\in U\times W:P(x,y)\}|=
+ \sum_{x\in U}|\{y\in W:P(x,y)\}|.
+\]
+\end{lemma}
+\begin{proof}
+Write the cardinality of a finite set as the sum of one over its elements.
+The left side is therefore $\sum_{x\in U}\sum_{y\in W}\mathbf1_{P(x,y)}$.
+For each fixed $x$, the inner sum counts exactly the elements $y\in W$ satisfying $P(x,y)$.
+Summing those cardinalities over $U$ gives the asserted equality.
+\end{proof}

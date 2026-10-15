@@ -1,0 +1,19 @@
+\begin{lemma}[Outgoing switches have distinct resulting matchings]
+Fix a bijection $f:A\to B$ and $x\in A$. On the set of ordered pairs
+$(a,b)$ for which $x,a,b$ are pairwise distinct, the map
+\[
+(a,b)\longmapsto S(f;x,a,b)
+\]
+of \noderef{MatchingThreeEdgeSwitch} is injective.
+\end{lemma}
+\begin{proof}
+Suppose the pairs $(a,b)$ and $(a',b')$ give the same function $g$.
+By \noderef{MatchingThreeEdgeSwitchProperties}, evaluating at $x$ gives
+$f(a)=g(x)=f(a')$, so injectivity of $f$ gives $a=a'$.
+The same node gives $g(b)=f(x)=g(b')$ and says that $g$ is bijective.
+Injectivity of $g$ therefore gives $b=b'$. In particular, $a$ is
+recovered as the unique preimage under $f$ of $g(x)$, and $b$ as the
+unique preimage under $g$ of $f(x)$. When $f(x)=y$, this is the unique
+preimage of $y$. Thus the resulting functions, not just their cycles,
+distinguish all outgoing candidates.
+\end{proof}

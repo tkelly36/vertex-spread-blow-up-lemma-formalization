@@ -1,0 +1,24 @@
+\begin{lemma}[Untouched witnesses and independent exposure counts]
+Let $R$ be a finite reduced graph of maximum degree at most $D$, and let
+$c:V(R)\to[q]$ separate distinct vertices joined by an edge or a two-edge
+walk. Let $S\subseteq c^{-1}(t)$ and $i\in c^{-1}(t)\setminus S$.
+Then $N_R(i)\cap S=\varnothing$, and $N_R(j)\cap S=\varnothing$ for
+every $j\in N_R(i)$. Every vertex has at most one neighbour in
+$S\cup\{i\}$. Write
+$e_j=|\{k:(c(k)<t\text{ or }k\in S),\ jk\in E(R)\}|$.
+For every $j\in N_R(i)$, $e_j<D$, and replacing $S$ by $S\cup\{i\}$
+changes $e_j$ to exactly $e_j+1$. No comparison with $e_i$ is asserted.
+\end{lemma}
+\begin{proof}
+If $s\in S\cap N_R(i)$, the edge $is$ contradicts $c(s)=c(i)$.
+If $s\in S\cap N_R(j)$ with $ij\in E(R)$, then $s\ne i$ because
+$i\notin S$, and the walk $i,j,s$ contradicts the same equality of
+colours. Two distinct neighbours of any vertex that lie in $S\cup\{i\}$
+also have the same colour and are joined by a two-edge walk. Thus there
+cannot be two such neighbours.
+The vertex $i$ is not in the set counted by $e_j$: its colour is $t$ and
+it is not in $S$. Adding it to $S$ adds exactly this one neighbour of
+$j$ and changes no other membership condition. The resulting neighbour
+set has size $e_j+1$ and is contained in $N_R(j)$, so $e_j+1\le D$.
+This gives the asserted strict bound and the exact increment.
+\end{proof}

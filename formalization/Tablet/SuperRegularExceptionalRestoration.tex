@@ -1,0 +1,101 @@
+\begin{lemma}[Exceptional-row restoration]
+Let $H,F$ be finite simple graphs on the same vertex set, with
+disjoint covering parts $U,W$ of size $n$, and with every edge of
+$H$ crossing those parts. Let $U_0\subseteq U,W_0\subseteq W$.
+Let real numbers $c,h,\eta$ satisfy
+\[
+0<c<1,\quad0<h\leq c/100,\quad0<\eta<1,\quad
+3h<\eta,\quad4h<\eta,\quad2h+4h/\eta<\eta,\quad hn\geq1.
+\]
+Assume $|U\setminus U_0|,|W\setminus W_0|\leq2hn$;
+every vertex of $H$ has at least $7cn/4$ neighbors in the opposite
+full part; $F\subseteq H$ has edges only between $U_0,W_0$;
+the opposite-core degrees of $F$ lie in $[(c-4h)n,(c+2h)n]$;
+and $|d_F(A,B)-c|\leq2h$ whenever
+$A\subseteq U_0,B\subseteq W_0$ and $|A|,|B|>hn$.
+There is a graph $G'\subseteq H$ on the same vertex set such that
+$(U,W)$ is $(\eta,c)$-super-regular, with the parameters regarded
+as extended nonnegative reals.
+\end{lemma}
+\begin{proof}
+Write $B_U=U\setminus U_0$, $B_W=W\setminus W_0$.
+Since $h>0$ and $hn\geq1$, $n>0$ and $1/n\leq h$.
+Let $k=\lfloor cn\rfloor$, interpreted as a natural number since
+$cn>0$. Then $cn-1\leq k\leq cn$.
+For any exceptional vertex in $B_U$, deletion of $B_W$ from
+its possible neighbors loses at most $2hn$, so it has at least
+$(7c/4-2h)n\geq cn$ neighbors in $W_0$. The last inequality
+uses $2h\leq c/50<3c/4$. Likewise every vertex of $B_W$
+has at least $cn$ neighbors in $U_0$. Each of these finite
+neighbor sets therefore has cardinality at least the integer $k$.
+Choose a $k$-element subset for each exceptional vertex.
+Define $G'$ by adding to $F$ exactly the edges from these
+exceptional vertices to their chosen opposite-core neighbors,
+in both orientations. All are edges of $H$. No added edge has
+two exceptional endpoints, and no edge is prescribed by two
+exceptional vertices. This is a simple graph on the original
+vertex set, contained in $H$, with decidable adjacency.
+
+Every exceptional vertex has degree exactly $k$. Every core
+vertex gains at most $|B_W|\leq2hn$ neighbors if it is in $U_0$,
+or at most $|B_U|\leq2hn$ if it is in $W_0$.
+The support condition on $F$ makes its degree into the full
+opposite part equal its degree into the opposite core.
+Thus core degrees in $G'$ lie in $[(c-4h)n,(c+4h)n]$.
+For exceptional degrees use
+$k\geq cn-1\geq(c-h)n\geq(c-4h)n$ and
+$k\leq cn\leq(c+4h)n$.
+Since $4h<\eta$, all opposite-part degrees therefore lie in
+$[(c-\eta)n,(c+\eta)n]$ as real inequalities.
+
+For a regularity test take $X\subseteq U,Y\subseteq W$ with
+$a=|X|>\eta n$, $b=|Y|>\eta n$. These imply $a,b>0$.
+Put $X_0=X\cap U_0,Y_0=Y\cap W_0$. The complement size
+bounds and $3h<\eta$ give
+$|X_0|\geq a-2hn>hn$, and likewise $|Y_0|>hn$.
+The number $R=ab-|X_0||Y_0|$ of tested positions with at least
+one exceptional endpoint satisfies
+\[
+0\leq R\leq|X\cap B_U|b+a|Y\cap B_W|
+\leq2hn(a+b)<(4h/\eta)ab.
+\]
+For the strict last inequality, use $n/a<1/\eta$ and
+$n/b<1/\eta$, valid since $n,\eta,a,b>0$.
+On the other positions $G'$ agrees with $F$.
+The assumed core density bound, after multiplying by
+$|X_0||Y_0|>0$, gives
+\[
+(c-2h)|X_0||Y_0|\leq e_F(X_0,Y_0)
+\leq(c+2h)|X_0||Y_0|.
+\]
+Here $0<c-2h<1$, by $h\leq c/100$ and $c<1$.
+At most $R$ added edges occur in $X\times Y$. Consequently
+\[
+\begin{split}
+e_{G'}(X,Y)&\geq(c-2h)(ab-R)
+             \geq(c-2h-4h/\eta)ab,\\
+e_{G'}(X,Y)&\leq(c+2h)|X_0||Y_0|+R
+             \leq(c+2h+4h/\eta)ab.
+\end{split}
+\]
+The budget $2h+4h/\eta<\eta$ and division by $ab>0$ prove
+the lower and upper real density inequalities with error $\eta$.
+
+It remains to verify precisely the extended-real predicates.
+By \noderef{PairDensityReal}, on these nonempty tested sets the
+extended density is finite and its real value equals the density
+just bounded. All sizes, degrees, and upper endpoints are finite,
+so their real upper inequalities translate directly to extended
+upper inequalities. For every lower endpoint, if $c\geq\eta$,
+the extended truncated difference has real value $c-\eta$ and
+the real lower inequality translates directly, including its
+multiplication by the opposite-part size in the degree clauses.
+If $c<\eta$, the truncated difference is zero and the extended
+lower bounds follow from nonnegativity, without treating a
+negative real number as an extended parameter. The size tests
+translate exactly as well, since $\eta$ and all sizes are finite.
+Thus the density tests are those of \noderef{RegularPair}, and
+the two degree clauses are those of \noderef{SuperRegularPair}.
+The graph is on the unchanged vertex set throughout, proving the
+claimed contained spanning conclusion.
+\end{proof}

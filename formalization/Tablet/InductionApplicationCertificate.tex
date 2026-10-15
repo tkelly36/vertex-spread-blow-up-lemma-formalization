@@ -1,0 +1,103 @@
+\begin{definition}
+Fix $\Delta,Q\in\mathbb N$, $d\in\mathbb R_{\geq0}\cup\{\infty\}$, and
+sequences $\theta,p,\eta,\rho,\zeta,\omega,\xi:\mathbb N\to
+\mathbb R_{\geq0}\cup\{\infty\}$.  An \emph{induction application
+certificate} consists of threshold functions
+$N^{\rm wit}:\mathbb N^2\to\mathbb N$ and $N^{\rm host}:\mathbb N\to\mathbb N$,
+constant functions $a:\mathbb N^3\to\mathbb R_{\geq0}\cup\{\infty\}$ and
+$M:\mathbb N^2\to\mathbb R_{\geq0}\cup\{\infty\}$, and threshold functions
+$N^{\rm FG}:\mathbb N^3\to\mathbb N$ and
+$N^{\rm mat},N^{\rm exist}:\mathbb N^2\to\mathbb N$, having all of the following
+properties.  The functions are total, but the guarantees below are required
+only in the finite certified range $s<Q$; their values at $s\geq Q$ are
+arbitrary.
+
+For every round $s<Q$ and every $x\leq\Delta$, every finite ambient vertex type $V$ with decidable
+equality, every graph $G$ on $V$ with decidable adjacency, and all finite
+parts $L,R\subseteq V$, if
+\[
+ L\cap R=\varnothing,\quad N^{\rm wit}_{s,x}\leq |L|,\quad
+ N^{\rm wit}_{s,x}\leq |R|,\quad |L|\leq |R|+1,\quad |R|\leq |L|+1,
+\]
+and $G[L,R]$ is $(\eta_s,p_x)$-super-regular, then there is a graph $G'$ on
+the same ambient type such that $G'\subseteq G$ and $G'[L,R]$ is
+$(\xi_s,\rho_x)$-super-regular.  Under the same quantification, if
+\[
+ L\cap R=\varnothing,\quad N^{\rm host}_s\leq |L|,\quad
+ N^{\rm host}_s\leq |R|,\quad |L|\leq |R|+1,\quad |R|\leq |L|+1,
+\]
+and $G[L,R]$ is $(\eta_0,d)$-super-regular, then there is a graph $G'$ on
+the same ambient type such that $G'\subseteq G$ and $G'[L,R]$ is
+$(\xi_s,d/2)$-super-regular.  Here $\xi_s$ is the inner reserve below the
+post-padding error $\zeta_s$; the certificate records the thinning
+conclusion, while the induction step records the quantitative slack from
+$\xi_s$ to $\zeta_s$.  In each conclusion the graph is spanning on
+the specified parts because its vertex type and the parts themselves are
+unchanged.
+
+For every round $s<Q$ and every ordered pair $x,y\leq\Delta$, one has $0<a_{s,x,y}\leq1$.  Moreover, consider any
+finite ambient vertex type $V$ with decidable equality, any three graphs
+$F_{12},F_{13},F_{23}$ on $V$ with decidable adjacency, finite parts
+$W_1,W_2,W_3\subseteq V$, and $m\in\mathbb N$ with
+$N^{\rm FG}_{s,x,y}\leq m$.  Suppose the parts are pairwise disjoint,
+\[
+ |W_1|=|W_2|=m,\qquad m\leq |W_3|+1,qquad |W_3|\leq m+1,
+\]
+the pairs $(W_1,W_2)$ in $F_{12}$, $(W_1,W_3)$ in $F_{13}$, and
+$(W_2,W_3)$ in $F_{23}$ are respectively
+\[
+ (\theta_s,\rho_x),\qquad (\theta_s,\rho_y),\qquad (\theta_s,d/2)
+\]
+super-regular, and every edge $vu\in E(F_{12})$ with $v\in W_1$ and
+$u\in W_2$ satisfies
+\[
+ (\rho_y(d/2)-\theta_s)|W_3|
+ \leq |N_{F_{13}}(v)\cap N_{F_{23}}(u)\cap W_3|
+ \leq (\rho_y(d/2)+\theta_s)|W_3|.
+\]
+Thus the full near-equal $(\theta_s,\rho_x,\rho_y,d/2)$-regular-triplet
+hypothesis holds.  For every proof $h_{12}$ that $W_1$ and $W_2$ are
+disjoint and every witness that the type
+\[
+ \mathcal M=\{\sigma:W_1\to W_2:\sigma\text{ is a perfect matching of }
+ F_{12}[W_1,W_2]\text{ relative to }h_{12}\}
+\]
+is nonempty, let $\mu$ be the uniform probability mass function on
+$\mathcal M$.  For $\sigma\in\mathcal M$, let $A_\sigma$ be the graph on the
+disjoint union $W_1\sqcup W_3$ in which the left copy of $v\in W_1$ is
+adjacent to the right copy of $w\in W_3$ exactly when
+$vw\in E(F_{13})$ and $\sigma(v)w\in E(F_{23})$.  Then the outer measure
+induced by $\mu$ satisfies
+\[
+ 1-(1-a_{s,x,y})^m\leq
+ \mu^{*}\!\left(\left\{\sigma\in\mathcal M:
+ A_\sigma[W_1,W_3]\text{ is }
+ (\omega_{s+1},\rho_y(d/2))\text{-super-regular}\right\}\right),
+\]
+where the displayed parts of $A_\sigma$ are the full left and right copies
+in $W_1\sqcup W_3$.
+
+Finally, for every round $s<Q$ and $x\leq\Delta$, one has $M_{s,x}\geq1$.  For every finite
+ambient vertex type $V$ with decidable equality, every graph $G$ on $V$ with
+decidable adjacency, disjoint finite parts $U,W\subseteq V$, and
+$m\in\mathbb N$, suppose that
+\[
+ N^{\rm mat}_{s,x}\leq m,\qquad |U|=m,\qquad |W|=m,
+\]
+$G[U,W]$ is $(\theta_s,\rho_x)$-super-regular, and the type $\mathcal P$ of
+perfect matchings $f:U\to W$ of $G[U,W]$ is nonempty.  If $\nu$ is the
+uniform probability mass function on $\mathcal P$, then the pushforward of
+$\nu$ along $f\mapsto (u\mapsto f(u))$, viewing each subtype-valued matching
+as an ordinary map $U\to V$, is $(M_{s,x}/m)$-vertex-spread on the whole
+codomain $V$.
+
+The certificate also supplies this nonemptiness rather than assuming it:
+under the same ambient quantification, if
+\[
+ N^{\rm exist}_{s,x}\leq m,\qquad |U|=|W|=m,
+ \qquad G[U,W]\text{ is }(\theta_s,\rho_x)\text{-super-regular},
+\]
+then the type $\mathcal P$ of perfect matchings is nonempty.  Thus the
+existence witness needed to form the uniform law is a certified output for
+every retained pair above the recorded threshold.
+\end{definition}

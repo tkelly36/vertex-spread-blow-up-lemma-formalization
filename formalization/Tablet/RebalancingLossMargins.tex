@@ -1,0 +1,71 @@
+\begin{lemma}[Floor, ceiling, and loss margins]
+Fix $\Delta\geq1$, $0<d\leq1$, $0<d'\leq d/4$, and $0<a\leq1/4$.
+There exists $0<\varepsilon'_0\leq\min\{1/4,d'/2\}$ such that for each
+$0<\varepsilon'\leq\varepsilon'_0$ there is $\varepsilon_0>0$ such that,
+for each $0<\varepsilon\leq\varepsilon_0$ and all sufficiently large $n$,
+there are integers $m,k\geq0$ satisfying $n\geq4$,
+$\varepsilon\leq a,1/4,d/4$, $\varepsilon'<\infty$, and
+\[
+ m\leq(1-\varepsilon)n<m+1,\qquad n/2\leq m\leq n,
+ \qquad k\leq4\varepsilon n,
+ \qquad (d'-\varepsilon')+8\Delta^2\varepsilon/\varepsilon'\leq d-\varepsilon.
+\]
+For every integer $N$ in the window $(1-\varepsilon)n\leq N\leq(1+\varepsilon)n$,
+\[
+ m\leq N,\quad N-m\leq k,\quad N-m\leq3\varepsilon n,\quad
+ (3+4\Delta^2)\varepsilon n\leq aN,\quad
+ (d/2)n\leq(d-\varepsilon)N,\quad \varepsilon N\leq\varepsilon'm,
+\]
+and both degree margins hold:
+\[
+ (d'-\varepsilon')m\leq(d-\varepsilon)N-3\varepsilon n,
+ \qquad
+ (d'-\varepsilon')m\leq(d-\varepsilon)N-3\varepsilon n-4\Delta^2\varepsilon n.
+\]
+All cutoffs depend only on the displayed scalar parameters, not on the
+number of clusters. Subtractions are nonnegative-real truncated subtraction.
+\end{lemma}
+\begin{proof}
+All input scalars are finite: $d\leq1$, $d'\leq d/4$, and $a\leq1/4$.
+Work in their ordinary real representatives. Put $K=3+4\Delta^2$ and choose
+\[
+ \varepsilon'_0=\min\{1/4,d'/2\},\qquad
+ \varepsilon_0=\min\{1/4,d/4,a,a/(2K),\varepsilon'/4,
+                    d/(4K),d\varepsilon'/(32\Delta^2)\}.
+\]
+Every entry is strictly positive, since $\Delta\geq1$; hence both minima
+are strictly positive. Fix admissible $\varepsilon$ and take
+$n_0=\max\{4,\lceil1/\varepsilon\rceil\}$. Then $n\geq n_0$ implies
+$\varepsilon n\geq1$. Set $m=\lfloor(1-\varepsilon)n\rfloor$ and
+$k=\lceil3\varepsilon n\rceil$. The floor inequalities give
+$m\leq(1-\varepsilon)n<m+1$, and
+$m\geq(1-\varepsilon)n-1\geq3n/4-1\geq n/2$; also $m\leq n$.
+For $N$ in the stated window, $m\leq N$, and
+$N-m\leq2\varepsilon n+1\leq3\varepsilon n\leq k$.
+The ceiling inequality gives $k\leq3\varepsilon n+1\leq4\varepsilon n$.
+
+The window yields $n/2\leq N\leq2n$. Therefore
+$K\varepsilon n\leq an/2\leq aN$ and
+$\varepsilon N\leq2\varepsilon n\leq\varepsilon'n/2\leq\varepsilon'm$.
+Since $\varepsilon\leq d/4$ and $d\leq1$,
+\[
+ (d-\varepsilon)(1-\varepsilon)
+ =d-(d+1)\varepsilon+\varepsilon^2
+ \geq d-2\varepsilon\geq d/2.
+\]
+Multiplying by $n$ proves the candidate-degree bound. Moreover
+\[
+ (d-\varepsilon)N-K\varepsilon n
+ \geq(d/2-K\varepsilon)n\geq(d/4)n
+ \geq(d'-\varepsilon')m.
+\]
+Here $K\varepsilon\leq d/4$, $d'\leq d/4$, and $m\leq n$ justify the
+last two comparisons. This proves the stronger degree margin; omitting
+the nonnegative buffer loss proves the other. The stronger inequality
+also shows that its subtractions do not cross zero, so the same assertions
+hold for truncated subtraction. Finally
+$8\Delta^2\varepsilon/\varepsilon'\leq d/4$, whence
+$(d'-\varepsilon')+8\Delta^2\varepsilon/\varepsilon'\leq d'+d/4
+\leq d/2\leq d-\varepsilon$. Returning to extended nonnegative reals
+preserves every displayed inequality and proves the claim.
+\end{proof}

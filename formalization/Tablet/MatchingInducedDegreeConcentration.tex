@@ -1,0 +1,64 @@
+\begin{lemma}[Simultaneous right degrees from set-image concentration]
+Let $G,F,H$ be graphs on a finite vertex set, $U,W,Z$ finite parts with $U,W$ disjoint,
+$|U|=|W|=m>0$, and let $\mu$ be any probability mass function on perfect
+matchings $f:U\to W$ of $G$, as in \noderef{PerfectMatching}.
+All scalar parameters below lie in the extended nonnegative reals.
+Suppose $(U,Z)$ in $F$ and $(W,Z)$ in $H$ are respectively
+$(\varepsilon,x)$- and $(\varepsilon,y)$-super-regular,
+\[
+ x/2\leq x-\varepsilon,\quad y/2\leq y-\varepsilon,\quad
+ xy-\delta\leq(x-\varepsilon)(y-\varepsilon)-\zeta,\quad
+ (x+\varepsilon)(y+\varepsilon)+\zeta\leq xy+\delta.
+\]
+Suppose for every $S\subseteq U,T\subseteq W$ with
+$|S|\geq(x/2)m$, $|T|\geq(y/2)m$, the event
+\[
+ |S||T|/m-\zeta m\leq |\{u\in S:f(u)\in T\}|
+ \leq |S||T|/m+\zeta m
+\]
+has $\mu$-probability at least $1-c^m$.
+Then, with probability at least $1-|Z|c^m$, every right vertex of
+$A_f=\noderef{MatchingInducedGraph}(F,H,U,W,Z,f)$ has degree into its
+copied left part in $[(xy-\delta)m,(xy+\delta)m]$.
+All subtractions are truncated at zero.
+\end{lemma}
+\begin{proof}
+For $z\in Z$ set $S_z=\{u\in U:F(u,z)\}$ and
+$T_z=\{w\in W:H(w,z)\}$. By the right-degree clauses of
+\noderef{SuperRegularPair},
+\[
+ (x-\varepsilon)m\leq|S_z|\leq(x+\varepsilon)m,\qquad
+ (y-\varepsilon)m\leq|T_z|\leq(y+\varepsilon)m.
+\]
+The first two scalar inequalities therefore check the two lower set-size
+hypotheses of the assumed concentration estimate. The right-degree
+identity in \noderef{MatchingInducedGraphIdentities} says explicitly
+\[
+ \deg_{A_f}(\operatorname{inr}z)
+ =|\{u\in U:F(u,z)\land H(f(u),z)\}|
+ =|\{u\in S_z:f(u)\in T_z\}|.
+\]
+Write $b_z=|S_z||T_z|/m$. Multiplication of the cardinality bounds and
+cancellation of the positive finite $m$ give
+\[
+ (x-\varepsilon)(y-\varepsilon)m\leq b_z
+ \leq(x+\varepsilon)(y+\varepsilon)m.
+\]
+This remains valid for extended parameters: the lower factors are finite
+because their products with the positive $m$ are bounded by finite
+cardinalities; an infinite upper factor only weakens the upper bound.
+Multiplication by the finite $m$ commutes with truncated subtraction.
+Thus the two scalar window assumptions imply
+$(xy-\delta)m\leq b_z-\zeta m$ and
+$b_z+\zeta m\leq(xy+\delta)m$. Each concentration success therefore
+implies the desired degree window for $z$.
+
+For completeness, in any probability space if an event $E$ has probability
+at least $1-t$ (truncated subtraction), then its complement has probability
+at most $t$: for $t\geq1$ this is automatic, and for $t<1$ it follows
+from $\Pr(E)+\Pr(E^c)=1$. Apply this to each of the $|Z|$ events above.
+The complement of their intersection is their union of complements, of
+probability at most $|Z|c^m$ by finite subadditivity. Passing back to the
+intersection gives the claimed lower bound; its containment in the
+simultaneous degree event finishes the proof.
+\end{proof}

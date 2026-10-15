@@ -1,0 +1,94 @@
+\begin{lemma}[Reset between consecutive colour rounds]
+Let $B$ be a blow-up instance with finite source and host vertex sets,
+candidacy system $A$, and reduced graph $R$ on $[r]$.  Fix a colouring
+$c:[r]\to[q]$, sequences $\varepsilon,p:\mathbb N\to[0,\infty]$,
+$D\in\mathbb N$, $C\in[0,\infty]$, and $n,t\in\mathbb N$.
+Let $B_t=\{j:c(j)=t\}$, $X$ be a finite source-vertex set, and $\mu$ a
+specified law on compatible partial embeddings with domain $X$.
+Assume $t+1<q$, $\varepsilon_t\leq\varepsilon_{t+1}$, and the completed-class
+invariant $\mathcal I(t,B_t;X,\mu)$ of \noderef{ColourRoundInvariant}, with
+parameters $(\varepsilon,p,D,C,n)$.  Then the same domain and the same law
+satisfy
+\[
+ \mathcal I(t+1,\varnothing;X,\mu).
+\]
+\end{lemma}
+\begin{proof}
+We verify every clause of \noderef{ColourRoundInvariant}.  This is the
+round-boundary argument of \texttt{paper/r2-colour-round-addendum.tex},
+lines 241--271 and 333--341, restricted to boundaries with $t+1<q$.
+Put $P=\{k:c(k)<t\}\cup B_t$ and $P'=\{k:c(k)<t+1\}$.
+For each cluster $k$, natural-number arithmetic gives
+\[
+ k\in P\ \Longleftrightarrow\ c(k)<t\text{ or }c(k)=t
+       \ \Longleftrightarrow\ c(k)<t+1
+       \ \Longleftrightarrow\ k\in P'.
+\]
+Thus $P=P'$, including when $B_t$ is empty.  Applying this equality to
+the source-cluster index of every source vertex proves that the old domain
+clause is exactly the new domain clause, with the same $X$.
+The degree bound and square-colouring clauses are unchanged, the new touched
+set is empty and hence contained in the next colour class, and the new
+round is legal by $t+1<q$.  The law and its restriction maps are unchanged,
+so its vertex-spread clause, interpreted by \noderef{VertexSpreadOn},
+is the old clause without any change of probability law.
+
+Fix $f\in\operatorname{supp}\mu$ and a cluster $j$ for which the new witness
+clause is required, namely $c(j)\geq t+1$.  Then $j\notin B_t$ and
+$c(j)\geq t$, so the old invariant supplies its witness.  Its old and new
+exposure finsets are equal, not just equicardinal:
+\[
+ \{k\in P:R.Adj(j,k)\}=\{k\in P':R.Adj(j,k)\}.
+\]
+Let their common cardinality be $x_j$.  The old bound $x_j\leq D$ therefore
+remains valid, and the density is the very same $p_{x_j}$.
+The new touched-neighbour finset is empty, so its cardinality is zero and
+in particular at most one.
+
+The partial embedding $f$ itself is unchanged, in the same type with domain
+$X$, as in \noderef{PartialCompatibleEmbedding}.  Consequently $f(X)$,
+the unused source part of cluster $j$, and its unused host part are all
+unchanged.  Unfolding \noderef{UpdatedCandidacy} shows that every allowed
+pair is unchanged: it tests the same domain exclusion, image exclusion,
+original allowed pair, and adjacency to every $f(x')$ with $x'\in X$.
+Hence \noderef{UpdatedCandidacyCluster} gives the identical updated graph
+of cluster $j$ before and after the reset.  The witness graph $W$ supplied
+by the old invariant is therefore still contained in that same graph on
+the same two parts $L,Q$.
+
+If $N_R(j)\cap B_t$ is nonempty, this old witness already has error
+$\varepsilon_{t+1}$, exactly the new error because the new touched set is
+empty.  Keep its super-regularity assertion unchanged.  If the intersection
+is empty, the old witness has error $\varepsilon_t$.  Write
+$a=\varepsilon_t$, $b=\varepsilon_{t+1}$, and $d=p_{x_j}$, so $a\leq b$.
+We check directly that its $(a,d)$-super-regularity implies
+$(b,d)$-super-regularity.
+By \noderef{RegularPair}, for subsets $U\subseteq L$ and $V\subseteq Q$
+with $|U|>b|L|$ and $|V|>b|Q|$, monotonicity of multiplication gives
+$|U|>a|L|$ and $|V|>a|Q|$.  The old regularity supplies
+$d-a\leq d_W(U,V)\leq d+a$.
+Truncated subtraction is antitone in its second argument and addition is
+monotone, so
+\[
+ d-b\leq d-a\leq d_W(U,V)\leq d+a\leq d+b.
+\]
+This proves the new regularity, with the strict thresholds as required by
+the definition.  For each $u\in L$, the old left degree bounds of
+\noderef{SuperRegularPair} give
+\[
+ (d-b)|Q|\leq(d-a)|Q|\leq\deg_W(u,Q)
+       \leq(d+a)|Q|\leq(d+b)|Q|.
+\]
+For each $v\in Q$, the identical monotonicities give the right degree bounds
+\[
+ (d-b)|L|\leq(d-a)|L|\leq\deg_W(v,L)
+       \leq(d+a)|L|\leq(d+b)|L|.
+\]
+These inequalities use the extended nonnegative-real arithmetic of the
+definitions and remain valid if a part is empty or a parameter is infinite.
+Together they prove the new super-regularity of the unchanged $W$.
+Thus only previously untouched witnesses have had their error weakened;
+all witness, domain, colouring, degree, exposure, and spread clauses hold
+with the same $X$ and $\mu$.  This proves the claimed next-round invariant.
+There is no assertion at round $q$, since the hypothesis excludes it.
+\end{proof}

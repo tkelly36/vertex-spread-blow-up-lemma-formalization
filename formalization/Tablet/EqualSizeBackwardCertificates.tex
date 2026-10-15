@@ -1,0 +1,106 @@
+\begin{lemma}[Backward colour-round certificates]
+Fix $0<d\leq1$, $\Delta\in\mathbb N$, and total exposure sequences
+$p,\rho$ with $0<p_x\leq1$ and $0<\rho_x<p_x$ for $x\leq\Delta$,
+and $p_y-p_{y+1}>0$ for $y<\Delta$. Put $Q=\Delta^2+1$.
+There are total sequences $\varepsilon,\omega,\theta,\zeta,\widehat\zeta$
+and an induction application certificate $\mathcal K$ of
+\noderef{InductionApplicationCertificate} with parameters
+$(\Delta,Q,d,\theta,p,\varepsilon,\rho,\zeta,\omega,\widehat\zeta)$.
+For each $s<Q$ they satisfy
+\[
+ 0<\varepsilon_s<\widehat\zeta_s<\zeta_s,\quad0<\theta_s,
+ \quad0<\omega_{s+1}<\varepsilon_{s+1}\leq1,
+ \quad\varepsilon_s\leq\varepsilon_{s+1},
+\]
+\[
+ 2\sqrt{\zeta_s}\leq\theta_s,\quad
+ \zeta_s+\Delta\sqrt{\zeta_s}\leq\theta_s,\quad
+ \zeta_s+2\Delta\zeta_s\leq\theta_s.
+\]
+For every $x\leq\Delta$ one has
+$4\theta_s<\rho_x$, $2\zeta_s<\rho_x$, and
+$2\zeta_s<1-\rho_x$. Furthermore $2\zeta_s<d/2$,
+$2\zeta_s<1-d/2$, and $2\varepsilon_s<p_y-p_{y+1}$ for $y<\Delta$.
+Every matching constant $\mathcal K.\mathrm{matchingConstant}(s,x)$
+with $s<Q$ and $x\leq\Delta$ is finite.
+\end{lemma}
+\begin{proof}
+Set $\varepsilon_Q=1/2$. Since $Q\geq1$, round zero exists even when
+$\Delta=0$. Process $s=Q-1,Q-2,\ldots,0$.
+At each step $0<\varepsilon_{s+1}\leq1$ has already been fixed.
+Apply \noderef{EqualSizeOneRoundChoices} with $e=\varepsilon_{s+1}$
+and the given exposure data. Write its outputs as
+$\omega_{s+1},\theta_s,\zeta_s,\widehat\zeta_s,b_s,K_s$.
+These satisfy all three displayed square-root and linear budgets, all
+the required density and complementary-density reserves, and
+\[
+ 0<b_s<\widehat\zeta_s<\zeta_s,\quad
+ b_s\leq\varepsilon_{s+1},\quad
+ 0<\omega_{s+1}<\varepsilon_{s+1},\quad
+ 2b_s<p_y-p_{y+1}.
+\]
+For $s>0$ set $\varepsilon_s=b_s/2$. The number $b_s$ is finite:
+$2\zeta_s<\rho_0<p_0\leq1$ implies
+$\zeta_s<\infty$, and $b_s<\zeta_s$.
+Thus $0<\varepsilon_s<b_s<\widehat\zeta_s$ and
+$\varepsilon_s\leq\varepsilon_{s+1}\leq1$.
+Also $2\varepsilon_s\leq2b_s<p_y-p_{y+1}$.
+This supplies exactly the hypothesis on $\varepsilon_s$ needed for
+the next backward step. There is no circular choice: the step-$s$
+certificate uses $b_s$, not the still-to-be-fixed initial error.
+
+At step zero all the $b_s$ for $s<Q$ are known and positive finite.
+After selecting $K_0$, set
+\[
+ \varepsilon_0=\tfrac12\min_{s<Q} b_s.
+\]
+The finite minimum is positive because $Q\geq1$. It gives
+$0<\varepsilon_0\leq b_0/2<b_0<\widehat\zeta_0$,
+$\varepsilon_0\leq\varepsilon_1$, and every round-zero gap inequality.
+Crucially $\varepsilon_0\leq b_s$ for every $s<Q$.
+Every already chosen $\omega_{s+1}$ has the same next-round error as
+when $K_s$ was chosen; in particular altering the initial error does
+not alter any output-error choice. This completes the scalar assertions,
+including the value $\varepsilon_Q$ needed by the last round.
+
+We now assemble actual guarantees rather than attach names to thresholds.
+For $s<Q$ use the round-zero thresholds and constants of $K_s$ as
+the round-$s$ data of $\mathcal K$.
+Given a witness that is $(\varepsilon_s,p_x)$-super-regular with
+$x\leq\Delta$, we have $\varepsilon_s\leq b_s$.
+By \noderef{SuperRegularErrorMonotone} it is $(b_s,p_x)$-super-regular.
+Apply the witness-thinning guarantee of $K_s$ to the same graph and
+the same disjoint parts, preserving both lower cardinality bounds and
+both near-equality inequalities. The supplied spanning subgraph is
+$(\widehat\zeta_s,\rho_x)$-super-regular, exactly as required.
+For a host pair that is $(\varepsilon_0,d)$-super-regular, use
+$\varepsilon_0\leq b_s$ and the same monotonicity lemma, then apply
+the host-thinning guarantee of $K_s$. It returns the required spanning
+$(\widehat\zeta_s,d/2)$-super-regular graph. Thus the single initial
+error is below every host-thinning cutoff, not merely round zero's.
+
+The Four Graphs guarantee of $K_s$ has input error $\theta_s$,
+ordered density triple $(\rho_x,\rho_y,d/2)$, and output error
+$\omega_{s+1}$, which are exactly the parameters of the desired field.
+Transfer this guarantee and its positivity and at-most-one constant field
+for every independent pair $x,y\leq\Delta$. No inequality between the
+exposures is used. Transfer the matching-existence and matching-spread
+guarantees unchanged: both use error $\theta_s$ and density $\rho_x$.
+Transfer $1\leq M_{s,x}$ and the finiteness of $M_{s,x}$ from
+\noderef{EqualSizeOneRoundChoices}. These fill every guarantee field of
+\noderef{InductionApplicationCertificate}.
+
+Extend $\theta,\zeta,\widehat\zeta$ by $1$ at indices $s\geq Q$;
+retain $\varepsilon_Q=1/2$ and extend $\varepsilon$ by $1/2$ above $Q$.
+Set $\omega_0=1/2$ and extend $\omega$ by $1/2$ above $Q$.
+Define unused certificate data by zero thresholds, Four Graphs constant
+$1/2$, and matching constant $1$. The required fields are restricted to
+$s<Q$ and the stated exposures, so these extensions introduce no new
+obligations. All the applications above are polymorphic in the same
+universe of finite vertex types as the certificate, and retain the
+decidable instances of their input graphs; no proof-local auxiliary
+result is transported across nodes. Finite sums, finite subtypes, and
+lifted finite vertex types are covered by choosing that common universe
+before applying the one-round lemma. All choices involve only the given
+scalar data and $\Delta$, never the reduced-graph order $r$.
+\end{proof}

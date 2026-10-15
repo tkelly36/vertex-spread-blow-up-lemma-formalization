@@ -1,0 +1,83 @@
+\begin{lemma}[Factorial-root product with exceptional rows]
+For real numbers $D>0$ and $\theta>0$ with $D+3\theta<1$, there is an
+integer $y_0>0$ such that for every integer $y\ge y_0$ and positive
+integers $r_0,\ldots,r_{y-1}\le y$, if
+\[
+ k:=|\{i:r_i>(D+\theta)y\}|\le\theta y,
+\]
+then
+\[
+ \prod_{i=0}^{y-1}(r_i!)^{1/r_i}\le(D+3\theta)^y y!.
+\]
+The threshold depends only on $D$ and $\theta$.
+\end{lemma}
+\begin{proof}
+Put $a_r=(r!)^{1/r}$ for positive integers $r$.
+This sequence is increasing: $a_r\le a_{r+1}$ is equivalent, after
+raising to the positive power $r(r+1)$ and cancelling $(r!)^r$, to
+$r!\le(r+1)^r$, which follows by bounding each factor by $r+1$.
+For $1\le r\le y$, comparison of the increasing function $\log t$ with
+its integrals over $[1,r]$ gives
+\[
+ r\log r-r\le\log(r!)\le r\log r-r+\log r+1.
+\]
+Indeed the lower bound follows from
+$\sum_{j=2}^r\log j\ge\int_1^r\log t\,dt=r\log r-r+1$,
+and the upper bound follows from
+$\sum_{j=1}^{r-1}\log j\le\int_1^r\log t\,dt$ after adding $\log r$.
+Consequently
+\[
+ \frac{a_r}{a_y}\le\frac r y
+       \exp\left(\frac{\log y+1}{r}\right).                 \tag{1}
+\]
+
+Set $x=D+2\theta$ and
+$\gamma=\log((x+\theta)/x)-\theta\log(1/x)$.
+We have $0<x<x+\theta<1$ and $\theta<x/2$.
+To see $\gamma>0$, integrating $1/t$ over $[x,x+\theta]$ gives
+$\log(1+\theta/x)>\theta/(x+\theta)$.
+The function $t\log(1/t)$ on $(0,1)$ has maximum $1/e$ (differentiate:
+its derivative is $\log(1/t)-1$). Thus
+$(x+\theta)\log(1/x)<(3/2)x\log(1/x)\le3/(2e)<1$,
+and hence $\theta/(x+\theta)>\theta\log(1/x)$.
+The elementary strict inequality $e>3/2$ follows, for example, by
+integrating $\exp t\ge1$ over $[0,1]$ to obtain $e\ge2$.
+
+Choose $y_0$ large enough that for all integers $y\ge y_0$,
+$y>0$, $1/y\le\theta$, and
+\[
+ \delta_y:=\frac{\log y+1}{\theta y}\le\gamma/2.             \tag{2}
+\]
+This is possible since $\log y/y\to0$ and $1/y\to0$.
+For completeness the former limit follows from
+$\log y=\int_1^y t^{-1}dt\le\int_1^y t^{-1/2}dt
+=2(\sqrt y-1)$ for $y\ge1$. These choices use only $D,\theta$.
+
+For an exceptional index, monotonicity gives $a_{r_i}/a_y\le1$.
+For a nonexceptional index with $r_i\ge\theta y$, (1) gives
+$a_{r_i}/a_y\le(D+\theta)e^{\delta_y}\le xe^{\delta_y}$.
+For a remaining index put $s=\lceil\theta y\rceil$.
+Then $1\le s$, $r_i\le s$, and
+$\theta y\le s\le\theta y+1\le2\theta y<y$,
+the last inequality following from $3\theta<1$.
+Apply monotonicity and (1) to $s$; since $s/y\le2\theta\le x$,
+the same bound $a_{r_i}/a_y\le xe^{\delta_y}$ follows.
+Thus all nonexceptional rows satisfy this bound and
+\[
+ \frac{\prod_i a_{r_i}}{y!}
+ \le(xe^{\delta_y})^{y-k}
+ =\exp((y-k)\log x+(y-k)\delta_y)
+ \le\exp\bigl(y((1-\theta)\log x+\delta_y)\bigr).           \tag{3}
+\]
+Here $a_y^y=y!$, $\log x<0$, $k\le\theta y$, and
+$0\le k\le y$, $\delta_y\ge0$ justify the last inequality even
+when $xe^{\delta_y}$ is greater than one.
+Finally
+\[
+ (1-\theta)\log x+\delta_y
+ \le\log x+\theta\log(1/x)+\gamma
+ =\log(x+\theta).
+\]
+Substituting this in (3), exponentiating, and multiplying by the
+positive number $y!$ proves the claim.
+\end{proof}

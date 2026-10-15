@@ -1,0 +1,14 @@
+\begin{helper}[Quadratic bound for a negative exponential parameter]
+For every real $\lambda\le0$,
+\[
+ e^\lambda-1-\lambda\le\lambda^2/2.
+\]
+\end{helper}
+\begin{proof}
+Put $q(x)=x^2/2-e^x+1+x$. This function is differentiable on the
+real line and $q'(x)=x+1-e^x$. The elementary exponential tangent
+inequality $1+x\le e^x$ gives $q'(x)\le0$ for every real $x$.
+The mean value theorem therefore makes $q$ antitone on the real line.
+Since $\lambda\le0$, $q(\lambda)\ge q(0)=0$. Expanding this last
+inequality gives the asserted bound.
+\end{proof}

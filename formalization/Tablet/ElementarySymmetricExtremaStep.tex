@@ -1,0 +1,52 @@
+\begin{lemma}[Extrema averaging contracts variance]
+Let $n>0$, let $k\ge0$ be an integer, and let $a_1,\ldots,a_n$ be
+nonnegative real numbers. Write $c=(\sum_t a_t)/n$. There exists a
+vector $b$ with the following operation certificate: either $a$ is
+constant and $b=a$, or there are distinct indices $i,j$ such that
+\[
+ a_i\le a_t\le a_j\quad\text{for every }t,\qquad a_i<a_j,
+ \qquad
+ b=\operatorname{update}(\operatorname{update}(a,i,m),j,m),
+ \quad m=(a_i+a_j)/2.
+\]
+Here $\operatorname{update}(a,i,m)$ replaces entry $i$ by $m$ and
+leaves every other entry unchanged. Thus in the nonconstant case $b$
+is exactly the vector obtained by averaging a minimum and a maximum
+entry. In both cases $b$ is nonnegative, has the same total sum as $a$,
+and satisfies
+\[
+ \sum_{|A|=k}\prod_{t\in A}a_t
+ \le \sum_{|A|=k}\prod_{t\in A}b_t,
+ \qquad
+ \sum_t(b_t-c)^2\le\left(1-\frac1{2n}\right)\sum_t(a_t-c)^2.
+\]
+The subset sums range over subsets of $\{1,\ldots,n\}$.
+\end{lemma}
+\begin{proof}
+If all entries are equal, take $b=a$. Then $c$ is that common entry,
+both variances are zero, and both other claims are equalities. In
+particular this treats $n=1$ without choosing distinct indices.
+Otherwise choose indices $i,j$ attaining the minimum and maximum.
+Their values satisfy $a_i<a_j$: otherwise the minimum equals the
+maximum and every entry between them is equal, contradicting
+nonconstancy. In particular $i\ne j$. Put $m=(a_i+a_j)/2$ and
+$b=\operatorname{update}(\operatorname{update}(a,i,m),j,m)$.
+The two entries at $i,j$ are $m$, and all other entries are unchanged,
+which gives the operation certificate. Put $R=a_j-a_i>0$. By
+\noderef{ElementarySymmetricPairAveraging}, $b$ is nonnegative, has the
+same sum, its subset product sum does not decrease, and
+\[
+ \sum_t(b_t-c)^2=V-R^2/2,
+ \qquad V=\sum_t(a_t-c)^2.
+\]
+Summing $a_i\le a_t\le a_j$ and dividing by $n>0$ gives
+$a_i\le c\le a_j$. For every $t$ this implies
+$-R\le a_t-c\le R$, hence $(a_t-c)^2\le R^2$.
+Summing yields $V\le nR^2$. Since $2n>0$, we obtain
+$V/(2n)\le R^2/2$. Consequently
+\[
+ \sum_t(b_t-c)^2=V-R^2/2
+ \le V-V/(2n)=\left(1-\frac1{2n}\right)V,
+\]
+as claimed.
+\end{proof}

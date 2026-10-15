@@ -1,0 +1,160 @@
+# Trellis public tablet viewer build information
+generated_at = "2026-10-15T21:16:13.431731+00:00"
+
+[source]
+repo_path = "/home/tkelly36/math/vertex-spread-blow-up-lemma-v2"
+github_base = "https://github.com/tkelly36/vertex-spread-blow-up-lemma-formalization/blob/main/formalization"
+git_remote = ""
+git_branch = "master"
+git_commit = "2c9924e1bc633639c6f5dc54c617c17e75debbd1"
+git_dirty = true
+
+[trellis]
+repo_path = "/home/tkelly36/src/trellis"
+git_commit = "98db307f88de34ac4d6311d2efafeb88b5f21827"
+git_dirty = true
+exporter_sha256 = "c8090892ac2ac7182bb480c249ae2ac3dd1768d3444bb40569c910c506773975"
+semantic_fingerprint_script_sha256 = "7aa9b5142afafe6793dc945ef80c9955f2c96a8e21ca54a2e0b720c6909f2d02"
+
+[lean]
+toolchain = "leanprover/lean4:v4.30.0-rc1"
+lean_version = "Lean (version 4.30.0-rc1, x86_64-unknown-linux-gnu, commit 714601baf118066cbf3f282361339c6d06665b2a, Release)"
+lake_version = "Lake version 5.0.0-src+714601b (Lean version 4.30.0-rc1)"
+lake_manifest_sha256 = "575135ce1af7d7dd707bf47e7bf237fcf6030dc80b0760b565b81a35e57c86d3"
+lakefile_sha256 = "898da6329d223782cbb2cbac6c37d731f6f9cfe9661338868dd818f5798bc13a"
+
+[axioms]
+probe_description = "The public tablet root module `Tablet` was imported, then `#print axioms` was run for each paper target declaration exported by that root tablet."
+default_allowed_axioms = ["propext", "funext", "Classical.choice", "Quot.sound"]
+approved_axioms_path = "APPROVED_AXIOMS.json"
+approved_axioms_file_present = true
+approved_axioms_empty = true
+project_global_approved_axioms = []
+allowed_axioms = ["Classical.choice", "Quot.sound", "funext", "propext"]
+
+[[lean.packages]]
+name = "mathlib"
+scope = ""
+url = "https://github.com/leanprover-community/mathlib4"
+rev = "a090f46da78e9af11fee348cd7ee47bf8dd219d2"
+input_rev = "a090f46da78e9af11fee348cd7ee47bf8dd219d2"
+manifest_file = "lake-manifest.json"
+config_file = "lakefile.lean"
+inherited = false
+
+[[lean.packages]]
+name = "entropyMethodsFormalization"
+scope = ""
+url = "https://github.com/tkelly36/entropy-methods-formalization.git"
+rev = "898fb2596141391cf64d456dd82798489cea85ef"
+input_rev = "898fb2596141391cf64d456dd82798489cea85ef"
+manifest_file = "lake-manifest.json"
+config_file = "lakefile.lean"
+inherited = false
+
+[[lean.packages]]
+name = "hajnalSzemerediFormalization"
+scope = ""
+url = "https://github.com/tkelly36/hajnal-szemeredi-formalization.git"
+rev = "ea2da77c281e40ec7f3e714a201b8d053d4ca619"
+input_rev = "ea2da77c281e40ec7f3e714a201b8d053d4ca619"
+manifest_file = "lake-manifest.json"
+config_file = "lakefile.lean"
+inherited = false
+
+[[lean.packages]]
+name = "egorychevFalikmanFormalization"
+scope = ""
+url = "https://github.com/tkelly36/egorychev-falikman-formalization.git"
+rev = "8ede09b1840d24dd40ede7d12c4473cf4723c956"
+input_rev = "8ede09b1840d24dd40ede7d12c4473cf4723c956"
+manifest_file = "lake-manifest.json"
+config_file = "lakefile.lean"
+inherited = false
+
+[[lean.packages]]
+name = "plausible"
+scope = "leanprover-community"
+url = "https://github.com/leanprover-community/plausible"
+rev = "264309b5c0c10e569025a53ab6440a45c03133e4"
+input_rev = "main"
+manifest_file = "lake-manifest.json"
+config_file = "lakefile.toml"
+inherited = true
+
+[[lean.packages]]
+name = "LeanSearchClient"
+scope = "leanprover-community"
+url = "https://github.com/leanprover-community/LeanSearchClient"
+rev = "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+input_rev = "main"
+manifest_file = "lake-manifest.json"
+config_file = "lakefile.toml"
+inherited = true
+
+[[lean.packages]]
+name = "importGraph"
+scope = "leanprover-community"
+url = "https://github.com/leanprover-community/import-graph"
+rev = "4411c5f89c797401c609b3a946c8874569e69731"
+input_rev = "main"
+manifest_file = "lake-manifest.json"
+config_file = "lakefile.toml"
+inherited = true
+
+[[lean.packages]]
+name = "proofwidgets"
+scope = "leanprover-community"
+url = "https://github.com/leanprover-community/ProofWidgets4"
+rev = "82d457fb3bdd9efadbae06608ff337d689efdddf"
+input_rev = "v0.0.97"
+manifest_file = "lake-manifest.json"
+config_file = "lakefile.lean"
+inherited = true
+
+[[lean.packages]]
+name = "aesop"
+scope = "leanprover-community"
+url = "https://github.com/leanprover-community/aesop"
+rev = "f74c7555aaa94eadd7b7bff9170f7983f92aac21"
+input_rev = "v4.30.0-rc1"
+manifest_file = "lake-manifest.json"
+config_file = "lakefile.toml"
+inherited = true
+
+[[lean.packages]]
+name = "Qq"
+scope = "leanprover-community"
+url = "https://github.com/leanprover-community/quote4"
+rev = "7aa86cb20b8458748dc24d55dab2d7ea01161057"
+input_rev = "v4.30.0-rc1"
+manifest_file = "lake-manifest.json"
+config_file = "lakefile.toml"
+inherited = true
+
+[[lean.packages]]
+name = "batteries"
+scope = "leanprover-community"
+url = "https://github.com/leanprover-community/batteries"
+rev = "bf597c77bf9b8e66720d724928207f5911533113"
+input_rev = "v4.30.0-rc1"
+manifest_file = "lake-manifest.json"
+config_file = "lakefile.toml"
+inherited = true
+
+[[lean.packages]]
+name = "Cli"
+scope = "leanprover"
+url = "https://github.com/leanprover/lean4-cli"
+rev = "f7d0ca7c926cdde0562af20394dd25d028b839a5"
+input_rev = "v4.30.0-rc1"
+manifest_file = "lake-manifest.json"
+config_file = "lakefile.toml"
+inherited = true
+
+[[axioms.print_axioms]]
+declaration = "SpreadBlowup"
+returncode = 0
+timed_out = false
+stdout = "'SpreadBlowup' depends on axioms: [propext, Classical.choice, Quot.sound]"
+stderr = ""

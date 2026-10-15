@@ -1,0 +1,9 @@
+\begin{definition}[Finite integer-capacity network]
+For a finite vertex type $V$, a finite integer-capacity network consists of
+distinct vertices $s,t\in V$ and a function $c:V\times V\to\mathbb N$.
+The vertices $s,t$ are the source and sink. A zero capacity represents an
+absent arc. Capacities are finite natural numbers; parallel arcs are not
+separately represented. A source-side cut is a subset $S$ with $s\in S$
+and $t\notin S$, and its capacity is
+$C(S)=\sum_{v\in S}\sum_{w\notin S}c(v,w)$.
+\end{definition}
