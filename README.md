@@ -65,10 +65,12 @@ the viewer.
 - `docs/` is the generated public formalization viewer.
 - `verification/` contains the saved build and verification evidence.
 - `scripts/` contains release validation and viewer rebuilding tools.
-- `paper/README.md` records the frozen manuscript provenance and target label.
+- `paper/main.pdf` is the author's manuscript, including the introduction remark.
+- `paper/` contains its self-contained LaTeX source and manuscript provenance.
 
-The frozen manuscript source, Trellis runtime state, and supervisor history
-are not distributed in this public repository.
+Read the [manuscript PDF](paper/main.pdf) or its [LaTeX source](paper/main.tex).
+Trellis runtime state and supervisor history are not distributed in this
+public repository.
 
 ## Reproducing the Lean check
 

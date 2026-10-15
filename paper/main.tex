@@ -1,0 +1,476 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{mystyle}
+
+\title{A Vertex-Spread Blow-Up Lemma}
+
+\author{Tom Kelly}
+\thanks{Research supported by the National Science Foundation under Grant No. DMS-2247078.}
+\address{School of Mathematics, Georgia Institute of Technology, Atlanta, GA 30302, USA}
+\email{tom.kelly@gatech.edu}
+
+\begin{document}
+
+\begin{abstract}
+For graphs $H$ and $G$, a probability distribution on embeddings
+$\varphi:H\hookrightarrow G$ is $q$-vertex-spread if the probability of any
+prescribed images for distinct source vertices is at most the corresponding
+power of $q$.  We prove a vertex-spread version of the Blow-up Lemma.  Every
+bounded-degree graph that is compatible with a lower super-regular blow-up
+instance with candidacy graphs admits a compatible embedding distribution
+that is $O(1/n)$-vertex-spread, where $n$ is the cluster scale.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}\label{sec:introduction}
+
+The Blow-up Lemma of Koml\'os, S\'ark\"ozy, and Szemer\'edi is a central tool
+for embedding bounded-degree spanning graphs into dense host graphs.  Roughly
+speaking, it allows the complete pairs of a blow-up to be replaced by
+super-regular pairs without losing any bounded-degree spanning subgraph.
+
+In this paper, we prove a probabilistic strengthening of the Blow-up Lemma.
+Rather than producing one embedding, our result produces a distribution on
+embeddings in which prescribing the images of $s$ vertices has probability at
+most $C^s/n^s$.  We also allow a candidate set for the image of each vertex.
+The precise definitions and the statement of the main theorem are given in
+\cref{sect:blow-up}.
+
+\medskip
+\noindent\textbf{Remark.} This proof was completed in the Summer of 2024 with no AI assistance. Initially, the theorem was part of a manuscript proving a robust version of the P\'osa--Seymour Conjecture. I am still working on completing that application, but I've decided to split the manuscript into pieces and not submit this portion for publication. Independently, Nenadov and Pham~\cite{NP24} and Allen, B\"{o}ttcher, Kohayakawa, and Neve~\cite{ABKN25} also obtained vertex-spread versions of the Blow-up lemma, with different proofs.
+
+\section{Definitions and the main theorem}
+\label{sect:blow-up}
+
+We begin with the definition of vertex-spreadness and the standard regularity
+terminology needed to state the main theorem.
+
+\begin{definition}\label{def:vertex-spread}
+        For $q \in [0, 1]$, finite sets $X$ and $Y$, and $U \subseteq Y$, a probability distribution $\mu$ on functions $f : X \rightarrow Y$ is \textit{$q$-vertex-spread on $U$} if $\mu(\{f : f(x_i) = y_i~\forall i\in[s]\}) \leq q^s$ for every two sequences of distinct $x_1, \dots, x_s \in X$ and (not necessarily distinct) $y_1, \dots, y_s \in U$.
+    If $\mu$ is $q$-vertex-spread on $Y$, then we simply say it is \textit{$q$-vertex-spread}.
+    For graphs $H$ and $G$, a probability distribution $\mu$ on embeddings $\varphi : H \hookrightarrow G$ is \textit{$q$-vertex-spread} if $\mu : V(H) \rightarrow V(G)$ is $q$-vertex-spread.
+\end{definition}
+
+\begin{definition}
+    For a graph $G$ and two disjoint subsets $U, W \subseteq V(G)$:
+    \begin{itemize}
+        \item $G[U, W]$ is the bipartite graph with parts $U$ and $W$ induced by $G$; 
+        \item $e_G(U, W) \coloneqq |E(G[U, W])|$; and 
+        \item $d_G(U, W) \coloneqq e_G(U, W) / (|U||W|)$ is the \textit{density} of the pair $U$, $W$ in $G$.  
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    For $\eps > 0$ and $d \in (0, 1)$, a bipartite graph $G$ with bipartition $(V_1, V_2)$ is
+    \begin{itemize}
+        \item \textit{$(\eps, d)$-regular} if $d_G(U, W) = d \pm \eps$ for every $U \subseteq V_1, W \subseteq V_2$ satisfying $|U| > \eps |V_1|$, $|W| > \eps |V_2|$; 
+        \item \textit{$(\eps, d)$-super-regular} if it is $(\eps, d)$-regular and $|N_G(v) \cap V_i| = (d \pm \eps)|V_i|$ for every $i \in [2]$ and $v \in V_{3 - i}$;
+        \item \textit{lower $(\eps, d)$-regular} if $d_G(U, W) \geq d - \eps$ for every $U \subseteq V_1, W \subseteq V_2$ satisfying $|U| > \eps |V_1|$, $|W| > \eps |V_2|$; and
+        \item \textit{lower $(\eps, d)$-super-regular} if it is lower $(\eps, d)$-regular and $\left|N_G(v) \cap V_{i}\right| \geq (d - \eps)|V_{i}|$ for every $i \in [2]$ and $v \in V_{3 - i}$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    We say that $\left(H, G, R, (X_i)_{i\in [r]}, (V_i)_{i\in [r]}\right)$ is a \textit{blow-up instance} if 
+\begin{itemize}
+    \item $H$ and $G$ are graphs,
+    \item $(X_i)_{i \in [r]}$ is a partition of $V(H)$ into independent sets,
+    \item $(V_i)_{i \in [r]}$ is a partition of $V(G)$ satisfying $|X_i| \leq |V_i|$ for all $i \in [r]$, and
+    \item $R$ is a graph with $V(R) = [r]$ such that $H[X_i, X_j]$ is empty for all $ij \notin E(R)$.    
+\end{itemize}
+In addition, for $\eps > 0$ and $d \in (0, 1)$, we say the blow-up instance is \textit{$(\eps, d)$-regular}, \textit{lower $(\eps, d)$-regular}, \textit{$(\eps, d)$-super-regular}, or \textit{lower $(\eps, d)$-super-regular} if for every $ij \in E(R)$, the graph $G[V_i, V_j]$ is $(\eps, d)$-regular, lower $(\eps, d)$-regular, $(\eps, d)$-super-regular, or lower $(\eps, d)$-super-regular, respectively. 
+\end{definition}
+
+If $(H,G,R,(X_i)_{i\in[r]},(V_i)_{i\in[r]})$ is a blow-up instance, then
+$H$ embeds into the graph obtained by making $G[V_i,V_j]$ complete for every
+$ij\in E(R)$.  The classical Blow-up Lemma states that the same conclusion
+holds when these complete pairs are replaced by super-regular pairs, provided
+that $H$ has bounded maximum degree, the clusters have equal size, $\eps$ is
+sufficiently small, and the cluster size is sufficiently large.  The Partial
+Embedding Lemma requires only lower regularity, but embeds a graph which is
+considerably smaller than the host graph.
+
+The proof of the Partial Embedding Lemma also gives the vertex-spread form
+stated in \cref{lem:partial-embedding}.  The main theorem gives the analogous
+strengthening of the Blow-up Lemma.  We allow candidate sets for individual
+vertices using the following definition.
+
+\begin{definition}
+    We say a bipartite graph $A^i$ with bipartition $(X_i, V_i)$ is a \textit{candidacy graph} for $(X_i, V_i)$, and we say $(H, G, R, (X_i)_{i\in [r]},\allowbreak (V_i)_{i\in [r]}, (A^i)_{i\in[r]})$ is a \textit{blow-up instance with candidacy graphs} if $(H, G, R,\allowbreak (X_i)_{i\in [r]},\allowbreak (V_i)_{i\in [r]})$ is a blow-up instance and $A^i$ is a candidacy graph for $(X_i, V_i)$ for all $i \in [r]$.  In this case, we say the blow-up instance with candidacy graphs is \textit{lower $(\eps, d)$-super-regular} if the blow-up instance is lower $(\eps, d)$-super-regular and $A^i$ is lower $(\eps, d)$-super-regular for all $i \in [r]$.  We also say an embedding $\varphi : H \hookrightarrow G$ is \textit{compatible} with the candidacy graphs $A^1, \dots, A^r$ if for every $i \in [r]$ and $x \in X_i$ we have $\varphi(x) \in N_{A^i}(x)$.
+\end{definition}
+
+We can now state the vertex-spread Blow-up Lemma.
+
+\begin{theorem}\label{lem:spread-blowup}
+For every $d, \Delta, r$, there exist $\varepsilon = \varepsilon_{\ref*{lem:spread-blowup}}(d, \Delta)$, $C = C_{\ref*{lem:spread-blowup}}(d, \Delta)$ and $n_0 = n_{\ref*{lem:spread-blowup}}(d, \Delta, r)$ such that the following holds for all $n \geq n_0$.  Let $\left(H, G, R, (X_i)_{i\in [r]}, (V_i)_{i\in [r]}, (A^i)_{i \in [r]}\right)$ be a lower $(\eps, d)$-super-regular blow-up instance with candidacy graphs.  If $\Delta(H), \Delta(R) \leq \Delta$ and $(1 - \eps)n \leq |V_i| \leq (1 + \eps)n$ for every $i \in [r]$, then there exists a $(C / n)$-vertex-spread distribution on embeddings of $H$ into $G$ that are compatible with $A^1, \dots, A^r$.
+\end{theorem}
+
+We briefly describe the proof.  R\"{o}dl and Ruci\'{n}ski~\cite{RR99}
+construct an embedding cluster by cluster.  Since each $X_i$ is independent,
+embedding $X_i$ amounts to choosing a perfect matching in its candidacy graph.
+After each choice, the candidacy graphs for the unembedded clusters are
+updated, and the Four Graphs lemma shows that these graphs remain
+super-regular with high probability.
+
+Our main probabilistic input is \cref{lem:uniform-dist-spreadness}, which states
+that the uniform distribution on perfect matchings of a super-regular
+bipartite graph with parts of size $n$ is $O(1/n)$-spread.  Pham, Sah,
+Sawhney, and Simkin~\cite{PSSS22} proved that such a graph has some
+$O(1/n)$-spread distribution on perfect matchings, but here it is essential
+that the uniform distribution has this property.  We prove this using a
+switching argument inspired by \cite[Theorem 4.3]{KKOT19}.  Conditioning the
+uniform distribution on the high-probability event supplied by the Four
+Graphs lemma then gives a vertex-spread choice at each stage of the embedding.
+
+The proof has three parts.  In \cref{sect:pm-in-super-regular}, we prove the
+perfect-matching spread result.  In \cref{sect:blow-up-reduction}, we reduce
+the main theorem to an auxiliary form in which every pair of source clusters
+induces a saturating matching.  Finally, in
+\cref{lem:RR-proof-of-auxiliary}, we randomize the cluster-by-cluster
+embedding procedure to prove the auxiliary lemma.  The reduction also handles
+unequal cluster sizes by first applying \cref{lem:partial-embedding} to a small
+proportion of the vertices.
+
+The statement of \cref{lem:spread-blowup} is slightly stronger than the
+version of the Blow-up Lemma in \cite{RR99}: the reduced graph need not be
+complete, candidacy graphs are allowed, the regularity parameter does not
+depend on the number of clusters, and the clusters need not all have the same
+size.
+
+\section{An alternate formulation}\label{sec:alternate-formulation}
+
+For applications, it is convenient to reformulate the main theorem using a
+homomorphism from the graph being embedded to the reduced graph.
+
+\begin{definition}
+    A \textit{homomorphism} from a graph $H$ to a graph $G$, written $\phi : H \rightarrow G$, is a function $\phi:V(H) \rightarrow V(G) $ preserving adjacency; that is, $\phi(u)\phi(v) \in E(G)$ for every $uv \in E(H)$.
+    Given a homomorphism $\phi: H\rightarrow G$, for any $S\subseteq V(G)$, we let $\phi^{-1}(S)\coloneqq \{x\in V(H):\phi(x)\in S\}$, and for any $v\in V(G)$, we let $\phi^{-1}(v)\coloneqq \phi^{-1}(\{v\})$.
+\end{definition}
+
+If $R$ has no loops, a partition $(X_i)_{i\in[r]}$ of $V(H)$ into
+independent sets satisfies $E(H[X_i,X_j])=\emptyset$ whenever
+$ij\notin E(R)$ if and only if the function $\phi:V(H)\rightarrow V(R)$
+defined by $\phi(x)=i$ for $x\in X_i$ is a homomorphism.
+
+\begin{definition}
+    Let $G$ be a graph, let $(V_i)_{i\in[r]}$ be a partition of $V(G)$, and let $R$ be a graph with $V(R) = [r]$.
+    For $\eps > 0$ and $d \in (0, 1)$, we say $(G, (V_i)_{i\in[r]})$ is an \textit{$(\eps, d)$-regular blow-up} of $R$ if for every $ij \in E(R)$, the graph $G[V_i, V_j]$ is $(\eps, d)$-regular.  We define \textit{lower $(\eps, d)$-regular blow-ups}, \textit{$(\eps, d)$-super-regular blow-ups}, and \textit{lower $(\eps, d)$-super-regular blow-ups} similarly.
+\end{definition}
+
+We also use a single candidacy graph to encode all candidate sets.
+\begin{definition}
+    Let $H$ and $G$ be graphs.  A \textit{candidacy graph} for $H$ and $G$ is a bipartite graph with bipartition $(V(H),V(G))$.   An embedding $\varphi : H \hookrightarrow G$ is \textit{compatible} with a candidacy graph $A$ if for every $x \in V(H)$, we have $\varphi(x) \in N_{A}(x)$.
+\end{definition}
+
+The homomorphism formulation of the vertex-spread Blow-up Lemma is as follows.
+
+\begin{theorem}\label{lem:spread-blowup-homomorphism-version}
+    For every $d, \Delta, r$, there exist $\varepsilon = \varepsilon_{\ref*{lem:spread-blowup-homomorphism-version}}(d, \Delta)$, $C = C_{\ref*{lem:spread-blowup-homomorphism-version}}(d, \Delta)$ and $n_0 = n_{\ref*{lem:spread-blowup-homomorphism-version}}(d, \Delta, r)$ such that the following holds for all $n \geq n_0$.  
+    Let $(G, (V_i)_{i \in [r]})$ be a lower $(\eps, d)$-super-regular blow-up of a graph $R$.
+    Let $H$ be a graph, and let $A$ be a candidacy graph for $H$ and $G$.
+    Suppose $\Delta(H), \Delta(R) \leq \Delta$ and $(1 - \eps)n \leq |V_i| \leq (1 + \eps)n$ for every $i \in [r]$.
+    If there is a homomorphism $\phi : H \rightarrow R$ such that $|\phi^{-1}(i)| \leq |V_i|$ and $A[\phi^{-1}(i), V_i]$ is lower $(\eps, d)$-super-regular for every $i \in [r]$, then there is a $(C / n)$-vertex-spread distribution on embeddings of $H$ into $G$ that are compatible with $A$.
+\end{theorem}
+\begin{proof}[Proof of \cref{lem:spread-blowup-homomorphism-version} assuming \cref{lem:spread-blowup}]
+    For each $i \in [r]$, let $X_i \coloneqq \phi^{-1}(i)$, let $A^i \coloneqq A[X_i, V_i]$, and note that $(H, G, R, (X_i)_{i \in [r]}, (V_i)_{i\in[r]}, (A^i)_{i\in[r]})$ is a lower $(\eps, d)$-super-regular blow-up instance with candidacy graphs.
+    Therefore, by \cref{lem:spread-blowup}, there is a $(C/n)$-vertex-spread distribution on embeddings of $H$ into $G$ that are compatible with $A$, as desired.
+\end{proof}
+
+\section{Preliminaries}\label{sect:preliminaries}
+
+We use standard hierarchy notation.  For example, a statement made under the
+assumption
+\[
+    1/n\ll a\ll b
+\]
+means that for every fixed $b>0$, there exists $a_0>0$ such that for every
+$a\in(0,a_0]$, there exists $n_0$ such that the statement holds for every
+$n\geq n_0$.  Hierarchies with more terms are interpreted similarly, with the
+constants chosen from right to left.  We write $x=y\pm z$ to mean
+$y-z\leq x\leq y+z$.
+
+\subsection{Partial embeddings}\label{sect:partial-embeddings}
+
+Let $H$ and $G$ be graphs, let $A$ be a candidacy graph for $H$ and $G$, and let $X \subseteq V(H)$.
+If $f : H[X] \hookrightarrow G$ is an embedding of $H[X]$ compatible with $A$, then we define the \textit{updated candidacy graph} for $A$ and $f$, denoted $A_f$, to be the subgraph of $A$ with bipartition $(V(H) \setminus X, V(G) \setminus f(X))$, where for every $x \in V(H) \setminus X$ and $v \in V(G) \setminus f(X)$, we have $xv \in E(A_f)$ if $xv\in E(A)$ and $f(x')v \in E(G)$ for every $x' \in N_H(x) \cap X$.
+Note that if $f' : H - X \hookrightarrow G - f(X)$ is an embedding compatible with $A_f$, then $f$ and $f'$ can be combined to obtain an embedding $H \hookrightarrow G$.
+
+If $\left(H, G, R, (X_i)_{i\in [r]}, (V_i)_{i\in [r]}, (A^i)_{i \in [r]}\right)$ is a blow-up instance with candidacy graphs, $X \subseteq V(H)$, and $f : H[X] \hookrightarrow G$ is an embedding of $H[X]$ compatible with $A^1, \dots, A^r$, then for each $i \in [r]$, we let $A^i_f \subseteq A_f$ be the subgraph induced by $X_i \setminus X$ and $V_i \setminus f(X)$.
+\begin{lemma}\label{lem:partial-embedding}
+  Let $1 / n \ll 1/C, \eps \ll d' \ll d, 1 / \Delta$, and let $\left(H, G, R, (X_i)_{i\in [r]}, (V_i)_{i\in [r]}, (A^i)_{i \in [r]}\right)$ be a lower $(\eps, d)$-regular blow-up instance with candidacy graphs.  If $\Delta(H), \Delta(R) \leq \Delta$, $|X_i| \leq \eps |V_i|$ and $|V_i| = (1 \pm \eps)n$ for every $i \in [r]$, and $\delta(A^i) \geq dn$ for every $i \in [r]$, then there exists a $(C / n)$-vertex-spread distribution on embeddings of $H$ into $G$ that are compatible with $A^1, \dots, A^r$.
+  Moreover, for every $X \subseteq V(H)$, there exists a $(C / n)$-vertex-spread distribution on embeddings $f : H[X] \hookrightarrow G$ compatible with $A^1, \dots, A^r$ such that $\delta(A^i_f) \geq d'n$ for every $i \in [r]$ for which $X \subsetneq X_i$.
+
+  Let $(G, (V_i)_{i \in [r]})$ be a lower $(\eps, d)$-regular blow-up of a graph $R$.
+   Let $H$ be a graph, and let $A$ be a candidacy graph for $H$ and $G$.
+   Suppose $\Delta(H), \Delta(R) \leq \Delta$ and $|V_i| = (1 \pm \eps)n$ for every $i \in [r]$.
+   If there is a homomorphism $\phi : H \rightarrow R$ such that $|\phi^{-1}(i)| \leq \eps |V_i|$ for every $i \in [r]$ and $|N_A(x) \cap V_{\phi(x)}| \geq dn$ for every $x \in V(H)$, then there exists a $(C/n)$-vertex-spread distribution on embeddings of $H$ into $G$ that are compatible with $A$. Moreover, for every $X\subseteq V(H)$, there exists a $(C/n)$-vertex-spread distribution on embeddings $f: H[X]\hookrightarrow G$ compatible with $A$ such that $|N_{A_f}(x) \cap V_{\phi(x)}| \geq d' n$ for every $x \in V(H)\setminus X$.
+\end{lemma}
+
+Note that the blow-up instance in \cref{lem:partial-embedding} does not need to be super-regular because $H$ is much smaller than $G$ here.  However, we do need a minimum-degree condition for the candidacy graphs.  \cref{lem:partial-embedding} is essentially the same as the ``Partial Embedding Lemma'' proved by B\"{o}ttcher, Schacht, and Taraz~\cite[Lemma 10]{BST08}, with a few minor differences which do not affect the proof.  The proof of that lemma is also essentially the same as that of the ``Key Lemma''~\cite{Ko99}, implicit in the earlier work of Chvat\'{a}l, R\"{o}dl, Szemer\'{e}di, and Trotter~\cite{CRST83}.  Here we only require the blow-up instance to be lower $(\eps, d)$-regular, but the lemma is equivalent to the lemma with this condition replaced with the condition that the blow-up instance be $(\eps, d)$-regular by \cref{lem:regular-subgraphs}.  Here we also have candidacy graphs, but the argument is the same with candidacy graphs of minimum degree at least $d n$.
+
+\cref{lem:partial-embedding} can be proved by induction on $|X|$ by proving the slightly stronger statement that there exists a $(C / n)$-vertex-spread distribution on embeddings $f : H[X] \hookrightarrow G$ compatible with $A^1, \dots, A^r$ such that for every $i \in [r]$ and $x \in X_i \setminus X$, the vertex $x$ has at least $(d - \eps)^{1 + |N_H(x)\cap X|} - |X|$ neighbors in the candidacy graph $A^j_f$.  If $f : H[X\setminus \{x\}] \hookrightarrow G$ is an embedding from the inductive hypothesis (chosen randomly according to the $(C/n)$-vertex-spread distribution), then there are least $d'n / 2$ choices for $f(x)$ with the desired property. 
+ Choosing one of these uniformly at random yields a probability distribution on embeddings $f : H[X] \hookrightarrow G$, which, by a standard application of the Chain rule of probability, is easily seen to be $(C / n)$-vertex-spread, as desired.
+
+\subsection{Regularity}
+
+
+
+\begin{lemma}\label{lem:regular-subgraphs}
+    Let $1 / n \ll \eps \ll \eps', d < 1$, and let $G$ be a bipartite graph with bipartition $\{U, W\}$ where $|U| = |W| = n$.
+    \begin{enumerate}[(a)]
+    \item If $G$ is lower $(\eps, d + \eps)$-regular, then $G$ contains a spanning subgraph which is $(\eps', d)$-regular.
+    \item If $G$ is lower $(\eps, d + \eps)$-regular and $\delta(G) \geq dn$, then $G$ contains a spanning subgraph which is $(\eps', d^2 / 2)$-super-regular.
+    \end{enumerate}
+\end{lemma}
+This is \cite[Fact 2]{RR99}.
+
+
+\section{Perfect matchings in super-regular bipartite graphs}\label{sect:pm-in-super-regular}
+
+The main probabilistic ingredient is that the uniform distribution on perfect
+matchings of a super-regular bipartite graph is $O(1/n)$-spread.
+
+\begin{lemma}\label{lem:uniform-dist-spreadness}
+Let $1 / n \ll 1 / C \ll \eps \ll d$, and let $G$ be a bipartite graph with parts of size $n$.  
+If $G$ is $(\eps, d)$-super-regular, then the uniform distribution on perfect matchings of $G$ is $(C / n)$-spread.
+\end{lemma}
+
+In particular, \cref{lem:uniform-dist-spreadness} implies
+\cite[Theorem 4.2]{PSSS22}, which asserts the existence of a $(C/n)$-spread
+distribution on perfect matchings in every such graph.
+
+A well-known consequence of the results of Egorychev~\cite{Eg81} and
+Falikman~\cite{Fa81} is that every $k$-regular bipartite graph with parts of
+size $n$ has at least $(k/n)^n n!$ perfect matchings.  Alon, R\"{o}dl, and
+Ruci\'{n}ski~\cite{ARR98} used this fact to prove the following estimate.
+
+\begin{lemma}[Alon, R\"{o}dl, and Ruci\'{n}ski~\cite{ARR98}]\label{lem:matchings-enumeration}
+    Let $1 / n \ll \eps \ll d$, and let $G$ be a bipartite graph with parts of size $n$.
+    If $G$ is $(\eps, d)$-super-regular, then $G$ has at least $(d - 2\eps)^n n!$ perfect matchings.
+\end{lemma}
+
+The enumeration estimate gives the required bound when many edges are
+prescribed.
+
+\begin{lemma}\label{lem:matchings-many-edge-spread}
+    Let $1 / n \ll 1 / C \ll \eps \ll d$, let $G$ be an $(\eps, d)$-super-regular bipartite graph with parts of size $n$,  and let $e_1, \dots, e_s \in E(G)$ be distinct edges.
+    If $\randM$ is a perfect matching of $G$ chosen uniformly at random, then 
+    \begin{equation*}
+        \Prob{e_1, \dots, e_s \in \randM} \leq \frac{C^n}{n^s}.
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    By \cref{lem:matchings-enumeration}, $G$ contains at least $(d - 2\eps)^n n!$ perfect matchings.  Moreover, there are at most $(n - s)!$ perfect matchings of $G$ which contain $e_1, \dots, e_s$.  Therefore,
+    \begin{equation*}
+        \Prob{e_1, \dots, e_s \in \randM} \leq \frac{(n - s)!}{(d - 2\eps)^n n!}.
+    \end{equation*}
+    Since $n! \geq (n / e)^n$ and $(n - s)! \leq e(n - s)((n - s) / e)^{n - s} \leq en(n / e)^{n - s}$, we have
+    \begin{equation*}
+        \frac{(n - s)!}{n!} \leq en\left(\frac{e}{n}\right)^s.
+    \end{equation*}
+    Combining the two inequalities above, we have
+    \begin{equation*}
+        \Prob{e_1, \dots, e_s \in \randM} \leq \left(\frac{(en)^{1/n}}{d - 2\eps}\right)^n\left(\frac{e}{n}\right)^s \leq \frac{C^n}{n^s},
+    \end{equation*}
+    as desired.
+\end{proof}
+
+For small sets of prescribed edges, we instead use the chain rule together
+with the following switching estimate, inspired by
+\cite[Theorem 4.3]{KKOT19}.
+
+\begin{lemma}\label{lem:switchings}
+    Let $1 / n \ll 1 / C \ll \eps \ll d$, let $G$ be an $(\eps, d)$-super-regular bipartite graph with parts of size $n$, and let $N$ be a matching in $G$ of size at most $dn / 2$.  
+    If $\randM$ is a perfect matching of $G$ chosen uniformly at random, then for every edge $e \in E(G) \setminus N$,  
+    \begin{equation*}
+        \ProbCond{e \in \randM}{N \subseteq \randM} \leq \frac{C}{n}.
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    We use a switching argument.      
+    Let $\cM_{\mathrm{in}}$ be the set of perfect matchings of $G$ containing $N \cup \{e\}$, and let $\cM_{\mathrm{out}}$ be the set of perfect matchings of $G$ containing $N$ and not containing $e$.
+    We assume without loss of generality there is at least one perfect matching in $G$ containing $N \cup \{e\}$, or else $\ProbCond{e \in M}{N \subseteq M} = 0$, so $\cM_{\mathrm{in}} \neq \emptyset$.
+    Note that 
+    \begin{equation}\label{eqn:switching-prob}
+        \ProbCond{e \in M}{N \subseteq M} = \frac{|\cM_{\mathrm{in}}|}{|\cM_{\mathrm{in}}| + |\cM_{\mathrm{out}}|}.
+    \end{equation}
+    We will show that $|\cM_{\mathrm{out}}| \geq n|\cM_{\mathrm{in}}| / C$.
+    
+    For every perfect matching $M$ of $G$, if $C$ is a $6$-cycle in $G$ containing three edges of $M$, then we say $C$ is a \textit{switch} of $M$.  
+    (The idea is that $M \triangle C$, the matching obtained by ``switching'' the edges of $C$, is also a perfect matching in $G$).  
+    We say a switch $C$ is \textit{valid} if $C$ does not contain any edges of $N$.
+    We construct an auxiliary bipartite graph $A$ with bipartition $(\cM_{\mathrm{in}}, \cM_{\mathrm{out}})$ where $M_1M_2 \in E(A)$ if $M_1 = M_2 \triangle C$ for some valid switch $C$ of $M_1$.  Note that if $M_1 = M_2 \triangle C$ where $M_1 \in \cM_{\mathrm{in}}$ and $M_2 \in \cM_{\mathrm{out}}$, then $C$ is a valid switch of both $M_1$ and $M_2$ and $e$ is an edge of $C$.
+
+    First, we claim that
+    \begin{equation}\label{eqn:in-switch-bound}
+        d_A(M) \leq n \text{ for every } M \in \cM_{\mathrm{out}}.
+    \end{equation}
+    Indeed, for every $M \in \cM_{\mathrm{out}}$, every valid switch of $M$ contains $e$ and the two unique edges of $M$ incident to the ends of $e$.  Hence, every valid switch $C$ of $M$ is uniquely determined by the $M$-edge in $C$ not incident to an end of $e$.  Since there are at most $n$ such edges, \cref{eqn:in-switch-bound} follows.
+
+    Next we claim that
+    \begin{equation}\label{eqn:out-switch-bound}
+        d_A(M) \geq (d - \eps)(d / 2 - \eps)^2 n^2 \text{ for every } M \in \cM_{\mathrm{in}}.
+    \end{equation}
+    To that end, let $M \in \cM_{\mathrm{in}}$, let $u$ and $w$ be the ends of $e$, let $U \coloneqq N_M(N_G(u)\setminus V(N))$, and let $W \coloneqq N_M(N_G(w)\setminus V(N))$.  That is, $U$ is the set of vertices of $G$ that are the ends of a length-$2$ $(M\setminus N)$-alternating path with $u$ as the other end, and $W$ is the set of vertices of $G$ that are the ends of a length-$2$ $(M \setminus N)$ with $w$ as the other end.  Note that every edge of $G[U, W]$ corresponds to a distinct valid switch $C$ of $M$.  Since $|N| \leq dn / 2$ and $G$ is $(\eps, d)$-super-regular, $|U| = |N_G(u)\setminus V(N)| \geq d_G(v) - |E(N)| \geq (d/2 - \eps)n$.  Similarly, $|W| \geq (d / 2 - \eps)n$.  Hence, since $G$ is $(\eps, d)$-super-regular, we have $d_G(U, W) \geq d - \eps$, and thus,
+    \begin{equation*}
+        e_G(U, W) \geq (d - \eps)|U||W| \geq (d - \eps)(d / 2 - \eps)^2 n^2.
+    \end{equation*}
+    Therefore there are at least $(d - \eps)(d / 2 - \eps)^2 n^2$ valid switches of $M$, and \cref{eqn:out-switch-bound} follows.
+
+    By \eqref{eqn:in-switch-bound} and \eqref{eqn:out-switch-bound}, we have
+    \begin{equation*}
+      n^2|\cM_{\mathrm{in}}| / C \leq (d - \eps)(d / 2 - \eps)^2 n^2|\cM_{\mathrm{in}}| \leq |E(A)| \leq n|\cM_{\mathrm{out}}|,
+    \end{equation*}
+    so $|\cM_{\mathrm{out}}| \geq n|\cM_{\mathrm{in}}| / C$.  Therefore, 
+    \begin{equation*}
+        \frac{|\cM_{\mathrm{in}}|}{|\cM_{\mathrm{in}}| + |\cM_{\mathrm{out}}|} \leq \frac{1}{1 + n / C} \leq \frac{C}{n},
+    \end{equation*}
+    and the result follows from \cref{eqn:switching-prob}.   
+\end{proof}
+
+Combining \cref{lem:matchings-many-edge-spread,lem:switchings} proves the
+perfect-matching spread lemma.
+
+\begin{proof}[Proof of \cref{lem:uniform-dist-spreadness}]
+    Let $e_1, \dots, e_s \in E(G)$ be distinct edges, and let $M$ be a perfect matching of $G$ chosen uniformly at random.  We will show 
+    \begin{equation*}
+        \Prob{e_1, \dots, e_s \in M} \leq \left(\frac{C}{n}\right)^s.
+    \end{equation*}
+    We assume that $\{e_1, \dots, e_s\}$ is a matching, or else $\Prob{e_1, \dots, e_s \in M} = 0$.  We consider two cases, depending on whether $s \geq dn / 2$.  If so, then we use \cref{lem:matchings-many-edge-spread}, and otherwise, we use \cref{lem:switchings}.
+
+    First, suppose $s \geq dn / 2$.  By \cref{lem:matchings-many-edge-spread} with $C^{d/ 2}$ playing the role of $C$, we have
+    \begin{equation*}
+        \Prob{e_1, \dots, e_s \in M} \leq \frac{C^{nd / 2}}{n^s} \leq \left(\frac{C}{n}\right)^s,
+    \end{equation*}
+    as desired.
+
+    Hence, we may assume $s < dn / 2$.  For each $i \in [s]$, let $N_i \coloneqq \{e_1, \dots, e_i\}$, and let $N_0 = \emptyset$.
+    By \cref{lem:switchings}, for every $i \in [s]$,
+    \begin{equation*}
+        \ProbCond{e_i \in M}{N_{i-1} \subseteq M} \leq C / n.
+    \end{equation*}
+    Therefore, by the Chain Rule,
+    \begin{equation*}
+        \Prob{e_1, \dots, e_s \in M} = \prod_{i=1}^s\ProbCond{e_i \in M}{N_{i-1} \subseteq M} \leq \left(\frac{C}{n}\right)^s,
+    \end{equation*}
+    as desired.
+\end{proof}
+
+\section{Reduction to the auxiliary lemma}\label{sect:blow-up-reduction}
+
+We reduce \cref{lem:spread-blowup} to the following vertex-spread analogue of
+the auxiliary lemma of R\"{o}dl and Ruci\'{n}ski~\cite{RR99}.
+
+\begin{lemma}\label{lem:spread-blowup-auxiliary}
+    %For every $d, \Delta, r$, there exist $\varepsilon = \varepsilon_{\ref*{lem:spread-blowup}}(d, \Delta)$, $C = C_{\ref*{lem:spread-blowup}}(d, \Delta)$ and $n_0 = n_{\ref*{lem:spread-blowup}}(d, \Delta, r)$ such that the following holds for all $n \geq n_0$.  
+    Let $1 / n \ll \eps, 1 / C \ll d, 1/\Delta$ and $1 / n \ll 1/r$.
+    Let $(H, G, R, (X_i)_{i\in [r]}, (V_i)_{i\in [r]}, (A^i)_{i \in [r]})$ be an $(\eps, d)$-super-regular blow-up instance with candidacy graphs.  If 
+    \begin{itemize}
+        \item $\Delta(H), \Delta(R) \leq \Delta$, 
+        \item $|X_i| = |V_i| \in \{n, n+1\}$ for every $i \in [r]$, and 
+        \item $H[X_i, X_j]$ is a saturating matching for every $ij \in E(R)$ and empty for every $ij \notin E(R)$, 
+    \end{itemize}
+    then there exists a $(C / n)$-vertex-spread distribution on embeddings of $H$ into $G$ that are compatible with $A^1, \dots, A^r$.
+\end{lemma}
+
+We first consider the case in which $|V_1|=\cdots=|V_r|=n$.  We refine the
+partitions of $H$ and $G$ so that every nonempty source pair is a saturating
+matching, following the reduction in \cite{RR99}.  The same refinement is
+applied to the candidacy graphs; see, for example,
+\cite[Lemma 5.2]{GJ20}.  The reduced graph need not be complete, since pairs
+corresponding to its nonedges play no role.  Moreover, by
+\cref{lem:regular-subgraphs}, every lower super-regular pair contains a
+spanning super-regular subgraph.  These observations give the following
+reduction lemma.
+
+\begin{lemma}\label{lem:blow-up-reduction-to-auxiliary}
+Let $1 / n \ll \eps \ll \eps' \ll d' \ll d, 1 / \Delta$ and $1 / n \ll 1 / r$.
+Let $\left(H, G, R, (X_i)_{i\in [r]}\right.,\allowbreak (V_i)_{i\in [r]},\left.(A^i)_{i \in [r]}\right)$ be a lower $(\eps, d)$-super-regular blow-up instance with candidacy graphs.  If $\Delta(H), \Delta(R) \leq \Delta$ and $|X_i| = |V_i| = n$ for every $i \in [r]$, then there exists an $(\eps', d')$-super-regular blow-up instance with candidacy graphs $(H', G', R', (X_{i,j})_{i\in [r],j\in[\Delta^2]}, (V_{i,j})_{i\in [r],j\in[\Delta^2]}, (A^{i,j})_{i \in [r],j\in[\Delta^2]})$ where 
+\begin{itemize}
+    \item $H' \supseteq H$, $G' \subseteq G$, and $A^{i,j} \subseteq A^i$ for every $(i,j) \in [r]\times[\Delta^2]$,
+    \item $X_i = \bigcup_{j=1}^{\Delta^2} X_{i,j}$ and $V_i = \bigcup_{j=1}^{\Delta^2} V_{i,j}$ for every $i \in [r]$,
+    \item $\Delta(R') \leq \Delta^3$, 
+    \item $|X_{i,j}| = |V_{i,j}| \in \{n', n'+1\}$, where $n' = \lfloor n / \Delta^2\rfloor$, and
+    \item $H'[X_{i,j}, X_{i',j'}]$ is a saturating matching for every $(i,j)(i',j') \in E(R')$ and empty otherwise.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+    Let $R'$ be the graph with $V(R') \coloneqq [r]\times [\Delta^2]$ where $(i,j)(i',j') \in E(R')$ if $ii' \in E(R)$, and note that $\Delta(R) \leq \Delta^3$, as required.  
+    By applying the Hajnal--Szemer\'{e}di Theorem~\cite{HS70} to $H^2[X_i]$ for each $i \in [r]$, we can partition $X_i$ into $\Delta^2$ parts $X_{i,1}, \dots, X_{i, \Delta^2}$ of size in $\{n', n' + 1\}$, where $n' \coloneqq \lfloor n / \Delta^2\rfloor$, such that each part is a $2$-independent set of $H$, meaning vertices in different parts are nonadjacent and have no common neighbors.  In particular, $H[X_{i,j}, X_{i',j'}]$ is a matching if $(i,j)(i',j') \in E(R')$ and empty otherwise.  By possibly adding edges to $H$ to obtain $H' \supseteq H$, we have $H'[X_{i,j}, X_{i',j'}]$ is a saturating matching if $(i,j)(i',j') \in E(R')$ and empty otherwise, as desired.
+    Using standard probabilistic arguments, we can partition each $V_i$ accordingly into $V_{i,1}, \dots, V_{i,\Delta^2}$ so that the new blow-up instance $(H', G, R', (X_{i,j})_{i\in[r],j\in[\Delta^2]}, (V_{i,j})_{i\in[r],j\in[\Delta^2]}, (A^{i,j})_{i\in[r],j\in[\Delta^2]})$ with candidacy graphs $A^{i,j} \coloneqq A^i[X_{i,j}, V_{i,j}]$ is lower $(2\Delta^2\eps, d)$-super-regular.  Each candidacy graph $A^{i,j}$ and lower $(\eps', d)$-super-regular subgraph $G[V_{i,j}, V_{i', j'}]$ contains a spanning $(\eps', d')$-super-regular subgraph by \cref{lem:regular-subgraphs}.  Let $(A')^{i,j} \subseteq A^{i,j}$ be such an $(\eps', d')$-super-regular subgraph and let $G' \subseteq G$ be the union of these subgraphs for all $(i,j)(i',j')\in E(R)$.
+    Now $(H', G', R', (X_{i,j})_{i\in [r],j\in[\Delta^2]}, (V_{i,j})_{i\in [r],j\in[\Delta^2]},\allowbreak ((A')^{i,j})_{i \in [r],j\in[\Delta^2]})$ is the desired blow-up instance.
+\end{proof}
+
+It remains to equalize the cluster sizes.  We use
+\cref{lem:partial-embedding} to embed a small proportion of the vertices while
+preserving lower super-regularity of the remaining blow-up instance.
+
+\begin{lemma}\label{lem:cluster-rebalancing}
+    Let $1 / n \ll \eps, 1/ C \ll \eps' \ll d' \ll d, 1 / \Delta$ and $1 / n \ll 1 / r$.
+    Let $(H, G, R, (X_i)_{i\in [r]},\allowbreak (V_i)_{i\in [r]},(A^i)_{i \in [r]})$ be a lower $(\eps, d)$-super-regular blow-up instance with candidacy graphs.  If $\Delta(H), \Delta(R) \leq \Delta$ and $(1 - \eps)n \leq |X_i| = |V_i| \leq (1 + \eps)n$ for every $i \in [r]$, then there exists $X \subseteq V(H)$ and a $(C / n)$-vertex-spread distribution on embeddings $f : H[X] \hookrightarrow G$ that are compatible with $A^1, \dots, A^r$ such that $(H - X, G - f(X), R, (X_i\setminus X)_{i\in [r]},\allowbreak (V_i\setminus f(X))_{i\in [r]},(A_f^i)_{i \in [r]})$ is a lower $(\eps', d')$-super-regular blow-up instance with candidacy graphs such that $|V_i \setminus f(X)| = \lfloor (1 - \eps) n\rfloor$ for every $i \in [r]$. 
+\end{lemma}
+\begin{proof}
+    Let $X \subseteq V(H)$ satisfy $|X \cap X_i| = |V_i| - \lfloor (1 - \eps)n\rfloor$ for each $i \in [r]$, and let $X' = \bigcup_{x\in X}N_H(x) \setminus X$.  Note that $|X \cap X_i| \leq 3\eps n$ and $|X' \cap X_i| \leq 3\eps \Delta^2 n$ for every $i \in [r]$.  Hence, by \cref{lem:partial-embedding} with $H[X']$ playing the role of $H$ and $\Delta^2\eps$ playing the role of $\eps$, there exists a $(C / n)$-vertex-spread distribution on embeddings $f : H[X]\hookrightarrow G$ that are compatible with $A^1, \dots, A^r$ such that $\delta(A^i_f[X' \cup V_i]) \geq d' n$ for every $i \in [r]$ for which $X' \subsetneq X_i \cap X$.  
+
+    It suffices to show that $(H - X, G - f(X), R, (X_i\setminus X)_{i\in [r]},\allowbreak (V_i\setminus f(X))_{i\in [r]},(A_f^i)_{i \in [r]})$ is a lower $(\eps', d')$-super-regular blow-up instance with candidacy graphs such that $|V_i \setminus f(X)| = \lfloor (1 - \eps) n\rfloor$ for every $i \in [r]$ for each $f : H[X] \hookrightarrow G$ in the support of this distribution.  Since $|X \cap X_i| = |V_i| - \lfloor (1 - \eps)n\rfloor$ for every $i \in [r]$, we have $|V_i \setminus f(X)| = \lfloor (1 - \eps)n\rfloor$ for every $i \in [r]$, as desired.
+    Since $\delta(A^i_f[X' \cup V_i]) \geq d' n$ for every $i \in [r]$ for which $X' \subsetneq X_i \cap X$, $|X \cap X_i| = |V_i \cap f(X)| \leq 3\eps n$, and $|X' \cap X_i| \leq 3\eps\Delta^2 n$, the blow-up instance with candidacy graphs is lower $(\eps', d')$-super-regular, as desired. 
+\end{proof}
+
+We now combine the auxiliary lemma with
+\cref{lem:blow-up-reduction-to-auxiliary,lem:cluster-rebalancing}.
+\begin{proof}[Proof of \cref{lem:spread-blowup} assuming \cref{lem:spread-blowup-auxiliary}]
+    Let $\eps_1$, $\eps_2$, $d_1$, $d_2$, and $C'$ satisfy $1 / C' \ll \eps, 1/C \ll \eps_1 \ll \eps_2 \ll d_2 \ll d_1 \ll d$.
+
+    By \cref{lem:cluster-rebalancing} with $\eps_1$ and $d_1$ playing the roles of $\eps'$ and $d'$, respectively, there exists $X \subseteq V(H)$ and a $(C / n)$-vertex-spread distribution on embeddings $f : H[X] \hookrightarrow G$ that are compatible with $A^1, \dots, A^r$ such that $(H - X, G - f(X), R, (X_i\setminus X)_{i\in [r]},\allowbreak (V_i\setminus f(X))_{i\in [r]},(A_f^i)_{i \in [r]})$ is a lower $(\eps_1, d_2)$-super-regular blow-up instance with candidacy graphs such that $|V_i \setminus f(X)| = \lfloor (1 - \eps) n\rfloor$ for every $i \in [r]$. 
+
+    For each $f$ in the support of this distribution, we apply \cref{lem:blow-up-reduction-to-auxiliary} to $(H - X, G - f(X), R, (X_i\setminus X)_{i\in [r]},\allowbreak (V_i\setminus f(X))_{i\in [r]},(A_f^i)_{i \in [r]})$ to obtain an $(\eps_2, d_2)$-super-regular blow-up instance with candidacy graphs $(H', G', R', (X_{i,j})_{i\in [r],j\in[\Delta^2]}, (V_{i,j})_{i\in [r],j\in[\Delta^2]}, (A^{i,j})_{i \in [r],j\in[\Delta^2]})$ where 
+\begin{itemize}
+    \item $H' \supseteq H - X$, $G' \subseteq G - f(X)$,  and $A^{i,j} \subseteq A^i_f$ for every $(i,j) \in [r]\times[\Delta^2]$,
+    \item $X_i \setminus X = \bigcup_{j=1}^{\Delta^2} X_{i,j}$ and $V_i \setminus f(X) = \bigcup_{j=1}^{\Delta^2} V_{i,j}$ for every $i \in [r]$,
+    \item $\Delta(R') \leq \Delta^3$, 
+    \item $|X_{i,j}| = |V_{i,j}| \in \{n', n'+1\}$, where $n' = \lfloor \lfloor (1 - \eps)n\rfloor / \Delta^2\rfloor$, and
+    \item $H'[X_{i,j}, X_{i',j'}]$ is a saturating matching for every $(i,j)(i',j') \in E(R')$ and empty otherwise,
+\end{itemize}
+  
+    We apply \cref{lem:spread-blowup-auxiliary} to this blow-up instance with $\eps_2$, $C'$, $d_2$, $\Delta^3$, and $r\Delta^2$ playing the role of $\eps$, $C$, $d$, $\Delta$, and $r$, respectively, to obtain a $(C' / n')$-vertex-spread distribution on embeddings $H' \hookrightarrow G'$ compatible with the candidacy graphs $A^{i,j}$.  Since $H' \supseteq H$ and $G' \subseteq G$ and $C' / n' \leq C / n$, this distribution is also a $(C / n)$-vertex-spread distribution on embeddings $f' : H - X \hookrightarrow G - f(X)$ compatible with the candidacy graphs $A^i_f$. 
+    
+    We can combine these distributions to obtain a distribution on embeddings $H \hookrightarrow G$, which is $(C / n)$-vertex-spread by the Chain Rule of probability.
+\end{proof}
+
+\section{Proof of the auxiliary lemma}\label{lem:RR-proof-of-auxiliary}
+
+We prove \cref{lem:spread-blowup-auxiliary} by showing that the randomized
+embedding procedure of R\"{o}dl and Ruci\'{n}ski is $(C/n)$-vertex-spread.  We
+first recall their Four Graphs lemma~\cite{RR99}.
+
+Let $W_1$, $W_2$, and $W_3$ be disjoint sets of size $n$.  For every
+$1\leq i<j\leq 3$, let $F_{ij}$ be an $(\eps,d_{ij})$-super-regular
+bipartite graph with bipartition $(W_i,W_j)$.  We say that
+$(F_{12},F_{13},F_{23})$ is \textit{$(\eps,d_{12},d_{13},d_{23})$-regular}
+if
+\begin{equation}\label{eqn:eps-regular-triple}
+    \left|N_{F_{13}}(v) \cap N_{F_{23}}(u)\right| = (d_{13}d_{23} \pm \eps)n \text{ for every } uv \in E(F_{12}).
+\end{equation}
+For a perfect matching $\sigma:W_1\rightarrow W_2$ in $F_{12}$, let
+$A_\sigma$ be the spanning subgraph of $F_{13}$ in which
+$v_1v_3\in E(A_\sigma)$ if $\sigma(v_1)v_3\in E(F_{23})$.
+
+\begin{lemma}[R\"{o}dl and Ruci\'{n}ski~\cite{RR99}, Four Graphs lemma]\label{lem:spread-four-graphs}
+    Let $1 / n \ll a \ll \eps \ll \eps' \ll d_{12}, d_{13}, d_{23}$, %let $W_1$, $W_2$, and $W_3$ be disjoint sets of size $n$, and let $F_{ij}$ be a bipartite graph with bipartition $(W_i, W_j)$ for each pair $i,j$ with $1 \leq i < j \leq 3$.  
+    %If $F$ is super $(\eps, d)$-regular, then there exists a $(C / n)$-spread distribution $\mu$ on perfect matchings of $F$ such that the following holds.  
+    and let $(F_{12}, F_{13}, F_{23})$ be an $(\eps, d_{12}, d_{13}, d_{23})$-regular triplet of graphs.
+    If $\sigma$ is a perfect matching of $F_{12}$ chosen uniformly at random, then $A_\sigma$ is $(\eps', d_{13}d_{23})$-super-regular with probability at least $1 - (1 - a)^n$.
+\end{lemma}
+
+% The author-approved correction is kept in a separate file so that the
+% original source remains easy to compare with the corrigendum.
+% SHA-256 (r2-colour-round-addendum.tex):
+% 7b60d7ea68dcfbeece85df873b0fabaff966b06e13c18cdf95a53d8162c674ec
+\input{r2-colour-round-addendum}
+
+
+\bibliographystyle{amsabbrv}
+\bibliography{references}
+
+\end{document}

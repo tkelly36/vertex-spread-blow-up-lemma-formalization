@@ -17,7 +17,11 @@ __pycache__/
 # Keep the selected release verification evidence, including build logs.
 !verification/**
 
-# The frozen manuscript and local operator state are not public artifacts.
-paper/*
-!paper/README.md
+# LaTeX build intermediates; publish the manuscript source and PDF.
+paper/*.bbl
+paper/*.blg
+paper/*.brf
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.synctex.gz
 source-checkpoint/

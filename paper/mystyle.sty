@@ -1,0 +1,93 @@
+\ProvidesPackage{mystyle}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+%\usepackage{bbold}
+
+\usepackage{verbatim}
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\usepackage[
+bookmarksopen=true,
+bookmarksopenlevel=1,
+colorlinks=true,
+linkcolor=darkblue,
+linktoc=page,
+citecolor=darkblue,
+]{hyperref}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, arrows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{snakes}
+\usetikzlibrary{fit}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.markings}
+
+
+% Equation numbering by section
+\numberwithin{equation}{section}
+
+\usepackage[shortlabels, inline]{enumitem}
+\setlist{nolistsep, noitemsep}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{claim}{Claim}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{noname}[theorem]{}
+\newtheorem{remark}[]{Remark}
+
+
+\newcommand{\eps}{\ensuremath{\varepsilon}}
+\newcommand{\cQ}{\ensuremath{\mathcal Q}}
+\newcommand{\cD}{\ensuremath{\mathcal D}}
+\newcommand{\cW}{\ensuremath{\mathcal W}}
+\newcommand{\cL}{\ensuremath{\mathcal L}}
+\newcommand{\cB}{\ensuremath{\mathcal B}}
+\newcommand{\cH}{\ensuremath{\mathcal H}}
+\newcommand{\cP}{\ensuremath{\mathcal P}}
+\newcommand{\cF}{\ensuremath{\mathcal F}}
+\newcommand{\cG}{\ensuremath{\mathcal G}}
+\newcommand{\cS}{\ensuremath{\mathcal S}}
+\newcommand{\cT}{\ensuremath{\mathcal T}}
+
+
+\newcommand{\Prob}[1]{\ensuremath{%
+    \mathbb P\left[#1\right]
+}}
+\newcommand{\ProbCond}[2]{\ensuremath{%
+    \mathbb P\left[#1\:\middle|\:#2\right]
+  }}
+\newcommand{\Expect}[1]{\ensuremath{%
+    \mathbb E\left[#1\right]
+  }}
+\newcommand{\aas}{a.a.s.\ }
+
+\def\MR#1{} % to suppress MR numbers
+
+\def\COMMENT#1{}
+\let\COMMENT=\footnote % COMMENT OUT for clean outputx
+
+% Manuscript-specific support retained from the source style.
+\usepackage[T1]{fontenc}
+\usepackage[noabbrev,capitalize,nameinlink]{cleveref}
+\crefname{equation}{}{}
+\newcommand{\creflastconjunction}{, and\nobreakspace}
+\newcommand{\cM}{\ensuremath{\mathcal M}}
+\newcommand{\randM}{\ensuremath{M}}
+\allowdisplaybreaks
+
+% Permit flexible paragraph spacing around long inline graph tuples.
+\setlength{\emergencystretch}{3em}

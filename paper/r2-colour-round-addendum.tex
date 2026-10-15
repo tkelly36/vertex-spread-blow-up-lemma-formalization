@@ -1,0 +1,390 @@
+% Author-ratified correction, 11 October 2026.
+% This file is included by paper/main.tex and replaces the former
+% exposure-indexed induction in the proof of Lemma~\ref{lem:spread-blowup-auxiliary}.
+
+\subsection*{Author's correction: the colour-round induction}
+
+The following argument replaces the former minimum-exposure ordering and the
+exposure-indexed error hierarchy in the proof of
+\cref{lem:spread-blowup-auxiliary}.  The statement of the lemma is unchanged.
+The correction uses a bounded number of rounds obtained by colouring the
+square of the reduced graph.  This colouring is unrelated to the equitable
+colouring of $H^2[X_i]$ used earlier to refine the source clusters.
+
+We first record the two standard robust forms of the regularity inputs that
+we use.  They are stated for parts differing by at most one because this is
+the only unequal-size case needed below.
+
+\begin{lemma}[Quantitative spanning thinning]\label{lem:addendum-near-equal-thinning}
+Let $0<\rho<D\leq1$ and $0<\gamma<\rho$.  There are $\beta_0>0$ and
+$n_*$ such that the following holds.  Let $L,R$ be disjoint sets, put
+$s\coloneqq\min\{|L|,|R|\}$, and suppose that $s\geq n_*$ and
+$\lvert |L|-|R|\rvert\leq1$.  If $F[L,R]$ is
+$(\beta,D)$-super-regular for some $0<\beta\leq\beta_0$, then it contains
+a spanning $(\gamma,\rho)$-super-regular subgraph.  All degree conditions
+are normalised by the actual opposite-part size.
+\end{lemma}
+
+\begin{proof}
+Put $q\coloneqq\rho/D$.  Choose $\xi>0$ and then
+$0<\beta_0\leq\gamma$ so that $q\beta_0+\xi\leq\gamma$.  Retain each edge
+independently with probability $q$.  For every vertex, a Chernoff bound
+shows that its retained degree differs from $q$ times its old degree by at
+most $\xi$ times the opposite-part size, except with probability
+$\exp(-\Omega(s))$.  If $U\subseteq L$ and $W\subseteq R$ are above the
+$\gamma$-thresholds, the retained edge count differs from
+$q e_F(U,W)$ by at most $\xi|U||W|$, except with probability
+$\exp(-\Omega(|U||W|))=\exp(-\Omega(s^2))$.  There are only
+$2^{|L|+|R|}=\exp(O(s))$ choices of $(U,W)$.  A union bound over all
+vertices and all such pairs is therefore smaller than one when $s$ is
+large.  Fix an outcome outside this union.  Since $\beta\leq\gamma$, old
+regularity applies to every tested $(U,W)$, and
+\[
+  d_{F'}(U,W)=q\,d_F(U,W)\pm\xi
+             =\rho\pm(q\beta+\xi).
+\]
+The same calculation for every degree proves the result.
+\end{proof}
+
+\begin{lemma}[Near-equal Four Graphs lemma]\label{lem:addendum-near-equal-four-graphs}
+Fix $0<d_{12},d_{13},d_{23}\leq1$, and put
+$q\coloneqq d_{13}d_{23}$.  For every sufficiently small
+$0<\eps'<\min\{q,1\}$ there are $\eps_0>0$, $0<a\leq1$, and $m_0$ such that the
+following holds.  Let $m\geq m_0$, let
+\[
+  |W_1|=|W_2|=m,
+  \qquad |W_3|=k\in\{m-1,m,m+1\},
+\]
+and suppose that $F_{12},F_{13},F_{23}$ are respectively
+$(\eps,d_{12})$-, $(\eps,d_{13})$-, and
+$(\eps,d_{23})$-super-regular on the corresponding pairs, where
+$0<\eps\leq\eps_0$.  Degrees are normalised by the actual opposite-part
+size.  Suppose also that every $vu\in E(F_{12})$, with $v\in W_1$ and
+$u\in W_2$, satisfies
+\[
+ \bigl|N_{F_{13}}(v)\cap N_{F_{23}}(u)\cap W_3\bigr|
+      =(q\pm\eps)k.                                  \tag{B1}
+\]
+Then $F_{12}$ has a perfect matching.  If $\sigma:W_1\to W_2$ is chosen
+uniformly from its perfect matchings, let $A_\sigma$ be the graph on
+$(W_1,W_3)$ in which
+\[
+ vw\in E(A_\sigma)
+ \quad\Longleftrightarrow\quad
+ vw\in E(F_{13})\ \text{and}\ \sigma(v)w\in E(F_{23}).
+\]
+Then
+\[
+ \Pr\bigl[A_\sigma\text{ is }(\eps',q)\text{-super-regular}\bigr]
+      \geq1-\bigl(1-a\bigr)^{m}.                     \tag{B2}
+\]
+The constants are uniform over the three permitted values of $k$.
+\end{lemma}
+
+\begin{proof}
+We indicate why the usual proof of the Four Graphs lemma is uniform in this
+range of sizes.  Its matching set-image estimate says that, for fixed
+$d_{12},\lambda,\delta>0$, there are $c<1$, an admissible input-error bound,
+and a size threshold such that, whenever $S\subseteq W_1$ and
+$T\subseteq W_2$ have size at least $\lambda m$, a uniformly random perfect
+matching $\sigma$ of $F_{12}$ satisfies
+\[
+ \Pr\left[
+  \left|\,|\sigma(S)\cap T|-\frac{|S||T|}{m}\right|>\delta m
+ \right]\leq c^m.                                    \tag{B3}
+\]
+This is the standard two-edge-switching estimate used in the proof of the
+Four Graphs lemma~\cite{RR99}; its constants do not depend on $S$ or $T$.
+Choose $0<\delta\ll\eps'\ll q,d_{12},d_{13},d_{23}$ and then choose
+$\eps_0$ below the finitely many input bounds in (B3), using lower set-size
+bounds smaller than
+\[
+ d_{13}/2,\quad d_{23}/2,\quad
+ (d_{13}/2)^{2},\quad (d_{23}/2)^{2}.
+\]
+For these choices, super-regularity of $F_{12}$ also guarantees a perfect
+matching.
+
+For $v\in W_1$, (B1) applied to $v\sigma(v)$ gives deterministically
+\[
+  \deg_{A_\sigma}(v)=(q\pm\eps)k.                    \tag{B4}
+\]
+For $w\in W_3$, set $S_w=N_{F_{13}}(w)\cap W_1$ and
+$T_w=N_{F_{23}}(w)\cap W_2$.  These sets have sizes
+$(d_{13}\pm\eps)m$ and $(d_{23}\pm\eps)m$, while
+$\deg_{A_\sigma}(w)=|\sigma(S_w)\cap T_w|$.  Thus (B3), followed by a
+union bound over $k\leq m+1$ vertices, gives
+\[
+  \deg_{A_\sigma}(w)=(q\pm O(\eps+\delta))m          \tag{B5}
+\]
+simultaneously for all $w$, except with probability at most $(m+1)c^m$.
+
+The standard good-codegree consequence of regularity says that all but
+$O(\eps)k^2$ ordered pairs $(w,w')\in W_3^2$ have their two common
+neighbourhoods in $W_1$ and $W_2$ of sizes
+$(d_{13}^2\pm O(\eps))m$ and $(d_{23}^2\pm O(\eps))m$.  Apply (B3) to
+these two sets and take a union bound over at most $(m+1)^{2}$ pairs.  Except
+with additional probability at most $(m+1)^{2}c^{m}$, every such pair has
+\[
+ |N_{A_\sigma}(w)\cap N_{A_\sigma}(w')|
+       =(q^2\pm O(\eps+\delta))m.                    \tag{B6}
+\]
+Choose $\delta$ and then $\eps_0$ sufficiently small in terms of $\eps'$.
+The degree--codegree criterion, applied with the actual part sizes, turns
+equations (B4)--(B6) into $(\eps',q)$-super-regularity.  Finally,
+\[
+  \bigl((m+1)+(m+1)^{2}\bigr)c^{m}\leq\bigl(1-a\bigr)^{m}
+\]
+for some $a>0$ and every sufficiently large $m$.  The proof used only
+$m-1\leq k\leq m+1$, which proves the asserted uniformity.
+\end{proof}
+
+\begin{proof}[Corrected proof of \cref{lem:spread-blowup-auxiliary}]
+Put $Q\coloneqq \Delta^2+1$.  Let $R^{\langle 2\rangle}$ be the graph on
+$V(R)$ in which distinct vertices are adjacent if they are adjacent in $R$ or
+have a common neighbour in $R$.  Since
+\[
+    \Delta(R^{\langle 2\rangle})
+        \leq \Delta+\Delta(\Delta-1)=\Delta^2,
+\]
+there is a proper colouring
+\[
+    c:V(R)\longrightarrow\{0,\dots,Q-1\}.
+\]
+We allow colours which are not used, and write
+$B_t\coloneqq c^{-1}(t)$.  Thus two clusters in the same $B_t$ are
+nonadjacent in $R$ and have disjoint neighbourhoods in $R$.  In particular,
+each cluster outside $B_t$ has at most one neighbour in $B_t$.
+
+We first fix the density parameters recursively.  Let $p_0=d$.  For
+$0\leq x<\Delta$, having defined $p_x$, choose $0<\rho_x<p_x$ and put
+\[
+    p_{x+1}\coloneqq \rho_x d/2.
+\]
+Finally choose $0<\rho_\Delta<p_\Delta$.  For example, one may take
+$\rho_x=p_x/2$ at every step.  The index $x$ records the number
+of already embedded neighbours of a cluster.  Our invariant stores a
+spanning super-regular graph of density $p_x$ contained in the true updated
+candidacy graph; it does not assert that the whole updated candidacy graph
+has exactly that density.
+
+Next choose error parameters
+\[
+    0<\eta_0\ll\eta_1\ll\cdots\ll\eta_Q
+        \ll d,1/\Delta
+\]
+from right to left.  The choice is finite and depends only on $d$ and
+$\Delta$.  Here is the precise order of choice.  After $\eta_{t+1}$ has
+been chosen, choose $\omega_{t+1}>0$ below $\eta_{t+1}$ and below the
+minimum of the finitely many admissible output-error caps in
+\cref{lem:addendum-near-equal-four-graphs} for the density triples used
+below.  For every ordered pair
+\[
+    (x,y)\in\{0,\dots,\Delta\}\times\{0,\dots,\Delta-1\},
+\]
+the near-equal Four Graphs lemma, with output error $\omega_{t+1}$ and
+density triple $(\rho_x,\rho_y,d/2)$, supplies a positive admissible input
+cutoff.  Choose one common $\theta_t>0$ below all of these cutoffs and also
+below the perfect-matching existence and uniform-spread cutoffs for the
+finitely many densities $\rho_x$.  Instantiate Four Graphs at input
+$\theta_t$, and denote its exponential constant for $(x,y)$ by
+$a_{t,x,y}$.  Likewise, let $M_{t,x}$ be a constant for the
+uniform-perfect-matching spread bound at density $\rho_x$.  Thus
+\[
+    0<a_{t,x,y}\leq1
+    \quad\text{and}\quad
+    M_{t,x}\geq1.
+\]
+Only after these choices do we choose a post-thinning and padding error
+$\zeta_t>0$ so small that
+\[
+    2\sqrt{\zeta_t}\leq\theta_t,\qquad
+    \zeta_t+\Delta\sqrt{\zeta_t}\leq\theta_t,
+    \qquad \zeta_t+2\Delta\zeta_t\leq\theta_t,       \tag{A1}
+\]
+and so that
+\[
+  2\zeta_t<\min\left\{\min_{0\leq x\leq\Delta}\rho_x,
+       \frac d2,\min_{0\leq x\leq\Delta}(1-\rho_x),1-\frac d2\right\}.
+                                                               \tag{A2}
+\]
+Choose an inner reserve $0<\widehat\zeta_t<\zeta_t$.  Finally choose
+$\eta_t$ sufficiently small that every required spanning thinning of an
+$(\eta_t,p_x)$-super-regular witness has error at most
+$\widehat\zeta_t$, and also so that
+\[
+  2\eta_t<\min_{0\leq y<\Delta}(p_y-p_{y+1}).
+\]
+It is important here to use all relevant ordered pairs
+$(x,y)$: the colour-round order gives no inequality between the exposure of
+the current cluster and that of a future cluster.  Taking the minimum of the
+finitely many $a_{t,x,y}$ and the maximum of the finitely many $M_{t,x}$
+gives constants $0<a\leq1$ and $M\geq1$ which depend only on $d$ and
+$\Delta$.  We take $C\geq2M$.  After $r$ is fixed, choose $n_0$ last.
+Besides all thinning, row-padding, perfect-matching existence,
+uniform-spread, and Four Graphs thresholds, it is large enough that, for
+every $t<Q$ and $n\geq n_0$,
+\[
+    \Delta\bigl(1-a\bigr)^{n}\leq\tfrac12,\qquad C/n\leq1. \tag{A3}
+\]
+and
+\[
+    \omega_{t+1}+2/n\leq\eta_{t+1},
+    \qquad \omega_{t+1}+1/(\eta_{t+1}n)\leq\eta_{t+1}. \tag{A4}
+\]
+The row insertion and integer-rounding errors are required to be at most
+$\zeta_t-\widehat\zeta_t$.  Finally choose the input regularity parameter in
+\cref{lem:spread-blowup-auxiliary} at most $\eta_0$, with $\eta_0$ also
+below every host-pair thinning cutoff from density $d$ to $d/2$ in all
+$Q$ rounds.
+
+We embed the colour classes $B_0,\dots,B_{Q-1}$ in this order and process the
+clusters inside one colour class sequentially.  For
+$S\subseteq B_t$, let
+\[
+    P_{t,S}
+        \coloneqq \bigcup_{s<t}B_s\cup S
+\]
+be the set of clusters already processed.  If $f$ embeds the corresponding
+source clusters and $j\notin P_{t,S}$, write $A_f^j$ for the spanning
+subgraph of $A^j$ in which $xv$ is an edge exactly when it was an edge of
+$A^j$ and $f(u)v\in E(G)$ for every already embedded neighbour $u$ of $x$.
+The within-round invariant is the following.  There is a
+$(C/n)$-vertex-spread distribution on compatible
+partial embeddings $f$ of the source clusters indexed by $P_{t,S}$ such that,
+for every unembedded cluster $j$, if
+\[
+    x_j\coloneqq |N_R(j)\cap P_{t,S}|,
+\]
+then the true updated candidacy graph $A_f^j$ contains a spanning witness of
+density $p_{x_j}$ which is
+\[
+    \begin{cases}
+      (\eta_{t+1},p_{x_j})\text{-super-regular},
+        &\text{if }N_R(j)\cap S\neq\varnothing,\\
+      (\eta_t,p_{x_j})\text{-super-regular},
+        &\text{if }N_R(j)\cap S=\varnothing.
+    \end{cases}                                      \tag{*}
+\]
+The first intersection in $(*)$ has size at most one.  This touched/untouched
+distinction is essential: a witness changed earlier in round $t$ is only
+required to have error $\eta_{t+1}$.
+
+The invariant holds at the start with $t=0$ and $S=\varnothing$, using the
+original candidacy graphs.  Suppose it holds for $S\subseteq B_t$, and choose
+$i\in B_t\setminus S$.  Since $B_t$ is independent in
+$R^{\langle 2\rangle}$, we have
+\[
+    N_R(i)\cap S=\varnothing
+    \quad\text{and}\quad
+    N_R(j)\cap S=\varnothing
+        \quad\text{for every }j\in N_R(i)\setminus P_{t,S}.
+\]
+Consequently, the witness for the current cluster $i$ and every future
+witness which is tested while embedding $i$ all have the common input error
+$\eta_t$, although their densities and exposure indices may differ.
+
+Fix an outcome of the partial embedding up to this point.  Apply
+\cref{lem:addendum-near-equal-thinning} to thin the current witness of
+exposure $x_i$ to density $\rho_{x_i}$, each relevant future witness of
+exposure $x_j$ to density $\rho_{x_j}$, and each host pair $G[V_i,V_j]$ to
+density $d/2$, initially with error at most $\widehat\zeta_t$.  Retain from
+the thinned current witness
+only those edges which satisfy the required degree-codegree test for every
+unembedded $j\in N_R(i)$, with the window
+\[
+  \bigl(\rho_{x_j}d/2\pm2\zeta_t\bigr)|V_j|
+\]
+normalised by the actual future part.  We spell out the simultaneous
+good-edge estimate,
+since it is the point at which the common error $\eta_t$ is needed.  After
+thinning, all pairs have error at most $\zeta_t$.  For one test and one fixed
+endpoint of the current pair, regularity of the two tested pairs shows that
+at most $2\zeta_t$ times the opposite part size fail the codegree test.  Thus
+at most $2\Delta\zeta_t$ of the degree can be lost.  If $U$ and $W$ are
+subsets of the two current parts of relative size greater than $\theta_t$,
+the standard bad-pair count shows that at most a
+$\sqrt{\zeta_t}$ proportion of $U\times W$ fails any one test.  Hence the
+total density loss on $U\times W$ is at most
+$\Delta\sqrt{\zeta_t}$.  The three inequalities in (A1), together with
+regularity after a bounded density loss, show that the retained current pair
+is $(\theta_t,\rho_{x_i})$-super-regular.  They also show that it and each
+thinned future witness and host pair form the appropriate near-equal regular
+triplet.  This proves the full super-regular conclusion needed here, rather
+than only the edgewise codegree condition.
+
+By the perfect-matching existence threshold built into the hierarchy, the
+retained current pair has a perfect matching.  Choose one uniformly.  Its
+law is $(M/|X_i|)$-spread and therefore $(M/n)$-spread.  For each
+unembedded $j\in N_R(i)$, the Four Graphs conclusion fails with probability
+at most $\bigl(1-a\bigr)^{|X_i|}\leq\bigl(1-a\bigr)^{n}$.  By (A3), a union
+bound shows that all
+of the at most $\Delta$ local conclusions hold simultaneously with
+probability at least $1/2$.  We condition this one matching on that local
+success event.  The unconditioned
+matching law is $(M/n)$-spread, so the conditioned law is $(2M/n)$-spread and
+hence $(C/n)$-spread.  For each such $j$ we have $x_j<\Delta$, because $i$
+is an unembedded neighbour of $j$.  Transport the Four Graphs output
+along the saturating source matching to obtain, inside the true updated
+candidacy graph, an $(\eta_{t+1},p_{x_j+1})$-super-regular witness.  Every
+other unembedded witness is unchanged.  This proves the invariant with
+$S\cup\{i\}$ in place of $S$.
+
+The conditioning in the preceding paragraph is local to the current cluster.
+We do not condition on one global event for all of $B_t$, whose probability
+could depend on $|B_t|$ and hence on $r$.  Instead, the clusters of $B_t$ are
+processed sequentially.  At every step, conditional on the entire past, the
+new matching law is $(C/n)$-spread.  The chain rule therefore preserves the
+joint $(C/n)$-vertex-spread bound.  At the end of round $t$, every witness
+touched in that round already has error $\eta_{t+1}$, while every untouched
+witness has the stronger error $\eta_t$ and may be viewed as having error
+$\eta_{t+1}$.  This is precisely the invariant at the start of round $t+1$.
+
+For completeness, we record the near-equal transport used above.  Write
+$m=|X_i|=|V_i|$ and $k=|X_j|=|V_j|$, so
+$m,k\in\{n,n+1\}$ and $|m-k|\leq1$.  The near-equal Four Graphs statement is
+normalised using the actual part sizes.  If $m=k$, the output is transported
+directly along the perfect source matching.  If $m=k+1$, the source matching
+leaves one current source vertex unmatched.  Adjoin one artificial row to the
+pulled-back $F_{13}$ pair: choose any subset of $V_j$ whose size is in the
+required $(\rho_{x_j}\pm\zeta_t)k$ window.  Adjoining this single row
+preserves super-regularity with the reserved slack.  Regularity of the
+thinned host pair shows that all but at most $2\zeta_t m$ possible partners
+of this artificial row pass this future-neighbour test, so the simultaneous
+good-edge calculation above still applies to the entire current pair.  We
+apply Four Graphs and then delete the matching-induced row corresponding to
+the unmatched current vertex.
+
+If $k=m+1$, the saturating matching leaves one future source vertex $z$
+unmatched.  Since $H[X_i,X_j]$ is a matching, $z$ has no neighbour in $X_i$;
+its row in the true candidacy graph is therefore unchanged when $X_i$ is
+embedded.  Apply Four Graphs to the pullback along the saturating matching
+and transport its output first to $X_j\setminus\{z\}$.  The stored old
+witness already supplies the row of $z$, of degree at least
+$(p_{x_j}-\eta_t)|V_j|$.  Our parameter and size choices make this larger
+than $p_{x_j+1}|V_j|+1$, since
+$p_{x_j+1}=\rho_{x_j}d/2<p_{x_j}$.  Choose a subset of that row's
+neighbourhood whose size is the nearest integer to
+$p_{x_j+1}|V_j|$, and adjoin precisely this row to the Four Graphs output.
+The result remains a subgraph of the true updated candidacy graph.
+
+In either unequal case, the row-stability calculation is explicit: deleting
+or adjoining one row to an $(\omega_{t+1},p_{x_j+1})$-super-regular pair
+preserves the degree conditions provided
+$\omega_{t+1}+2/n\leq\eta_{t+1}$, and preserves regularity provided
+$\omega_{t+1}+1/(\eta_{t+1}n)\leq\eta_{t+1}$.  These are exactly (A4).
+The probabilistic estimates remain uniform because
+\[
+    M/m\leq M/n
+    \quad\text{and}\quad
+    \bigl(1-a\bigr)^{m}\leq\bigl(1-a\bigr)^{n}.
+\]
+This proves the required one-row stability in both unequal-size cases and
+keeps every transported witness inside the true candidacy graph.
+
+After the last colour round every cluster has been embedded.  Repeated use of
+the chain rule gives a $(C/n)$-vertex-spread distribution on full compatible
+embeddings of $H$ into $G$.  This proves
+\cref{lem:spread-blowup-auxiliary} with the same statement and quantifier
+order as before.  No minimum-exposure ordering of the clusters is used.
+\end{proof}
